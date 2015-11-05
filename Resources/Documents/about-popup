@@ -1,0 +1,20 @@
+1.) login fresh account to see the about status
+
+2.) find the login popup about
+
+3.) add the new popup about
+
+4.) fix the function popup about
+
+5.) set required first name and last name
+
+6.) set exist if other user name is used by the others but it login     user has used it alread then should not set to exist
+
+7.) set not destroy the background of the popup
+
+8.) set center of the popup
+
+9.) remove bootstrap and change to css3 style
+
+10.) clean the popup
+

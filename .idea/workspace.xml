@@ -1,0 +1,874 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e67cacad-b384-4944-bcd7-dae6f75f4159" name="Default" comment="" />
+    <ignored path="alphatest.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="DatabaseLocalColorSettings">
+    <colors>
+      <entry key="fs_invited//fs_records/ac42b71f-7e6c-4485-9b2e-5d3249c3c19f:table" value="Blue" />
+      <entry key="fs_invited_activity//fs_records/ac42b71f-7e6c-4485-9b2e-5d3249c3c19f:table" value="Blue" />
+      <entry key="fs_invited_location//fs_records/ac42b71f-7e6c-4485-9b2e-5d3249c3c19f:table" value="Blue" />
+      <entry key="fs_invited_queue//fs_records/ac42b71f-7e6c-4485-9b2e-5d3249c3c19f:table" value="Blue" />
+    </colors>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_TOOLBAR" value="true" />
+    <option name="FLATTEN" value="false" />
+    <option name="GROUP_BY_TYPE" value="true" />
+    <option name="SORT_CHILDREN" value="true" />
+    <option name="SHOW_TABLE_CONSTRAINTS" value="true" />
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DbRootNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - fs_records@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="fs_records" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="alphatest" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="true" />
+    </FindUsagesManager>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/test/design/postalook-tag/postalook-tag.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="dbtable:/c5e8d599/1508e141-cbe4-4d68-998a-cb8f59bc56e0/fs_records..fs_members" />
+        <option value="$PROJECT_DIR$/test/function/user.php" />
+        <option value="$PROJECT_DIR$/fs_folders/php_functions/Class/User.php" />
+        <option value="$PROJECT_DIR$/postarticle.php" />
+        <option value="$PROJECT_DIR$/fs_folders/modals/article/edit_save.php" />
+        <option value="$PROJECT_DIR$/fs_folders/php_functions/Class/Article.php" />
+        <option value="dbtable:/c5e8d599/1508e141-cbe4-4d68-998a-cb8f59bc56e0/fs_records..fs_postedarticles" />
+        <option value="$PROJECT_DIR$/fs_folders/modals/Server/invited_activity_log.php" />
+        <option value="$PROJECT_DIR$/fs_folders/php_functions/Database/Invited.php" />
+        <option value="$PROJECT_DIR$/fs_folders/php_functions/Database/Database.php" />
+        <option value="$PROJECT_DIR$/fs_folders/modals/Server/db/Database.php" />
+        <option value="dbtable:/c5e8d599/1508e141-cbe4-4d68-998a-cb8f59bc56e0/fs_records..fs_invited" />
+        <option value="$PROJECT_DIR$/fs_folders/php_functions/Class/Invited.php" />
+        <option value="$PROJECT_DIR$/fs_folders/modals/Server/sendingNewInviteFromQueue.php" />
+        <option value="$PROJECT_DIR$/test/function/invited.php" />
+        <option value="$PROJECT_DIR$/fs_folders/modals/Server/db/Invited.php" />
+        <option value="$PROJECT_DIR$/test-signup-welcome-email.php" />
+        <option value="$PROJECT_DIR$/fs_folders/modals/Server/db/InvitedActivity.php" />
+        <option value="dbtable:/c5e8d599/ac42b71f-7e6c-4485-9b2e-5d3249c3c19f/fs_records..fs_invited_queue" />
+        <option value="$PROJECT_DIR$/test/function/invited_activity.php" />
+        <option value="$PROJECT_DIR$/fs_folders/php_functions/connect.php" />
+        <option value="$PROJECT_DIR$/project/scrape/php_function/LookbookExtends.php" />
+        <option value="$PROJECT_DIR$/project/scrape/php_function/LookbookDatabase.php" />
+        <option value="$PROJECT_DIR$/project/scrape/test.php" />
+        <option value="$PROJECT_DIR$/project/scrape/php_function/Database/LookbookDatabase.php" />
+        <option value="$PROJECT_DIR$/project/scrape/php_function/Program.php" />
+        <option value="dbtable:/c5e8d599/ac42b71f-7e6c-4485-9b2e-5d3249c3c19f/fs_records..fs_invited" />
+        <option value="$PROJECT_DIR$/test_send_email.php" />
+        <option value="$PROJECT_DIR$/chron_invited_send_email.php" />
+        <option value="$PROJECT_DIR$/fs_folders/php_functions/Email/Email.php" />
+        <option value="$PROJECT_DIR$/fs_folders/modals/Server/class/Email.php" />
+        <option value="$PROJECT_DIR$/fs_folders/modals/Server/addingNewQue.php" />
+        <option value="$PROJECT_DIR$/chron_invited_add_to_queue.php" />
+        <option value="$PROJECT_DIR$/fs_folders/signup1/signup-desktop.css" />
+        <option value="$PROJECT_DIR$/test/design/signup/version2/func.php" />
+        <option value="$PROJECT_DIR$/fs_folders/signup1/func.php" />
+        <option value="$PROJECT_DIR$/signup.php" />
+        <option value="$PROJECT_DIR$/fs_folders/gen_css/gen_style.css" />
+        <option value="$PROJECT_DIR$/test/design/postalook-tag/index.html" />
+        <option value="$PROJECT_DIR$/test/design/postalook-tag/js.js" />
+        <option value="$PROJECT_DIR$/test/design/postalook-tag/postalook-tag.html" />
+        <option value="$PROJECT_DIR$/fs_folders/ajaxquery/label/label_color.php" />
+        <option value="$PROJECT_DIR$/postalook.php" />
+        <option value="$PROJECT_DIR$/fs_folders/labellok_items/js/image_click.php" />
+        <option value="$PROJECT_DIR$/fs_folders/labellok_items/js/init.php" />
+        <option value="$PROJECT_DIR$/fs_folders/php_functions/Class/Look.php" />
+        <option value="$PROJECT_DIR$/test/design/postalook-tag/postalook-tag-search.php" />
+        <option value="$PROJECT_DIR$/test/design/postalook-tag/postalook-tag.css" />
+        <option value="$PROJECT_DIR$/test/design/postalook-tag/postalook-tag-test.php" />
+        <option value="$PROJECT_DIR$/test/design/postalook-tag/postalook-tag.php" />
+        <option value="$PROJECT_DIR$/test/design/postalook-tag/postalook-tag.js" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 5.5" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Blade files</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers Scope="false" ProjectPane="false" />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource Scope="false" ProjectPane="false" />
+      <autoscrollFromSource Scope="true" ProjectPane="true" />
+      <sortByType Scope="false" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alphatest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alphatest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alphatest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alphatest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alphatest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alphatest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alphatest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="design" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alphatest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alphatest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="design" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="postalook-tag" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="options.lastSelected" value="editor" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="FullScreen" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/GitHub/AIWidget-Dashboard" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="DataGrid.QuickDoc.View" value="card" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/test/design/postalook-tag/postalook-tag.js&#10;resize&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/photo.resize.php&#10;post&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/modals/Server/post.php&#10;gen&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/modals/general_modals/gen.modals.func.php&#10;functio&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/js/function_js.js&#10;function&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/js/function_js.js&#10;post.&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/php_functions/Database/post.php&#10;data&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/php_functions/Database/Database.php&#10;post.php&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/postalook.php&#10;ge&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/modals/general_modals/gen.modals.func.php&#10;fs_popup&#9;null&#9;null&#10;function_js&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/js/function_js.js&#10;functi&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/php_functions/function.php&#10;index&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/index.php&#10;myclas&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/php_functions/myclass.php&#10;mycl&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/php_functions/myclass.php&#10;my&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/php_functions/myclass.php&#10;fs.&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/php_functions/fs.console.source.php&#10;myclass&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/php_functions/myclass.php&#10;gen.&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/modals/general_modals/gen.modals.func.php&#10;myc&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/php_functions/myclass.php&#10;fs&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/php_functions/fs.console.source.php&#10;mycla&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/php_functions/myclass.php&#10;inde.&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/index.php&#10;gen_css&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/gen_css/gen_style.css&#10;save&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/modals/Server/saveWelcomeAbout.php&#10;welcome&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/login/pages/welcome/welcome-about-js.js&#10;welcome.php&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/login/pages/welcome.php&#10;inde&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/index.php&#10;loading&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/images/attr/loading 2.gif&#10;new-postalook-post-arrow-&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/images - Copy/genImg/new-postalook-post-arrow-up.png&#10;accountsettings_jquery&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/accountsettings/accountsettings_js_file/accountsettings_jquery.js&#10;accountsettings_ajax.js&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/back up/fs_folders/accountsettings/accountsettings_js_file/accountsettings_ajax.js&#10;send&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/modals/Server/sendingNewInviteFromQueue.php&#10;index.html&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/server/index.html&#10;user&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/login/pages/welcome/welcome-about-user.html&#10;signup&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/signup.php&#10;MYCLAS&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/php_functions/myclass.php&#10;Email&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/email-redirect.php&#10;Email.php&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/php_functions/Email/Email.php&#10;Emil&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/email-redirect.php&#10;blog&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/images - Copy/genImg/blue-logo.png&#10;email-re&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/email-redirect.php&#10;sig&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/signup.php&#10;signup-mobi&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/signup1/signup-mobile.css&#10;EMA&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/php_functions/Email/Email.php&#10;invite&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/php_functions/Database/Invited.php&#10;rese&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/php_functions/Test/ResetInvited.php&#10;reset&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/php_functions/Test/ResetInvited.php&#10;medi&#9;FILE&#9;file://E:/xampp/htdocs/fs/new_fs/alphatest/fs_folders/signup1/media.css" />
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="database.results.filters.show" value="false" />
+    <property name="LayoutCode.rearrangeEntriesPHP" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\xampp\htdocs\fs\new_fs\alphatest" />
+      <recent name="E:\xampp\htdocs\fs\new_fs\alphatest\fs_folders\modals\Server\class" />
+      <recent name="E:\xampp\htdocs\fs\new_fs\alphatest\fs_folders\modals\Server\db" />
+      <recent name="E:\xampp\htdocs\fs\new_fs\alphatest\fs_folders\login\pages\welcome-v2\css" />
+      <recent name="E:\xampp\htdocs\fs\new_fs\alphatest\fs_folders\page_footer\footer_php_file" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\xampp\htdocs\fs\new_fs\alphatest\test\design\postalook-tag" />
+      <recent name="E:\xampp\htdocs\fs\new_fs\alphatest\test\function" />
+      <recent name="E:\xampp\htdocs\fs\new_fs\alphatest\fs_folders\modals\dropdown" />
+      <recent name="E:\xampp\htdocs\fs\new_fs\alphatest\fs_folders\modals\search" />
+      <recent name="E:\xampp\htdocs\fs\new_fs\alphatest" />
+    </key>
+  </component>
+  <component name="RunManager" selected="PHP Script.postalook-tag-test.php">
+    <configuration default="false" name="chron_invited_add_to_queue.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/chron_invited_add_to_queue.php">
+      <RunnerSettings RunnerId="PhpScriptDebugRunner" />
+      <ConfigurationWrapper RunnerId="PhpScriptDebugRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="invited.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/test/function/invited.php">
+      <RunnerSettings RunnerId="PhpRunner" />
+      <RunnerSettings RunnerId="PhpScriptDebugRunner" />
+      <ConfigurationWrapper RunnerId="PhpRunner" />
+      <ConfigurationWrapper RunnerId="PhpScriptDebugRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="invited_activity.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/test/function/invited_activity.php">
+      <RunnerSettings RunnerId="PhpScriptDebugRunner" />
+      <ConfigurationWrapper RunnerId="PhpScriptDebugRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="postalook-tag.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/alphatest/test/design/postalook-tag/postalook-tag.html">
+      <RunnerSettings RunnerId="JavascriptDebugRunner" />
+      <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="postalook-tag-test.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/test/design/postalook-tag/postalook-tag-test.php">
+      <RunnerSettings RunnerId="PhpScriptDebugRunner" />
+      <ConfigurationWrapper RunnerId="PhpScriptDebugRunner" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="com.intellij.database.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <pass-parent-env-vars>false</pass-parent-env-vars>
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
+    <configuration default="false" name="reset.php" type="JavascriptDebugType" factoryName="JavaScript Debug" nameIsGenerated="true" uri="http://localhost:63342/alphatest/test/function/reset.php">
+      <RunnerSettings RunnerId="JavascriptDebugRunner" />
+      <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
+      <method />
+    </configuration>
+    <list size="6">
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.reset.php" />
+      <item index="1" class="java.lang.String" itemvalue="PHP Script.chron_invited_add_to_queue.php" />
+      <item index="2" class="java.lang.String" itemvalue="PHP Script.invited.php" />
+      <item index="3" class="java.lang.String" itemvalue="PHP Script.invited_activity.php" />
+      <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.postalook-tag.html" />
+      <item index="5" class="java.lang.String" itemvalue="PHP Script.postalook-tag-test.php" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="PHP Script.postalook-tag-test.php" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.postalook-tag.html" />
+        <item index="2" class="java.lang.String" itemvalue="PHP Script.invited_activity.php" />
+        <item index="3" class="java.lang.String" itemvalue="PHP Script.invited.php" />
+        <item index="4" class="java.lang.String" itemvalue="PHP Script.chron_invited_add_to_queue.php" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e67cacad-b384-4944-bcd7-dae6f75f4159" name="Default" comment="" />
+      <created>1421632251265</created>
+      <option name="number" value="Default" />
+      <updated>1421632251265</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="1">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3253205" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3253205" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20424597" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="1052" y="3" width="281" height="730" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23439878" sideWeight="0.49920255" order="1" side_tool="false" content_ui="tabs" x="1929" y="21" width="228" height="725" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1913767" sideWeight="0.49840763" order="0" side_tool="false" content_ui="combo" x="7" y="14" width="350" height="684" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20852359" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21661238" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="440" y="201" width="500" height="345" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3191824" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32789558" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42833877" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="670" y="356" width="481" height="287" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32626426" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35016286" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="440" y="201" width="500" height="345" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3253205" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3191824" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20424597" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="1052" y="3" width="281" height="730" />
+      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32789558" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4292453" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="828" y="404" width="481" height="287" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20852359" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21732284" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3253205" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23439878" sideWeight="0.49920255" order="1" side_tool="false" content_ui="tabs" x="1929" y="21" width="228" height="725" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18814056" sideWeight="0.49840763" order="0" side_tool="false" content_ui="combo" x="7" y="14" width="350" height="684" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32626426" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35016286" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/fs_folders/js/Scrape.js</url>
+          <line>13</line>
+          <option name="timeStamp" value="160" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/fs_folders/fs_lookdetails/lookdetails_js/lookdetails_query.js</url>
+          <line>7</line>
+          <option name="timeStamp" value="218" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/fs_folders/php_functions/fs.console.source.php</url>
+          <line>13387</line>
+          <option name="timeStamp" value="261" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="360" />
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PhpLocalRunConfigurationType">
+        <watch expression="$totalInvitedQueue" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/fs_folders/modals/Server/db/Invited.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6567657" vertical-offset="3932" max-vertical-offset="5610">
+          <caret line="248" column="27" selection-start-line="248" selection-start-column="27" selection-end-line="248" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fs_folders/php_functions/Database/LookbookDatabase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.04761905" vertical-offset="26" max-vertical-offset="11696">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/scrape/php_function/Lookbook.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.2884617" vertical-offset="1255" max-vertical-offset="1938">
+          <caret line="92" column="44" selection-start-line="92" selection-start-column="44" selection-end-line="92" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/scrape/php_function/LookbookExtends.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0769231" vertical-offset="18807" max-vertical-offset="24242">
+          <caret line="1105" column="77" selection-start-line="1105" selection-start-column="77" selection-end-line="1105" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fs_folders/php_functions/Program.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="19.538462" vertical-offset="1492" max-vertical-offset="3757">
+          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/scrape/php_function/LookbookDatabase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2692308" vertical-offset="51" max-vertical-offset="1700">
+          <caret line="13" column="52" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/scrape/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.9038463" vertical-offset="663" max-vertical-offset="1054">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/c5e8d599/ac42b71f-7e6c-4485-9b2e-5d3249c3c19f/fs_records..fs_invited">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="731">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/function/test-email">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.591133" vertical-offset="240" max-vertical-offset="646">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/scrape/php_function/Database/LookbookDatabase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65102637" vertical-offset="1801" max-vertical-offset="2244">
+          <caret line="119" column="19" selection-start-line="119" selection-start-column="8" selection-end-line="119" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/scrape/php_function/Program.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28152493" vertical-offset="1128" max-vertical-offset="3910">
+          <caret line="74" column="52" selection-start-line="74" selection-start-column="52" selection-end-line="74" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/basic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.8444881" vertical-offset="1787" max-vertical-offset="2295">
+          <caret line="50" column="3" selection-start-line="50" selection-start-column="3" selection-end-line="50" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fs_folders/modals/Server/class/Email.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="22734" max-vertical-offset="30260">
+          <caret line="1761" column="52" selection-start-line="1761" selection-start-column="52" selection-end-line="1761" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fs_folders/php_functions/Email/Email.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5872727" vertical-offset="22780" max-vertical-offset="30243">
+          <caret line="1767" column="60" selection-start-line="1767" selection-start-column="60" selection-end-line="1767" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fs_folders/modals/Server/sendingNewInviteFromQueue.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49454546" vertical-offset="2550" max-vertical-offset="3672">
+          <caret line="166" column="37" selection-start-line="166" selection-start-column="37" selection-end-line="166" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fs_folders/modals/Server/addingNewQue.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.8653846" vertical-offset="853" max-vertical-offset="2856">
+          <caret line="67" column="11" selection-start-line="67" selection-start-column="11" selection-end-line="67" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chron_invited_add_to_queue.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18819188" vertical-offset="0" max-vertical-offset="542">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chron_invited_send_email.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21136767" vertical-offset="0" max-vertical-offset="563">
+          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_send_email.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.123636365" vertical-offset="0" max-vertical-offset="850">
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easylogin/admin/send_email.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5737122" vertical-offset="0" max-vertical-offset="563">
+          <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/app/Http/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.104273506" vertical-offset="61" max-vertical-offset="646">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fs_folders/signup1/signup-mobile.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5644">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/design/signup/version2/func.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27106228" vertical-offset="617" max-vertical-offset="1411">
+          <caret line="50" column="3" selection-start-line="50" selection-start-column="3" selection-end-line="50" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fs_folders/signup1/func.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5952381" vertical-offset="593" max-vertical-offset="1496">
+          <caret line="59" column="43" selection-start-line="59" selection-start-column="43" selection-end-line="59" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fs_folders/signup1/signup-desktop.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.75555557" vertical-offset="0" max-vertical-offset="4573">
+          <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fs_folders/gen_css/gen_style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7185315" vertical-offset="87394" max-vertical-offset="188785">
+          <caret line="5165" column="16" selection-start-line="5165" selection-start-column="16" selection-end-line="5165" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/signup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5915751" vertical-offset="3876" max-vertical-offset="12784">
+          <caret line="247" column="0" selection-start-line="247" selection-start-column="0" selection-end-line="247" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/design/postalook-tag/postalook-tag.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.3076925" vertical-offset="456" max-vertical-offset="1122">
+          <caret line="38" column="23" selection-start-line="0" selection-start-column="0" selection-end-line="60" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fs_folders/js/Test/function_js.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="119227" max-vertical-offset="122298">
+          <caret line="7025" column="0" selection-start-line="7025" selection-start-column="0" selection-end-line="7030" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fs_folders/ajaxquery/label/label_color.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39650145" vertical-offset="867" max-vertical-offset="1955">
+          <caret line="59" column="49" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fs_folders/php_functions/Color/Color.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.7387862" vertical-offset="659" max-vertical-offset="1598">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33223686" vertical-offset="14316" max-vertical-offset="15946">
+          <caret line="854" column="17" selection-start-line="854" selection-start-column="17" selection-end-line="854" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/core-scripting.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33223686" vertical-offset="3453" max-vertical-offset="5899">
+          <caret line="215" column="18" selection-start-line="215" selection-start-column="18" selection-end-line="215" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.66494846" vertical-offset="378" max-vertical-offset="986">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/vendor/symfony/http-foundation/Symfony/Component/HttpFoundation/Response.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.901582" vertical-offset="4590" max-vertical-offset="21658">
+          <caret line="46" column="10" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/postalook old1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.033392" vertical-offset="9123" max-vertical-offset="19516">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fs_folders/js/function_js.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36346865" vertical-offset="131570" max-vertical-offset="139247">
+          <caret line="7751" column="1" selection-start-line="7751" selection-start-column="1" selection-end-line="7751" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fs_folders/labellok_items/js/giude.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fs_folders/labellok_items/js/ajax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4080">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fs_folders/labellok_items/js/ajax.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="6256">
+          <caret line="2" column="27" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fs_folders/labellok_items/js/image_click.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1370826" vertical-offset="7385" max-vertical-offset="17986">
+          <caret line="439" column="34" selection-start-line="439" selection-start-column="34" selection-end-line="439" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/postalook.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="5423" max-vertical-offset="16201">
+          <caret line="324" column="36" selection-start-line="322" selection-start-column="0" selection-end-line="324" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fs_folders/labellok_items/js/image.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.09841828" vertical-offset="56" max-vertical-offset="833">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fs_folders/labellok_items/js/init.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4329897" vertical-offset="1023" max-vertical-offset="10489">
+          <caret line="75" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/design/postalook-tag/postalook-tag-search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23901582" vertical-offset="0" max-vertical-offset="569">
+          <caret line="46" column="10" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fs_folders/php_functions/Class/Look.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.718805" vertical-offset="8641" max-vertical-offset="21284">
+          <caret line="184" column="14" selection-start-line="184" selection-start-column="6" selection-end-line="184" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3797251" vertical-offset="0" max-vertical-offset="582">
+          <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/design/postalook-tag/postalook-tag.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="3808">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/design/postalook-tag/postalook-tag.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6416382" vertical-offset="4027" max-vertical-offset="4624">
+          <caret line="259" column="48" selection-start-line="259" selection-start-column="48" selection-end-line="259" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/design/postalook-tag/postalook-tag-test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39464286" vertical-offset="255" max-vertical-offset="1428">
+          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/design/postalook-tag/postalook-tag.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="11084" max-vertical-offset="13328">
+          <caret line="652" column="256" selection-start-line="652" selection-start-column="256" selection-end-line="652" selection-end-column="256" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
+

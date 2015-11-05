@@ -1,0 +1,65 @@
+[09-Feb-2015 11:18:48 America/Chicago] PHP Fatal error:  Call to undefined method DOMText::getAttribute() in /home1/ricopeco/public_html/project/heartifb/application/models/heartifb_model.php on line 71
+[10-Feb-2015 02:09:53 America/Chicago] PHP Fatal error:  Call to undefined function request_url() in /home1/ricopeco/public_html/project/heartifb/application/models/heartifb_model.php on line 44
+[10-Feb-2015 02:17:55 America/Chicago] PHP Fatal error:  Call to undefined function request_url() in /home1/ricopeco/public_html/project/heartifb/application/models/heartifb_model.php on line 50
+[10-Feb-2015 02:20:16 America/Chicago] PHP Fatal error:  Call to undefined function request_url() in /home1/ricopeco/public_html/project/heartifb/application/models/heartifb_model.php on line 50
+[10-Feb-2015 02:27:48 America/Chicago] PHP Fatal error:  Class 'CI_Calendar' not found in /home1/ricopeco/public_html/project/heartifb/application/libraries/My_test.php on line 2
+[10-Feb-2015 02:27:52 America/Chicago] PHP Fatal error:  Class 'CI_Calendar' not found in /home1/ricopeco/public_html/project/heartifb/application/libraries/My_test.php on line 2
+[10-Feb-2015 03:09:48 America/Chicago] PHP Fatal error:  Call to undefined method CI_Javascript::proceed() in /home1/ricopeco/public_html/project/heartifb/application/models/heartifb_model.php on line 69
+[10-Feb-2015 03:19:34 America/Chicago] PHP Fatal error:  Call to undefined function next_page() in /home1/ricopeco/public_html/project/heartifb/application/models/heartifb_model.php on line 77
+[10-Feb-2015 19:57:18 America/Chicago] PHP Fatal error:  Call to a member function first_test() on a non-object in /home1/ricopeco/public_html/project/heartifb/application/controllers/heartifb.php on line 47
+[10-Feb-2015 19:57:50 America/Chicago] PHP Fatal error:  Call to undefined function test() in /home1/ricopeco/public_html/project/heartifb/application/models/test_model.php on line 16
+[10-Feb-2015 19:57:52 America/Chicago] PHP Fatal error:  Call to undefined function test() in /home1/ricopeco/public_html/project/heartifb/application/models/test_model.php on line 16
+[10-Feb-2015 19:57:56 America/Chicago] PHP Fatal error:  Call to undefined function test() in /home1/ricopeco/public_html/project/heartifb/application/models/test_model.php on line 16
+[10-Feb-2015 20:00:26 America/Chicago] PHP Fatal error:  Call to undefined function test_me() in /home1/ricopeco/public_html/project/heartifb/application/models/test_model.php on line 16
+[10-Feb-2015 20:02:32 America/Chicago] PHP Fatal error:  Call to undefined function test_me() in /home1/ricopeco/public_html/project/heartifb/application/models/test_model.php on line 16
+[10-Feb-2015 20:03:47 America/Chicago] PHP Fatal error:  Call to undefined function test_me() in /home1/ricopeco/public_html/project/heartifb/application/models/test_model.php on line 16
+[10-Feb-2015 20:04:03 America/Chicago] PHP Fatal error:  Call to undefined function test_me() in /home1/ricopeco/public_html/project/heartifb/application/models/test_model.php on line 16
+[10-Feb-2015 21:11:15 America/Chicago] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTimeZone::__construct(): Unknown or bad timezone ()' in /home1/ricopeco/public_html/project/heartifb/application/models/test_model.php:20
+Stack trace:
+#0 /home1/ricopeco/public_html/project/heartifb/application/models/test_model.php(20): DateTimeZone->__construct('')
+#1 /home1/ricopeco/public_html/project/heartifb/application/controllers/heartifb.php(47): Test_model->first_test()
+#2 [internal function]: Heartifb->test()
+#3 /home1/ricopeco/public_html/project/heartifb/system/core/CodeIgniter.php(359): call_user_func_array(Array, Array)
+#4 /home1/ricopeco/public_html/project/heartifb/index.php(202): require_once('/home1/ricopeco...')
+#5 {main}
+  thrown in /home1/ricopeco/public_html/project/heartifb/application/models/test_model.php on line 20
+[10-Feb-2015 21:13:08 America/Chicago] PHP Parse error:  syntax error, unexpected '++' (T_INC), expecting variable (T_VARIABLE) or '$' in /home1/ricopeco/public_html/project/heartifb/application/models/test_model.php on line 27
+[10-Feb-2015 21:19:43 America/Chicago] PHP Parse error:  syntax error, unexpected ':' in /home1/ricopeco/public_html/project/heartifb/application/models/test_model.php on line 22
+[10-Feb-2015 21:27:18 America/Chicago] PHP Fatal error:  Class 'Test_model' not found in /home1/ricopeco/public_html/project/heartifb/system/core/Loader.php on line 303
+[10-Feb-2015 21:49:51 America/Chicago] PHP Fatal error:  Class 'Test_model' not found in /home1/ricopeco/public_html/project/heartifb/system/core/Loader.php on line 303
+[10-Feb-2015 21:49:53 America/Chicago] PHP Fatal error:  Class 'Test_model' not found in /home1/ricopeco/public_html/project/heartifb/system/core/Loader.php on line 303
+[10-Feb-2015 21:56:12 America/Chicago] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTimeZone::__construct(): Unknown or bad timezone (Africa/Bujumbura )' in /home1/ricopeco/public_html/project/heartifb/application/models/test_model.php:21
+Stack trace:
+#0 /home1/ricopeco/public_html/project/heartifb/application/models/test_model.php(21): DateTimeZone->__construct('Africa/Bujumbur...')
+#1 /home1/ricopeco/public_html/project/heartifb/application/controllers/heartifb.php(47): Test_model->first_test()
+#2 [internal function]: Heartifb->test()
+#3 /home1/ricopeco/public_html/project/heartifb/system/core/CodeIgniter.php(359): call_user_func_array(Array, Array)
+#4 /home1/ricopeco/public_html/project/heartifb/index.php(202): require_once('/home1/ricopeco...')
+#5 {main}
+  thrown in /home1/ricopeco/public_html/project/heartifb/application/models/test_model.php on line 21
+[12-Feb-2015 08:03:55 America/Chicago] PHP Fatal error:  Call to undefined method Test_model::timezone() in /home1/ricopeco/public_html/project/heartifb/application/models/test_model.php on line 26
+[12-Feb-2015 08:06:03 America/Chicago] PHP Fatal error:  Call to a member function query() on a non-object in /home1/ricopeco/public_html/project/heartifb/application/models/update_location_model.php on line 85
+[12-Feb-2015 08:07:15 America/Chicago] PHP Fatal error:  Call to a member function query() on a non-object in /home1/ricopeco/public_html/project/heartifb/application/models/update_location_model.php on line 85
+[12-Feb-2015 08:07:24 America/Chicago] PHP Fatal error:  Call to a member function query() on a non-object in /home1/ricopeco/public_html/project/heartifb/application/models/update_location_model.php on line 85
+[12-Feb-2015 08:08:36 America/Chicago] PHP Fatal error:  Call to a member function query() on a non-object in /home1/ricopeco/public_html/project/heartifb/application/models/update_location_model.php on line 85
+[12-Feb-2015 08:23:17 America/Chicago] PHP Fatal error:  Call to a member function query() on a non-object in /home1/ricopeco/public_html/project/heartifb/application/models/update_location_model.php on line 85
+[12-Feb-2015 08:23:21 America/Chicago] PHP Fatal error:  Call to a member function query() on a non-object in /home1/ricopeco/public_html/project/heartifb/application/models/update_location_model.php on line 85
+[12-Feb-2015 08:26:38 America/Chicago] PHP Fatal error:  Call to a member function query() on a non-object in /home1/ricopeco/public_html/project/heartifb/application/models/update_location_model.php on line 85
+[12-Feb-2015 08:27:54 America/Chicago] PHP Fatal error:  Call to a member function query() on a non-object in /home1/ricopeco/public_html/project/heartifb/application/models/update_location_model.php on line 87
+[12-Feb-2015 08:28:59 America/Chicago] PHP Fatal error:  Call to a member function query() on a non-object in /home1/ricopeco/public_html/project/heartifb/application/models/update_location_model.php on line 92
+[12-Feb-2015 08:30:37 America/Chicago] PHP Fatal error:  Call to a member function query() on a non-object in /home1/ricopeco/public_html/project/heartifb/application/models/update_location_model.php on line 92
+[12-Feb-2015 08:30:39 America/Chicago] PHP Fatal error:  Call to a member function query() on a non-object in /home1/ricopeco/public_html/project/heartifb/application/models/update_location_model.php on line 92
+[12-Feb-2015 08:33:56 America/Chicago] PHP Fatal error:  Call to a member function query() on a non-object in /home1/ricopeco/public_html/project/heartifb/application/models/update_location_model.php on line 72
+[12-Feb-2015 08:37:16 America/Chicago] PHP Fatal error:  Class 'CI_Curl' not found in /home1/ricopeco/public_html/project/heartifb/application/libraries/MY_Curl.php on line 3
+[12-Feb-2015 08:37:39 America/Chicago] PHP Fatal error:  Class 'CI_Curl' not found in /home1/ricopeco/public_html/project/heartifb/application/libraries/MY_Curl.php on line 3
+[12-Feb-2015 08:37:58 America/Chicago] PHP Fatal error:  Class 'CI_Curl' not found in /home1/ricopeco/public_html/project/heartifb/application/libraries/MY_Curl.php on line 3
+[12-Feb-2015 08:38:06 America/Chicago] PHP Fatal error:  Class 'CI_Curl' not found in /home1/ricopeco/public_html/project/heartifb/application/libraries/MY_Curl.php on line 3
+[12-Feb-2015 08:41:35 America/Chicago] PHP Parse error:  syntax error, unexpected '=', expecting ',' or ';' in /home1/ricopeco/public_html/project/heartifb/application/models/update_location_model.php on line 69
+[12-Feb-2015 08:41:37 America/Chicago] PHP Parse error:  syntax error, unexpected '=', expecting ',' or ';' in /home1/ricopeco/public_html/project/heartifb/application/models/update_location_model.php on line 69
+[12-Feb-2015 19:42:11 America/Chicago] PHP Parse error:  syntax error, unexpected '=', expecting variable (T_VARIABLE) or '$' in /home1/ricopeco/public_html/project/heartifb/application/models/update_location_model.php on line 41
+[12-Feb-2015 19:42:13 America/Chicago] PHP Parse error:  syntax error, unexpected '=', expecting variable (T_VARIABLE) or '$' in /home1/ricopeco/public_html/project/heartifb/application/models/update_location_model.php on line 41
+[12-Feb-2015 19:42:15 America/Chicago] PHP Parse error:  syntax error, unexpected '=', expecting variable (T_VARIABLE) or '$' in /home1/ricopeco/public_html/project/heartifb/application/models/update_location_model.php on line 41
+[12-Feb-2015 19:42:18 America/Chicago] PHP Parse error:  syntax error, unexpected '=', expecting variable (T_VARIABLE) or '$' in /home1/ricopeco/public_html/project/heartifb/application/models/update_location_model.php on line 41
+[12-Feb-2015 19:47:34 America/Chicago] PHP Fatal error:  Call to undefined method Update_location_model::load() in /home1/ricopeco/public_html/project/heartifb/application/controllers/heartifb.php on line 62
+[12-Feb-2015 20:11:27 America/Chicago] PHP Fatal error:  Class 'Update_location_model' not found in /home1/ricopeco/public_html/project/heartifb/system/core/Loader.php on line 303
+[12-Feb-2015 21:07:56 America/Chicago] PHP Fatal error:  Class 'Update_location_model' not found in /home1/ricopeco/public_html/project/heartifb/system/core/Loader.php on line 303

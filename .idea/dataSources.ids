@@ -1,0 +1,814 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - fs_records@localhost" uuid="ac42b71f-7e6c-4485-9b2e-5d3249c3c19f">
+    <database-info product="MySQL" version="5.6.21" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="fs_records"/>
+    <table name="activity" schema="" catalog="fs_records" type="TABLE">
+      <column name="ano" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="mno" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5" remarks="ZG9pbmcgdGhlIGFjdGlvbg=="/>
+      <column name="action" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12" remarks="d2hhdCB0aGUgdXNlciBkaWQ="/>
+      <column name="_table" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12" remarks="dGFibGUgbmFtZQ=="/>
+      <column name="_table_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5" remarks="dGFibGUgaWQ="/>
+      <column name="_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93" remarks="ZGF0ZSB3aGVuIGl0IHdhcyBoYXBwZW5z"/>
+      <column name="active" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" remarks="c3RhdHVzIG9mIHRoZSBhY3Rpdml0eSBhbmQga25vdyB3aGVyZSB0byBiZSBzaG93bg=="/>
+      <primary-key name="PRIMARY" columns="ano"/>
+      <index name="ano" unique="true" columns="ano"/>
+      <index name="mno" unique="false" columns="mno"/>
+    </table>
+    <table name="admin" schema="" catalog="fs_records" type="TABLE">
+      <column name="adm_no" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="adm_user" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="adm_pass" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="adm_reg" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="adm_no"/>
+    </table>
+    <table name="ads" schema="" catalog="fs_records" type="TABLE">
+      <column name="ano" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="admin_no" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="client_name" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="company_name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="link" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="ext" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="date_uploaded" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="ano"/>
+    </table>
+    <table name="category" schema="" catalog="fs_records" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="cm_spam_report" schema="" catalog="fs_records" type="TABLE">
+      <column name="cmsr_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="cmsr_mno_reporter" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cmsr_plcno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cmsr_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="cmsr_id"/>
+    </table>
+    <table name="cms" schema="" catalog="fs_records" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="title" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="content" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="date" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="friends" schema="" catalog="fs_records" type="TABLE">
+      <column name="fno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="mno1" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="mno2" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="status" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <primary-key name="PRIMARY" columns="fno"/>
+      <index name="FK_mno1" unique="false" columns="mno1"/>
+      <index name="FK_mno2" unique="false" columns="mno2"/>
+    </table>
+    <table name="fs_brand_category" schema="" catalog="fs_records" type="TABLE">
+      <column name="bcno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="bc_name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="bc_total_selected_people" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="bc_total_brand" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="bc_added_date" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="gender" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="type" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="J2JyYW5kJw=="/>
+      <primary-key name="PRIMARY" columns="bcno"/>
+    </table>
+    <table name="fs_brand_category_selected" schema="" catalog="fs_records" type="TABLE">
+      <column name="bcsno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="bno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="bcno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="bcs_gender" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="bcsdate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="bcsno"/>
+    </table>
+    <table name="fs_brand_member_selected" schema="" catalog="fs_records" type="TABLE">
+      <column name="bmsno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="bno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="mno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="bs_date" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="bmsno"/>
+    </table>
+    <table name="fs_brands" schema="" catalog="fs_records" type="TABLE">
+      <column name="bno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="bcno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="bname" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="b_total_selected_people" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="visible" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="page" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="J2FsbCc="/>
+      <column name="b_added_date" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="bno"/>
+    </table>
+    <table name="fs_cflag" schema="" catalog="fs_records" type="TABLE">
+      <column name="flagno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="mno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="plcno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="flag_option" sqlType="VARCHAR" precision="5" scale="0" nullable="false" jdbcType="12"/>
+      <column name="flag_note" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12"/>
+      <column name="flag_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="flagno"/>
+    </table>
+    <table name="fs_comment" schema="" catalog="fs_records" type="TABLE">
+      <column name="cno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="aWQ=" autoIncrement="true"/>
+      <column name="mno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="Y29tbWVudG9y"/>
+      <column name="comment" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12" remarks="Y29tbWVudCBtYWRl"/>
+      <column name="table_name" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12" remarks="bW9kYWwgdHlwZQ=="/>
+      <column name="table_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="bW9kYWwgaWQ="/>
+      <column name="tlike" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="dG90YWwgbGlrZSBvZiB0aGUgY29tbWVudA=="/>
+      <column name="tdislike" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="dG90YWwgZGlzbGlrZSBvZiB0aGUgY29tbWVudA=="/>
+      <column name="tflag" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="dG90YWwgZmxhZyBvZiB0aGUgY29tbWVudA=="/>
+      <column name="mno1" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="b3duZXIgb2YgdGhlIG1vZGFs"/>
+      <column name="date" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" remarks="ZGF0ZSBjb21tZW50IG1hZGU="/>
+      <primary-key name="PRIMARY" columns="cno"/>
+    </table>
+    <table name="fs_drip_modals" schema="" catalog="fs_records" type="TABLE">
+      <column name="dmno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="mno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="c2hhcmVy"/>
+      <column name="table_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="bW9kYWwgaWQ="/>
+      <column name="table_name" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12" remarks="bW9kYWwgdHlwZQ=="/>
+      <column name="comment" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12" remarks="c2hhcmVyIGNvbW1lbnRz"/>
+      <column name="mno1" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="b3duZXIgb2YgdGhlIG1vZGFs"/>
+      <column name="date" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" remarks="ZGF0ZSBkcmlwcGVk"/>
+      <primary-key name="PRIMARY" columns="dmno"/>
+    </table>
+    <table name="fs_favorite_modals" schema="" catalog="fs_records" type="TABLE">
+      <column name="fmno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="mno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="YW5nIG5hZyBmYXZvcml0ZQ=="/>
+      <column name="table_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="table_name" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="mno1" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="b3duZXIgb2YgdGhlIG1vZGFs"/>
+      <column name="date" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="fmno"/>
+    </table>
+    <table name="fs_flag" schema="" catalog="fs_records" type="TABLE">
+      <column name="flno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="mno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="table_name" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="table_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="comment" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="action" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="option" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="flno"/>
+    </table>
+    <table name="fs_follow" schema="" catalog="fs_records" type="TABLE">
+      <column name="flno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="mno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="mno1" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="followtime" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="flno"/>
+    </table>
+    <table name="fs_info_advertise" schema="" catalog="fs_records" type="TABLE">
+      <column name="advertise_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="advertise_firstname" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="advertise_lastname" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="advertise_email" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="advertise_website" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="advertise_business_name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="advertise_phone_number" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="advertise_budget" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="advertise_preferred" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="advertise_you_are" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="advertise_message" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="advertise_datetime" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="advertise_id"/>
+    </table>
+    <table name="fs_info_contact_us" schema="" catalog="fs_records" type="TABLE">
+      <column name="contact_us_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="contact_us_email" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="contact_us_subject" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="contact_us_message" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="contact_us_datatime" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="contact_us_id"/>
+    </table>
+    <table name="fs_invited" schema="" catalog="fs_records" type="TABLE">
+      <column name="invited_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="invited_fn" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="invited_ln" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="gender" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="invited_email" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="invited_wob" sqlType="VARCHAR" precision="500" scale="0" nullable="false" jdbcType="12"/>
+      <column name="invited_occu" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="invited_style" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="description" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="city" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="state" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="country" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="scrape_src" sqlType="VARCHAR" precision="300" scale="0" nullable="false" jdbcType="12"/>
+      <column name="domain_source" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="tlook" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="total_karma" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="total_hype" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="total_comment" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="location" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="page" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="temail_sent" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="invited_offer" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="invited_genCode" sqlType="VARCHAR" precision="500" scale="0" nullable="false" jdbcType="12"/>
+      <column name="invited_ip" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="invited_status" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="timezone" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="timezone_url" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="scrape_version" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="signup_status" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="invited_date" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="DateTimeSend" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="DateTimeSend1" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="DateTimeSend2" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="DateTimeSend3" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="invited_update_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="invited_id"/>
+    </table>
+    <table name="fs_invited_activity" schema="" catalog="fs_records" type="TABLE">
+      <column name="fs_invited_activity_id_pk" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="fs_invited_queue_id_fk" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fs_invited_activity_action" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="fs_invited_activity_date" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="fs_invited_activity_id_pk"/>
+    </table>
+    <table name="fs_invited_location" schema="" catalog="fs_records" type="TABLE">
+      <column name="fs_invited_location_id_pk" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="fs_invited_location_name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="fs_invited_location_send_tim1" sqlType="TIME" precision="8" scale="0" nullable="false" jdbcType="92"/>
+      <column name="fs_invited_location_send_tim2" sqlType="TIME" precision="8" scale="0" nullable="false" jdbcType="92"/>
+      <column name="fs_invited_location_send_tim3" sqlType="TIME" precision="8" scale="0" nullable="false" jdbcType="92"/>
+      <column name="fs_invited_location_timezone" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="fs_invited_location_date" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="fs_invited_location_id_pk"/>
+    </table>
+    <table name="fs_invited_queue" schema="" catalog="fs_records" type="TABLE">
+      <column name="fs_invited_queue_id_pk" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="fs_invited_id_fk" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fs_invited_location_id_fk" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fs_invited_queue_date_send1" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="fs_invited_queue_date_send2" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="fs_invited_queue_date_send3" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="fs_invited_queue_date" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="fs_invited_queue_status" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5" def="MA=="/>
+      <primary-key name="PRIMARY" columns="fs_invited_queue_id_pk"/>
+    </table>
+    <table name="fs_keyword" schema="" catalog="fs_records" type="TABLE">
+      <column name="kno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="keyword" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="table_name" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="table_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="kno"/>
+    </table>
+    <table name="fs_look_flag" schema="" catalog="fs_records" type="TABLE">
+      <column name="flr_no" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="flr_flagger" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="flr_flagged" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="plno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="action" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="flr_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="flr_no"/>
+    </table>
+    <table name="fs_look_votes" schema="" catalog="fs_records" type="TABLE">
+      <column name="lvno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="mno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="plno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="lvoption1" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="lvoption2" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="lvoption3" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="lvoption4" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="lvoption5" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="lvoption6" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="lvoption7" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="lvtotal" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="lvdate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="lvno"/>
+    </table>
+    <table name="fs_look_votes_details" schema="" catalog="fs_records" type="TABLE">
+      <column name="lvdno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="plno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tlvoption1" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tlvoption2" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tlvoption3" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tlvoption4" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tlvoption5" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tlvoption6" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tlvoption7" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tlvsum" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tlvadate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="lvdno"/>
+    </table>
+    <table name="fs_member_accounts" schema="" catalog="fs_records" type="TABLE">
+      <column name="mano" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="mno" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="email" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="username" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="pass" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="mano"/>
+      <index name="FK_mno3" unique="false" columns="mno"/>
+    </table>
+    <table name="fs_member_categories" schema="" catalog="fs_records" type="TABLE">
+      <column name="mcno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="mno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="category" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="trating" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tpercentage" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="table_name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="mcno"/>
+    </table>
+    <table name="fs_member_profile_pic" schema="" catalog="fs_records" type="TABLE">
+      <column name="mppno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="mno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="action" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="tcomment" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="dateupdated" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="mppno"/>
+    </table>
+    <table name="fs_member_profile_view" schema="" catalog="fs_records" type="TABLE">
+      <column name="mpvno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="mpv_viewer" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="mpv_viewed" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="mpv_dateviewed" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="mpvno"/>
+    </table>
+    <table name="fs_member_timeline" schema="" catalog="fs_records" type="TABLE">
+      <column name="mptno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="mno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="action" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="dateupdated" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="mptno"/>
+    </table>
+    <table name="fs_members" schema="" catalog="fs_records" type="TABLE">
+      <column name="mno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="fullname" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="lastname" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="middlename" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="firstname" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="nickname" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="gender" sqlType="VARCHAR" precision="8" scale="0" nullable="true" jdbcType="12"/>
+      <column name="website" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12"/>
+      <column name="bdate" sqlType="YEAR" precision="0" scale="0" nullable="true" jdbcType="91"/>
+      <column name="occupation" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="preffered_style" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="post_look_agree" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="plus_blogger" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="country" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="state_" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="city" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="zip" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="blogdom" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12"/>
+      <column name="blogurl" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="aboutme" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ispicset" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="fbid" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12"/>
+      <column name="fb_all_freinds" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="fb_freinds_on_fb" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="fb_freinds_on_fs" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="twid" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="isVal" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="tlog" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="iral" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="idal" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ifal" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ifam" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="icoal" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="icoab" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="sf" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="coml" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="combp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="rtmc" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="smnlpbpif" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tpercentage" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tlooks" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tlikes_look" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tarticle" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tlikes_article" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tmedia" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tfollower" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tfollowing" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="trating" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tview" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tpercentage_article" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tpercentage_look" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tpercentage_media" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="trating_article" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="trating_look" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="trating_media" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="work_at" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="skill" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="studied_at" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="studied_with" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="studied_graduate_date" sqlType="YEAR" precision="0" scale="0" nullable="false" jdbcType="91"/>
+      <column name="url_facebook" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="url_twitter" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="url_pinterest" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="url_instagram" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="url_tumblr" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="url_web" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="url_google_plus" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="identity_login" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="identity_username" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="identity_email" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="identity_generated_code" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="status" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="logtime" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="logstat" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="datejoined" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="mno"/>
+    </table>
+    <table name="fs_message" schema="" catalog="fs_records" type="TABLE">
+      <column name="msgno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="dGhlIGlk" autoIncrement="true"/>
+      <column name="mno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="d2hvIG1hZGUgbWVzc2FnZSBmaXJzdA=="/>
+      <column name="mno1" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="d2hvIHdpbGwgcmVjZWl2ZWQgdGhlIG1lc3NhZ2U="/>
+      <column name="mno2" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="cGVyc29uIGxhc3QgcmVjaWV2ZXIgYW5kIGRpZG4ndCBhYmxlIHRvIHNlZSBhbmQgcmVhZCB0aGUgbWVzc2FnZQ=="/>
+      <column name="status" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5" remarks="ZGV0ZWN0IGFuZCB0byBjb3VudCBtZXNzYWdlIG5vdGlmaWNhdGlvbg=="/>
+      <column name="sensor" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" remarks="ZGV0ZWN0IHdoZW4gbW5vIGlzIHR5cGluZyBvciBub3Q="/>
+      <column name="sensor1" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" remarks="ZGV0ZWN0IHdoZW4gbW5vMSBpcyB0eXBpbmcgb3Igbm90"/>
+      <column name="date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93" remarks="ZGF0ZSBtZXNzYWdlIG1hZGUgdXNlIHRvIG9yZGVyIHRoZSBkaXNwbGF5IG9mIHRoZSBtZXNzYWdlIGxpc3Q="/>
+      <primary-key name="PRIMARY" columns="msgno"/>
+    </table>
+    <table name="fs_modal_attribute" schema="" catalog="fs_records" type="TABLE">
+      <column name="matno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="cHJpbWFyeSBrZXk=" autoIncrement="true"/>
+      <column name="matcno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="Zm9yaWVnbiBrZXk="/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" remarks="bmFtZSBvZiB0aGUgYXR0cmlidXRlIA=="/>
+      <column name="total" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="dG90YWwgcGVvcGxlIHVzaW5nIHRoaXM="/>
+      <column name="mno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="dGhpcyBpcyB0aGUgcGVyc29uIHdobyBhZGRlZCB0aGUgYXR0cmlidXRl"/>
+      <column name="status" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" remarks="dGhpcyBpcyB0byBrbm93IHRoYXQgdGhpcyBhdHRyaWJ1dGUgaXMgdmlzaWJsZSB0byB0aGUgc2l0ZSBpZiAwID0gbm90IHZpc2libGUgLCAxID0gdmlzaWJsZQ=="/>
+      <column name="date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93" remarks="ZGF0ZSBjcmVhdGVk"/>
+      <primary-key name="PRIMARY" columns="matno"/>
+    </table>
+    <table name="fs_modal_attribute_cat" schema="" catalog="fs_records" type="TABLE">
+      <column name="matcno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="cHJpbWFyeSBrZXk=" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" remarks="bmFtZSBvZiB0aGUgYXR0cmlidXRl"/>
+      <column name="total" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="dG90YWwgb2YgdGhlIGl0ZW1zIG1hZGU="/>
+      <column name="date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93" remarks="ZGF0ZSBjcmVhdGVk"/>
+      <primary-key name="PRIMARY" columns="matcno"/>
+    </table>
+    <table name="fs_newsletter_signups" schema="" catalog="fs_records" type="TABLE">
+      <column name="nlsno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="newsletter_gender" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="newsletter_preferred_style" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="newsletter_email" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="newsletter_signup_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="nlsno"/>
+    </table>
+    <table name="fs_notification" schema="" catalog="fs_records" type="TABLE">
+      <column name="nno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="bm90aWZpY2F0aW9uIGlk" autoIncrement="true"/>
+      <column name="mno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="d2hvIG1hZGUgdGhlIGFjdGlvbg=="/>
+      <column name="table_name" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12" remarks="dGFibGUgbmFtZSBvZiB0aGUgbW9kYWwgd2lsbCBkaXNwbGF5IGluIHRoZSByaWdodCBzaWRl"/>
+      <column name="table_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="dGFibGUgaWQgb2YgdGhlIG1vZGFs"/>
+      <column name="action" sqlType="VARCHAR" precision="500" scale="0" nullable="false" jdbcType="12" remarks="YWN0aW9uIG1hZGU="/>
+      <column name="mno1" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="Zm9sbG93ZXIgb2Ygd2hvIG1hZGUgdGhlIGFjdGlvbiBhbmQgcmVjZWl2ZWQgdGhlIG5vdGlmaWNhdGlvbg=="/>
+      <column name="mno2" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="b3duZXIgb2YgdGhlIG1vZGFs"/>
+      <column name="link" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="type" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="status" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5" remarks="c3RhdHVzIGlmIGl0cyB2aWV3ZWQgb3Igbm90IGFuZCBzbyBvbg=="/>
+      <column name="date" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" remarks="ZGF0ZSBtYWRl"/>
+      <primary-key name="PRIMARY" columns="nno"/>
+    </table>
+    <table name="fs_plcm_dislike" schema="" catalog="fs_records" type="TABLE">
+      <column name="plcmdno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="plcno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="mno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="plcmdno"/>
+    </table>
+    <table name="fs_plcm_rdislike" schema="" catalog="fs_records" type="TABLE">
+      <column name="rdno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="plcrno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="mno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="rdno"/>
+    </table>
+    <table name="fs_plcm_reply" schema="" catalog="fs_records" type="TABLE">
+      <column name="plcr_no" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="plcno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="replied_no" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="mno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="plcr_message" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="plcr_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="plcr_no"/>
+    </table>
+    <table name="fs_plcm_rflag" schema="" catalog="fs_records" type="TABLE">
+      <column name="rflagno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="plcrno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="mno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="rflag_option" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="rflag_note" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12"/>
+      <column name="rflag_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="rflagno"/>
+    </table>
+    <table name="fs_plcm_rlike" schema="" catalog="fs_records" type="TABLE">
+      <column name="rlno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="plcrno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="mno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="rlno"/>
+    </table>
+    <table name="fs_pltag" schema="" catalog="fs_records" type="TABLE">
+      <column name="pltgno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="plno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="plt_color" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="plt_brand" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="plt_garment" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="plt_material" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="plt_pattern" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="plt_price" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="plt_purchased_at" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="plt_x" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="plt_y" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="plt_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="pltgno"/>
+    </table>
+    <table name="fs_post_attribute" schema="" catalog="fs_records" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="table_id" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="table_name" sqlType="VARCHAR" precision="400" scale="0" nullable="false" jdbcType="12"/>
+      <column name="slug" sqlType="VARCHAR" precision="400" scale="0" nullable="false" jdbcType="12"/>
+      <column name="title" sqlType="VARCHAR" precision="400" scale="0" nullable="false" jdbcType="12"/>
+      <column name="description" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="meta_description" sqlType="VARCHAR" precision="400" scale="0" nullable="false" jdbcType="12"/>
+      <column name="alt" sqlType="VARCHAR" precision="400" scale="0" nullable="false" jdbcType="12"/>
+      <column name="keyword" sqlType="VARCHAR" precision="400" scale="0" nullable="false" jdbcType="12"/>
+      <column name="topic" sqlType="VARCHAR" precision="400" scale="0" nullable="false" jdbcType="12"/>
+      <column name="category" sqlType="VARCHAR" precision="400" scale="0" nullable="false" jdbcType="12"/>
+      <column name="file_path" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12"/>
+      <column name="file_name" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12"/>
+      <column name="date_updated" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="date_create" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="fs_postedarticles" schema="" catalog="fs_records" type="TABLE">
+      <column name="artno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="mno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="title" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="description" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="keyword" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="category" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="tags" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12"/>
+      <column name="style" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="topic" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="source_url" sqlType="VARCHAR" precision="500" scale="0" nullable="false" jdbcType="12"/>
+      <column name="source_item" sqlType="VARCHAR" precision="500" scale="0" nullable="false" jdbcType="12"/>
+      <column name="type" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="extention" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="tfavorite" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tdrip" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tshare" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tcomment" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="trating" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tpercentage" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tview" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="pltvotes" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="active" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="plus_blogger" sqlType="VARCHAR" precision="11" scale="0" nullable="false" jdbcType="12" def="J1llcyc="/>
+      <column name="gender" sqlType="VARCHAR" precision="11" scale="0" nullable="false" jdbcType="12" def="J01hbGUn"/>
+      <primary-key name="PRIMARY" columns="artno"/>
+    </table>
+    <table name="fs_postedmedia" schema="" catalog="fs_records" type="TABLE">
+      <column name="media_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="mno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="media_title" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="media_description" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="media_tags" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="media_topic" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="media_source_url" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="media_source_item" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="media_type" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="media_extension" sqlType="VARCHAR" precision="5" scale="0" nullable="false" jdbcType="12"/>
+      <column name="media_dateuploaded" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="media_id"/>
+    </table>
+    <table name="fs_rate_modals" schema="" catalog="fs_records" type="TABLE">
+      <column name="rmno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="mno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="table_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="table_name" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="rate_type" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="rate_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="rmno"/>
+    </table>
+    <table name="fs_search" schema="" catalog="fs_records" type="TABLE">
+      <column name="sno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="aWQ=" autoIncrement="true"/>
+      <column name="keyword" sqlType="VARCHAR" precision="500" scale="0" nullable="false" jdbcType="12" remarks="dGhlIGtleXdvcmQgaWRlbnRpZmllcyB0aGUgaXRlbQ=="/>
+      <column name="table_name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" remarks="dGFibGUgbmFtZSBvZiB0aGUgaXRlbQ=="/>
+      <column name="table_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="dGFibGUgaWQgb2YgdGhlIGl0ZW0="/>
+      <column name="date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="sno"/>
+    </table>
+    <table name="fs_signup_code" schema="" catalog="fs_records" type="TABLE">
+      <column name="scno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="generated_code" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="mno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="scno"/>
+    </table>
+    <table name="fs_test" schema="" catalog="fs_records" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="group" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="date" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="fs_top_data" schema="" catalog="fs_records" type="TABLE">
+      <column name="tdno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="top_look_rating" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="top_look_percentage" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="top_look_vote" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="tdno"/>
+    </table>
+    <table name="fs_uname_change" schema="" catalog="fs_records" type="TABLE">
+      <column name="uncno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="mno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="last_un" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="new_un" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="date_change" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="uncno"/>
+    </table>
+    <table name="fs_view" schema="" catalog="fs_records" type="TABLE">
+      <column name="vno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="mno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="table_name" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="table_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="vno"/>
+    </table>
+    <table name="garments" schema="" catalog="fs_records" type="TABLE">
+      <column name="gno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="cat" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="gno"/>
+    </table>
+    <table name="migrations" schema="" catalog="fs_records" type="TABLE">
+      <column name="migration" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="batch" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+    </table>
+    <table name="notifyme" schema="" catalog="fs_records" type="TABLE">
+      <column name="nno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="mno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="plno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="nsdate" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="nno"/>
+    </table>
+    <table name="occasions" schema="" catalog="fs_records" type="TABLE">
+      <column name="pno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="cat" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="pno"/>
+    </table>
+    <table name="password_resets" schema="" catalog="fs_records" type="TABLE">
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="token" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <index name="password_resets_email_index" unique="false" columns="email"/>
+      <index name="password_resets_token_index" unique="false" columns="token"/>
+    </table>
+    <table name="patterns" schema="" catalog="fs_records" type="TABLE">
+      <column name="pno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="cat" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="pno"/>
+    </table>
+    <table name="pl_drips" schema="" catalog="fs_records" type="TABLE">
+      <column name="pldno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="plno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="mno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+    </table>
+    <table name="pl_loves" schema="" catalog="fs_records" type="TABLE">
+      <column name="pllno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="plno" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="mno" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="pllno"/>
+      <index name="FK_mno5" unique="false" columns="mno"/>
+      <index name="FK_mno6" unique="false" columns="plno"/>
+    </table>
+    <table name="plc_replies" schema="" catalog="fs_records" type="TABLE">
+      <column name="plcrno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="plcno" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="mno" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="date_" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="msg" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="love" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="drip" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="plcrno"/>
+      <index name="FK_mno7" unique="false" columns="plcno"/>
+      <index name="FK_mno8" unique="false" columns="mno"/>
+    </table>
+    <table name="pltags" schema="" catalog="fs_records" type="TABLE">
+      <column name="pltno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="plno" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="tagcolor" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="x" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="y" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="brand" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="garment" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="material" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="pattern" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="occasion" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="season" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="colors" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="style" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="pltno"/>
+      <index name="plno" unique="false" columns="plno"/>
+    </table>
+    <table name="posted_looks_comments" schema="" catalog="fs_records" type="TABLE">
+      <column name="plcno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="plno" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="mno" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="date_" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="msg" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="plctlikes" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="plctdislike" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="plcno"/>
+      <index name="FK_mno5" unique="false" columns="mno"/>
+      <index name="FK_mno6" unique="false" columns="plno"/>
+    </table>
+    <table name="posted_looks_comments_like_dislike" schema="" catalog="fs_records" type="TABLE">
+      <column name="plcldno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="plcno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="mno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="plcld_action" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="plcld_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="plcldno"/>
+    </table>
+    <table name="postedlooks" schema="" catalog="fs_records" type="TABLE">
+      <column name="plno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="mno" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="date_" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="lookName" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="lookAbout" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="article_link" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="occasion" sqlType="VARCHAR" precision="300" scale="0" nullable="false" jdbcType="12"/>
+      <column name="season" sqlType="VARCHAR" precision="300" scale="0" nullable="false" jdbcType="12"/>
+      <column name="style" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="keyword" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="plkeyword" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="tview" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="pltcomment" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="pltvotes" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="trating" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="pltoplookrating" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tpercentage" sqlType="FLOAT" precision="12" scale="0" nullable="false" jdbcType="7"/>
+      <column name="tdrip" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tfavorite" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tshare" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="active" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="pludate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="plus_blogger" sqlType="VARCHAR" precision="11" scale="0" nullable="false" jdbcType="12" def="J1llcyc="/>
+      <column name="gender" sqlType="VARCHAR" precision="11" scale="0" nullable="false" jdbcType="12" def="J01hbGUn"/>
+      <primary-key name="PRIMARY" columns="plno"/>
+      <index name="FK_mno4" unique="false" columns="mno"/>
+    </table>
+    <table name="ratings" schema="" catalog="fs_records" type="TABLE">
+      <column name="rno" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="mno" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="plno" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="rating" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="date_" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="rno"/>
+      <index name="FK_mno5" unique="false" columns="plno"/>
+      <index name="FK_mno6" unique="false" columns="mno"/>
+    </table>
+    <table name="reservation" schema="" catalog="fs_records" type="TABLE">
+      <column name="rid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="fname" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="lname" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="adress" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="tarrival" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="darival" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="ddeparture" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="addinfo" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="status" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="person_num" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="rid"/>
+    </table>
+    <table name="reset" schema="" catalog="fs_records" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="what" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="time_reset" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="date" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="seasons" schema="" catalog="fs_records" type="TABLE">
+      <column name="pno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="cat" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="pno"/>
+    </table>
+    <table name="topic" schema="" catalog="fs_records" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="category_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="status" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="date" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="users" schema="" catalog="fs_records" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="remember_token" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="users_email_unique" unique="true" columns="email"/>
+    </table>
+  </data-source>
+</component>

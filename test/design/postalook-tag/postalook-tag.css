@@ -1,0 +1,266 @@
+
+
+p, a, span, label {
+    font-size: 12px;
+    font-family: arial;
+    text-decoration: none;
+    padding:0px;
+    margin:0px;
+    color: #060606;
+}
+
+.look-tag-container {
+    padding: 5px;
+    border: 1px solid #D4D4D4;
+    /* height: 351px; */
+    width: 535px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 7px #000000;
+    -moz-box-shadow: 0px 0px 7px #000000;
+    box-shadow: 0px 0px 2px #000000;
+    background-color: #FFFFFF;
+    padding: 7px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 10pt;
+    color: #888888;
+    text-align: center;
+}
+
+.tag-menu {
+    padding: 0px;
+    margin: 0px;
+}
+
+.tag-menu li {
+    float: left;
+    padding: 5px;
+    list-style: none;
+    /* border: 1px solid #E8E8E8; */
+}
+
+.tag-menu li:hover {
+    background-color: #E8E8E8;
+    cursor: pointer;
+    color: white;
+    border-radius: 3px 3px 0px 0px;
+}
+
+.clear {
+    clear:both;
+}
+.active {
+    background-color: #E8E8E8;
+    color: white;
+    border-radius: 3px 3px 0px 0px;
+}
+
+.tag-search {
+    /* border: 1px solid #D4D4D4; */
+    padding: 3px;
+}
+
+.tag-search input[type="text"]{
+    border: 1px solid #D4D4D4;
+    padding: 5px;
+    width: 98%;
+}
+
+.tag-content {
+    /* border: 1px solid green; */
+    /* padding-left: 0px; */
+}
+
+.tag-content-ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+.tag-content-ul li {
+    list-style: none;
+    float: left;
+    /* height: 243px; */
+    /* border: 1px solid yellow; */
+    /* padding-right: 3px; */
+}
+
+.tag-content-ul li:nth-child(1) {
+    width: 378px;
+    padding-right: 0px;
+    /* width: 100px; */
+}
+
+.tag-content-ul li:nth-child(2) {
+    width: 155px;
+}
+
+.tag-color-palette {
+    border-right: 1px solid #D4D4D4;
+}
+
+.tag-color-palette table {
+}
+
+.tag-color-palette table  td {
+    border:1px solid green;
+    padding: 9px;
+}
+
+.tag-color-palette table  td:hover {
+    opacity: 0.4;
+    cursor:pointer;
+}
+
+
+.tag-color-image table {
+    width: 100% !important;
+}
+
+.tag-color-image table td {
+    border: 1px solid #D4D4D4;
+    height: 37px;
+    background-color: #FBFBFB;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+}
+
+.tag-color-image table td:hover  {
+    cursor:pointer;
+}
+
+.tag-container-result {
+    border: 1px solid #D4D4D4;
+}
+
+.tag-footer-description {
+    padding-top:5px;
+}
+.tag-database-data {
+    width:100%;
+}
+.tag-database-data td input[type="text"]{
+    width:100%;
+}
+
+
+.tag-container-left {
+    height: 166px;
+    /* border-right: 1px solid #D24848; */
+    /* padding-right: 20px; */
+    padding-left: 3px;
+    padding-bottom: 6px;
+}
+
+.tag-container-left ul {
+    padding:0px;
+    padding-left: 1px;
+}
+
+.tag-container-left ul li {
+    /* float: left; */
+    width:auto !important;
+    padding-right:4px;
+    width:120px !important;
+}
+
+.tag-container-left ul li:nth-child(1) {
+    /* float: left; */
+    width:auto !important;
+    padding-right:4px;
+    width:120px !important;
+}
+
+
+.tag-container-left ul li span:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.tag-container-right {
+
+}
+
+.tag-field-input {
+    width: 98%;
+    border: none;
+    padding: 5px;
+}
+
+.tag-row-container  {
+    text-align: left;
+
+}
+
+.tag-result-container-category-garment  {
+
+}
+
+.tag-result-container-category-garment td {
+    padding:5px;
+    cursor:pointer
+}
+
+.tag-result-container-category-garment td span {
+
+}
+
+.tag-result-container-category-garment td span:hover {
+    text-decoration:underline;
+}
+
+.active-link {
+    color:#E8E8E8 !important;
+}
+
+.tag-result-container-garment {
+    border-top: 1px solid #E8E8E8;
+    display:none;
+    height: 2px;
+}
+
+.tag-result-container-garment ul li {
+    padding-right:4px;
+}
+
+
+
+
+.tag-color-image-preview {
+    width: 153px;
+}
+
+.tag-view-data {
+}
+
+.tag-view-data ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.tag-view-data ul li {
+    list-style: none;
+    float:left;
+}
+
+.tag-view-data ul li:nth-child(1) {
+    border: 1px solid none;
+}
+
+.tag-view-data ul li:nth-child(2) {
+    border: 1px solid none;width: 456px;text-align: left;padding-left: 3px;
+}
+
+.tag-sub-category-close{
+    float:left;
+    cursor:pointer;
+}
+
+.tag-result-container-garment-sub-category-table td div {
+    text-align:center;
+}
+
+.tag-result-container-garment-sub-category-table {
+    width:100%;
+}

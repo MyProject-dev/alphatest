@@ -1,0 +1,78 @@
+
+* Image format:
+
+http://diythemes.com/thesis/wordpress-seo-image-optimization/
+
+1.) Image Optimization Best-Practice #1: Alt Text
+
+2.) Image Optimization Best-Practice #2: File Size
+
+3.) Image Optimization Best-Practice #3: File Name
+
+- keyword
+
+search: Fashion
+url:
+http://www.knowledgeidea.com/fashion-and-modern-youth-essay/
+title:
+Essay On Fashion And Modern Youth - Learn English
+img:
+<img class="aligncenter wp-image-1254" src="http://www.knowledgeidea.com/wp-content/uploads/2014/
+09/Fashion-And-Modern-Youth-1024x627.jpg" alt="Fashion And Modern Youth" width="649" height="398">
+enspect element:
+<!-- This site is optimized with the Yoast WordPress SEO plugin v1.7.4 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="robots" content="noodp,noydir"/>
+<meta name="description" content="Fashion and Modern Youth essay for high school students. Essay about latest fashion lifestyle. Modern youth are adopting the new fashion with every new day."/>
+<link rel="canonical" href="http://www.knowledgeidea.com/fashion-and-modern-youth-essay/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Essay On Fashion And Modern Youth - Learn English" />
+<meta property="og:description" content="Fashion and Modern Youth essay for high school students. Essay about latest fashion lifestyle. Modern youth are adopting the new fashion with every new day." />
+<meta property="og:url" content="http://www.knowledgeidea.com/fashion-and-modern-youth-essay/" />
+<meta property="og:site_name" content="KnowledgeIDea" />
+<meta property="article:publisher" content="https://www.facebook.com/knowledgeideaCOM" />
+<meta property="article:author" content="https://www.facebook.com/knowledgeideaCOM" />
+<meta property="article:tag" content="clothes for women,Essay on Fashion,fashion,Fashion And Modern Youth,fashion essay in english,fashion essay topics,latest fashion for women,latest fashion news" />
+<meta property="article:section" content="English Essay" />
+<meta property="article:published_time" content="2014-09-22T02:26:22+00:00" />
+<meta property="article:modified_time" content="2015-03-07T22:10:54+00:00" />
+<meta property="og:updated_time" content="2015-03-07T22:10:54+00:00" />
+<meta property="fb:admins" content="100003999917716" />
+<meta property="og:image" content="http://www.knowledgeidea.com/wp-content/uploads/2014/09/Fashion-And-Modern-Youth-1.jpg" />
+<!-- / Yoast WordPress SEO plugin. -->
+
+search: Bloggers
+url: http://mashable.com/2012/02/17/social-media-bloggers-tips/
+title: <h1 class="title" href="http://mashable.com/2012/02/17/social-media-bloggers-tips/">10 Social Media Tips for Bloggers</h1>
+img: <img alt="10-social-media-tips-for-bloggers-291c07e39b" class="microcontent" data-fragment="lead-image" data-image="http://rack.0.mshcdn.com/media/ZgkyMDEyLzEyLzA0L2IyLzEwc29jaWFsbWVkLmIySC5qcGcKcAl0aHVtYgk5NTB4NTM0IwplCWpwZw/0ed62ed5/a6e/10-social-media-tips-for-bloggers-291c07e39b.jpg" data-micro="1" data-url="null" src="http://rack.0.mshcdn.com/media/ZgkyMDEyLzEyLzA0L2IyLzEwc29jaWFsbWVkLmIySC5qcGcKcAl0aHVtYgk5NTB4NTM0IwplCWpwZw/0ed62ed5/
+a6e/10-social-media-tips-for-bloggers-291c07e39b.jpg">
+
+search: man
+url: http://steezo.com/?product=man-in-stripped-suit
+title: <h3 class="product-title">Man in stripped suit </h3>
+img: <img width="300" height="300" src="http://steezo.com/wp-content/uploads/2012/
+    12/man-in-suit2-300x300.jpg" class="attachment-shop_single wp-post-image" alt="man-in-suit2">
+
+
+4.) Image Optimization Best-Practice #4: Captions
+blogger mistake
+http://socialtriggers.com/biggest-blogger-mistake/
+
+A
+5.) Fashion Sponge Image name:
+
+format:
+folder/id-CategoryName-FocusKeyword-TitleOrFilename-ImageSize.ImageExtension
+sample1:
+folder/1-article-lover-this-is-my-title-300x400.jpg
+
+visual explanation:
+[1] - id
+[article] - CategoryName
+[lover] - focus keyword
+[this-is-my-title]- title or filename
+[300x400] - TitleOrFilename
+[jpg] - ImageSize
+
+sample2:
+folder/2-look-fashion-this-is-my-fashion-350x350.jpg

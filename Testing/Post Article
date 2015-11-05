@@ -1,0 +1,6 @@
+add the folder name for now use the id
+first upload activity.table_id shows zero
+check the issue of the image not showing correctly in the details page and i think because i set the url as title and after the resize it shows the id so thats the reason of the error
+
+
+

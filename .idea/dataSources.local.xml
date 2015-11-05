@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - fs_records@localhost" uuid="ac42b71f-7e6c-4485-9b2e-5d3249c3c19f">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>fs_records.*</schema-pattern>
+      <default-schemas>fs_records.*</default-schemas>
+    </data-source>
+  </component>
+</project>
+

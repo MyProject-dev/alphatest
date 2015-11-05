@@ -1,0 +1,16 @@
+[Invite Sign Up process]
+
+1. add new email in the queue
+2. received new invitation from the queue
+3. click open email invitation
+4. click sign up invitation
+5. check collect email invitation drop down and email should be in the sign up pending
+6. admin approved the sign up pending email and email should moved to sign up approved
+7. check server
+  a. total queue 200
+  b. total queued 1
+8. email should not be found in the server anymore specially in the view send log
+9. reset the specific email data that is sign up for removal testing.
+10. jesus email again and click the remove email
+11. check if the email successfully removed to collect-email.php if so then it should add new email to the queue.
+

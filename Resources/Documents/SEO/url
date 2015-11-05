@@ -1,0 +1,113 @@
+url:
+http://moz.com/learn/seo/url
+
+Imposed Limits
+URLs must be shorter than 2083 characters to render in Internet Explorer (4-8).
+
+Optimal Format
+http://www.example.com/category-keyword/subcategory-keyword/primary-keyword.html
+
+
+What is a URL?
+
+A URL is human-readable text that was designed to replace the numbers (IP addresses) that computers use to communicate with servers. They also identify the file structure on the given website.
+
+URLs should:
+
+Use hyphens to separate words when necessary for readability. They should not use underscores, spaces, or any other characters to separate words. Overuse of hyphens in URLs can be seen as spammy, so it’s best to use caution and limit hyphen use in URLs when possible.
+Never be longer than 2,048 characters; otherwise Internet Explorer won't be able to load the page.
+Avoid the use of parameters, if possible. If parameters need to be used, they should be limited to two or less.
+
+people will not understand - Amazon.com - http://www.amazon.com/gp/product/B0007TJ5OG/102-8372974-4064145?v=glance&n=502394&m=ATVPDKIKX0DER&n=3031001&s=photo&v=glance
+people will not understand - Canon.com - http://consumer.usa.canon.com/ir/controller?act=ModelDetailAct&fcategoryid=145&modelid=11158
+people will understand     - DPReview.com - http://www.dpreview.com/reviews/canonsd400/
+
+note: more than two dynamic parameters may not be spidered unless they are perceived as significantly important (i.e., have many, many other links pointing to them).
+
+In addition to the issues of brevity and clarity, it's also important to keep URLs limited to
+as few dynamic parameters as possible. A dynamic parameter is a part of the URL that provides
+data to a database so the proper records can be retrieved, i.e. n=3031001, v=glance, categoryid=145,
+etc.
+
+Three Main Benefits of URLs
+
+1. Semantics
+
+A well-crafted URL should semantically make sense. The DPReview URL above is a good example of a
+semantically accurate URL. (This of course assumes that the page actually is about what is described)
+It is easy to tell the subject of the URL just by examining its URL. This is helpful to both humans
+and search engines.
+
+Semantics
+
+2. Relevancy
+
+The other benefit of having a semantically correct URL, is that webmasters are more likely to get
+search engine-referred traffic due to the keywords in the URL. These, like title tags, are used for
+determining relevancy and computing rankings.
+
+3. Links
+
+Well-written URLs have the additional benefit of serving as their own anchor text when copied and
+pasted as links in forums, blogs, or other online venues. In the DPReview example, a search engine might see
+the URL http://www.dpreview.com/reviews/canonsd400/ and give ranking credit to the page for terms in the URL
+like dpreview, reviews, canon, sd, and 400.
+
+
+
+
+
+ANOTHER
+URL: http://www.searchenginejournal.com/five-steps-to-seo-friendly-site-url-structure/
+
+http://www.fashionsponge.com/this-is-the-url-fashion
+
+
+1. Consolidate your www and the non-www domain versions
+
+
+
+ 2. Avoid dynamic and relative URLs
+
+ Depending on your content management system, the URLs it generates may be “pretty” like this one:
+
+ www.example.com/topic-name
+
+ or “ugly” like this one:
+
+ www.example.com/?p=578544
+
+
+ 3. Create an XML Sitemap
+
+
+ 4. Close off irrelevant pages with robots.txt
+
+
+ 5. Specify canonical URLs using a special tag
+
+
+
+
+ Conclusion
+ Having SEO-friendly URL structure on a site means having the URL structure that helps the site rank higher
+ in the search results. While, from the point of view of web development, a particular site’s architecture may
+ seem crystal-clear and error-free, for an SEO manager this could mean missing on certain ranking
+ opportunities.
+
+//     var ct    = $("#category-table");
+
+
+//     data['file_name']         = 'id' + '-' + ct.text() + "-" + k.text() + "" + t.val() + '-' + 'fileSize';
+
+//     fn.val(data['file_name']);
+
+    /**
+     * set field with file url
+     */
+
+//     fu.val(data['slug']);
+
+    /*
+     * send json to server, save or update
+     */
