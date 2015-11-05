@@ -231,6 +231,10 @@ $itemName2 = array(
 
 
 
+
+
+
+
 $garmentItems = array(
     'clothing'=> array(
         'pants' => array(
@@ -416,13 +420,84 @@ $garmentItems = array(
         'Rings' => array()
     )
 );
-
-
-
-
-
-
-
+ 
+$patternItems = array(
+    'Abstract',
+    'Argyle',
+    'Camouflage',
+    'Stripes', 
+    'Checkered', 
+    'Plaid',
+    'Floral',
+    'Tie Dye',
+    'Geometric',
+    'Graphic', 
+    'Cheetah', 
+    'Snake',
+    'Houndstooth',
+    'Paisley',
+    'Damask', 
+    'Chevron',
+    'Zebra',
+    'Polka Dots',
+    'Fair Isle',
+    'Fleck',
+    'Mosaic',
+    'Pinstripe',
+    'Speckle',
+    'Spots',
+    'Swirl',
+    'Tartan',
+    'Zigzag',
+    'Gingham',
+    'Tartan Plaid',
+    'Shepherds ',
+    'Windowpane Check',
+    'Graph Check',
+    'Tattersall',
+    'Mini Check',
+    'Tiger',
+    'Lion',
+    'Cow',
+    'Leopard'
+);
+ 
+$materialItems = array(
+    'Cotton',
+    'Rayon',
+    'Chambray',
+    'Denim',
+    'Knit',
+    'Silk',
+    'Satin',
+    'Linen',
+    'Wool',
+    'Flannell',
+    'Snake',
+    'Gator',
+    'Polyester',
+    'Nylon',
+    'Spandex',
+    'Leather',
+    'Corduroy',
+    'Fur',
+    'Felt',
+    'Suede',
+    'Lace',
+    'Hemp',
+    'Fleece',
+    'Batiste',
+    'Velvet',
+    'Chiffon',
+    'Crepe',
+    'Organza',
+    'Taffeta',
+    'Tweed',
+    'Voile',
+    'Pleather',
+    'Faux Fur',
+    'Faux Leather'
+);
 ?>
 <!DOCTYPE html>
 <html>
@@ -495,9 +570,8 @@ $garmentItems = array(
                         <table id="tag-color-image-table">
                             <?php for ($i = 0; $i < 5; $i++) { ?>
                                 <tr>
-                                    <td class='tag-selected-color'
-                                        id='tag-selected-color-td-<?php echo $j ?>-<?php echo $i ?>'
-                                        onclick="tag_select_color_enable_edit_mode('<?php echo $j ?>', '<?php echo $i ?>')"></td>
+                                    <td class='tag-selected-color' id='tag-selected-color-td-<?php echo $j ?>-<?php echo $i ?>' onclick="tag_select_color_enable_edit_mode('<?php echo $j ?>', '<?php echo $i ?>')">
+                                    </td>
                                 </tr>
                             <?php } ?>
                         </table>
@@ -553,11 +627,11 @@ $garmentItems = array(
                 <li>
                     <div class="tag-container-left" id="tag-result-search-pattern-<?php echo $j; ?>">
                         <ul>
-                            <?php for ($k = 0; $k < 35; $k++) { ?>
+                            <?php foreach ($patternItems as $key => $item): ?>
                                 <li><span
-                                        onclick="tag_select_item('pattern', '<?php echo "pattern name $k" ?>', '<?php echo rand(767, 780); ?>', '<?php echo $j; ?>')">   <?php echo (!empty($itemName1[$k])) ? $itemName1[$k] : ""; ?> </span>
+                                        onclick="tag_select_item('pattern', '<?php echo $item; ?>', '<?php echo rand(767, 780); ?>', '<?php echo $j; ?>')"> <?php echo $item; ?></span>
                                 </li>
-                            <?php } ?>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
                 </li>
@@ -585,11 +659,11 @@ $garmentItems = array(
                 <li>
                     <div class="tag-container-left" id="tag-result-search-material-<?php echo $j; ?>">
                         <ul>
-                            <?php for ($k = 0; $k < 35; $k++) { ?>
+                            <?php foreach ($materialItems as $key => $item): ?>
                                 <li><span
-                                        onclick="tag_select_item('material', '<?php echo "material name $k" ?>', '<?php echo rand(767, 780); ?>', '<?php echo $j; ?>')">  <?php echo (!empty($itemName2[$k])) ? $itemName2[$k] : ""; ?>  </span>
+                                        onclick="tag_select_item('material', '<?php echo $item; ?>', '<?php echo rand(767, 780); ?>', '<?php echo $j; ?>')">  <?php echo $item; ?>  </span>
                                 </li>
-                            <?php } ?>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
                 </li>
