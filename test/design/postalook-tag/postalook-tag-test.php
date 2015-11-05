@@ -53,8 +53,54 @@ $garmentItems = array(
 
 
 
+$materialItems = array(
+    'Cotton',
+    'Rayon',
+    'Chambray',
+    'Denim',
+    'Knit',
+    'Silk',
+    'Satin',
+    'Linen',
+    'Wool',
+    'Flannell',
+    'Snake',
+    'Gator',
+    'Polyester',
+    'Nylon',
+    'Spandex',
+    'Leather',
+    'Corduroy',
+    'Fur',
+    'Felt',
+    'Suede',
+    'Lace',
+    'Hemp',
+    'Fleece',
+    'Batiste',
+    'Velvet',
+    'Chiffon',
+    'Crepe',
+    'Organza',
+    'Taffeta',
+    'Tweed',
+    'Voile',
+    'Pleather',
+    'Faux Fur',
+    'Faux Leather'
+);
 
 
+echo "<pre>";
+sort($materialItems);
+foreach ($materialItems as $key => $val) {
+    echo "fruits[" . $key . "] = " . $val . "\n";
+}
+
+
+
+
+/*
 
 //main category
 foreach($garmentItems as $key => $value):

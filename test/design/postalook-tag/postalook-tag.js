@@ -164,6 +164,16 @@ function tag_change_content(rowName, tagNum) {
     $('#tag-tab-url-' + tagNum).attr('class', 'default');
     // set as active tab
     $('#tag-tab-' + rowName + '-' + tagNum).attr('class', 'active');
+ 
+    //hide reset options
+    $('#tag-reset-div-color-'+tagNum).css('display', 'none');
+    $('#tag-reset-div-brand-'+tagNum).css('display', 'none');
+    $('#tag-reset-div-pattern-'+tagNum).css('display', 'none');
+    $('#tag-reset-div-material-'+tagNum).css('display', 'none');
+    $('#tag-reset-div-garment-'+tagNum).css('display', 'none'); 
+       
+    //show reset option 
+    $('#tag-reset-div-'+rowName+'-'+tagNum).css('display', 'block');  
 }
 function tag_show_category_garment_data(categoryName, tagNum, id) {
 
@@ -216,4 +226,36 @@ function tag_open_garmennt_sub_category(id, tagNum, selector_show, selector_hide
 
     //show sub category image
     tag_show_image_preview(id, 'garment', tagNum);
+}
+function tag_reset(name, tagNum) { 
+    if(name == 'color') {
+        tag_reset_color(tagNum);
+    } else if (name == 'reset' ) {
+    } else {
+        tag_reset_items(name, tagNum);
+    }
+}
+function tag_reset_color(tagNum) {
+    //reset color text
+    $('#tag-list-data-color-'+tagNum).text('');
+
+    //reset all the background color from right container
+    $('#tag-selected-color-td-'+tagNum+'-0').attr('style','background-color:#FBFBFB').text('');
+    $('#tag-selected-color-td-'+tagNum+'-1').attr('style','background-color:#FBFBFB').text('');
+    $('#tag-selected-color-td-'+tagNum+'-2').attr('style','background-color:#FBFBFB').text('');
+    $('#tag-selected-color-td-'+tagNum+'-3').attr('style','background-color:#FBFBFB').text('');
+    $('#tag-selected-color-td-'+tagNum+'-4').attr('style','background-color:#FBFBFB').text('');
+
+    //reset database input
+    $('#tag-color-database-data-color-'+tagNum).val('');
+}
+function tag_reset_items(name, tagNum) {
+    //// Reset the text
+    $('#tag-list-data-'+name+'-'+tagNum).text('');
+
+    // Reset the right image preview
+    $('#tag-color-image-'+name+'-'+tagNum).attr('src', '');
+
+    //// Reset the database input
+    $('#tag-color-database-data-'+name+'-'+tagNum).val('');
 }

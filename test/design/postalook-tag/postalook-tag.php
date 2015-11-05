@@ -14,7 +14,6 @@
  * 3.)
  */
 
-
 $colors = array(
     '#F0F8FF' => 'AliceBlue',
     '#FAEBD7' => 'AntiqueWhite',
@@ -226,14 +225,6 @@ $itemName2 = array(
     'Mid Length Skirts',
     'Mini Skirts'
 );
-
-
-
-
-
-
-
-
 
 $garmentItems = array(
     'clothing'=> array(
@@ -498,6 +489,9 @@ $materialItems = array(
     'Faux Fur',
     'Faux Leather'
 );
+sort($materialItems);
+sort($patternItems);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -517,10 +511,11 @@ $materialItems = array(
     <?php // $j = 0; ?>
 
     <div id="table_container_" class="item_ look-tag-container">
-    <!-- Tag menus -->
+            <!-- Tag menus -->
     <ul class="tag-menu">
         <li id="tag-tab-color-<?php echo $j ?>"
-            onclick="tag_change_content('color',  '<?php echo $j ?>')"><span>Color  </span></li>
+            onclick="tag_change_content('color',  '<?php echo $j ?>')"
+            class="active"><span>Color  </span></li>
         <li id="tag-tab-brand-<?php echo $j ?>" onclick="tag_change_content('brand',  '<?php echo $j ?>')">
             <span>Brand </span></li>
         <li id="tag-tab-pattern-<?php echo $j ?>" onclick="tag_change_content('pattern',  '<?php echo $j ?>')"><span>Pattern </span>
@@ -528,19 +523,36 @@ $materialItems = array(
         <li id="tag-tab-material-<?php echo $j ?>" onclick="tag_change_content('material',  '<?php echo $j ?>')"><span>Material </span>
         </li>
         <li id="tag-tab-garment-<?php echo $j ?>" onclick="tag_change_content('garment',  '<?php echo $j ?>')"
-            class="active"><span>Garment </span>
+            ><span>Garment </span>
         </li>
         <li id="tag-tab-price-<?php echo $j ?>" onclick="tag_change_content('price',  '<?php echo $j ?>')">
             <span>Price </span></li>
         <li id="tag-tab-url-<?php echo $j ?>" onclick="tag_change_content('url',  '<?php echo $j ?>')"><span>Url </span>
         </li>
+
+            <!-- <select class="tag-reset-option" onChange="tag_reset(<?php echo $j; ?>)" id="tag-reset-option-<?php echo $j; ?>"  >
+                <option value="reset" > Reset Init </option>
+                <option value="color" > Color </option>
+                <option value="brand" > Brand </option>
+                <option value="pattern" > Pattern </option>
+                <option value="material" > Material </option>
+                <option value="garment" > Garment </option>
+            </select> -->
+
+
     </ul>
+
+    <div class="tag-reset-div" id="tag-reset-div-color-<?php echo $j; ?>"    onClick="tag_reset('color', '<?php echo $j; ?>')"   style="display:block"  >Reset  Color</div>
+    <div class="tag-reset-div" id="tag-reset-div-brand-<?php echo $j; ?>"    onClick="tag_reset('brand', '<?php echo $j; ?>')"    >Reset  Brand</div>
+    <div class="tag-reset-div" id="tag-reset-div-pattern-<?php echo $j; ?>"  onClick="tag_reset('pattern', '<?php echo $j; ?>')"  >Reset  Pattern</div>
+    <div class="tag-reset-div" id="tag-reset-div-material-<?php echo $j; ?>" onClick="tag_reset('material', '<?php echo $j; ?>')" >Reset  Material</div>
+    <div class="tag-reset-div" id="tag-reset-div-garment-<?php echo $j; ?>"  onClick="tag_reset('garment', '<?php echo $j; ?>')"  >Reset  Garment</div>
 
     <!-- Tag content -->
     <div class="clear"></div>
     <div class="tag-container-result">
     <div class="tag-result-color" id="tag-result-color" style="display:block">
-    <div class="tag-row-container" id="tag-row-container-color-<?php echo $j ?>" style="display:none">
+    <div class="tag-row-container" id="tag-row-container-color-<?php echo $j ?>" style="display:block">
 
         <div class="tag-search" style="display:none">
             <input type="text" placeholder="search" class="search-field"/>
@@ -680,7 +692,7 @@ $materialItems = array(
         </div>
         <div class="clear"></div>
     </div>
-    <div class="tag-row-container" id="tag-row-container-garment-<?php echo $j ?>" style="display:block">
+    <div class="tag-row-container" id="tag-row-container-garment-<?php echo $j ?>" style="display:none">
         <div class="tag-search">
             <input type="text" placeholder="search" class="search-field"
                    id="tag-search-keyword-garment-<?php echo $j ?>"
@@ -834,10 +846,7 @@ $materialItems = array(
                 </td>
         </table>
     </div>
-
-    </div>
-
-
+</div>
     <br><br>
     <hr>
     <br><br>

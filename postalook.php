@@ -352,7 +352,7 @@ if (!empty($_SESSION['adm_no'])) {
 																						 	<?php
                                                                                             $look->print_tags_includes();
 																							 $c=0;
-																							 for ($i=1; $i <16 ; $i++):
+																							 for ($i=1; $i <5 ; $i++):
 																							 	 $c++;
 																							 	 $background  = '';
                                                                                                  $look->print_tags($i, $c);
