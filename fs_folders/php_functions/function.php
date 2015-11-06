@@ -264,7 +264,7 @@
 				// echo "row$i = ".$row_name_array[$i]." values$i = ".$values_array[$i]."<br>"; 
 				// $b1=mysql_query("UPDATE $table_name SET $row_name_array[$i] = '$values_array[$i]' WHERE $row_id_name = $last_id"); 
 				$value = mysql_real_escape_string( $values_array[$i] );
-				$value = make_links_clickable1($value); 
+//				$value = make_links_clickable1($value);
 				$b1=mysql_query("UPDATE $table_name SET $row_name_array[$i] = '$value' WHERE $row_id_name = $last_id"); 
 			}	 
 		}
