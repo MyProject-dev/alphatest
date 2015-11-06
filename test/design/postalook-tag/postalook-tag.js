@@ -32,6 +32,9 @@ function tag_select_color(rowName, color_name, color_html, tagNum) {
     // Validate if its in edit mode
     if (object.tag_color_row_click == tagNum) {
 
+        // detect if duplicate color selected
+        if(tag_is_color_exist(color_html, tagNum)) { return false }
+
         // find the selected row be replaced with color
         // replace the specific td that the user clicked
         //add color to the td right rectangle
@@ -66,6 +69,9 @@ function tag_select_color(rowName, color_name, color_html, tagNum) {
         // If less than 6 colors. 6 because it started with zero.
         if (color_lenght < 5) {
 
+            // detect if duplicate color selected
+            if(tag_is_color_exist(color_html, tagNum)) { return false }
+
             // get html color
             var color_html = color_html;
 
@@ -91,6 +97,8 @@ function tag_select_color(rowName, color_name, color_html, tagNum) {
             if (color_lenght == 0) {
                 tag_add_color_footer(color_html, color_name, tagNum);
             }
+
+
         }
     }
 }
@@ -164,16 +172,16 @@ function tag_change_content(rowName, tagNum) {
     $('#tag-tab-url-' + tagNum).attr('class', 'default');
     // set as active tab
     $('#tag-tab-' + rowName + '-' + tagNum).attr('class', 'active');
- 
+
     //hide reset options
     $('#tag-reset-div-color-'+tagNum).css('display', 'none');
     $('#tag-reset-div-brand-'+tagNum).css('display', 'none');
     $('#tag-reset-div-pattern-'+tagNum).css('display', 'none');
     $('#tag-reset-div-material-'+tagNum).css('display', 'none');
-    $('#tag-reset-div-garment-'+tagNum).css('display', 'none'); 
-       
+    $('#tag-reset-div-garment-'+tagNum).css('display', 'none');
+
     //show reset option 
-    $('#tag-reset-div-'+rowName+'-'+tagNum).css('display', 'block');  
+    $('#tag-reset-div-'+rowName+'-'+tagNum).css('display', 'block');
 }
 function tag_show_category_garment_data(categoryName, tagNum, id) {
 
@@ -227,7 +235,7 @@ function tag_open_garmennt_sub_category(id, tagNum, selector_show, selector_hide
     //show sub category image
     tag_show_image_preview(id, 'garment', tagNum);
 }
-function tag_reset(name, tagNum) { 
+function tag_reset(name, tagNum) {
     if(name == 'color') {
         tag_reset_color(tagNum);
     } else if (name == 'reset' ) {
@@ -258,4 +266,27 @@ function tag_reset_items(name, tagNum) {
 
     //// Reset the database input
     $('#tag-color-database-data-'+name+'-'+tagNum).val('');
+}
+function tag_is_color_exist(html_color, tagNum) {
+    var rgb_input = hexToRgb(html_color);
+    for(var i = 0; i<5; i++) {
+        if(rgb_input ==  $('#tag-selected-color-td-' + tagNum + '-' + i).css('background-color')) {
+
+
+            $('#tag-selected-color-td-'+tagNum+'-'+i).css('border', '1px solid rgb(255, 12, 12)');
+            alert('duplicate color occur, please select another.');
+            return true;
+        } else {
+            $('#tag-selected-color-td-'+tagNum+'-'+i).css('border', 'none');
+        }
+    }
+    return false;
+}
+function hexToRgb(hex) {
+    hex = hex.replace('#', '');
+    var bigint = parseInt(hex, 16);
+    var r = (bigint >> 16) & 255;
+    var g = (bigint >> 8) & 255;
+    var b = bigint & 255;
+    return "rgb(" + r + ", " + g + ", " + b + ")";
 }
