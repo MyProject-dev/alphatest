@@ -19,11 +19,11 @@
 
 
 
+print_r($_REQUEST);
 
 
 
-
-    //Facebook Config
+//Facebook Config
     require '../../../fs_folders/API/facebook-php-sdk-master/src/facebook.php'; 
 	$config = array(
 	  'appId' => '528594163842974',
@@ -33,11 +33,7 @@
   	$user_id = $facebook->getUser();
 
 
-
-
-
-
-
+ 
 
     use App\Topic;
     use App\Category;
@@ -71,10 +67,11 @@ LookbookDatabase::$database = $db;
     // initialized  
 	 	$_SESSION['mno'] = $mc->get_cookie( 'mno' , 136 );  
 	 	$mno 	 		 = $mc->get_cookie( 'mno' , 136 );       
-		$mno2            = 134; // owner of the modal 
-  
-		$action          = ( !empty($_GET['action']) )      ? $_GET['action']      	: null ;        
-		$process         = ( !empty($_GET['process']) )     ? $_GET['process']     	: null ;  
+		$mno2            = 134; // owner of the modal  
+		$action          = ( !empty($_GET['action']) )      ? $_GET['action']      	: null; 
+		$action          = ( empty($action) )               ? $_REQUEST['action']   : null; 
+		$process         = ( !empty($_GET['process']) )     ? $_GET['process']     	: null;   
+		$process         = ( empty($process) )              ? $_REQUEST['process']  : null; 
 		$step            = ( !empty($_GET['step']) )        ? $_GET['step']        	: null ;    
 		$type            = ( !empty($_GET['type']) )        ? $_GET['type']        	: null ;   
 		$stat            = ( !empty($_GET['stat']) )        ? $_GET['stat']        	: null ;     
@@ -160,6 +157,10 @@ LookbookDatabase::$database = $db;
  	// echo "adsasdas da<br> dasdada<b>"; 
  	// echo "table name = $table_name and table_id $table_id <br> "; 
 	// echo " method $method <br>";
+
+
+
+  		echo "Process $process <br> Action $action <br>";
 
 	echo "<div style='display:block; color:none' >"; 
 	 	switch ( $action ) {  
@@ -693,6 +694,30 @@ LookbookDatabase::$database = $db;
 	 			 	switch ( $process ) { 
 
 	 			 		case 'insert': 
+
+									$color         = $_REQUEST['color'];   
+									$brand         = $_REQUEST['brand'];   	 			 					
+	 			 					$garment       = $_REQUEST['garment']; 
+	 			 					$material      = $_REQUEST['material']; 
+	 			 					$pattern       = $_REQUEST['pattern']; 
+	 			 					$price         = $_REQUEST['price']; 
+	 			 					$purchased_at  = $_REQUEST['purchased_at']; 
+	 			 					$pos_x_y   	   = $_REQUEST['pos_x_y']; 
+	 			 					$style    	   = $_REQUEST['style']; 
+	 			 					$occasion      = $_REQUEST['occasion']; 
+	 			 					$season    	   = $_REQUEST['season']; 
+	 			 					$keyword       = $_REQUEST['keyword']; 
+	 			 					$title    	   = $_REQUEST['title']; 
+	 			 					$desc    	   = $_REQUEST['desc']; 
+	 			 					$article       = $_REQUEST['article']; 
+	 			 					$isAgreed      = $_REQUEST['isAgreed']; 
+
+
+
+
+	 			 				echo " modal attribute insert <br>";
+
+
 	 							// data print 
 
 
@@ -746,7 +771,7 @@ LookbookDatabase::$database = $db;
 	 
 								// initialize data and expload string via comma to array
 	 									
-	 								$color   	   = explode(',', $color ); 
+	 								$color   	   = explode('-', $color ); 
 	 								$brand   	   = explode(',', $brand ); 
 	 								$garment 	   = explode(',', $garment ); 
 	 								$material	   = explode(',', $material ); 
@@ -760,6 +785,9 @@ LookbookDatabase::$database = $db;
 									$tag['dcolor'] = 'Charcoal'; 
 									$table_name    = 'postedlooks';
 									$category 	   = $style;
+
+
+									echo " url = " . $purchased_at . "<br>";
 
 
 
@@ -815,6 +843,7 @@ LookbookDatabase::$database = $db;
 
 									// add new look  
 
+										 
 										$table_id = $mc->posted_modals_postedlooks_Query( 
 											array( 
 												'postedlooks_query' => 'insert',
@@ -830,7 +859,7 @@ LookbookDatabase::$database = $db;
 												'gender' => $mc->gender,
 												'plus_blogger' => $mc->plus_blogger
 											) 
-										);   
+										);    
 
 
 
@@ -884,7 +913,10 @@ LookbookDatabase::$database = $db;
 												$x_ 		    = $x;
 												$y_ 		    = $y;
 									 
-	 
+	 				
+
+
+	 										echo " insert purchased_at = " . $purchased_at_ . '<br>';
 	 										// insert tag  
 												$response = $mc->fs_pltag( 
 													array( 

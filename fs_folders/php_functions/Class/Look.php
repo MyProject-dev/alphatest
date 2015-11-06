@@ -535,21 +535,12 @@ class Look
         <?php
     }
 
+    public function getHtmlColor($colorName) {
+        return array_search ($colorName, $this->getAllHtmlColor());
+    }
 
-    /**
-     * @src test/design/postalook-tag/postalook-tag.php
-     *
-     * @param $i
-     * @param $counter
-     */
-    public function print_tags($i, $counter)
-    {
-
-
-
-        $j = $counter;
-
-        $colors = array(
+    public function getAllHtmlColor() {
+        return $colors = array(
             '#F0F8FF' => 'AliceBlue',
             '#FAEBD7' => 'AntiqueWhite',
             '#00FFFF' => 'Aqua',
@@ -692,6 +683,24 @@ class Look
             '#FFFF00' => 'Yellow',
             '#9ACD32' => 'YellowGreen',
         );
+
+    }
+
+
+    /**
+     * @src test/design/postalook-tag/postalook-tag.php
+     *
+     * @param $i
+     * @param $counter
+     */
+    public function print_tags($i, $counter)
+    {
+
+
+
+        $j = $counter;
+
+        $colors = $this->getAllHtmlColor();
 
         $itemName = array(
             'Jeans',
@@ -1367,6 +1376,9 @@ class Look
                               id="tag-color-database-data-price-<?php echo $j ?>"/></td>
                <tr>
                    <td><input type="text" value="" placeholder="url" id="tag-color-database-data-url-<?php echo $j ?>"/>
+                   </td>
+               <tr>
+                   <td><input type="text" value="" placeholder="url" id="pos_x_y<?php echo $j ?>"/>
                    </td>
            </table>
        </div>

@@ -6532,7 +6532,24 @@ function modal ( action , process , type , loader , response , textfieldid , val
     var data1      = '';   // sub main data storage
     var test_c     = 'fs-general-ajax-response';   // test container 
     var title      = '', desc = '' , article = '' , color = '' ,  brand = '' ,  garment = '' , material = '' ,  pattern = '', price = '', purchased_at = '',  pos_x_y = '' , style = '' , occasion = '' , season = '' , keyword = '' ; // initialize look varialble attribute 
-    var title_id   = '.look_name'  , desc_id = '.textarea' , article_id = '.look-article-field' , brand_id = '#brand' , garment_id = '#garment' , material_id='#material' , pattern_id = '#pattern', price_id = '#price', purchased_at_id = '#purchased_at', pos_x_y_id = '#pos_x_y', style_id = '#style' ,  occasion_id = '#occasion', season_id = '#season', keyword_id = '#keyword';  // initialize look attribute id
+    //var title_id   = '.look_name'  , desc_id = '.textarea' , article_id = '.look-article-field' , brand_id = '#brand' , garment_id = '#garment' , material_id='#material' , pattern_id = '#pattern', price_id = '#price', purchased_at_id = '#purchased_at', pos_x_y_id = '#pos_x_y', style_id = '#style' ,  occasion_id = '#occasion', season_id = '#season', keyword_id = '#keyword';  // initialize look attribute id
+    var title_id   = '.look_name'  ,
+        desc_id = '.textarea' ,
+        article_id = '.look-article-field' ,
+        brand_id = '#brand' ,
+        garment_id = '#tag-color-database-data-garment-' ,
+        material_id='#tag-color-database-data-material-' ,
+        pattern_id = '#tag-color-database-data-pattern-',
+        price_id = '#tag-color-database-data-price-',
+        purchased_at_id = '#tag-color-database-data-url-',
+        color_id = '#tag-color-database-data-color-',
+        pos_x_y_id = '#pos_x_y',
+        style_id = '#style' ,
+        occasion_id = '#occasion',
+        season_id = '#season',
+        keyword_id = '#keyword';  // initialize look attribute id
+
+
     var lookname   = ''; // look title 
     var bool       = true; // boolean true or false condition 
     var comment    = ''; // comment variable initialized 
@@ -6550,11 +6567,11 @@ function modal ( action , process , type , loader , response , textfieldid , val
 
     // alert for all the data type comming in 
 
-    // alert(' action = '+action+' process = '+process+' type = '+type+' loader = '+loader+' response = '+response+' textfieldid = '+textfieldid+' value = '+value+' multivalue = '+multivalue+' method = '+method+' table_id = '+table_id );
+      // alert(' action = '+action+' process = '+process+' type = '+type+' loader = '+loader+' response = '+response+' textfieldid = '+textfieldid+' value = '+value+' multivalue = '+multivalue+' method = '+method+' table_id = '+table_id );
 
     if ( type == 'post-modal' )
     {
-        // alert(isAgreed); 
+          // alert(isAgreed); 
 
         /**
          * validate if the agreenebt is being read.
@@ -6587,18 +6604,23 @@ function modal ( action , process , type , loader , response , textfieldid , val
 
                 len  = $('.block_circle_tag').length;
 
+
+                // alert('len = ' + len);
                 // initialize for look label data 
 
                 for (var i = 1; i <= len; i++) {
                     // pass the values 
-                    color         = color+$("#hashtag_"+i+"_0").text().replace('#','')+',';
-                    brand         = brand+$(brand_id+i).val().replace('#','')+',';
+                    color         = color+$(color_id+i).val()+'-';
+                    brand         = brand+$(brand_id+i).val()+',';
                     garment       = garment+$(garment_id+i).val()+',';
                     material      = material+$(material_id+i).val()+',';
                     pattern       = pattern+$(pattern_id+i).val()+',';
                     price         = price+$(price_id+i).val()+',';
                     purchased_at  = purchased_at+$(purchased_at_id+i).val()+',';
                     pos_x_y       = pos_x_y+$(pos_x_y_id+i).val()+',';
+                    
+                    
+                    // alert(pos_x_y);
 
                 };
                 style             = $(style_id).val();
@@ -6609,9 +6631,18 @@ function modal ( action , process , type , loader , response , textfieldid , val
                 desc              = ckeditorContent;//$(desc_id).val();
                 article           = $(article_id).val();
 
+
+
+
+
+
+
+
+
+
                 // replace article url dot with space to allow online to pass the ajax request
 
-                article = replace_all ( article , '.' , ' ' );
+                //article = replace_all ( article , '.' , ' ' );
 
                 // alert test 
 
@@ -6619,22 +6650,52 @@ function modal ( action , process , type , loader , response , textfieldid , val
 
                 // initialize data
 
-                data = 'action='+action+'&process='+process+'&type='+type+'&color='+color+'&brand='+brand+'&garment='+garment+'&material='+material+'&pattern='+pattern+'&price='+price+'&purchased_at='+purchased_at+'&pos_x_y='+pos_x_y+'&style='+style+'&occasion='+occasion+'&season='+season+'&keyword='+keyword+'&title='+title+'&desc='+desc+'&article='+article+'&method='+method+'&table_id='+table_id+'&isAgreed='+isAgreed;
-                data1 = 'fs_folders/modals/general_modals/gen.modals.func.php?'+data;
+                 data = 'action='+action+'&process='+process+'&type='+type+'&color='+color+'&brand='+brand+'&garment='+garment+'&material='+material+'&pattern='+pattern+'&price='+price+'&purchased_at='+purchased_at+'&pos_x_y='+pos_x_y+'&style='+style+'&occasion='+occasion+'&season='+season+'&keyword='+keyword+'&title='+title+'&desc='+desc+'&article='+article+'&method='+method+'&table_id='+table_id+'&isAgreed='+isAgreed;
+                 data1 = 'fs_folders/modals/general_modals/gen.modals.func.php?'+data;
 
 
-                console.log(data1);
+                // alert(data1);
+ 
+
+                 $.post("fs_folders/modals/general_modals/gen.modals.func.php", {
+                    action: action,
+                    process: process,
+                    type: type, 
+                    color: color, 
+                    brand: brand, 
+                    garment: garment, 
+                    material: material, 
+                    pattern: pattern, 
+                    price: price, 
+                    purchased_at: purchased_at, 
+                    pos_x_y: pos_x_y, 
+                    style: style, 
+                    occasion: occasion, 
+                    season: season, 
+                    keyword: keyword, 
+                    title: title, 
+                    desc: desc, 
+                    article: article, 
+                    method: method, 
+                    table_id: table_id, 
+                    isAgreed: isAgreed
+                }, function(result) {
+                      $('#upload-modal').submit();
+                });
+
+
+                //console.log(data1);
 
                 // send data 
 
-                ajax_send_data(
-                    test_c,         // response container
-                    data1,          // value
-                    'post-modal',   // loader
-                    'modal-insert',  // page
-                    method
-                );
- 
+                //ajax_send_data(
+                //    test_c,         // response container
+                //    data1,          // value
+                //    'post-modal',   // loader
+                //    'modal-insert',  // page
+                //    method
+                //);
+                //
                 // hide the current submit image  
                     $('#postarticle-submit').css('display','none'); 
  

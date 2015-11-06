@@ -535,7 +535,7 @@ if ((!empty($_GET['welcome'])) ? $_GET['welcome'] : ''  == 'get-started' || $mc-
                                                         echo " <div class='pos' style='display:block'> ";
                                                         $c=0;
                                                         for ($i=0; $i < count($pltags) ; $i++) {
-                                                            $plt_color = $pltags[$i]["plt_color"];
+                                                            $plt_color =  explode(',', $pltags[$i]["plt_color"])[1];
                                                             $plt_brand = $pltags[$i]["plt_brand"];
                                                             $plt_garment = $pltags[$i]["plt_garment"];
                                                             $plt_material = $pltags[$i]["plt_material"];
@@ -679,13 +679,14 @@ if ((!empty($_GET['welcome'])) ? $_GET['welcome'] : ''  == 'get-started' || $mc-
                                                         //  	echo "<img id='look_view_img' src='$mc->look_folder_home/3.jpg'  >";
                                                         // } else  {
                                                         // echo " <img id='look_view_img' style='$lookmodalsstyle'  src='$modal[src]'  onclick=\"load_look_picture_and_tags('$next_prev[next]')\" > ";
+                                                      
+
+
                                                        echo " <img id='look_view_img' style='$lookmodalsstyle'  src='$modal[src]' > ";
                                                         // }
                                                         ?>
                                                     </div>
-                                                </center>
-
-
+                                                </center> 
 
                                             </td>
                                         <tr>
@@ -840,16 +841,12 @@ if ((!empty($_GET['welcome'])) ? $_GET['welcome'] : ''  == 'get-started' || $mc-
                                                         //
                                                         // echo " Ttag $Ttag ";
                                                         if ( !empty($Ttag) ) {
-
                                                             for ($i=0; $i < $Ttag ; $i++) {
-
-                                                                $tc = $mc->get_html_colo_code( str_replace(" ","",$pltags[$i]["plt_color"]));
-
-
+                                                                // $tc = $mc->get_html_colo_code( str_replace(" ","",$pltags[$i]["plt_color"]));
+                                                                $tc = $look->getHtmlColor(explode(',', $pltags[$i]["plt_color"])[1]);
                                                                 if ( $i == 0 ) {
-
                                                                     if (!empty($tc )) {
-                                                                        $tagcolors_style = "background-color:#$tc; border-radius:0 0 0 5px;";
+                                                                        $tagcolors_style = "background-color:$tc; border-radius:0 0 0 5px;";
                                                                     }
                                                                     else{
                                                                         if ( $i == $Ttag-1 ) {
@@ -859,7 +856,7 @@ if ((!empty($_GET['welcome'])) ? $_GET['welcome'] : ''  == 'get-started' || $mc-
                                                                 }
                                                                 else if ( $i == $Ttag-1 ) {
                                                                     if (!empty($tc )) {
-                                                                        $tagcolors_style = "background-color:#$tc;  border-radius:0 0 5px 0;";
+                                                                        $tagcolors_style = "background-color:$tc;  border-radius:0 0 5px 0;";
                                                                     }
                                                                     else{
                                                                         $tagcolors_style = "background-color:#000;border-radius:0 0 5px 0;opacity:0.8;";
@@ -867,7 +864,7 @@ if ((!empty($_GET['welcome'])) ? $_GET['welcome'] : ''  == 'get-started' || $mc-
 
                                                                 }
                                                                 else {
-                                                                    $tagcolors_style = "background-color:#$tc";
+                                                                    $tagcolors_style = "background-color:$tc";
                                                                 }  ?>
 
                                                                 <td id='tag_colors_td' style='<?php echo $tagcolors_style; ?>' >

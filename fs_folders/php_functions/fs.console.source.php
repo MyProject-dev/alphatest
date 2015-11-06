@@ -17640,11 +17640,11 @@
 							$tdb         = 'fs_pltag';    
 
  						// $this->print_r1(  $array );
-						switch ( $type ) { 
+						switch ( $type ) {  
+							case 'insert':   
 
-							case 'insert': 
-
-								 	# $response = $mc->fs_modal_attribute(  array(   'type'=>'insert', 'matcno'=>1, 'name'=>'jesus erwin suarez', 'total'=>200, 'mno'=>133, 'status'=>0 ) ); 
+								 	# $response = $mc->fs_modal_attribute(  array(   'type'=>'insert', 'matcno'=>1, 'name'=>'jesus erwin suarez', 'total'=>200, 'mno'=>133, 'status'=>0 ) );  
+									echo " <b>to be insert </b> $plt_purchased_at <br>";
 
 									$response = insert(
 										$tdb,  
