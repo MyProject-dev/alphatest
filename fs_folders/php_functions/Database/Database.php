@@ -133,11 +133,13 @@ class Database{
     public static function selectV1($tableName , $selectWhat , $where) 
     {  
 
-
-        // echo "selectV1($tableName , $selectWhat , $where)";
+//         echo "selectV1($tableName , $selectWhat , $where)";
         $c=0;
         $res = array( ); 
-        $mno = 133;   
+        $mno = 133;
+
+
+        echo "SELECT $selectWhat FROM  $tableName  WHERE $where <br>";
 
         $Q = mysql_query(" SELECT $selectWhat FROM  $tableName  WHERE $where ");  
 

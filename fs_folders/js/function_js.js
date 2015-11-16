@@ -6654,9 +6654,8 @@ function modal ( action , process , type , loader , response , textfieldid , val
                  data1 = 'fs_folders/modals/general_modals/gen.modals.func.php?'+data;
 
 
-                // alert(data1);
- 
-
+                // alert(data1); 
+                
                  $.post("fs_folders/modals/general_modals/gen.modals.func.php", {
                     action: action,
                     process: process,

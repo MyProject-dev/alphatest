@@ -1110,7 +1110,7 @@ class Look
                            </table>
                        </div>
                    </li>
-                   <li>
+                   <li>   
                        <div class="tag-color-image" id="tag-color-image">
                            <table id="tag-color-image-table">
                                <?php for ($i = 0; $i < 5; $i++) { ?>
@@ -1136,16 +1136,20 @@ class Look
            <div class="tag-content">
                <ul class="tag-content-ul">
                    <li>
+                        
+                           <div class="tag-container-left" id="tag-result-search-brand-<?php echo $j; ?>">
+                               <ul>
+                                    <?php if(false): ?>
+                                        <?php for ($k = 0; $k < 35; $k++) { ?>
+                                           <li><span
+                                                   onclick="tag_select_item('brand', '<?php echo "Brand name $k" ?>', '<?php echo rand(767, 780); ?>', '<?php echo $j; ?>')">   <?php echo (!empty($itemName[$k])) ? $itemName[$k] : ""; ?> </span>
+                                           </li>
+                                        <?php } ?>
+                                    <?php endif; ?>
+                               </ul>
+                           </div>
 
-                       <div class="tag-container-left" id="tag-result-search-brand-<?php echo $j; ?>">
-                           <ul>
-                               <?php for ($k = 0; $k < 35; $k++) { ?>
-                                   <li><span
-                                           onclick="tag_select_item('brand', '<?php echo "Brand name $k" ?>', '<?php echo rand(767, 780); ?>', '<?php echo $j; ?>')">   <?php echo (!empty($itemName[$k])) ? $itemName[$k] : ""; ?> </span>
-                                   </li>
-                               <?php } ?>
-                           </ul>
-                       </div>
+                      
                    </li>
                    <li>
                        <div class="tag-container-right" id="tag-color-image">
@@ -1170,15 +1174,20 @@ class Look
            <div class="tag-content">
                <ul class="tag-content-ul">
                    <li>
+                     
                        <div class="tag-container-left" id="tag-result-search-pattern-<?php echo $j; ?>">
-                           <ul>
-                               <?php foreach ($patternItems as $key => $item): ?>
-                                   <li><span
-                                           onclick="tag_select_item('pattern', '<?php echo $item; ?>', '<?php echo rand(767, 780); ?>', '<?php echo $j; ?>')"> <?php echo $item; ?></span>
-                                   </li>
-                               <?php endforeach; ?>
+                           <ul>  
+                               <?php if(false): ?>
+                                   <?php foreach ($patternItems as $key => $item): ?>
+                                       <li><span
+                                               onclick="tag_select_item('pattern', '<?php echo $item; ?>', '<?php echo rand(767, 780); ?>', '<?php echo $j; ?>')"> <?php echo $item; ?></span>
+                                       </li>
+                                    <?php endforeach; ?> 
+                                <?php endif; ?>
                            </ul>
                        </div>
+
+                     
                    </li>
                    <li>
                        <div class="tag-container-right" id="tag-color-image">
@@ -1201,16 +1210,19 @@ class Look
            <div class="clear"></div>
            <div class="tag-content">
                <ul class="tag-content-ul">
-                   <li>
+                   <li> 
                        <div class="tag-container-left" id="tag-result-search-material-<?php echo $j; ?>">
                            <ul>
-                               <?php foreach ($materialItems as $key => $item): ?>
-                                   <li><span
-                                           onclick="tag_select_item('material', '<?php echo $item; ?>', '<?php echo rand(767, 780); ?>', '<?php echo $j; ?>')">  <?php echo $item; ?>  </span>
-                                   </li>
-                               <?php endforeach; ?>
+                                <?php if(false): ?>
+                                   <?php foreach ($materialItems as $key => $item): ?>
+                                       <li><span
+                                               onclick="tag_select_item('material', '<?php echo $item; ?>', '<?php echo rand(767, 780); ?>', '<?php echo $j; ?>')">  <?php echo $item; ?>  </span>
+                                       </li>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
                            </ul>
-                       </div>
+                       </div> 
+                       
                    </li>
                    <li>
                        <div class="tag-container-right" id="tag-color-image">
@@ -1235,78 +1247,81 @@ class Look
            <div class="tag-content">
                <ul class="tag-content-ul">
                    <li>
+
+
+                   
                        <div class="tag-container-left" id="tag-result-search-garment-<?php echo $j; ?>">
-
-                           <!-- Main garment category  -->
-                           <table id="tag-result-container-category-garment-<?php echo $j; ?>" class="tag-result-container-category-garment" style="display:block">
-                               <?php foreach($garmentItems as $category => $value): ?>
-                               <tr>
-                                   <td>
-                                       <span id="tag-result-menu-category-garment-<?php echo $category; ?>-<?php echo $j; ?>" onclick="tag_show_category_garment_data('<?php echo $category; ?>', '<?php echo $j ?>', '<?php echo rand(767, 780);; ?>')"> <?php echo $category; ?> </span>
-                                   </td>
-                                   <?php endforeach; ?>
-                           </table>
-
-                           <?php
-                           //main category
-                           foreach($garmentItems as $category => $value): ?>
-                               <!-- sub category -->
-                               <div class="tag-result-container-garment" id="tag-result-container-garment-<?php echo $category; ?>-<?php echo $j; ?>" style="display:none">
-                                   <table class="tag-result-container-garment-sub-category-table">
-                                       <tr>
-                                           <td>
-                                               <div class="tag-sub-category-close" title="open categories"
-                                                    onclick=" tag_hide_show('#tag-result-container-category-garment-<?php echo $j; ?>', '#tag-result-container-garment-<?php echo $category; ?>-<?php echo $j; ?>')">
-                                                   x
-                                               </div>
-                                               <div><?php echo $category; ?></div>
-                                           </td>
-                                   </table>
-                                   <ul>
-                                       <?php
-
-                                       //sub category
-                                       foreach($value as $subCategory => $value1): ?>
-                                           <li>
-                                            <span
-                                                onclick="tag_open_garmennt_sub_category('<?php echo rand(767, 780) ?>', '<?php echo $j ?>', '#tag-result-garment-sub-categories-content-<?php echo $category; ?>-<?php echo $subCategory; ?>-<?php echo $j ?>', '#tag-result-container-garment-<?php echo $category; ?>-<?php echo $j ?>')"> <?php echo $subCategory; ?> </span>
-                                           </li>
+                            <?php if(false): ?>
+                               <!-- Main garment category  -->
+                               <table id="tag-result-container-category-garment-<?php echo $j; ?>" class="tag-result-container-category-garment" style="display:block">
+                                   <?php foreach($garmentItems as $category => $value): ?>
+                                   <tr>
+                                       <td>
+                                           <span id="tag-result-menu-category-garment-<?php echo $category; ?>-<?php echo $j; ?>" onclick="tag_show_category_garment_data('<?php echo $category; ?>', '<?php echo $j ?>', '<?php echo rand(767, 780);; ?>')"> <?php echo $category; ?> </span>
+                                       </td>
                                        <?php endforeach; ?>
+                               </table>
 
-                                   </ul>
-                               </div>
-
-                               <?php   foreach($value as $subCategory => $value1): ?>
-                                   <!-- sub category content -->
-                                   <div id="tag-result-garment-sub-categories-content-<?php echo  $category;  ?>-<?php echo  $subCategory;  ?>-<?php echo $j ?>" style="display:none">
+                               <?php
+                               //main category
+                               foreach($garmentItems as $category => $value): ?>
+                                   <!-- sub category -->
+                                   <div class="tag-result-container-garment" id="tag-result-container-garment-<?php echo $category; ?>-<?php echo $j; ?>" style="display:none">
                                        <table class="tag-result-container-garment-sub-category-table">
                                            <tr>
                                                <td>
-                                                   <div class="tag-sub-category-close" title="open sub categories"
-                                                        onclick="tag_hide_show('#tag-result-container-garment-<?php echo  $category;  ?>-<?php echo $j; ?>', '#tag-result-garment-sub-categories-content-<?php echo  $category;  ?>-<?php echo  $subCategory;  ?>-<?php echo $j ?>')">
+                                                   <div class="tag-sub-category-close" title="open categories"
+                                                        onclick=" tag_hide_show('#tag-result-container-category-garment-<?php echo $j; ?>', '#tag-result-container-garment-<?php echo $category; ?>-<?php echo $j; ?>')">
                                                        x
                                                    </div>
-                                                   <div id=""><?php echo  $subCategory;  ?></div>
+                                                   <div><?php echo $category; ?></div>
                                                </td>
                                        </table>
                                        <ul>
-                                           <?php  foreach($value1 as $key2 => $subCategoryContent): ?>
+                                           <?php
+
+                                           //sub category
+                                           foreach($value as $subCategory => $value1): ?>
                                                <li>
-                                                   <span onclick="tag_select_item('garment', '<?php echo $subCategoryContent; ?>', '<?php echo rand(767, 780); ?>', '<?php echo $j; ?>')"> <?php echo $subCategoryContent; ?>  </span>
+                                                <span
+                                                    onclick="tag_open_garmennt_sub_category('<?php echo rand(767, 780) ?>', '<?php echo $j ?>', '#tag-result-garment-sub-categories-content-<?php echo $category; ?>-<?php echo $subCategory; ?>-<?php echo $j ?>', '#tag-result-container-garment-<?php echo $category; ?>-<?php echo $j ?>')"> <?php echo $subCategory; ?> </span>
                                                </li>
-                                           <?php  endforeach; ?>
+                                           <?php endforeach; ?>
+
                                        </ul>
                                    </div>
-                               <?php endforeach; ?>
 
-                           <?php
-                           endforeach;
-                           ?>
+                                   <?php   foreach($value as $subCategory => $value1): ?>
+                                       <!-- sub category content -->
+                                       <div id="tag-result-garment-sub-categories-content-<?php echo  $category;  ?>-<?php echo  $subCategory;  ?>-<?php echo $j ?>" style="display:none">
+                                           <table class="tag-result-container-garment-sub-category-table">
+                                               <tr>
+                                                   <td>
+                                                       <div class="tag-sub-category-close" title="open sub categories"
+                                                            onclick="tag_hide_show('#tag-result-container-garment-<?php echo  $category;  ?>-<?php echo $j; ?>', '#tag-result-garment-sub-categories-content-<?php echo  $category;  ?>-<?php echo  $subCategory;  ?>-<?php echo $j ?>')">
+                                                           x
+                                                       </div>
+                                                       <div id=""><?php echo  $subCategory;  ?></div>
+                                                   </td>
+                                           </table>
+                                           <ul>
+                                               <?php  foreach($value1 as $key2 => $subCategoryContent): ?>
+                                                   <li>
+                                                       <span onclick="tag_select_item('garment', '<?php echo $subCategoryContent; ?>', '<?php echo rand(767, 780); ?>', '<?php echo $j; ?>')"> <?php echo $subCategoryContent; ?>  </span>
+                                                   </li>
+                                               <?php  endforeach; ?>
+                                           </ul>
+                                       </div>
+                                   <?php endforeach; ?>
 
+                               <?php
+                               endforeach;
+                               ?>
+                           <?php endif; ?>
 
                        </div>
                        <div class="clear"></div>
-
+                   
                    </li>
                    <li>
                        <div class="tag-container-right" id="tag-color-image">
@@ -1323,11 +1338,11 @@ class Look
        </div>
        <div class="tag-row-container" id="tag-row-container-price-<?php echo $j ?>" style="display:none">
            <input type="text" id="tag-field-price-<?php echo $j ?>" placeholder="Price" class="tag-field-input"
-                  onkeyup="tag_select_item('price', '<?php echo "price name $k" ?>', '<?php echo rand(767, 780); ?>', '<?php echo $j; ?>')">
+                  onkeyup="tag_select_item('price', '', '<?php echo rand(767, 780); ?>', '<?php echo $j; ?>')">
        </div>
        <div class="tag-row-container" id="tag-row-container-url-<?php echo $j ?>" style="display:none">
            <input type="text" id="tag-field-url-<?php echo $j ?>" placeholder="Url" class="tag-field-input"
-                  onkeyup="tag_select_item('url', '<?php echo "price name $k" ?>', '<?php echo rand(767, 780); ?>', '<?php echo $j; ?>')">
+                  onkeyup="tag_select_item('url', '', '<?php echo rand(767, 780); ?>', '<?php echo $j; ?>')">
        </div>
        </div>
        </div>

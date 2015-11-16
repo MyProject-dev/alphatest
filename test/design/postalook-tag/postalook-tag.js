@@ -104,6 +104,10 @@ function tag_select_color(rowName, color_name, color_html, tagNum) {
 }
 function tag_select_item(rowName, brand_name, brand_id, tagNum) {
 
+
+    console.log('id ' + brand_id);
+ 
+
     var imageView = true;
 
     if (rowName == 'price' || rowName == 'url') {
@@ -123,10 +127,26 @@ function tag_select_item(rowName, brand_name, brand_id, tagNum) {
     //add brand for field saving database
     $('#tag-color-database-data-' + rowName + '-' + tagNum).val(brand_name);
 
-    if (imageView == true) {
-        //display image of the brand
-        $('#tag-color-image-' + rowName + '-' + tagNum).attr('src', 'http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads/brands/' + brand_id + '_brand.jpg');
+    //This will prevent image showing when new item name is suggested
+    if(brand_id == 0){
+        return;
     }
+    
+    //set img src
+    if(rowName == 'brand') { 
+        var srcImg = $('#postalook-tag-preivew-path').text() + '/' + rowName + 's/' + brand_id + '_brand.jpg';
+    } else {
+        var srcImg = $('#postalook-tag-preivew-path').text() + '/' + rowName + '/' + brand_id + '.jpg';
+    }
+
+    console.log('src img ' + srcImg);
+
+    //display image preview
+    if (imageView == true) {  
+        $('#tag-color-image-' + rowName + '-' + tagNum).attr('src',  srcImg);
+    }
+
+
 }
 function tag_add_price_url(tagNum) {
 }

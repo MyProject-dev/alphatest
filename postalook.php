@@ -163,12 +163,13 @@ if (!empty($_SESSION['adm_no'])) {
 					PopupCenter("http://twitter.com/share?url=http://fashionsponge.com/fs/lookdetails.php?id=<?php echo $rs[0]; ?>&text="+lName+"\n","",660,330);
 				}
 			}
-		</script>
+		</script> 
 
-
-
-
-
+		<?php if(isLocal()) { ?> 
+			<div id="postalook-tag-preivew-path" style="display:none" >http://dev.fashionsponge.com/fs_folders/images/uploads</div>
+		<?php } else { ?>
+			<div id="postalook-tag-preivew-path" style="display:none" >http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads</div> 
+		<?php } ?> 
 
 	</head>
 

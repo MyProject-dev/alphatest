@@ -863,4 +863,18 @@
 	    // $text = str_replace('.', ' ', $text); 
 	    return $text;
 	}
+
+	function isLocal()
+	{
+	  	// return !checkdnsrr($_SERVER['SERVER_NAME'], 'NS'); 
+    	// return checkdnsrr('http://fashionsponge.com/', 'ANY');	
+
+		// echo " " . $_SERVER['HTTP_HOST'];
+    	if ($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['HTTP_HOST'] == '192.168.1.126') {
+ 			return false;
+ 		} else {
+ 			return true;
+ 		} 
+
+	}
 ?>

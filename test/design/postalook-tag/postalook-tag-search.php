@@ -1,9 +1,65 @@
-<?php if($_GET['rowName'] == 'garment') {  $j = 0; ?>
+<?php  
+    require ('../../../fs_folders/php_functions/Database/Database.php'); 
+    $database = new Database();
+    $database->connect(); 
+
+    $rowName = (!empty($_GET['rowName'])) ? $_GET['rowName'] : '';
+    $keyword = (!empty($_GET['keyword'])) ? $_GET['keyword'] : ''; 
+    $tagNum  = (!empty($_GET['tagNum']))  ?  $_GET['tagNum'] : ''; 
+
+
+    if(empty($keyword)) { 
+        echo "Type something to see suggestions..";
+        exit; 
+    }
+  
+    if($rowName == 'brand') { 
+
+        $tableName = 'fs_brands';
+        $keyName = 'bname';
+        $keyId   = 'bno';
+
+    } else {
+
+        $tableName = 'fs_tag_' . $rowName;
+        $keyName = 'name';
+        $keyId   = 'id';  
+
+    }
+
+    $database->select($tableName, '*', null,  " $keyName LIKE '%$keyword%'",  " $keyId desc",  25);
+    $response = $database->getResult();
+
+    if(!$response) { 
+        ?> 
+
+        Please click 
+        <em style='color:black; cursor: pointer' onclick="tag_select_item('<?php echo $rowName ?>', '<?php echo $keyword; ?>',  '0', '<?php echo $tagNum; ?>')" >
+            <?php echo $keyword; ?>
+        </em> 
+          If you think this <?php echo $rowName; ?> is <br> for this tag. 
+        <?php 
+    }   
+    $response_total = count($response);   
+?>
+
+
+  
+
+
+
+
+
+ 
+
+
+ 
+<?php if($rowName == 'garment1') {  $j = 0; ?>
 
     <div  class="clear" > Clothing </div>
     <ul>
         <?php for($k=0; $k<rand(0,5); $k++) { ?>
-            <li> <span onclick="tag_select_item('<?php echo $_GET['rowName'] ?>', '<?php echo $_GET['rowName'] . " name $k" ?>',  '<?php echo rand(767,780); ?>', '<?php echo $_GET['tagNum']  ?>')" > <?php echo $_GET['rowName']; ?> name  <?php echo $k; ?> </span> </li>
+            <li> <span onclick="tag_select_item('<?php echo $rowName ?>', '<?php echo $rowName . " name $k" ?>',  '<?php echo rand(767,780); ?>', '<?php echo $_GET['tagNum']  ?>')" > <?php echo $rowName; ?> name  <?php echo $k; ?> </span> </li>
         <?php } ?>
     </ul>
 
@@ -36,11 +92,14 @@
             <li> <span onclick="tag_select_item('<?php echo $_GET['rowName'] ?>', '<?php echo $_GET['rowName'] . " name $k" ?>',  '<?php echo rand(767,780); ?>', '<?php echo $_GET['tagNum']  ?>')" > <?php echo $_GET['rowName']; ?> name  <?php echo $k; ?> </span> </li>
         <?php } ?>
     </ul>
-<?php } else { ?>
-
+<?php } else { ?> 
 <ul>
-    <?php for($k=0; $k<rand(30,50); $k++) { ?>
-        <li> <span onclick="tag_select_item('<?php echo $_GET['rowName'] ?>', '<?php echo $_GET['rowName'] . " name $k" ?>',  '<?php echo rand(767,780); ?>', '<?php echo $_GET['tagNum']  ?>')" > <?php echo $_GET['rowName']; ?> name  <?php echo $k; ?> </span> </li>
+    <?php for($k=0; $k<$response_total; $k++) { ?>
+
+        <?php $name = $response[$k][$keyName];  ?> 
+        <?php $id = $response[$k][$keyId];  ?>
+        <li> <span onclick="tag_select_item('<?php echo $rowName ?>', '<?php echo $name; ?>',  '<?php echo $id; ?>', '<?php echo $tagNum; ?>')" > <?php echo $name; ?> </span> </li>
+
     <?php } ?>
 </ul>
 
