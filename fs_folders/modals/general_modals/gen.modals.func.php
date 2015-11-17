@@ -713,8 +713,7 @@ LookbookDatabase::$database = $db;
 	 			 					$isAgreed      = $_REQUEST['isAgreed']; 
 
 
-
-
+ 
 	 			 				echo " modal attribute insert <br>";
 
 
@@ -875,8 +874,26 @@ LookbookDatabase::$database = $db;
 									// $mc->print_r1( $material );
 									// $mc->print_r1( $pattern );
 									// $mc->print_r1( $pos_x_y );
-	  
-								// insert tags 
+	  							
+ 
+
+								// insert tags  
+									$tagRowName = array (
+										'fs_brands' => array('rowId' => 'bno', 'rowName' => 'bname'),
+										'fs_tag_garment' => array('rowId' => 'id', 'rowName' => 'name'),
+										'fs_tag_material' => array('rowId' => 'id', 'rowName' => 'name'),	
+										'fs_tag_pattern' => array('rowId' => 'id', 'rowName' => 'name'),	
+										'fs_tag_price' => array('rowId' => 'id', 'rowName' => 'name'),	
+										'fs_tag_url' => array('rowId' => 'id', 'rowName' => 'name') 
+							 		); 
+							 		$tagRowVal = array(
+										'fs_brands' =>  '',
+										'fs_tag_garment' =>  '',
+										'fs_tag_material' =>  '',
+										'fs_tag_pattern' =>  '',
+										'fs_tag_price' =>  '',
+										'fs_tag_url' => '' 
+							 		); 
 
 									for ($i=0; $i < $len ; $i++) {  
 
@@ -911,9 +928,76 @@ LookbookDatabase::$database = $db;
 												$price_ 	    = $price[$i];
 												$purchased_at_ 	= $purchased_at[$i];
 												$x_ 		    = $x;
-												$y_ 		    = $y;
-									 
-	 				
+												$y_ 		    = $y;  
+ 	
+
+
+												echo "brand = $brand_ <br>";
+
+												$tagRowVal = array(
+													'fs_brands' => array('name' =>  $brand_),
+													'fs_tag_garment' => array('name' => $garment_),
+													'fs_tag_material' => array('name' => $material_),
+													'fs_tag_pattern' => array('name' => $pattern_),
+													'fs_tag_price' => array('name' => $price_),
+													'fs_tag_url' =>  array('name' => $purchased_at_),
+										 		); 
+										 		 
+												//check if exists eveything then ensert it.  
+												foreach ($tagRowName as $tableName => $value) {    
+
+														$rowId = $value['rowId'];
+														$rowName = $value['rowName'];
+
+														$itemName = $tagRowVal[$tableName]['name'];
+                                                        $database->select($tableName, '*', '', "$rowName = '$itemName'");
+//                                                        $response = $database->getResult();
+
+                                                    	if(!$database->selectV1($tableName, '*', "$rowName = '$itemName'")) {
+
+
+
+                                                    		//not exist then insert it 
+                                                    		echo "table name = $tableName  to be insert item name == $itemName row name is = " . $rowName . '<br> ';
+                                                    	
+
+                                                    		 if($database->insert($tableName, array($rowName => $itemName))){
+                                                                 echo "new data has been inserted <br>";
+                                                             } else {
+                                                                 echo "failed to insert <br>";
+                                                             }
+                                                    	} else {
+                                                    		//exist do nothing
+                                                    		echo "do nothing table name = $tableName   item name == $itemName row name is = " . $rowName . '<br> ';
+                                                    	} 
+												} 
+
+												//check if brand exist
+
+												//check if garment exist
+
+												//check if material exist
+
+												//check if pattern exit
+
+												//check if price exist
+
+												//check if purchased at exist  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	 										echo " insert purchased_at = " . $purchased_at_ . '<br>';

@@ -6536,7 +6536,7 @@ function modal ( action , process , type , loader , response , textfieldid , val
     var title_id   = '.look_name'  ,
         desc_id = '.textarea' ,
         article_id = '.look-article-field' ,
-        brand_id = '#brand' ,
+        brand_id = '#tag-color-database-data-brand-' ,
         garment_id = '#tag-color-database-data-garment-' ,
         material_id='#tag-color-database-data-material-' ,
         pattern_id = '#tag-color-database-data-pattern-',
@@ -6649,6 +6649,9 @@ function modal ( action , process , type , loader , response , textfieldid , val
                 // alert( 'title = '+title+' desc = '+ desc+' article = '+article+' color = '+color+' brand = '+brand+' garment = '+garment+' material = '+material+' pattern = '+pattern+' pos_x_y = '+pos_x_y+' style = '+style+' occasion = '+occasion+' season = '+season+' keyword = '+keyword );
 
                 // initialize data
+
+
+                // alert(brand);
 
                  data = 'action='+action+'&process='+process+'&type='+type+'&color='+color+'&brand='+brand+'&garment='+garment+'&material='+material+'&pattern='+pattern+'&price='+price+'&purchased_at='+purchased_at+'&pos_x_y='+pos_x_y+'&style='+style+'&occasion='+occasion+'&season='+season+'&keyword='+keyword+'&title='+title+'&desc='+desc+'&article='+article+'&method='+method+'&table_id='+table_id+'&isAgreed='+isAgreed;
                  data1 = 'fs_folders/modals/general_modals/gen.modals.func.php?'+data;
