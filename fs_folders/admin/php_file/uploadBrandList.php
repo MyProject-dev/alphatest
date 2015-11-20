@@ -5,6 +5,9 @@
  * Date: 9/8/2015
  * Time: 5:59 PM
  */
+require '../../../fs_folders/php_functions/connect.php';
+
+require '../../../fs_folders/php_functions/function.php';
 ?>
 <html>
 <head>
@@ -63,24 +66,44 @@
                     </select>
                 </td>
                 <td>
+
+
+                    <?php
+                    $brandCategory = select_v3('fs_brand_category', 'DISTINCT bc_name', 'bcno > 0');
+                    
+                    // print_r($brandCategory);
+                    // exit; 
+                    ?>
+
+
                     <select name="brand_category_name" id="brand_category_name" >
                         <option>Select category name </option>
-                        <option>Bohemian</option>
-                        <option>Casual</option>
-                        <option>Chic</option>
-                        <option>Grunge</option>
-                        <option>Menswear</option>
-                        <option>Preppy</option>
-                        <option>Streetwear</option>
+                         <?php 
+
+                            for($i=0; $i<count($brandCategory); $i++) {  
+                                $name = $brandCategory[$i]['bc_name'];
+                                echo "<option>$name</option>";
+                            }
+                        ?>
                     </select>
                 </td>
                 <td>
+
+                <?php
+                    $topicCategory = select_v3('fs_tag_topic_category', '*', 'id > 0');
+                  
+                ?>
                     <select name="topic_category_name" id="topic_category_name" style="display:none" >
                         <option>Select topic</option>
-                        <option>Beauty</option>
-                        <option>Entertainment</option>
-                        <option>Fashion</option>
-                        <option>Lifestyle</option>
+                        <?php 
+
+                            for($i=0; $i<count($topicCategory); $i++) {  
+                                $name = $topicCategory[$i]['name'];
+                                echo "<option>$name</option>";
+                            }
+                        ?>
+                        
+                         
                     </select>
                 </td>
                 <td>

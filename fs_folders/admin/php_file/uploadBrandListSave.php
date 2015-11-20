@@ -3,7 +3,8 @@
     require("../../../fs_folders/php_functions/function.php");
     require("../../../fs_folders/php_functions/myclass.php");
     require("../../../fs_folders/php_functions/library.php");
-    require("../../../fs_folders/php_functions/source.php");
+    require("../../../fs_folders/php_functions/source.php");  
+ 
 
     /**
      * Created by PhpStorm.
@@ -63,18 +64,37 @@ echo "<br>
 
         if ($brand_type == 'topic') {
 
-            $db->select('fs_brand_category', '*', '', "bc_name =  '$bc_name' and type  = 'topic' ");
+//            $db->select('fs_brand_category', '*', '', "bc_name =  '$bc_name' and type  = 'topic' ");
+
+
+
+            
+            $db->select('fs_tag_topic_category', '*', '', "name =  '$bc_name'");
+            $bcno = $db->getResult()[0]['id'];
+            // change to fs_tag_brand_category 
+            // return brand category id 
+            
+
         } else {
             $db->select('fs_brand_category', '*', '', "bc_name =  '$bc_name' and  gender = '$gender' and type  = 'brand' ");
+             $bcno = $db->getResult()[0]['bcno'];
+             echo " brand category no = " . $bcno . '<br>';
+
         }
 
-        $bcno = $db->getResult()[0]['bcno'];
-        echo " brand category no = " . $bcno . '<br>';
-
+       
         // Explode string data
         // remove front and last spaces
         // insert each data with the specific category and gender
 
+
+            //check if new topic is not with topic name and topic category id 
+ 
+            //if not exist
+               //then insert new topic with topic name and topic category id
+
+            //else 
+               //done insert
         if (!empty($bcno)) {
 
             $string = explode(',', $data);
@@ -83,8 +103,28 @@ echo "<br>
                 // Insert brand where brand name not exist
                 // Print status of the brand
                 // brand name "Success or failed to add add reason for failed."
-                if (!empty($bname)) {
-                    echo "bname = $bname bcno = $bcno <br>";
+
+                if($brand_type == 'topic') {
+                    if (!empty($bname)) {
+
+                        echo __LINE__ . "  topic name is  empty<br>";
+
+                        $db->select('fs_tag_topic', '*', '', "name = '$bname' and topic_category_id = $bcno");
+
+                        $id = $db->getResult()[0]['id'];
+                        if (empty($id)) { 
+                            echo __LINE__ . " $bname added <br>";
+                            $db->insert('fs_tag_topic', array('name' => $bname, 'topic_category_id' => $bcno));
+                        } else {
+                            echo __LINE__ . "  topic  is exist <br>";
+                        }
+                    }
+                } else if (!empty($bname)) {
+
+
+                    echo "bname = $bname bcno = $bcno 1 <br>";
+
+
                     $b = $db->select('fs_brands', '*', '', "bname = '$bname' and  bcno = '$bcno' ");
                     $tres = $db->numRows();
                     echo "tres $tres <br>";
@@ -105,11 +145,18 @@ echo "<br>
                         } else {
                             echo "Failed inserted $bname <br>";
                         }
-                    }
+                    } 
+
+
                 }
             }
             $_SESSION['error'] = "List successfully uploaded<br>";
-            $redirect = 'uploadBrandPhoto.php';
+
+
+
+            $redirect = 'http://dev.fashionsponge.com/admindashboard?p=uploadbrands';
+
+
         } else {
             echo " Category = $bc_name and gender = $gender not found <br>";
             $_SESSION['error'] = " Category = $bc_name and gender = $gender not found <br>";
@@ -120,6 +167,10 @@ echo "<br>
         $_SESSION['error'] = "Please select where to display this $brand_type. <br>";
         //$redirect = 'http://localhost/fs/new_fs/alphatest/admindashboard?p=uploadbrands';
         $redirect = 'http://dev.fashionsponge.com/admindashboard?p=uploadbrands';
+
+        
     }
+
+exit;
     $mc->go($redirect) ;
 ?>
