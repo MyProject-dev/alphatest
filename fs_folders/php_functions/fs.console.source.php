@@ -21154,7 +21154,7 @@ class scrape{
 
 
 function revoveDuplicateSingleArray($occasion) { 
-	$occasion = str_replace(' ', '', $occasion);
+	// $occasion = str_replace(' ', '', $occasion);
 	$occasion1  =  explode(',', $occasion);  
 	$o  = array_unique(  $occasion1 ); 
     $occasion = implode($occasion, ','); 

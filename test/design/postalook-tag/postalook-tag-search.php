@@ -8,10 +8,9 @@
     $tagNum  = (!empty($_GET['tagNum']))  ?  $_GET['tagNum'] : ''; 
 
 
-    if(empty($keyword)) { 
-        echo "Type something to see suggestions..";
-        exit; 
-    }
+    
+
+    echo " tagNum = $tagNum  <BR>";
   
     if($rowName == 'brand') { 
 
@@ -26,8 +25,17 @@
         $keyId   = 'id';  
 
     }
+ 
+     // echo " select * from $tableName where $keyName LIKE '%$keyword%' order by $keyId desc limit 25";
+    
 
-    $database->select($tableName, '*', null,  " $keyName LIKE '%$keyword%'",  " $keyId desc",  25);
+    if(empty($keyword)) { 
+        $database->select($tableName, '*', null,  " $keyId > 0",  " $keyId desc",  25); 
+    } else {
+        $database->select($tableName, '*', null,  " $keyName LIKE '%$keyword%'",  " $keyId desc",  25);
+    }
+
+    
     $response = $database->getResult();
 
     if(!$response) { 
@@ -98,7 +106,7 @@
 
         <?php $name = $response[$k][$keyName];  ?> 
         <?php $id = $response[$k][$keyId];  ?>
-        <li> <span onclick="tag_select_item('<?php echo $rowName ?>', '<?php echo $name; ?>',  '<?php echo $id; ?>', '<?php echo $tagNum; ?>')" > <?php echo $name; ?> </span> </li>
+        <li> <span  onmouseover=" mouseOverImagePreview('<?php echo $rowName; ?>', '<?php echo  $id; ?>', '<?php echo $tagNum; ?>')" onclick="tag_select_item('<?php echo $rowName ?>', '<?php echo $name; ?>',  '<?php echo $id; ?>', '<?php echo $tagNum; ?>')" > <?php echo $name; ?> </span> </li>
 
     <?php } ?>
 </ul>

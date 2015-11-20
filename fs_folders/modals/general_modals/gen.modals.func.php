@@ -725,6 +725,7 @@ LookbookDatabase::$database = $db;
 								   // print_r($result);
 
 
+	 			 					$occasion1 = $occasion; 
 
 	 			 					$occasion = revoveDuplicateSingleArray($occasion);  
 								    $occasion = implode($occasion, ','); 
@@ -786,7 +787,7 @@ LookbookDatabase::$database = $db;
 									$category 	   = $style;
 
 
-									echo " url = " . $purchased_at . "<br>";
+									// echo " url = " . $purchased_at . "<br>";
 
 
 
@@ -874,8 +875,83 @@ LookbookDatabase::$database = $db;
 									// $mc->print_r1( $material );
 									// $mc->print_r1( $pattern );
 									// $mc->print_r1( $pos_x_y );
-	  							
+								
+
+
+								//add if not exist style
+								$tableName = 'fs_tag_style'; 
+								$rowName = 'name';
+
+								if(!$database->selectV1($tableName, '*', "name = '$style'")) {
+
+                    				 if($database->insert($tableName, array($rowName => $style))){
+                                         echo "new data has been inserted <br>";
+                                     } else {
+                                         echo "failed to insert <br>";
+                                     } 
+                             	}
+
+
+
+
+
+								// ADD  SEASON   IF NOT EXIST
+
+                             	echo " occasion string $occasion <br>";
+                                $occasionArray = explode(',', $occasion);
+								foreach ($occasionArray as $key => $itemName1) {
+									$tableName = 'fs_tag_occasion';
+									$rowName = 'name';
+		            				echo " data to be check  $itemName1 <br> ";
+		            				if(!empty($tableName)) {  
+		                				if(!$database->selectV1($tableName, '*', "name = '$itemName1'")) {
+
+		                    				 if($database->insert($tableName, array($rowName => $itemName1))){
+		                                         echo "new data has been inserted <br>";
+		                                     } else {
+		                                         echo "failed to insert <br>";
+		                                     } 
+		                             	}
+		                         	} else {
+		                        		//exist do nothing
+		                        		echo "do nothing table name = $tableName   item name == $itemName1 row name is = " . $rowName . '<br> ';
+		                        	} 	
+		            			}
+
+
+
+		            			//ADD SEASON IF NOT EXIST
+                                echo " occasion string $occasion <br>";
+                                $seasonArray = explode(',', $season);
+		            			foreach ($seasonArray as $key => $itemName1) {
+									$tableName = 'fs_tag_season';
+									$rowName = 'name';
+		            				echo " data to be check  $itemName1 <br> ";
+		            				if(!empty($tableName)) {  
+		                				if(!$database->selectV1($tableName, '*', "name = '$itemName1'")) {
+
+		                    				 if($database->insert($tableName, array($rowName => $itemName1))){
+		                                         echo "new data has been inserted <br>";
+		                                     } else {
+		                                         echo "failed to insert <br>";
+		                                     } 
+		                             	}
+		                         	} else {
+		                        		//exist do nothing
+		                        		echo "do nothing table name = $tableName   item name == $itemName1 row name is = " . $rowName . '<br> ';
+		                        	} 	
+		            			}
+
+
+
+
+
  
+
+
+
+
+
 
 								// insert tags  
 									$tagRowName = array (
@@ -940,7 +1016,7 @@ LookbookDatabase::$database = $db;
 													'fs_tag_material' => array('name' => $material_),
 													'fs_tag_pattern' => array('name' => $pattern_),
 													'fs_tag_price' => array('name' => $price_),
-													'fs_tag_url' =>  array('name' => $purchased_at_),
+													'fs_tag_url' =>  array('name' => $purchased_at_) 
 										 		); 
 										 		 
 												//check if exists eveything then ensert it.  
@@ -950,11 +1026,11 @@ LookbookDatabase::$database = $db;
 														$rowName = $value['rowName'];
 
 														$itemName = $tagRowVal[$tableName]['name'];
-                                                        $database->select($tableName, '*', '', "$rowName = '$itemName'");
+                                                        // $database->select($tableName, '*', '', "$rowName = '$itemName'");
 //                                                        $response = $database->getResult();
 
-                                                    	if(!$database->selectV1($tableName, '*', "$rowName = '$itemName'")) {
-
+ 
+                                            			if(!$database->selectV1($tableName, '*', "$rowName = '$itemName'")) {
 
 
                                                     		//not exist then insert it 
@@ -966,10 +1042,11 @@ LookbookDatabase::$database = $db;
                                                              } else {
                                                                  echo "failed to insert <br>";
                                                              }
-                                                    	} else {
+                                                     	} else {
                                                     		//exist do nothing
                                                     		echo "do nothing table name = $tableName   item name == $itemName row name is = " . $rowName . '<br> ';
-                                                    	} 
+                                                    	} 	 
+                                                    	
 												} 
 
 												//check if brand exist

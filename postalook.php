@@ -167,9 +167,13 @@ if (!empty($_SESSION['adm_no'])) {
 
 		<?php if(isLocal()) { ?> 
 			<div id="postalook-tag-preivew-path" style="display:none" >http://dev.fashionsponge.com/fs_folders/images/uploads</div>
+            <?php $_SESSION['tagPath'] = 'http://dev.fashionsponge.com/fs_folders/images/uploads' ?>
 		<?php } else { ?>
 			<div id="postalook-tag-preivew-path" style="display:none" >http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads</div> 
-		<?php } ?> 
+		    <?php $_SESSION['tagPath'] = 'http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads' ?>
+
+
+        <?php } ?>
 
 	</head>
 
@@ -544,157 +548,40 @@ if (!empty($_SESSION['adm_no'])) {
 																					 				<td> <div style="padding-bottom:10px;margin-left:4px; display:none" > Tags </div> </td>
 																						 		<tr>
 																						 			<td style="background:white; border:1px solid white" >
-																						 				<div>
-																						 					<select  style="width:100%;padding:5px;border:none;" id="style"   >
-																						 						<option>Select</option>
-													                                                            <option <?php echo $modal['selected4']; ?>>Bohemian</option>
-													                                                            <option <?php echo $modal['selected5']; ?>>Casual</option>
-													                                                            <option <?php echo $modal['selected0']; ?>>Chic</option>
-													                                                            <option <?php echo $modal['selected6']; ?>>Formal</option>
-													                                                            <option <?php echo $modal['selected7']; ?>>Grunge</option>
-													                                                            <option <?php echo $modal['selected1']; ?>>Menswear</option>
-													                                                            <option <?php echo $modal['selected2']; ?>>Preppy</option>
-													                                                            <option <?php echo $modal['selected3']; ?>>Streetwear</option>
-																											</select>
-																										</div>
+																						 				 <?php $look->designPostAlookStyle(); ?>
+																						 			</td>
+ 
+
+																						 			<td style="background:white; border:1px solid white" > 
+																						 			<?php $look->designPostAlookOccasion($season); ?>
+
+																						 			 		
+  																										    <input style="display:none; width:100%;display:none; visibility:hidden; border:1px solid none; "  type='text' value='<?php  echo $occasion; ?>' id='input345' class='occasion hide'    placeholder='Where can you wear this?'  onclick="hide_all_open_dropdown('none','res_occasion','none')"; >
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
 																						 			</td>
 																						 			<td style="background:white; border:1px solid white" >
 
-																										<input style="width:100%;display:none; visibility:hidden; border:1px solid none; "  type='text' value='<?php  echo $occasion; ?>' id='input345' class='occasion'    placeholder='Where can you wear this?'  onclick="hide_all_open_dropdown('none','res_occasion','none')"; >
+																						 					<?php $look->designPostAlookSeason($season); ?> 
 
 
-
-																										<div class='res_occasion' id='res_occasion' style="visibility:hidden" >
-																											<?php
-																												$a = array('Amusement Park','Baby Shower','BBQ','Beach','Birthday Dinner','Blind Date','Bridal Shower','Brunch','Casual Party','Clubbing','Cocktail','College','Company Event','Conference','Dinner Date','Dinner Party','Everyday','Formal Event','High School','Internship','Interview','Lunch Date','Movie Night','Music Concert','Photo shoot','Picnic','Pool Party','Prom','Romantic Dinner','Theater / Play / Opera','Wedding','Wine Tasting','Work');
-																												$c=0;
-																												echo "<span onclick='close_x()'   class='x_out'  title='(close)' >x</span>";
-																												echo " <br> <center> <span>Occasion </span></center> <br>";
-																												echo "<table border=0>" ;
-																												for ($i=0; $i < count($a) ; $i++) {
-																													$c++;
-																													$b=$a[$i];
-																													echo "<td><p onclick='hide_x_beore_accasion_name(\"$i\");remove_Selected_taggs(\"$b\")'  id='remove_tags_$i' class='remove_tags_occasion'>x</p></td>
-																													<td onclick='get_clicked_accation(\"$b\",\"$i\")' style=''   >   $b </td>
-																													";
-																													if ($c%5==0) {
-																														echo "<tr>";
-																													}
-																												}
-																												echo "</table>";
-																											?>
-																										</div>
-
-																										<!--  new version -->
-																											<input
-																												value="<?php echo $modal['occasion']; ?>"
-																												style="width:100%; padding:5px;border:none"
-																												id="occasion"
-																												class="occasion"
-																												placeholder='Where can you wear this?'
-																												title="put a comma after word to add tag."
-																												type='text'
-																												onkeyup="modal( 'modal-attribute' , 'search' , 'occasion' , 'autocomplete-dropdown-loader-occasion' , 'autocomplete-dropdown-container-occasion' , 'occasion' , '' , true )"
-																												onClick="show('#autocomplete-dropdown-container-occasion-1, #label-look-dropdown-container')"
-																											/>
-
-
-																						 					<!-- <div id="label-look-dropdown-container" style="margin-top:33px;width:243px;" >
-																											    <div class="autocomplete-dropdown-container" id="autocomplete-dropdown-container-occasion"  >  
-																											    	<center><div id="autocomplete-dropdown-loader-cotainer"  class="autocomplete-dropdown-loader-cotainer-occasion"   >  <?php $mc->image( array( 'type'=>'loader' , 'id'=>"autocomplete-dropdown-loader-occasion" ,'style'=>'visibility:visible;height:10px;'  ) ); ?></div></center>
-																											    </div> 
-																											</div>  -->
-
-
-																											<div id="label-look-dropdown-container" style="margin-top:33px;width:243px; display:none" >
-																											    <div class="autocomplete-dropdown-container" id="autocomplete-dropdown-container-occasion-1" style="display:none" >
-
-																											    	 <center>
-																												    	 <div id="autocomplete-dropdown-loader-cotainer"  class="autocomplete-dropdown-loader-cotainer-occasion"   >
-																												    	 	<div style="display:block; width: 244px;color:none;margin-left: -5px;">
-
-
-																														        <table border="0" cellpadding="0" cellspacing="0">
-																														            <tbody>
-																														            	<tr> <td onclick="modal( 'get-value-selected' , '' , '' , '' , 'autocomplete-dropdown-container-occasion' , occasion , 'conference, ' , '1' )">conference</td>
-																													        			</tr><tr> <td onclick="modal( 'get-value-selected' , '' , '' , '' , 'autocomplete-dropdown-container-occasion' , occasion , 'company event, ' , '1' )">company event</td>
-																													        			</tr><tr> <td onclick="modal( 'get-value-selected' , '' , '' , '' , 'autocomplete-dropdown-container-occasion' , occasion , 'college, ' , '1' )">college</td>
-																													        			</tr><tr> <td onclick="modal( 'get-value-selected' , '' , '' , '' , 'autocomplete-dropdown-container-occasion' , occasion , 'cocktail, ' , '1' )">cocktail</td>
-																													        			</tr><tr> <td onclick="modal( 'get-value-selected' , '' , '' , '' , 'autocomplete-dropdown-container-occasion' , occasion , 'clubbing, ' , '1' )">clubbing</td>
-																													        			</tr><tr> <td onclick="modal( 'get-value-selected' , '' , '' , '' , 'autocomplete-dropdown-container-occasion' , occasion , 'casual party, ' , '1' )">casual party</td>
-																													        			</tr><tr>
-																													        			</tr>
-																												        			</tbody>
-																												        		</table>
-																								 			 				</div>
-																												    	 </div>
-																											    	 </center>
-																											    </div>
-																											</div>
-																						 			</td>
-																						 			<td style="background:white; border:1px solid white" >
-																										<input  style="width:100%;display:none"  type='text' value='<?php  echo $season; ?>' id='input345' class='season'      placeholder='During what seasons can you wear this?'   style="width:248px; border:1px solid none;float:right"  onclick="hide_all_open_dropdown('none','res_season','none')";  >
-																										<div style='' class='res_season' id='res_season'  style="display:none" >
-																											<?php
-																												$a =array('Winter','Spring','Summer','Fall');
-																												$c=0;
-																												echo "<span onclick='close_x()' class='x_out'  title='(close)' >x</span>";
-																												echo " <br> <center> <span>Session </span></center> <br>";
-																												echo "<table border=0>" ;
-																												for ($i=0; $i < count($a) ; $i++) {
-																													$c++;
-																													$b=$a[$i];
-																													echo "
-																													<td><p onclick='remove_Selected_taggs(\"$b\");hide_x_beore_session_name(\"$i\")'  id='remove_tags_session_$i' class='remove_tags_session' >x</p></td>
-																													<td onclick='get_clicked_session(\"$b\",\"$i\")' style=''   >   $b </td>
-																													";
-																													if ($c%5==0) {
-																														echo "<tr>";
-																													}
-																												}
-																												echo "</table>";
-																											?>
-																										</div>
-
-																										<!--  new version -->
-																											<input
-																												value="<?php echo $modal['season']; ?>"
-																												style="width:100%; padding:5px;border:none"
-																												id="season"
-																												placeholder='During what seasons can you wear this?'
-																												title="put a comma after word to add tag."
-																												type='text'
-																												onkeyup="modal( 'modal-attribute' , 'search' , 'season' , 'autocomplete-dropdown-loader-season' , 'autocomplete-dropdown-container-season' , 'season' , '' , true )"
-																												onCLick="show('#autocomplete-dropdown-container-season-1, #label-look-dropdown-container')"
-																											/>
-
-
-																						 					<!-- <div id="label-look-dropdown-container" style="margin-top:33px;width:244px;" >
-																											    <div class="autocomplete-dropdown-container" id="autocomplete-dropdown-container-season" >  
-																											    	<center><div id="autocomplete-dropdown-loader-cotainer"  class="autocomplete-dropdown-loader-cotainer-season"   >  <?php $mc->image( array( 'type'=>'loader' , 'id'=>"autocomplete-dropdown-loader-season" ,'style'=>'visibility:visible;height:10px;'  ) ); ?></div></center>
-																											    </div> 
-																											</div>   -->
-
-																											<div id="label-look-dropdown-container" class="label-look-dropdown-container-1" style="margin-top:33px;width:243px; display:none" >
-																											    <div class="autocomplete-dropdown-container" id="autocomplete-dropdown-container-season-1" style="display:none" >
-
-																											    	 <center>
-																												    	 <div id="autocomplete-dropdown-loader-cotainer"  class="autocomplete-dropdown-loader-cotainer-occasion"   >
-																												    	 	<div style="display:block; width: 244px;color:none;margin-left: -5px;">
-																								 			 					 <div style="display:block; color:none; ">
-
-																																	        <table border="0" cellpadding="0" cellspacing="0">
-																																	            <tbody><tr>								              		<td onclick="modal( 'get-value-selected' , '' , '' , '' , 'autocomplete-dropdown-container-season' , season , 'summer, ' , '1' )">summer</td>
-																																	        			</tr><tr> 								              		<td onclick="modal( 'get-value-selected' , '' , '' , '' , 'autocomplete-dropdown-container-season' , season , 'spring, ' , '1' )">spring</td>
-																																	        			</tr><tr> 								        </tr></tbody></table>
-																												 			 				</div>
-
-																								 			 				</div>
-																												    	 </div>
-																											    	 </center>
-																											    </div>
-																											</div>
-
+																										
+																										<input  style="display:none;width:100%;display:none"  type='text' value='<?php  echo $season; ?>' id='input345' class='season'      placeholder='During what seasons can you wear this?'   style="width:248px; border:1px solid none;float:right"  onclick="hide_all_open_dropdown('none','res_season','none')";  >
+																										   
 																						 			</td>
 																						 			<td style="background:white; border:1px solid white; display:none" >
 																						 				<!--  new version -->

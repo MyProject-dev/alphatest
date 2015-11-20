@@ -6524,30 +6524,30 @@ function modal ( action , process , type , loader , response , textfieldid , val
     // alert ( "modal ( action = "+action+" , process = "+process+" , type = "+type+" , loader = "+loader+" , response = "+response+" , textfieldid = "+textfieldid+" , value = "+value+" , multivalue = "+multivalue+" , method = "+method+" , table_id = "+table_id+" , table_name = "+table_name+" ) "); 
     // initialized data 
 
-    var cval       = '';   // string 
-    var cval1      = '';   // sub sting 
-    var len        = 0 ;   // accept the total lenght 
-    var keySearch1 = '';   // sub keysearch variable  
-    var data       = '';   // main data storage
-    var data1      = '';   // sub main data storage
-    var test_c     = 'fs-general-ajax-response';   // test container 
-    var title      = '', desc = '' , article = '' , color = '' ,  brand = '' ,  garment = '' , material = '' ,  pattern = '', price = '', purchased_at = '',  pos_x_y = '' , style = '' , occasion = '' , season = '' , keyword = '' ; // initialize look varialble attribute 
-    //var title_id   = '.look_name'  , desc_id = '.textarea' , article_id = '.look-article-field' , brand_id = '#brand' , garment_id = '#garment' , material_id='#material' , pattern_id = '#pattern', price_id = '#price', purchased_at_id = '#purchased_at', pos_x_y_id = '#pos_x_y', style_id = '#style' ,  occasion_id = '#occasion', season_id = '#season', keyword_id = '#keyword';  // initialize look attribute id
-    var title_id   = '.look_name'  ,
-        desc_id = '.textarea' ,
-        article_id = '.look-article-field' ,
-        brand_id = '#tag-color-database-data-brand-' ,
-        garment_id = '#tag-color-database-data-garment-' ,
-        material_id='#tag-color-database-data-material-' ,
-        pattern_id = '#tag-color-database-data-pattern-',
-        price_id = '#tag-color-database-data-price-',
-        purchased_at_id = '#tag-color-database-data-url-',
-        color_id = '#tag-color-database-data-color-',
-        pos_x_y_id = '#pos_x_y',
-        style_id = '#style' ,
-        occasion_id = '#occasion',
-        season_id = '#season',
-        keyword_id = '#keyword';  // initialize look attribute id
+    var cval             = '';   // string 
+    var cval1            = '';   // sub sting 
+    var len              = 0 ;   // accept the total lenght 
+    var keySearch1       = '';   // sub keysearch variable  
+    var data             = '';   // main data storage
+    var data1            = '';   // sub main data storage
+    var test_c           = 'fs-general-ajax-response';   // test container 
+    var title            = '', desc = '' , article = '' , color = '' ,  brand = '' ,  garment = '' , material = '' ,  pattern = '', price = '', purchased_at = '',  pos_x_y = '' , style = '' , occasion = '' , season = '' , keyword = '' ; // initialize look varialble attribute 
+    //var title_id       = '.look_name'  , desc_id = '.textarea' , article_id = '.look-article-field' , brand_id = '#brand' , garment_id = '#garment' , material_id='#material' , pattern_id = '#pattern', price_id = '#price', purchased_at_id = '#purchased_at', pos_x_y_id = '#pos_x_y', style_id = '#style' ,  occasion_id = '#occasion', season_id = '#season', keyword_id = '#keyword';  // initialize look attribute id
+    var title_id         = '.look_name'  ,
+    desc_id          = '.textarea' ,
+    article_id       = '.look-article-field' ,
+    brand_id         = '#tag-color-database-data-brand-' ,
+    garment_id       = '#tag-color-database-data-garment-' ,
+    material_id      ='#tag-color-database-data-material-' ,
+    pattern_id       = '#tag-color-database-data-pattern-',
+    price_id         = '#tag-color-database-data-price-',
+    purchased_at_id  = '#tag-color-database-data-url-',
+    color_id         = '#tag-color-database-data-color-',
+    pos_x_y_id       = '#pos_x_y',
+    style_id         = '#tag-color-database-data-style' ,
+    occasion_id      = '#tag-color-database-data-occasion',
+    season_id        = '#tag-color-database-data-season',
+    keyword_id       = '#keyword';  // initialize look attribute id
 
 
     var lookname   = ''; // look title 

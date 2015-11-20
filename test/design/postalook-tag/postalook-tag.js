@@ -103,14 +103,67 @@ function tag_select_color(rowName, color_name, color_html, tagNum) {
     }
 }
 function tag_select_item(rowName, brand_name, brand_id, tagNum) {
-
-
-    console.log('id ' + brand_id);
+ 
+    console.log('id ' + brand_id + 'rowName  = ' + rowName);
  
 
     var imageView = true;
+ 
+    if(rowName == 'style') {  
 
-    if (rowName == 'price' || rowName == 'url') {
+        // add style to field  
+
+        $('#tag-color-database-data-style').val(brand_name);
+
+        //hide container 
+        tag_hide_show('', '#table_container_');
+
+    } else if (rowName == 'occasion') {   
+
+        console.log('occasion in ');
+
+        //get occasion to field 
+        var seasonVal = $('#tag-color-database-data-occasion').val();
+
+        console.log(seasonVal)
+
+        //check if the selected is exist 
+        // var str = "Hello world, welcome to the universe.";
+
+        var isExist = seasonVal.indexOf(brand_name);
+
+        console.log('exist = ' + isExist);
+       if(isExist > -1){
+           console.log(' item exist ');
+            //if exist then replace it  
+       } else { 
+            console.log(' item not exist ');
+            //else concat the new selected 
+             seasonVal = seasonVal + ','  + brand_name; 
+       } 
+
+       //add to the field
+       $('#tag-color-database-data-occasion').val(seasonVal);
+
+       
+        //hide container 
+        tag_hide_show('', '#table_container_1a');
+
+
+    } else if (rowName == 'season') {
+
+        //add the season selected from image 
+        $('#tag-color-database-data-season').val(brand_name);
+
+        //set don't show image preview
+        imageView = false;
+
+
+                //hide container 
+        tag_hide_show('', '#table_container_2a');
+
+
+    } else if (rowName == 'price' || rowName == 'url') {
         //get the field value
         //no view image from price and url
         brand_name = $('#tag-field-' + rowName + '-' + tagNum).val();
@@ -144,9 +197,19 @@ function tag_select_item(rowName, brand_name, brand_id, tagNum) {
     //display image preview
     if (imageView == true) {  
         $('#tag-color-image-' + rowName + '-' + tagNum).attr('src',  srcImg);
-    }
+    } 
+} 
+function mouseOverImagePreview(rowName, brand_id, tagNum) {
 
+    if(rowName == 'brand') { 
+        var srcImg = $('#postalook-tag-preivew-path').text() + '/' + rowName + 's/' + brand_id + '_brand.jpg';
+    } else {
+        var srcImg = $('#postalook-tag-preivew-path').text() + '/' + rowName + '/' + brand_id + '.jpg';
+    }  
 
+    console.log('src = ' + srcImg);
+
+    $('#tag-color-image-' + rowName + '-' + tagNum).attr('src',  srcImg);   
 }
 function tag_add_price_url(tagNum) {
 }
@@ -158,9 +221,21 @@ function tag_search_data(rowName, tagNum) {
     //send http get request
     //assign handlers immediately after making the request,
     //and remember the jqxhr object for this request
+
+
     var jqxhr = $.get("test/design/postalook-tag/postalook-tag-search.php?keyword=" + keyword + '&rowName=' + rowName + '&tagNum=' + tagNum, function () {
+        //// alert( "success" );
+    // })
+
+    
+
+    console.log('rowName = ' +  rowName + ' tagNum = ' + tagNum + 'keyword = ' + keyword);
+
+    // var jqxhr = $.get("postalook-tag-search.php?keyword=" + keyword + '&rowName=' + rowName + '&tagNum=' + tagNum, function () {
         //alert( "success" );
     })
+
+
 
         // print result data
         .done(function (data) {
@@ -232,20 +307,25 @@ function tag_show_category_garment_data(categoryName, tagNum, id) {
     tag_hide_show('#tag-result-container-garment-'+categoryName+'-'+tagNum, '#tag-result-container-category-garment-'+tagNum);
 
     //show category image
-    tag_show_image_preview(id, 'garment', tagNum);
-
+    tag_show_image_preview(id, 'garment', tagNum); 
 }
-function tag_hide_show(selector_show, selector_hide) {
+function tag_hide_show(selector_show, selector_hide, selector_focus) {
     //hide
     $(selector_hide).css('display', 'none');
 
     //show
     $(selector_show).css('display', 'block');
+
+
+    //fucos the cursor to field
+    $(selector_focus).focus();
 }
 function tag_add_color_footer(color_html, color_name, tagNum) {
+
     $('#new-postalook-tagcolor-td' + tagNum).css({'display': 'block', 'background-color': color_html})
 }
 function tag_show_image_preview(id, rowName, tagNum) {
+
     $('#tag-color-image-' + rowName + '-' + tagNum).attr('src', 'http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads/brands/' + id + '_brand.jpg');
 }
 function tag_open_garmennt_sub_category(id, tagNum, selector_show, selector_hide) {

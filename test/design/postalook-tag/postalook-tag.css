@@ -75,13 +75,14 @@ p, a, span, label {
 .tag-content-ul {
     padding: 0px;
     margin: 0px;
+
 }
 
 .tag-content-ul li {
     list-style: none;
     float: left;
     /* height: 243px; */
-    /* border: 1px solid yellow; */
+     /*border: 1px solid yellow; */
     /* padding-right: 3px; */
 }
 
@@ -94,6 +95,15 @@ p, a, span, label {
 .tag-content-ul li:nth-child(2) {
     width: 155px;
 }
+
+.tag-content-season img {
+    width: 121px;
+    margin: 5px;
+    /*border: 1px solid red;*/
+    height: auto;
+    cursor: pointer;
+}
+
 
 .tag-color-palette {
     border-right: 1px solid #D4D4D4;
@@ -288,4 +298,34 @@ p, a, span, label {
 .tag-reset-div:hover {
     color:#FF9898 !important;
     cursor:pointer;
+}
+
+.tag-container-single, .tag-container-single-occasion, .tag-container-single-season {  
+    position: absolute;
+    margin-top: 34px;
+    z-index: 100; 
+    display: none;
+}
+
+.tag-container-single-occasion {
+   margin-top: 96px !important;
+   position: absolute;
+   margin-left: 303px;
+}
+
+.tag-container-single-season {
+    margin-top: 96px !important;
+    position: absolute;
+    margin-left: 345px;
+}
+
+
+#tag-color-database-data-style, #tag-color-database-data-occasion, #tag-color-database-data-season { 
+
+    border:none !important;
+    width: 100%;
+}
+
+.search-field { 
+    width: 100% !important;
 }
