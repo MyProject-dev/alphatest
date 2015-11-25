@@ -505,14 +505,14 @@ sort($patternItems);
     <script src="postalook-tag.js"></script>
 </head>
 <body>
-
+ 
 
 <!-- Start your code here -->
-<?php for ($j = 1; $j < 2; $j++) { ?>
+<?php for ($j = 1; $j < 1; $j++) { ?>
 
      
     <div id="table_container_" class="item_ look-tag-container tag-container-single">
-              
+              dsd
         <ul class="tag-menu">
             <li class="active" >
             <span  >STYLE  </span>
@@ -637,7 +637,7 @@ sort($patternItems);
 
 
 <!-- Start your code here -->
-<?php for ($j = 0; $j < 1; $j++) { ?> 
+<?php for ($j = 1; $j < 2; $j++) { ?> 
     <div id="table_container_" class="item_ look-tag-container">
 
         <!-- Tag menus -->

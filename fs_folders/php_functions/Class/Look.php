@@ -1403,7 +1403,7 @@ class Look
  
     public function designPostAlookStyle() {  ?> 
 
-        <input type="text" value="" placeholder="style"  id="tag-color-database-data-style" onclick="tag_hide_show('#table_container_', '#table_container_1a, #table_container_2a', '#tag-search-keyword-style-0');tag_search_data('style', '1')" />
+        <input type="text" value="" placeholder="style"  id="tag-color-database-data-style" onclick="tag_hide_show('#table_container_', '#table_container_1a, #table_container_2a', '#tag-search-keyword-style-1');tag_search_data('style', '1')" />
     
 
         <div>  
@@ -1467,9 +1467,9 @@ class Look
     }
     public function designPostAlookOccasion($occasion) { ?>
 
-        <input type="text" value="" placeholder="occasion"  id="tag-color-database-data-occasion" value='<?php  echo $occasion; ?>' onclick="tag_hide_show('#table_container_1a', '#table_container_, #table_container_2a', '#tag-search-keyword-occasion-0'); tag_search_data('occasion', '1')" /></td>               
+        <input type="text" value="" placeholder="occasion"  id="tag-color-database-data-occasion" value='<?php  echo $occasion; ?>' onclick="tag_hide_show('#table_container_1a', '#table_container_, #table_container_2a', '#tag-search-keyword-occasion-1'); tag_search_data('occasion', '1')" /></td>
         <?php for ($j = 1; $j < 2; $j++) { ?> 
-            <div id="table_container_1a" class="item_ look-tag-container tag-container-single-occasion">
+            <div id="table_container_1a" class="item_ look-tag-container tag-container-single-occasion postalook-tag-occasion">
                 <!-- Tag menus -->
                 <ul class="tag-menu">
                     <li class="active" >
@@ -1533,7 +1533,7 @@ class Look
 
         <!-- Start your code here -->
         <?php for ($j = 1; $j < 2; $j++) { ?> 
-            <div id="table_container_2a" class="item_ look-tag-container tag-container-single-season" >
+            <div id="table_container_2a" class="item_ look-tag-container tag-container-single-season postalook-tag-tag" >
 
                 <!-- Tag menus -->
                 <ul class="tag-menu">
@@ -1599,8 +1599,7 @@ class Look
             </div>  
         <?php }         
 
-    } 
-
+    }
 }
 ?>
 

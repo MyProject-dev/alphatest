@@ -82,7 +82,7 @@ p, a, span, label {
     list-style: none;
     float: left;
     /* height: 243px; */
-     /*border: 1px solid yellow; */
+    /*border: 1px solid yellow; */
     /* padding-right: 3px; */
 }
 
@@ -300,17 +300,17 @@ p, a, span, label {
     cursor:pointer;
 }
 
-.tag-container-single, .tag-container-single-occasion, .tag-container-single-season {  
+.tag-container-single, .tag-container-single-occasion, .tag-container-single-season {
     position: absolute;
     margin-top: 34px;
-    z-index: 100; 
+    z-index: 100;
     display: none;
 }
 
 .tag-container-single-occasion {
-   margin-top: 96px !important;
-   position: absolute;
-   margin-left: 303px;
+    margin-top: 96px !important;
+    position: absolute;
+    margin-left: 303px;
 }
 
 .tag-container-single-season {
@@ -320,12 +320,32 @@ p, a, span, label {
 }
 
 
-#tag-color-database-data-style, #tag-color-database-data-occasion, #tag-color-database-data-season { 
+#tag-color-database-data-style, #tag-color-database-data-occasion, #tag-color-database-data-season {
 
     border:none !important;
     width: 100%;
 }
 
-.search-field { 
+.search-field {
     width: 100% !important;
+}
+
+.postarticle-tag-category {
+    margin-top: 4px !important;
+}
+
+.postarticle-tag-topic {
+    margin-top: 65px !important;
+}
+
+.postarticle-tag-tags {
+    margin-top: 65px !important;
+}
+
+.postalook-tag-occasion {
+    margin-top: 66px !important
+}
+
+.postalook-tag-tag {
+    margin-top: 66px !important
 }

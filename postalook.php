@@ -171,8 +171,6 @@ if (!empty($_SESSION['adm_no'])) {
 		<?php } else { ?>
 			<div id="postalook-tag-preivew-path" style="display:none" >http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads</div> 
 		    <?php $_SESSION['tagPath'] = 'http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads' ?>
-
-
         <?php } ?>
 
 	</head>

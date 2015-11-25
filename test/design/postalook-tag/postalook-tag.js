@@ -108,11 +108,60 @@ function tag_select_item(rowName, brand_name, brand_id, tagNum) {
  
 
     var imageView = true;
- 
-    if(rowName == 'style') {  
 
-        // add style to field  
 
+
+    if(rowName == 'topic_category') {
+
+        // add style to field
+        $('#postarticle-change-topic-category').val(brand_name);
+
+        //hide container
+        tag_hide_show('', '#table_container_');
+
+
+    } else if(rowName == 'topic') {
+        // add style to field
+        $('#tag-color-database-data-topic').val(brand_name);
+
+        //hide container
+        tag_hide_show('', '#table_container_1a');
+    } else if(rowName == 'tag') {
+        console.log('occasion in ');
+
+        //get occasion to field
+        var seasonVal = $('#tag-color-database-data-article-tag').val();
+
+        console.log(seasonVal)
+
+        //check if the selected is exist
+        // var str = "Hello world, welcome to the universe.";
+
+        var isExist = seasonVal.indexOf(brand_name);
+
+        console.log('exist = ' + isExist);
+        if(isExist > -1){
+            console.log(' item exist ');
+            //if exist then replace it
+        } else {
+            console.log(' item not exist ');
+            //else concat the new selected
+            seasonVal = seasonVal + ','  + brand_name;
+        }
+
+        //add to the field
+        $('#tag-color-database-data-article-tag').val(seasonVal);
+
+
+        //hide container
+        tag_hide_show('', '#table_container_2a');
+
+
+
+
+    } else if(rowName == 'style') {
+
+        // add style to field
         $('#tag-color-database-data-style').val(brand_name);
 
         //hide container 
@@ -207,7 +256,7 @@ function mouseOverImagePreview(rowName, brand_id, tagNum) {
         var srcImg = $('#postalook-tag-preivew-path').text() + '/' + rowName + '/' + brand_id + '.jpg';
     }  
 
-    console.log('src = ' + srcImg);
+    console.log('src = ' + srcImg + ' append to ' + '#tag-color-image-' + rowName + '-' + tagNum);
 
     $('#tag-color-image-' + rowName + '-' + tagNum).attr('src',  srcImg);   
 }
@@ -223,28 +272,44 @@ function tag_search_data(rowName, tagNum) {
     //and remember the jqxhr object for this request
 
 
-    var jqxhr = $.get("test/design/postalook-tag/postalook-tag-search.php?keyword=" + keyword + '&rowName=' + rowName + '&tagNum=' + tagNum, function () {
-        //// alert( "success" );
-    // })
 
-    
+    if(rowName == 'topic-category' || rowName == 'topic-item' || rowName == 'article-tag') {
 
-    console.log('rowName = ' +  rowName + ' tagNum = ' + tagNum + 'keyword = ' + keyword);
+        var jqxhr = $.get("test/design/postalook-tag/postarticle-tag-search.php?keyword=" + keyword + '&rowName=' + rowName + '&tagNum=' + tagNum, function () {
+            console.log('rowName = ' +  rowName + ' tagNum = ' + tagNum + 'keyword = ' + keyword);
+            // var jqxhr = $.get("postalook-tag-search.php?keyword=" + keyword + '&rowName=' + rowName + '&tagNum=' + tagNum, function () {
+            //alert( "success" );
+        })
+            // print result data
+            .done(function (data) {
+                //alert( "second success" + data);
+                $('#tag-result-search-' + rowName + '-' + tagNum).html(data);
+            })
+            .fail(function () {
+                alert("Error found, please contact Fashion Sponge support.");
+            })
 
-    // var jqxhr = $.get("postalook-tag-search.php?keyword=" + keyword + '&rowName=' + rowName + '&tagNum=' + tagNum, function () {
-        //alert( "success" );
-    })
+    } else {
+        var jqxhr = $.get("test/design/postalook-tag/postalook-tag-search.php?keyword=" + keyword + '&rowName=' + rowName + '&tagNum=' + tagNum, function () {
+         console.log('rowName = ' +  rowName + ' tagNum = ' + tagNum + 'keyword = ' + keyword);
+        // var jqxhr = $.get("postalook-tag-search.php?keyword=" + keyword + '&rowName=' + rowName + '&tagNum=' + tagNum, function () {
+            //alert( "success" );
+        })
 
-
-
-        // print result data
-        .done(function (data) {
+            // print result data
+            .done(function (data) {
             //alert( "second success" + data);
             $('#tag-result-search-' + rowName + '-' + tagNum).html(data);
-        })
-        .fail(function () {
-            alert("Error found, please contact Fashion Sponge support.");
-        })
+            })
+            .fail(function () {
+                alert("Error found, please contact Fashion Sponge support.");
+            })
+
+    }
+
+
+
+
 }
 function tag_change_content(rowName, tagNum) {
     // hide current open rows

@@ -157,13 +157,28 @@ $reset = new  Reset();
 		<!-- new local plugin -->
 			<script type="text/javascript" src='fs_folders/postarticle/postarticle_js/postarticle_ajax.js'></script>   
 			<script type="text/javascript" src='fs_folders/js/postarticle.js' > </script>
-		<!-- end loca plugin --> 
+		<!-- end loca plugin -->
+
+        <link rel="stylesheet" href="test/design/postalook-tag/postalook-tag.css"/>
+        <script src="test/design/postalook-tag/postalook-tag.js"></script>
+
+
 
 		<title> FS | post article </title> 
 	</head>
 
 
-	<body style="padding:0px;" onload="postarticle_loaded()" >     
+	<body style="padding:0px;" onload="postarticle_loaded()" >
+
+    <?php if(isLocal()) { ?>
+        <div id="postalook-tag-preivew-path" style="display:none" >http://dev.fashionsponge.com/fs_folders/images/uploads</div>
+        <?php $_SESSION['tagPath'] = 'http://dev.fashionsponge.com/fs_folders/images/uploads' ?>
+    <?php } else { ?>
+        <div id="postalook-tag-preivew-path" style="display:none" >http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads</div>
+        <?php $_SESSION['tagPath'] = 'http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads' ?>
+    <?php } ?>
+
+
  		<div id="textarea-content" style="display:none"><?php echo $modal['description']; ?></div>
  
 										<!-- new plugin  -->
@@ -486,175 +501,21 @@ $reset = new  Reset();
 										 							<tr> 
 										 								<td class="postarticle-category-td" >
 										 									<div>
-									 											<select onchange="postarticle_select_category('category-topic-container', '#postarticle-change-category') " id="postarticle-change-category"  style="padding:5px; width:100%; "  > 
-									 											 
-                                                                                    <!-- <option value="Select"        --><?php //if( $modal['category'] == 'Select'        ) { echo "selected"; }  ?><!-- >Select</option>  -->
-                                                                                    <!-- <option value="Beauty"        --><?php //if( $modal['category'] == 'Beauty'        ) { echo "selected"; }  ?><!-- >Beauty</option>-->
-                                                                                    <!-- <option value="Entertainment" --><?php //if( $modal['category'] == 'Entertainment' ) { echo "selected"; }  ?><!-- >Entertainment</option>-->
-                                                                                    <!-- <option value="Fashion"       --><?php //if( $modal['category'] == 'Fashion'       ) { echo "selected"; }  ?><!-- >Fashion</option> -->
-                                                                                    <!-- <option value="Lifestyle"     --><?php //if( $modal['category'] == 'Lifestyle'     ) { echo "selected"; }  ?><!-- >Lifestyle</option>  -->
-                                                                                    <!-- <option value="Technology"    --><?php //if( $modal['category'] == 'Technology'    ) { echo "selected"; }  ?><!-- >Technology</option> -->
-                                                                                    <!-- <option value="Other"         --><?php //if( $modal['category'] == 'Other'         ) { echo "selected"; }  ?><!-- >Other</option> -->
+									 											 <?php $article->designPostArticleCategory(); ?>
 
-                                                                                    <option value="Select"        <?php  if( $modal['category'] == 'Select'        ) { echo "selected"; }  ?> >Select</option>
-                                                                                    <option value="Beauty"        <?php  if( $modal['category'] == 'Beauty'        ) { echo "selected"; }  ?> >Beauty</option>
-                                                                                    <option value="Entertainment"  <?php if( $modal['category'] == 'Beauty'        ) { echo "selected"; }  ?> >Entertainment</option>
-                                                                                    <option value="Fashion"       <?php if(  $modal['category'] == 'Fashion'        ) { echo "selected"; }  ?> >Fashion</option>
-                                                                                    <option value="Lifestyle"     <?php if(  $modal['category'] == 'Lifestyle'      ) { echo "selected"; }  ?> >Lifestyle</option>
-									 											</select>
+
+
 								 											</div>
 										 								</td> 
 										 								<td class="postarticle-topic-td" >
-										 									<div>  
-																				<!-- <select id="postarticle-topic" >   -->
-																				<!-- --><?php //if ( $method == 'edit' ): ?><!--	-->
-																				<!-- <option value="--><?php //echo  $modal['category']; ?><!--" >--><?php //echo  $modal['topic']; ?><!--</option>-->
-																				<!-- --><?php //else: ?>
-																				<!-- <option>None</option> -->
-																				<!-- --><?php //endif; ?><!-- -->
-																				<!-- </select> --> 
-
-                                                                                <!-- <input type="text" id="postarticle-topic-field"  placeholder='Topics' class='postarticle-topic-field' >  -->
-
-
-
-                                                                                <!--  new version -->
-																					<input   
-																						value="<?php echo $modal['topic'];?>" 
-																						style="width:100%; padding:5px;border:none; height:31px;"   
-																						id="occasion" 
-																						class="occasion article-topic"   
-																						placeholder='Where can you wear this?'   
-																						title="put a comma after word to add tag."
-																						type='text'  
-																					    onkeyup="suggest_article_topic('category-topic-container', 'topics', 'loader', 'label-look-dropdown-container', 'occasion')"
-																						onClick="show('#autocomplete-dropdown-container-occasion-1, #label-look-dropdown-container')" 
-																					/>
-
-
-
-
-
-                                                                                <!-- <div id="label-look-dropdown-container" style="margin-top: 3px;width: 281px;" >
-                                                                                   <div class="autocomplete-dropdown-container" id="autocomplete-dropdown-container-occasion"  >
-                                                                                       <center><div id="autocomplete-dropdown-loader-cotainer"  class="autocomplete-dropdown-loader-cotainer-occasion"   >  <?php $mc->image( array( 'type'=>'loader' , 'id'=>"autocomplete-dropdown-loader-occasion" ,'style'=>'visibility:visible;height:10px;'  ) ); ?></div></center>
-                                                                                   </div>
-                                                                               </div>   -->
-
-																					<div id="label-look-dropdown-container" style="margin-top: 3px;width: 281px; display:none" >  
-																					    <div class="autocomplete-dropdown-container" id="autocomplete-dropdown-container-occasion-1" style="display:none" >   
-																					    	 <center>
-																						    	 <div id="autocomplete-dropdown-loader-cotainer"  class="autocomplete-dropdown-loader-cotainer-occasion"   >  
-																						    	 	<div style="display:block; width: 244px;color:none;margin-left: -5px;" id='category-topic-container' >    
-																		 			 					 
-
-																								        <table border="0" cellpadding="0" cellspacing="0" style="margin-left: -16px;width: 280px !important;" >
-																								            <tbody>
-																								            	</tr><tr> <td onclick="modal( 'get-value-selected' , '' , '' , '' , 'autocomplete-dropdown-container-occasion' , occasion , '' , '1' )">Please select category first..</td> 
-																							        			<!-- </tr><tr> <td onclick="modal( 'get-value-selected' , '' , '' , '' , 'autocomplete-dropdown-container-occasion' , occasion , 'company event, ' , '1' )">company event</td> 
-																							        			</tr><tr> <td onclick="modal( 'get-value-selected' , '' , '' , '' , 'autocomplete-dropdown-container-occasion' , occasion , 'college, ' , '1' )">college</td> 
-																							        			</tr><tr> <td onclick="modal( 'get-value-selected' , '' , '' , '' , 'autocomplete-dropdown-container-occasion' , occasion , 'cocktail, ' , '1' )">cocktail</td> 
-																							        			</tr><tr> <td onclick="modal( 'get-value-selected' , '' , '' , '' , 'autocomplete-dropdown-container-occasion' , occasion , 'clubbing, ' , '1' )">clubbing</td> 
-																							        			</tr><tr> <td onclick="modal( 'get-value-selected' , '' , '' , '' , 'autocomplete-dropdown-container-occasion' , occasion , 'casual party, ' , '1' )">casual party</td> 
-																							        			</tr><tr> 		 -->						        
-																							        			</tr>
-																						        			</tbody>
-																						        		</table> 
-																		 			 				</div>
-																						    	 </div>  
-																					    	 </center>  
-																					    </div> 
-																					</div>    
+										 									<div>
+                                                                                <?php $article->designPostArticleTopicItem(); ?>
 								 											</div>  
 										 								</td> 
 										 								<td class="postarticle-tags-td">
-										 									<div>	
-										 										<table>
-										 											<tr> 
-										 												<td>
-                                                                                            <div class="postarticle-tags" >
-                                                                                                <?php if ( $method != 'edit' ): ?>
-                                                                                                    <!-- <div type="text" title="put a comma after word to add tag."  placeholder='Example: winter , spring , summer' id="postarticle-keyword"  onkeyup="article_nex_prev( 'update-keyword' , 'postarticle-keyword' , 'fs-general-ajax-response' , 'postarticle-submit-loader' , event )" /><?php echo $modal['keyword']; ?></div> 		 -->
-                                                                                                <?php else: ?>
-                                                                                                    <!-- <input style="font-size:12px;padding:0px;margin:0px;"  type="text" title="put a comma after word to add tag." placeholder='Example: winter , spring , summer' id="postarticle-keyword"  onkeyup="article_nex_prev( 'update-keyword' , 'postarticle-keyword' , 'fs-general-ajax-response' , 'postarticle-submit-loader' , event )" value="<?php echo $modal['keyword']; ?>" />  -->
-                                                                                                <?php endif;?>
-
-                                                                                                <!-- <input type="text"  placeholder='Example: winter , spring , summer' id="postarticle-keyword" onkeyup="article_nex_prev( 'update-keyword' , 'postarticle-keyword' , 'fs-general-ajax-response' , 'postarticle-submit-loader' , event )" />-->
-
-                                                                                                <!-- <input type="text" id="postarticle-tags-field" class="postarticle-tags-field" placeholder='winter , spring , summer' > -->
-                                                                                           	
-
-
-                                                                                           		<!--  new version -->
-																											<input 
-																												value="<?php echo $modal['tags']; ?>" 
-																												style="width:100%; padding:5px;border:none; height:31px"   
-																												id="season"    
-																												placeholder=''  
-																												title=" "  
-																												class="article-tags"
-																												type='text' 
-																												onkeyup="modal( 'modal-attribute' , 'search' , 'season' , 'autocomplete-dropdown-loader-season' , 'autocomplete-dropdown-container-season' , 'season' , '' , true )" 
-																												onCLick="show('#autocomplete-dropdown-container-season-1, #label-look-dropdown-container')"
-																											/>   
-																						 					
-
-																						 					<!-- <div id="label-look-dropdown-container" style="margin-top: 3px;width: 271px" >  
-																											    <div class="autocomplete-dropdown-container" id="autocomplete-dropdown-container-season" >  
-																											    	<center><div id="autocomplete-dropdown-loader-cotainer"  class="autocomplete-dropdown-loader-cotainer-season"   >  <?php $mc->image( array( 'type'=>'loader' , 'id'=>"autocomplete-dropdown-loader-season" ,'style'=>'visibility:visible;height:10px;'  ) ); ?></div></center>  
-																											    </div> 
-																											</div>   -->
-
-																											<div id="label-look-dropdown-container" style="margin-top: 3px;width: 271px; display:none" >  
-																											    <div class="autocomplete-dropdown-container" id="autocomplete-dropdown-container-season-1" style="display:none" >  
-																											    	
-																											    	 <center>
-																												    	 <div id="autocomplete-dropdown-loader-cotainer"  class="autocomplete-dropdown-loader-cotainer-occasion"   >  
-																												    	 	<div style="display:block; width: 244px;color:none;margin-left: -5px;" >    
-																								 			 					 <div style="display:block; color:none; ">    
-																											 			 					 
-																																	        <table border="0" cellpadding="0" cellspacing="0" style="margin-left: -11px;width:272px !important"  >
-																																	            <tbody><tr>								              		<td onclick="modal( 'get-value-selected' , '' , '' , '' , 'autocomplete-dropdown-container-season' , season , 'summer, ' , '1' )">summer</td> 
-																																	        			</tr><tr> 								              		<td onclick="modal( 'get-value-selected' , '' , '' , '' , 'autocomplete-dropdown-container-season' , season , 'spring, ' , '1' )">spring</td> 
-																																	        			</tr><tr> 								        </tr></tbody></table> 
-																												 			 				</div>
- 
-																								 			 				</div>
-																												    	 </div>  
-																											    	 </center>  
-																											    </div> 
-																											</div> 
-                                                                                            </div>
-                                                                                        </td>
-										 											<tr>  
-										 												<td> 
-											 												<div id='postarticle-keyword-dropdown' >  
-											 													<center>
-												 													<div>
-												 														 <?php $mc->image( array( 'type'=>'loader' , 'id'=>"postarticle-suggested-keyword-loader" ,'style'=>'visibility:hidden;height:10px;'  ) ); ?> 
-												 													</div>
-											 													</center>
-											 													<!-- <ul>
-											 													 	<li  onclick ="article_nex_prev( 'select-keyword-dropdown' , 'postarticle-keyword' , 'this is the li 1' , 'postarticle-submit-loader' , event )"  > this is the li 1 </li> 
-											 													 	<li  onclick ="article_nex_prev( 'select-keyword-dropdown' , 'postarticle-keyword' , 'this is the li 1' , 'postarticle-submit-loader' , event )"  > this is the li 1 </li> 
-											 													 	<li  onclick ="article_nex_prev( 'select-keyword-dropdown' , 'postarticle-keyword' , 'this is the li 1' , 'postarticle-submit-loader' , event )"  > this is the li 1 </li> 
-											 													 	<li  onclick ="article_nex_prev( 'select-keyword-dropdown' , 'postarticle-keyword' , 'this is the li 1' , 'postarticle-submit-loader' , event )"  > this is the li 1 </li> 
-											 													 	<li  onclick ="article_nex_prev( 'select-keyword-dropdown' , 'postarticle-keyword' , 'this is the li 1' , 'postarticle-submit-loader' , event )"  > this is the li 1 </li> 
-											 													 	<li  onclick ="article_nex_prev( 'select-keyword-dropdown' , 'postarticle-keyword' , 'this is the li 1' , 'postarticle-submit-loader' , event )"  > this is the li 1 </li> 
-											 													</ul> -->
-											 												</div>
-										 												</td>
-										 										</table> 	
-										 									</div>   
-
-										 									<!-- this code is to make the div as editable -->
-											 									<script> 
-												 									// $('#postarticle-keyword').each(function(){  
-												 									// 	this.contentEditable = true;   
-												 									// });   
-
-
-											 									</script>  
+										 									<div>
+                                                                              <?php $article->designPostarticleTag(); ?>
+										 									</div>
 										 								</td>
 								 								</table>  
 										    				</td>

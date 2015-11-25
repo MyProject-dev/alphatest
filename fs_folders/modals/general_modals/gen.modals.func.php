@@ -16,13 +16,15 @@
     require("../../../fs_folders/php_functions/Class/Topic.php");
     require("../../../fs_folders/php_functions/Class/Category.php");
 
+    print_r($_POST);
+
+    ECHO "" . $_POST['tags'];
 
 
 
-print_r($_REQUEST);
 
 
-
+//    exit;
 //Facebook Config
     require '../../../fs_folders/API/facebook-php-sdk-master/src/facebook.php'; 
 	$config = array(
@@ -69,9 +71,9 @@ LookbookDatabase::$database = $db;
 	 	$mno 	 		 = $mc->get_cookie( 'mno' , 136 );       
 		$mno2            = 134; // owner of the modal  
 		$action          = ( !empty($_GET['action']) )      ? $_GET['action']      	: null; 
-		$action          = ( empty($action) )               ? $_REQUEST['action']   : null; 
+		$action          = ( empty($action) )               ? $_REQUEST['action']   : $action; 
 		$process         = ( !empty($_GET['process']) )     ? $_GET['process']     	: null;   
-		$process         = ( empty($process) )              ? $_REQUEST['process']  : null; 
+		$process         = ( empty($process) )              ? $_REQUEST['process']  : $process; 
 		$step            = ( !empty($_GET['step']) )        ? $_GET['step']        	: null ;    
 		$type            = ( !empty($_GET['type']) )        ? $_GET['type']        	: null ;   
 		$stat            = ( !empty($_GET['stat']) )        ? $_GET['stat']        	: null ;     
@@ -134,6 +136,9 @@ LookbookDatabase::$database = $db;
 		$isAgreed        = ( !empty($_GET['isAgreed']) )    ? $_GET['isAgreed']      : '' ; 
 
 
+
+
+		// print_r($_GET);
 		 
  
 			// echo " <br> <br> <br> <br> dateTime $DateTime    <br>";
@@ -160,7 +165,10 @@ LookbookDatabase::$database = $db;
 
 
 
-  		echo "Process $process <br> Action $action <br>";
+
+  		
+  		
+  		// echo "Process $process <br> Action $action <br>";
 
 	echo "<div style='display:block; color:none' >"; 
 	 	switch ( $action ) {  
@@ -4014,10 +4022,10 @@ LookbookDatabase::$database = $db;
 																	echo "<allowimage>$allowimageresponsenumber<allowimage>";
 									echo " </div>"; 
 			 			  		break;   
-			 			  	case 'insert':  	
+			 			  	case 'insert':
 
 
-
+                                    echo "action " . $action . '<br>';
 			 			  			$tags = (!empty($_GET['tags'])) ? $_GET['tags'] : "";
 
 
@@ -4025,14 +4033,16 @@ LookbookDatabase::$database = $db;
 
  
 			 			  			// initialize  
-			 			  				$category    = $_GET['category']; 
-										$topic       =  (count(explode(',', $_GET['topic'])) > 0)? explode(',', $_GET['topic'])[0] : $_GET['topic']; 
-										$title       = $_GET['title']; 
-										$desc        = $_GET['desc']; 
-										$keyword     = $_GET['keyword'];    
+			 			  				$category    = $_POST['category'];
+										$topic       = (count(explode(',', $_POST['topic'])) > 0)? explode(',', $_POST['topic'])[0] : $_POST['topic'];
+                                        $tags        = $_POST['tags'];
+										$title       = $_POST['title'];
+										$desc        = $_POST['desc'];
+										$keyword     = $_POST['keyword'];
+ 										$url         = $_POST['url'];
+
  										/*
 										if ( $selected == 'video') {
-
 											$source_url  = ( !empty($_SESSION['source_url'])  ) ? $_SESSION['source_url'] : null ;  	 
 										}
 										else{
@@ -4042,6 +4052,50 @@ LookbookDatabase::$database = $db;
 										} 
 										*/
 
+
+
+                                          /**
+                                           * Add to fs_tag, fs_topic_category and fs_topic if not exist
+                                           */ 
+
+                                          	// fs topic
+                                            $response = select_V3("fs_topic", "*", "name = '$topic'");
+                                            if(empty($response)) {
+                                                //insert topic category
+                                                if($db->insert('fs_topic', array(
+                                                    'name'=>$topic
+                                                ))) {
+                                                    echo 'new topic inserted ' . $topic . '<br>';
+                                                }
+                                            }
+
+                                            // fs topic category
+                                            $response = select_V3("fs_topic_category", "*", "id > 0");
+                                            if(empty($response)) {
+                                                //insert topic category
+                                                //insert topic category
+                                                if($db->insert('fs_topic_category', array(
+                                                    'name'=>$category
+                                                ))) {
+                                                    echo 'new topic category inserted ' . $category . '<br>';
+                                                }
+                                            } 
+
+                                            // fs tag
+                                            $tagsArray = explode(',',  $tags);  
+                                            foreach ($tagsArray as $key => $tag) { 
+	                                            $response = select_V3("fs_tag", "*", "name = '$tag'");
+	                                            if(empty($response)) {
+ 	                                                //insert topic category
+ 	                                                if($db->insert('fs_tag', array(
+                                                    	'name'=>$tag
+                                               	 	))) {
+                                                    	echo 'new tag inserted ' . $tag . '<br>';
+                                                	}
+                                            	} 
+                                            } 
+                                            
+ 										//Initialized insert to fs_postarticle
                                         if($topic_instance->addIfNotExist($topic, $category)){
                                             echo "topic is not exist and its added topic = $topic category = $category ";
                                         } else {
@@ -5933,9 +5987,19 @@ LookbookDatabase::$database = $db;
 	 				$modal_type  = ( !empty( $_GET['modal_type'] ) ) ? $_GET['modal_type'] : 'Look' ; 
 	 				$title       = ( !empty( $_GET['title'] )      ) ? $_GET['title'] : null ;   
 
+
+
+	 				// echo " this is the tespes " . $_GET['steps'] . '<br>';
+
 	 				switch ( $_GET['steps'] ) {
+
+
+
+
+
 	 					case 'design': 
 	 
+	 								// echo " This is the design <br>";
 	 							// $image = $mc->modal( 
 	 							//  	array(
 	 							//  		'table_name' =>$table_name,
@@ -6061,8 +6125,7 @@ LookbookDatabase::$database = $db;
 			  						} else { 
 			  						}
 
-									$mc->set_session_notification($mno, $table_name, $table_id, $action, $comment); 
-
+									$mc->set_session_notification($mno, $table_name, $table_id, $action, $comment);  
 	 						break; 
 	 					default: 
 	 						break;

@@ -5586,29 +5586,38 @@ function article_nex_prev ( type , stat , response , loader , e , method , table
 
 
 
-        var category   = $( '#postarticle-change-category' ).val( );
+        var category   = $( '#postarticle-change-topic-category' ).val( );
         // var topic      = $( '#postarticle-topic').val( );
         var title      = $( '#article-title' ).val( ); //'this is the title'; 
         var desc       = CKEDITOR.instances.editor1.getData(); // $( '#postarticle-description' ).val( ); //'this is the desc'; 
         var url        = $('#postarticle-link-to-article').val();
-        var keyword    = $( '#postarticle-keyword' ).text( ); //'this is the keyword';   
+        var keyword    = $('#postarticle-keyword' ).text( ); //'this is the keyword';
         var selected   = $('#article-upload-selected').val();
-        var image      = $('#content-image img').size( );
+        var image      = $("#content-image img").size( );
         var upload     = false;
         var titlefield = '#article-title';  // article title  
         var titleval = $(titlefield).val(); // get title field value  
         // var topic     = $('#postarticle-topic-field').val();
-        var topic       = $('.article-topic').val();
+        var topic       = $('#tag-color-database-data-topic').val();
 
-        var tags = $('#postarticle-tags-field').val();
-        var tags = $('.article-tags').val();
-        var topic = $('.occasion').val();
+        //var tags = $('#postarticle-tags-field').val();
+        var tags = $('#tag-color-database-data-article-tag').val();
+        //var topic = $('.occasion').val();
  
         // alert('topic = ' + topic + ' tags  = ' + tags);
 
+        console.log(
+            ' category = ' + category +
+            ' topic = ' + topic +
+            ' tags = ' + tags +
+            'title = '  + title +
+            ' url = ' +  url +
+            ' desc = ' + desc
+        );
 
 
-        console.log('title = '  + title + ' url = ' +  url   + ' category = ' + category + ' topic = ' + topic + ' tags = ' + tags + ' desc = ' + desc);
+
+       //return false;
 
         // alert("this is the best");
 
@@ -5682,22 +5691,47 @@ function article_nex_prev ( type , stat , response , loader , e , method , table
             // show the fake submit image
                 $('#postarticle-submit-1-fake').css('display','block'); 
 
-   
+            console.log('save data! ');
 
- 
-            var data = 'action=postarticle&process=insert&category='+category+'&topic='+topic+'&title='+title+'&desc='+desc+'&keyword='+keyword+'&type='+selected+'&method='+method+'&table_id='+table_id+'&url='+url+'&tags='+tags;
-            ajax_send_data(
-                'fs-general-ajax-response',
-                'fs_folders/modals/general_modals/gen.modals.func.php?'+data,
-                loader,
-                'postarticle-insert',
-                selected,
-                method
-            );
 
-            
-             
-        
+
+
+
+
+
+            /*
+                var data = 'action=postarticle&process=insert&category='+category+'&topic='+topic+'&title='+title+'&desc='+desc+'&keyword='+keyword+'&type='+selected+'&method='+method+'&table_id='+table_id+'&url='+url+'&tags='+tags;
+                ajax_send_data(
+                    'fs-general-ajax-response',
+                    'fs_folders/modals/general_modals/gen.modals.func.php?'+data,
+                    loader,
+                    'postarticle-insert',
+                    selected,
+                    method
+                );
+            */
+
+            $.post("fs_folders/modals/general_modals/gen.modals.func.php", {
+                action: 'postarticle',
+                process: 'insert',
+                category: category,
+                topic: topic,
+                desc: desc,
+                keyword: keyword,
+                type: selected,
+                method: method,
+                table_id: table_id,
+                tags: tags,
+                url: url,
+                title: title
+            }, function(result) {
+                //$('#upload-modal').submit();
+                $('#upload-article').submit();
+                console.log('done..')
+            });
+
+
+
 
 
  

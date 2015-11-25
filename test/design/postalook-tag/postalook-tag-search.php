@@ -10,7 +10,7 @@
 
     
 
-    echo " tagNum = $tagNum  <BR>";
+    // echo " tagNum = $tagNum  <BR>";
   
     if($rowName == 'brand') { 
 
