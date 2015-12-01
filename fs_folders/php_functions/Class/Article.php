@@ -249,7 +249,6 @@ class Article{
             echo "fs_comment failed to delete <br>";
         }
 
-
         if(unlink($url . "fs_folders/images/uploads/posted articles/home/$id.jpg")) {
             echo $url . "fs_folders/images/uploads/posted articles/home/$id.jpg  successfully deleted <br>";
         } else {
@@ -267,12 +266,11 @@ class Article{
         } else {
             echo $url . "fs_folders/images/uploads/posted articles/thumbnail/$id.jpg  successfully deleted <br>";
         }
-
         $user->resetInformation($user->mno);
     }
     public function designPostArticleCategory($topic=null) {  ?>
 
-        <input type="text" value="" placeholder=""  id="postarticle-change-topic-category" onclick="tag_hide_show('#table_container_', '#table_container_1a, #table_container_2a', '#tag-search-keyword-topic-category-1');tag_search_data('topic-category', '1')" />
+        <input type="text" value="<?php echo $topic; ?>" placeholder="Category"  id="postarticle-change-topic-category" onclick="tag_hide_show('#table_container_', '#table_container_1a, #table_container_2a', '#tag-search-keyword-topic-category-1');tag_search_data('topic-category', '1')" />
     
 
         <div>  
@@ -281,7 +279,7 @@ class Article{
 
             <div id="table_container_" class="item_ look-tag-container tag-container-single postarticle-tag-category">
                       
-                <ul class="tag-menu">
+                <ul class="tag-menu" style="display:none">
                     <li class="active" >
                     <span  > Category  </span>
                   </li> 
@@ -311,7 +309,7 @@ class Article{
                                 <li>
                                     <div class="tag-container-right" id="tag-color-image">
                                         <img class="tag-color-image-preview" id="tag-color-image-topic_category-<?php echo $j; ?>"
-                                             src="http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads/brands/692_brand.jpg"/>
+                                             src="<?php echo $_SESSION['tagPath']; ?>/default/default.jpg"/>
 
                                     </div>
                                 </li>
@@ -329,11 +327,11 @@ class Article{
     }
     public function designPostArticleTopicItem($topicItem=null) { ?>
 
-        <input type="text" value="<?php echo $topicItem; ?>" placeholder=""  id="tag-color-database-data-topic" value='<?php  echo $topicItem; ?>' onclick="tag_hide_show('#table_container_1a', '#table_container_, #table_container_2a', '#tag-search-keyword-topic-item-1'); tag_search_data('topic-item', '1')" /></td>
+        <input type="text" value="<?php echo $topicItem; ?>" placeholder="Topic"  id="tag-color-database-data-topic" value='<?php  echo $topicItem; ?>' onclick="tag_hide_show('#table_container_1a', '#table_container_, #table_container_2a', '#tag-search-keyword-topic-item-1'); tag_search_data('topic-item', '1')" /></td>
         <?php for ($j = 1; $j < 2; $j++) { ?>
             <div id="table_container_1a" class="item_ look-tag-container tag-container-single-occasion postarticle-tag-topic">
                 <!-- Tag menus -->
-                <ul class="tag-menu">
+                <ul class="tag-menu" style="display:none">
                     <li class="active" >
                         <span  >Topic  </span>
                     </li>
@@ -367,7 +365,7 @@ class Article{
                                     <li>
                                         <div class="tag-container-right" id="tag-color-image">
                                             <img class="tag-color-image-preview" id="tag-color-image-topic-<?php echo $j; ?>"
-                                                 src="http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads/brands/692_brand.jpg"/>
+                                                 src="<?php echo $_SESSION['tagPath']; ?>/default/default.jpg"/>
 
                                         </div>
                                     </li>
@@ -385,20 +383,15 @@ class Article{
     }
     public function designPostarticleTag($tag=null) { ?>
 
-
         <?php $path = $_SESSION['tagPath']; ?>
-
-
-
-        <input type="text" value="<?php echo $tag; ?>" placeholder=""  id="tag-color-database-data-article-tag" value='<?php  echo $tag; ?>' onclick="tag_hide_show('#table_container_2a', '#table_container_, #table_container_1a', '#tag-search-keyword-article-tag-1'); tag_search_data('article-tag', '1')" /></td>
+        <input type="text" value="<?php echo $tag; ?>" placeholder="Tag"  id="tag-color-database-data-article-tag" value='<?php  echo $tag; ?>' onclick="tag_hide_show('#table_container_2a', '#table_container_, #table_container_1a', '#tag-search-keyword-article-tag-1'); tag_search_data('article-tag', '1')" /></td>
         <!-- <div id="table_container_1a" class="item_ look-tag-container tag-container-single-occasion"> -->
-
         <!-- Start your code here -->
         <?php for ($j = 1; $j < 2; $j++) { ?>
             <div id="table_container_2a" class="item_ look-tag-container tag-container-single-season postarticle-tag-tags" >
 
                 <!-- Tag menus -->
-                <ul class="tag-menu">
+                <ul class="tag-menu" style="display:none" >
                     <li class="active" >
                         <span  >TAG  </span>
                     </li>
@@ -432,7 +425,7 @@ class Article{
                                     <li>
                                         <div class="tag-container-right" id="tag-color-image">
                                             <img class="tag-color-image-preview" id="tag-color-image-tag-<?php echo $j; ?>"
-                                                 src="http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads/brands/692_brand.jpg"/>
+                                                 src="<?php echo $_SESSION['tagPath']; ?>/default/default.jpg"/>
 
                                         </div>
                                     </li>

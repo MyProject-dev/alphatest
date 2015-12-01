@@ -538,7 +538,7 @@ if (!empty($_SESSION['adm_no'])) {
 																						</td>
 																				    <tr>
 																					 	<td style="padding-top:10px;" >
-																					 		<table border="0" cellpadding="0" cellspacing="0" width="100%;" >
+																					 		<table border="0" cellpadding="0" cellspacing="0" style="width: 883px;margin-left: 4px;">
 																					 			<tr>
 																					 				<td> <div style="padding-bottom:10px;" >Style</div> </td>
 																					 				<td> <div style="padding-bottom:10px;margin-left:4px;" > Occasion </div> </td>

@@ -481,7 +481,7 @@ $reset = new  Reset();
 										    				</td> 
 										    			<tr> 
 										    				<td class="postarticle-category-topic-and-tags-td" >
-							    								<table  border="0" cellpadding="0" cellspacing="0" >  
+							    								<table  border="0" cellpadding="0" cellspacing="0" style="width: 881px;margin-left: 4px;" >
 								 									<tr> 
 								 										<td>  
 								 											<div>
@@ -498,13 +498,10 @@ $reset = new  Reset();
 										 										Tags
 										 									</div> 
 										 								</td>  
-										 							<tr> 
+										 							<tr style="background-color: white">
 										 								<td class="postarticle-category-td" >
 										 									<div>
 									 											 <?php $article->designPostArticleCategory(); ?>
-
-
-
 								 											</div>
 										 								</td> 
 										 								<td class="postarticle-topic-td" >

@@ -686,10 +686,8 @@ class Look
 
     }
 
-
     /**
      * @src test/design/postalook-tag/postalook-tag.php
-     *
      * @param $i
      * @param $counter
      */
@@ -1153,7 +1151,7 @@ class Look
                        <li>
                            <div class="tag-container-right" id="tag-color-image">
                                <img class="tag-color-image-preview" id="tag-color-image-brand-<?php echo $j; ?>"
-                                    src="http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads/brands/692_brand.jpg"/>
+                                    src="<?php echo $_SESSION['tagPath']; ?>/default/default.jpg"/>
 
                            </div>
                        </li>
@@ -1191,7 +1189,7 @@ class Look
                        <li>
                            <div class="tag-container-right" id="tag-color-image">
                                <img class="tag-color-image-preview" id="tag-color-image-pattern-<?php echo $j; ?>"
-                                    src="http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads/brands/692_brand.jpg"/>
+                                    src="<?php echo $_SESSION['tagPath']; ?>/default/default.jpg"/>
                            </div>
                        </li>
                    </ul>
@@ -1226,7 +1224,7 @@ class Look
                        <li>
                            <div class="tag-container-right" id="tag-color-image">
                                <img class="tag-color-image-preview" id="tag-color-image-material-<?php echo $j; ?>"
-                                    src="http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads/brands/692_brand.jpg"/>
+                                    src="<?php echo $_SESSION['tagPath']; ?>/default/default.jpg"/>
 
                            </div>
                        </li>
@@ -1325,7 +1323,7 @@ class Look
                        <li>
                            <div class="tag-container-right" id="tag-color-image">
                                <img class="tag-color-image-preview" id="tag-color-image-garment-<?php echo $j; ?>"
-                                    src="http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads/brands/692_brand.jpg"/>
+                                    src="<?php echo $_SESSION['tagPath']; ?>/default/default.jpg"/>
 
                            </div>
                        </li>
@@ -1400,10 +1398,9 @@ class Look
         </div>
     <?php
     }
- 
-    public function designPostAlookStyle() {  ?> 
+    public function designPostAlookStyle($style=null) {  ?>
 
-        <input type="text" value="" placeholder="style"  id="tag-color-database-data-style" onclick="tag_hide_show('#table_container_', '#table_container_1a, #table_container_2a', '#tag-search-keyword-style-1');tag_search_data('style', '1')" />
+        <input type="text" value="<?php echo $style; ?>" placeholder="Style"  id="tag-color-database-data-style" onclick="tag_hide_show('#table_container_', '#table_container_1a, #table_container_2a', '#tag-search-keyword-style-1');tag_search_data('style', '1')" />
     
 
         <div>  
@@ -1412,7 +1409,7 @@ class Look
 
             <div id="table_container_" class="item_ look-tag-container tag-container-single">
                       
-                <ul class="tag-menu">
+                <ul class="tag-menu" style="display: none">
                     <li class="active" >
                     <span  >STYLE  </span>
                   </li> 
@@ -1442,7 +1439,7 @@ class Look
                                 <li>
                                     <div class="tag-container-right" id="tag-color-image">
                                         <img class="tag-color-image-preview" id="tag-color-image-style-<?php echo $j; ?>"
-                                             src="http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads/brands/692_brand.jpg"/>
+                                             src="<?php echo $_SESSION['tagPath']; ?>/default/default.jpg"/>
 
                                     </div>
                                 </li>
@@ -1465,17 +1462,17 @@ class Look
             </div>  
         <?php }  
     }
-    public function designPostAlookOccasion($occasion) { ?>
+    public function designPostAlookOccasion($occasion=null) { ?>
 
-        <input type="text" value="" placeholder="occasion"  id="tag-color-database-data-occasion" value='<?php  echo $occasion; ?>' onclick="tag_hide_show('#table_container_1a', '#table_container_, #table_container_2a', '#tag-search-keyword-occasion-1'); tag_search_data('occasion', '1')" /></td>
+        <input type="text" value="<?php echo $occasion; ?>" placeholder="Occasion"  id="tag-color-database-data-occasion" value='<?php  echo $occasion; ?>' onclick="tag_hide_show('#table_container_1a', '#table_container_, #table_container_2a', '#tag-search-keyword-occasion-1'); tag_search_data('occasion', '1')" /></td>
         <?php for ($j = 1; $j < 2; $j++) { ?> 
             <div id="table_container_1a" class="item_ look-tag-container tag-container-single-occasion postalook-tag-occasion">
                 <!-- Tag menus -->
                 <ul class="tag-menu">
-                    <li class="active" >
-                    <span  >OCCASION  </span>
+                    <li class="active" style="display: none"  >
+                        <span  >OCCASION  </span>
                       </li> 
-                    </ul>
+                </ul>
                  
                     <!-- Tag content -->
                     <div class="clear"></div>
@@ -1505,7 +1502,7 @@ class Look
                                     <li>
                                         <div class="tag-container-right" id="tag-color-image">
                                             <img class="tag-color-image-preview" id="tag-color-image-occasion-<?php echo $j; ?>"
-                                                 src="http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads/brands/692_brand.jpg"/>
+                                                 src="<?php echo $_SESSION['tagPath']; ?>/default/default.jpg"/>
 
                                         </div>
                                     </li>
@@ -1521,14 +1518,9 @@ class Look
                 </div>  
             <?php } ?> <?php
         } 
-    public function designPostAlookSeason($season) { ?> 
-
-
+    public function designPostAlookSeason($season=null) { ?>
         <?php $path = $_SESSION['tagPath']; ?>
-       
-                                                  
-
-        <input type="text" value="" placeholder="occasion"  id="tag-color-database-data-season" value='<?php  echo $season; ?>' onclick="tag_hide_show('#table_container_2a', '#table_container_, #table_container_1a', '#tag-row-container-season-0'); tag_search_data('season', '1')" /></td>   
+        <input type="text" value="<?php echo $season; ?>" placeholder="occasion"  id="tag-color-database-data-season" value='<?php  echo $season; ?>' onclick="tag_hide_show('#table_container_2a', '#table_container_, #table_container_1a', '#tag-row-container-season-0'); tag_search_data('season', '1')" /></td>
         <!-- <div id="table_container_1a" class="item_ look-tag-container tag-container-single-occasion"> --> 
 
         <!-- Start your code here -->
@@ -1537,7 +1529,7 @@ class Look
 
                 <!-- Tag menus -->
                 <ul class="tag-menu">
-                    <li class="active" >
+                    <li class="active" style="display:none" >
                     <span  >SEASON  </span>
                   </li> 
                 </ul>

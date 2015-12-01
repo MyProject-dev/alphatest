@@ -252,6 +252,8 @@ function mouseOverImagePreview(rowName, brand_id, tagNum) {
 
     if(rowName == 'brand') { 
         var srcImg = $('#postalook-tag-preivew-path').text() + '/' + rowName + 's/' + brand_id + '_brand.jpg';
+    } else if (rowName == 'default') {
+        var srcImg = $('#postalook-tag-preivew-path').text() + '/' + rowName + '/default.jpg';
     } else {
         var srcImg = $('#postalook-tag-preivew-path').text() + '/' + rowName + '/' + brand_id + '.jpg';
     }  
@@ -392,6 +394,7 @@ function tag_add_color_footer(color_html, color_name, tagNum) {
 function tag_show_image_preview(id, rowName, tagNum) {
 
     $('#tag-color-image-' + rowName + '-' + tagNum).attr('src', 'http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads/brands/' + id + '_brand.jpg');
+    $('#tag-color-image-' + rowName + '-' + tagNum).attr('alt', 'Image');
 }
 function tag_open_garmennt_sub_category(id, tagNum, selector_show, selector_hide) {
     // hide subcategory and show subcategory content

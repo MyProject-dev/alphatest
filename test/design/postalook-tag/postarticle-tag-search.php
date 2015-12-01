@@ -41,13 +41,15 @@ if($rowName == 'topic-category') {
 
 
 if(empty($keyword)) {
-    $database->select($tableName, '*', null,  " $keyId > 0",  " $keyId desc",  25);
+    $database->select($tableName, '*', null,  " $keyId > 0",  " $keyName asc",  24);
 } else {
-    $database->select($tableName, '*', null,  " $keyName LIKE '%$keyword%'",  " $keyId desc",  25);
+    $database->select($tableName, '*', null,  " $keyName LIKE '%$keyword%'",  " $keyName asc",  24);
 }
-
-
 $response = $database->getResult();
+
+
+
+
 
 if(!$response) {
     ?>
@@ -61,11 +63,47 @@ if(!$response) {
 }
 $response_total = count($response);
 ?>
-    <ul>
-        <?php for($k=0; $k<$response_total; $k++) { ?>
-            <?php $name = $response[$k][$keyName];  ?>
-            <?php $id = $response[$k][$keyId];  ?>
-            <li> <span  onmouseover=" mouseOverImagePreview('<?php echo $rowName; ?>', '<?php echo  $id; ?>', '<?php echo $tagNum; ?>')" onclick="tag_select_item('<?php echo $rowName ?>', '<?php echo $name; ?>',  '<?php echo $id; ?>', '<?php echo $tagNum; ?>')" > <?php echo $name; ?> </span> </li>
 
-        <?php } ?>
-    </ul>
+<!--prepare for sorting top to bottom-->
+<?php
+    $response_total = count($response)/3;
+    if(is_float ($response_total)){
+        $add = 1;
+        $response_total = intval($response_total);
+    } else{
+        $add = 0;
+    }
+?>
+
+
+
+
+
+<ul>
+    <?php for($j=0; $j<3; $j++) { ?>
+        <li>
+            <table>
+                <?php
+                if($j == 0) {
+                    $len = $response_total + $add;
+                    $from = 0;
+                } else if($j == 1) {
+                    $len = $response_total + $response_total;
+                    $from = $response_total;
+                } else if($j == 2) {
+                    $len = $response_total + $response_total + $response_total;
+                    $from = $response_total + $response_total;
+                }
+                ?>
+                <?php  for($k=$from; $k<$len; $k++):  ?>
+                <tr>
+                    <td>
+                        <?php $name = $response[$k][$keyName];  ?>
+                        <?php $id = $response[$k][$keyId];  ?>
+                        <li> <span  onmouseover=" mouseOverImagePreview('<?php echo $rowName; ?>', '<?php echo  $id; ?>', '<?php echo $tagNum; ?>')" onclick="tag_select_item('<?php echo $rowName ?>', '<?php echo $name; ?>',  '<?php echo $id; ?>', '<?php echo $tagNum; ?>')" > <?php echo $name; ?> </span> </li>
+                    </td>
+                    <?php endfor; ?>
+            </table>
+        </li>
+    <?php } ?>
+</ul>
