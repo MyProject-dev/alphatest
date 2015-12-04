@@ -8,14 +8,19 @@
     require('fs_folders/php_functions/Helper/helper.php');
     require("fs_folders/php_functions/Class/Look.php");
     require("fs_folders/php_functions/Class/Reset.php");
+    require("fs_folders/php_functions/Color/Color.php");
 
-
+     use App\php_function;
 	 use App\Reset;
 	 use App\User;
 	 $mc = new myclass();
 	 $reset = new  Reset();
 	 $db = new Database();
 	 $db->connect();
+
+
+
+     $color = new php_function\Color();
 
 
 
@@ -33,7 +38,7 @@
     $look = new Look($mc->mno,  $db);
 
 
-echo "<div style='display:none' >";
+echo "<div style='display:block' >";
 
 //echo "<pre>";
     $user              = new User($mno, $db);
@@ -52,12 +57,16 @@ if (!empty($_SESSION['adm_no'])) {
 	}
 	$_SESSION['post_a_look_is_look_upload_once_in_db'] = false;
 
-	  echo " this is is to be edited look = ".tobe_edite_look_id().'<br>';
+//	  echo " this is is to be edited look = ".tobe_edite_look_id().'<br>';
 
 	if( is_edit_look( tobe_edite_look_id() ) ) {
+
 		// echo "edite look";
+
 		$plno=tobe_edite_look_id();
+//        print($plno);
 		$pl_info=$mc->posted_look_info($plno);
+
 		// print_r($pl_info);
 		// echo 'lnmae '.$pl_info['lookName'].' ldesc'.$pl_info['lookAbout'];
 		// echo " total tags = ".count($pl_info['pltags']);
@@ -65,23 +74,38 @@ if (!empty($_SESSION['adm_no'])) {
 		// 	$pl_info[$i][]
 		// 	 echo " pltags = ";
 		// }
+
 		$lookAbout                      = $pl_info['lookAbout'];
 		$pltags                         = $pl_info['pltags'];
 		$lookName                       = $pl_info['lookName'];
 		$occasion                       = $pl_info['occasion'];
 		$season                         = $pl_info['season'];
-		$style                          = $pl_info['style'];
+		$styleFashion                          = $pl_info['style'];
 		$article_link                   = $pl_info['article_link'];
-		$pltags                         = $pl_info['pltags'];
 		$Ttag                           = count($pl_info['pltags']);
 		$_SESSION['last_look_uploaded'] = $plno;
 		$_SESSION['look_edit']          = true;
-		// echo "plno = $plno";
 
+        foreach($pltags as $tag) {
+            $colorArray[] = explode(',', $tag['plt_color'])[1];
+        }
+
+		// echo "plno = $plno";
 		echo"<span id='type' style='display:none'>".$_GET['type']."</span>";
 		echo"<span id='plno' style='display:none'>".$_GET['kooldi']."</span>";
 		// echo "edit";
 
+//                echo "<pre>";
+
+        //        print_r($pl_info);
+//        print_r($pltags);
+
+
+//        print_r($colorArray);
+//               exit;
+
+
+        echo "<div id='content' style='display:none'>$lookAbout</div>";
 	}
 	else {
 		// echo " new uploaded look ";
@@ -124,7 +148,7 @@ if (!empty($_SESSION['adm_no'])) {
 		"OOTD | Trends | Fashion Blogs | Beauty Tips | Fashion Inspiration "
 	);
     echo " </div>";
-	$method  = 'not edit';
+	$method  =  $_GET['method'];
 //    echo  date("Y-m-d h:i:s a");
 ?>
 
@@ -197,48 +221,48 @@ if (!empty($_SESSION['adm_no'])) {
 	 			 					switch ( $method ) {
 	 			 						case 'edit':
 
-		 			 							$ri = new resizeImage ();
-			 									// echo "edite look";
-												$pl_info=$mc->posted_look_info($table_id);
-												// print_r($pl_info);
-												// echo 'lnmae '.$pl_info['lookName'].' ldesc'.$pl_info['lookAbout'];
-												// echo " total tags = ".count($pl_info['pltags']);
-												// for ($i=0; $i < count($pl_info['pltags']) ; $i++) {
-												// 	$pl_info[$i][]
-												// 	 echo " pltags = ";
-												// }
-
-												$modal['desc']                  = $pl_info['lookAbout'];
-												$modal['title']                 = $pl_info['lookName'];
-												$modal['occasion']              = $pl_info['occasion'];
-												$modal['season']                = $pl_info['season'];
-												$modal['style']                 = $pl_info['style'];
-												$modal['url']                   = $pl_info['article_link'];
-												$modal['keyword']               = $pl_info['keyword'];
-
-
-												$pltags                         = $pl_info['pltags'];
-												$pltags                         = $pl_info['pltags'];
-												$Ttag                           = count($pl_info['pltags']);
-												$_SESSION['last_look_uploaded'] = $table_id;
-												$_SESSION['look_edit']          = true;
-												// echo "plno = $plno";
-												echo"<span id='type' style='display:none'>".$method."</span>";
-												echo"<span id='plno' style='display:none'>".$table_id."</span>";
-												// echo "edit";
-												$modal['src']  = "$mc->look_folder_lookdetails/$table_id.jpg";
+//		 			 							$ri = new resizeImage ();
+//			 									// echo "edite look";
+//												$pl_info=$mc->posted_look_info($table_id);
+//												// print_r($pl_info);
+//												// echo 'lnmae '.$pl_info['lookName'].' ldesc'.$pl_info['lookAbout'];
+//												// echo " total tags = ".count($pl_info['pltags']);
+//												// for ($i=0; $i < count($pl_info['pltags']) ; $i++) {
+//												// 	$pl_info[$i][]
+//												// 	 echo " pltags = ";
+//												// }
+//
+//												$modal['desc']                  = $pl_info['lookAbout'];
+//												$modal['title']                 = $pl_info['lookName'];
+//												$modal['occasion']              = $pl_info['occasion'];
+//												$modal['season']                = $pl_info['season'];
+//												$modal['style']                 = $pl_info['style'];
+//												$modal['url']                   = $pl_info['article_link'];
+//												$modal['keyword']               = $pl_info['keyword'];
+//
+//
+//												$pltags                         = $pl_info['pltags'];
+//												$pltags                         = $pl_info['pltags'];
+//												$Ttag                           = count($pl_info['pltags']);
+//												$_SESSION['last_look_uploaded'] = $table_id;
+//												$_SESSION['look_edit']          = true;
+//												// echo "plno = $plno";
+//												echo"<span id='type' style='display:none'>".$method."</span>";
+//												echo"<span id='plno' style='display:none'>".$table_id."</span>";
+//												// echo "edit";
+												$modal['src']  = "$mc->look_folder_lookdetails/$plno.jpg";
 												$lookmodalsstyle     = $mc->lookdetails_set_size_of_the_look( "../../../".$modal['src'] , $ri );
-
-												// selected
-												    $modal['select']     = ( $modal['style'] == ''           ) ? 'selected' : null ;
-													$modal['selected0']  = ( $modal['style'] == 'Chic'       ) ? 'selected' : null ;
-													$modal['selected1']  = ( $modal['style'] == 'Menswear'   ) ? 'selected' : null ;
-													$modal['selected2']  = ( $modal['style'] == 'Preppy'     ) ? 'selected' : null ;
-													$modal['selected3']  = ( $modal['style'] == 'Streetwear' ) ? 'selected' : null ;
-													$modal['selected4']  = ( $modal['style'] == 'bohemian'   ) ? 'selected' : null ;
-													$modal['selected5']  = ( $modal['style'] == 'casual'     ) ? 'selected' : null ;
-													$modal['selected6']  = ( $modal['style'] == 'Formal'     ) ? 'selected' : null ;
-													$modal['selected7']  = ( $modal['style'] == 'Grunge'     ) ? 'selected' : null ;
+//
+//												// selected
+//												    $modal['select']     = ( $modal['style'] == ''           ) ? 'selected' : null ;
+//													$modal['selected0']  = ( $modal['style'] == 'Chic'       ) ? 'selected' : null ;
+//													$modal['selected1']  = ( $modal['style'] == 'Menswear'   ) ? 'selected' : null ;
+//													$modal['selected2']  = ( $modal['style'] == 'Preppy'     ) ? 'selected' : null ;
+//													$modal['selected3']  = ( $modal['style'] == 'Streetwear' ) ? 'selected' : null ;
+//													$modal['selected4']  = ( $modal['style'] == 'bohemian'   ) ? 'selected' : null ;
+//													$modal['selected5']  = ( $modal['style'] == 'casual'     ) ? 'selected' : null ;
+//													$modal['selected6']  = ( $modal['style'] == 'Formal'     ) ? 'selected' : null ;
+//													$modal['selected7']  = ( $modal['style'] == 'Grunge'     ) ? 'selected' : null ;
 
 	 			 							break;
 	 			 						default:
@@ -260,7 +284,7 @@ if (!empty($_SESSION['adm_no'])) {
 
 									 		?>
 										</head>
-										<body style="padding-bottom:0px; margin-bottom:0px;padding-top:0px; margin-top:0px;" id='label-look-body' >
+										<body style="padding-bottom:0px; margin-bottom:0px;padding-top:0px; margin-top:0px;" id='label-look-body' onload="postalook()" >
 
 
 												<!-- <div id="new-postalook-label-container" >  -->
@@ -358,7 +382,7 @@ if (!empty($_SESSION['adm_no'])) {
 																							 for ($i=1; $i <16 ; $i++):
 																							 	 $c++;
 																							 	 $background  = '';
-                                                                                                 $look->print_tags($i, $c);
+                                                                                                 $look->print_tags($i, $c, $pl_info['pltags']);
                                                                                              endfor;
                                                                                             ?>
 																		 				</div>
@@ -377,7 +401,7 @@ if (!empty($_SESSION['adm_no'])) {
 																				 	<!--  images -->
 
 
-																					<?php if ( $method != 'edit' ): ?>
+																					<?php if ( $method != 'edit' ) {  ?>
 
 																						<div style="position:absolute; border:1px solid none;" id="modal-upload-div" onmouseover ="$('#modal-upload-div').css('display','block')" >
 																							<form  action="photo.resize.php?type=upload-look-and-resize" method="POST" enctype="multipart/form-data" id="upload-modal" >
@@ -395,7 +419,7 @@ if (!empty($_SESSION['adm_no'])) {
 																								onmouseout="mouseout_change_button (  '#postarticle-upload-image' , 'fs_folders/images/post/upload-article.png' ) "
 																							/>
 																						</div>
-																					<?php endif; ?>
+
 																 						<center>
 																	 						<!-- <img src="<?php echo "$mc->look_folder_home/6.jpg";  ?>"  style='<?php echo $lookmodalssize; ?>' id="modal-image"   />   	  -->
 																	 						<img src="<?php echo $modal['src']; ?>"  style='<?php echo $lookmodalsstyle; ?>' id="modal-image"   />
@@ -428,6 +452,39 @@ if (!empty($_SESSION['adm_no'])) {
                                																	<!-- <input type="checkbox" name="post-look-agreement" id="post-look-agreement" checked=""> Agree Term <a href="agreement" target="_blank"> read </a> </div> -->
 																							</div>
 																						</center>
+
+
+                                                                                    <?php } else { ?>
+
+
+                                                                                        <center>
+                                                                                            <img src="<?php echo $modal['src']; ?>"  style='<?php echo $lookmodalsstyle; ?>' id="modal-image"   /> 
+                                                                                        </center>
+
+                                                                                     	<center>  
+																	 						<div id="postalook-agreement-and-rotate" > 
+																							    <table>
+																							      	<tbody><tr>
+																							          <td class="postarticle-want-crop-agreement" >
+																							          		<input type="checkbox"><span>I want to crop or rotate my image</span>
+																							          </td>
+																							        </tr><tr>
+																							          <td>
+                                                                                                          <?php if( $user->post_look_agree == 0) { ?>
+																							          		<input type="checkbox" id="post-look-agreement" ><span>I agree to the posting a look rules</span>
+                                                                                                          <?php } else { ?>
+                                                                                                              <input type="checkbox" id="post-look-agreement"  checked><span>I agree to the posting a look rules</span>
+                                                                                                          <?php } ?>
+																							          </td>
+																							  		</tr></tbody>
+																							  	</table>
+																							  	<!-- <div style="position: absolute;float: left;margin: 20px 0px 0px 0px; ">    -->
+                               																	<!-- <input type="checkbox" name="post-look-agreement" id="post-look-agreement" checked=""> Agree Term <a href="agreement" target="_blank"> read </a> </div> -->
+																							</div>
+																						</center>
+                                                                                    <?php } ?>
+
+
 																					</td>
 																			<tr>
 																				<td>
@@ -445,22 +502,21 @@ if (!empty($_SESSION['adm_no'])) {
 																												<tr>";
 																													for ($i=0; $i < 15 ; $i++) {
 																														$c++;
-																														$plt_color = (!empty($pltags[$i]["plt_color"])) ? $pltags[$i]["plt_color"] : null ;
-																														$tc = $mc->get_html_colo_code( str_replace(" ","",$plt_color));
-
+                                                                                                                        $colorPrint = (!empty($colorArray[$i])) ? $colorArray[$i] : null ;
+                                                                                                                        $tc =  $color->getHtmlCode($colorPrint);
 																														if ($c <= count($pltags)) {
 																															#  sa mga tag nga naay color
 																															if ( $i==0 ) {
 																																#sugod td sa color pallete
-																																$style = "display:block; background-color:#$tc; border-radius:0 0 0 5px;";
+																																$style = "display:block; background-color:$tc; border-radius:0 0 0 5px;";
 																															}
 																															else if ( $i== count($pltags)-1 ) {
 
 																																#last print td sa color pallete
-																																$style = "display:block; background-color:#$tc; border-radius:0 0 5px 0;";
+																																$style = "display:block; background-color:$tc; border-radius:0 0 5px 0;";
 																															}
 																															else{
-																																$style = "display:block; background-color:#$tc";
+																																$style = "display:block; background-color:$tc";
 																															}
 																														}
 																														else{
@@ -526,11 +582,11 @@ if (!empty($_SESSION['adm_no'])) {
 																								      <td><div>Title</div></td><td style="padding-left: 7px;" ><div>Article Url</div></td> </tr><tr>
 
 																								     <td>
-																								          <input placeholder="160 characters max" type="text" id="onetwo" class="look_name"   title="Name your look (160) character." style="width:100%;" value="">
+																								          <input placeholder="160 characters max" type="text" id="onetwo" class="look_name"   title="Name your look (160) character." style="width:100%;" value="<?php echo $lookName; ?>" >
 																								    </td>
 
 																								    <td style="padding-left: 5px;">
-																								      <input title="Add source url of the article (optional)." type="text" class="look-article-field" value="" placeholder="paste look url" style="width:100%; border:1px solid none; ">
+																								      <input title="Add source url of the article (optional)." type="text" class="look-article-field" value="<?php echo $article_link; ?>" placeholder="paste look url" style="width:100%; border:1px solid none; ">
 																								    </td>
 																									</tr>
 																									</tbody>
@@ -546,12 +602,12 @@ if (!empty($_SESSION['adm_no'])) {
 																					 				<td> <div style="padding-bottom:10px;margin-left:4px; display:none" > Tags </div> </td>
 																						 		<tr>
 																						 			<td style="background:white; border:1px solid white" >
-																						 				 <?php $look->designPostAlookStyle(); ?>
+																						 				 <?php $look->designPostAlookStyle($styleFashion); ?>
 																						 			</td>
  
 
 																						 			<td style="background:white; border:1px solid white" > 
-																						 			<?php $look->designPostAlookOccasion($season); ?>
+																						 			<?php $look->designPostAlookOccasion($occasion); ?>
 
 																						 			 		
   																										    <input style="display:none; width:100%;display:none; visibility:hidden; border:1px solid none; "  type='text' value='<?php  echo $occasion; ?>' id='input345' class='occasion hide'    placeholder='Where can you wear this?'  onclick="hide_all_open_dropdown('none','res_occasion','none')"; >
@@ -628,6 +684,14 @@ if (!empty($_SESSION['adm_no'])) {
 																								Description  1
 																							</div>
 																							<?php   require("$base_url/fs_folders/ckeditor/samples/replacebyclass.html");  ?>
+
+
+
+
+
+
+
+
 																							<!-- <textarea placeholder='320 characters  max' rows='10' cols='30' maxlength='320' id='onetwo' class='textarea' title="What’s the story behind your look?" style="height:50px;" ><?php echo $modal['desc']; ?></textarea> -->
 																						</td>
 																					<!--
@@ -788,7 +852,7 @@ if (!empty($_SESSION['adm_no'])) {
 																										<img
 																											id="postarticle-submit"
 																											src="<?php echo "$mc->genImgs/post.png"; ?>"
-																											onclick="modal ( 'modal-attribute' ,  'insert' , 'post-modal' , '.look_name' , 'Title Required' , '' , '' , '' , '<?php echo $method; ?>' , '<?php echo $table_id; ?>' ) "
+																											onclick="modal ( 'modal-attribute' ,  'insert' , 'post-modal' , '.look_name' , 'Title Required' , '' , '' , '' , '<?php echo $method; ?>' , '<?php echo $plno; ?>', '', '#post-look-agreement') "
 																											onmousemove=" mousein_change_button ( '#postarticle-submit' , '<?php echo "$mc->genImgs/post.png"; ?>' )"
 																											onmouseout="mouseout_change_button (  '#postarticle-submit'  , '<?php echo "$mc->genImgs/post.png"; ?>' ) "
 																										/>
