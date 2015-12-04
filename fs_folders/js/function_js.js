@@ -3717,14 +3717,38 @@ function comment_box_hit_enter_js( plno , e , type, rCDiv) {
 
 
         var comment = $('#comment_box').val( );
-        comment = text_trim( comment );
-        var data    = 'comment='+comment+'&table_name=postedlooks&plno='+plno;
-        ajax_insert_and_append_result(
-            'comments_result',
-            'fs_folders/fs_lookdetails/look_comment_items/look-comments_display.php?post_comment=posted_a_comment&'+data,
-            '#comment_post_loader1 img'
-        );
+
+        //comment = text_trim( comment );
+
+        /* This is the comment sendin using GET
+            var data    = 'comment='+comment+'&table_name=postedlooks&plno='+plno;
+            ajax_insert_and_append_result(
+                'comments_result',
+                'fs_folders/fs_lookdetails/look_comment_items/look-comments_display.php?post_comment=posted_a_comment&'+data,
+                '#comment_post_loader1 img'
+            );
+        */
+
+        $.post( "fs_folders/fs_lookdetails/look_comment_items/look-comments_display.php", {
+                post_comment: 'posted_a_comment',
+                comment: comment,
+                plno: plno,
+                table_name: 'postedlooks'
+            })
+            .done(function( data ) {
+                //var r = data.split("<li>");
+                $('#comments_result').append(data);
+            });
+
+
+
+
+
         $('#comment_box').val('');
+
+
+
+
 
 
         //add in total comment
@@ -5037,10 +5061,10 @@ function modal_comment_send ( mno , table_id , table_name , id , e , page , resp
         var comment = $('#modal-comment-field'+id).val();
         $('#modal-comment-field'+id).val('');
 
-        comment = text_trim( comment );
+      //  comment = text_trim( comment );
 
         // alert( 'thi is the comment '+comment );
-        var data = 'action=modal-comment-send&mno='+mno+'&comment='+comment+'&table_id='+table_id+'&table_name='+table_name+'&page='+page;
+        //var data = 'action=modal-comment-send&mno='+mno+'&comment='+comment+'&table_id='+table_id+'&table_name='+table_name+'&page='+page;
 
         // alert(mno+table_id+table_name+id++page+comment); 
 
@@ -5069,36 +5093,60 @@ function modal_comment_send ( mno , table_id , table_name , id , e , page , resp
         //  id
         // );  
 
-        appendNow(
-            // 'comments_result',
-            response,
-            'fs_folders/modals/general_modals/gen.modals.func.php?'+data,
-            // '#modal-comment-loader-test1 , #modal-comment-loader-test2',
-            loader,
-            'modal-comment',
-            id
-        );
 
+
+
+        var data = 'action=modal-comment-send&mno='+mno+'&comment='+comment+'&table_id='+table_id+'&table_name='+table_name+'&page='+page;
+
+
+        $.post( "fs_folders/modals/general_modals/gen.modals.func.php", {
+                action: 'modal-comment-send',
+                mno: mno,
+                comment: comment,
+                table_id: table_id,
+                table_name: table_name,
+                page: page
+            })
+            .done(function( data ) {
+
+               //alert( "Data Loaded: " + data );
+                //document.location ='articledetails-dev.php?id='+id
+                var comment = data.split("<modal-comment>");
+                $("#"+response).append(comment[1]);
+            });
+
+        /*
+            appendNow(
+                // 'comments_result',
+                response,
+                'fs_folders/modals/general_modals/gen.modals.func.php?'+data,
+                // '#modal-comment-loader-test1 , #modal-comment-loader-test2',
+                loader,
+                'modal-comment',
+                id
+            );
+        */
+
+
+
+
+
+
+        /*
 
         if(table_name == 'postedlooks') {
-
             console.log('redirect to member postalookdetails-dev.php');
             window.location = 'lookdetails-dev.php?id='+table_id+'#comment';
         } else if(table_name == 'fs_postedarticles') {
-
             auto_count('#details-total-comment');
-
-
             console.log('redirect to member articledetails-dev.php');
-
             window.location = 'articledetails-dev.php?id='+table_id+'#comment';
             // window.location = "http://www.yoururl.com";
-
         } else if(table_name == 'fs_member_profile_pic') {
-
             // console.log('redirect to member profile comments');
             //document.location = 'articledetails-dev.php?id='+table-id;
         }
+        */
 
     }
     else{
@@ -5711,6 +5759,8 @@ function article_nex_prev ( type , stat , response , loader , e , method , table
                 );
             */
 
+
+            alert('method = ' + method);
             $.post("fs_folders/modals/general_modals/gen.modals.func.php", {
                 action: 'postarticle',
                 process: 'insert',
@@ -5727,7 +5777,7 @@ function article_nex_prev ( type , stat , response , loader , e , method , table
             }, function(result) {
                 //$('#upload-modal').submit();
                 $('#upload-article').submit();
-                console.log('done..')
+                //console.log('done..')
             });
 
 
@@ -5892,15 +5942,17 @@ function article_nex_prev ( type , stat , response , loader , e , method , table
 
 function postarticle_edit_save(id) {
 
-     
-        var title      = $( '#article-title' ).val( ); //'this is the title'; 
+
+        //alert('edit clicked');
+        var title      = $('#article-title').val( ); //'this is the title';
         var url        = $('#postarticle-link-to-article').val();
-        var category   = $( '#postarticle-change-category' ).val( );
-        var topic      = $('.occasion').val(); 
+        var category   = $('#postarticle-change-topic-category' ).val( );
+        var topic      = $('#tag-color-database-data-topic').val();
         var desc       = CKEDITOR.instances.editor1.getData(); // $( '#postarticle-description' ).val( ); //'this is the desc'; 
-        var tags = $('.article-tags').val();
+        var tags       = $('#tag-color-database-data-article-tag').val();
          
 
+        //alert('start to the posting');
         $.post( "fs_folders/modals/article/edit_save.php", { 
             title: title, 
             url: url,
@@ -5911,14 +5963,19 @@ function postarticle_edit_save(id) {
             tags:tags
          })
           .done(function( data ) {
-              // alert( "Data Loaded: " + data ); 
-              document.location ='articledetails-dev.php?id='+id
+               //alert( "Data Loaded: " + data );
+               document.location ='articledetails-dev.php?id='+id
           });
 }
 
-function postarticle_loaded(content) {   
-    // alert('test');
-    CKEDITOR.instances.editor1.setData($('#textarea-content').text());
+function postarticle_loaded(content) {
+
+
+
+    //loading the description content
+    myVar = setTimeout(function(){
+        CKEDITOR.instances.editor1.setData($('#content').html());
+    }, 2000);
 }
 
 
@@ -6634,6 +6691,14 @@ function modal ( action , process , type , loader , response , textfieldid , val
             if ( bool == true )
             {
 
+
+
+                //Entrance message
+
+
+                // alert('about to send the data..');
+
+
                 // get total tags 
 
                 len  = $('.block_circle_tag').length;
@@ -6644,6 +6709,8 @@ function modal ( action , process , type , loader , response , textfieldid , val
 
                 for (var i = 1; i <= len; i++) {
                     // pass the values 
+
+                    // alert('brand id '  + brand_id+i);
                     color         = color+$(color_id+i).val()+'-';
                     brand         = brand+$(brand_id+i).val()+',';
                     garment       = garment+$(garment_id+i).val()+',';
@@ -6667,6 +6734,9 @@ function modal ( action , process , type , loader , response , textfieldid , val
 
 
 
+
+
+                // alert('brand = ' + brand);
 
 
 
@@ -6715,8 +6785,12 @@ function modal ( action , process , type , loader , response , textfieldid , val
                     method: method, 
                     table_id: table_id, 
                     isAgreed: isAgreed
-                }, function(result) {
-                      $('#upload-modal').submit();
+                }, function(result) { 
+                    if(method == 'edit') { 
+                        document.location = 'lookdetails-dev.php?id='+table_id;
+                    } else { 
+                        $('#upload-modal').submit();
+                    }
                 });
 
 
@@ -8278,5 +8352,10 @@ function modal_follow(mno, id) {
       alert( "done.." );
     });
 
+
+}
+ 
+function postalook() {
+    CKEDITOR.instances['editor1'].setData($('#content').html());
 }
 
