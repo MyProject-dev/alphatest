@@ -18,14 +18,10 @@
 
     print_r($_POST);
 
-    ECHO "" . $_POST['tags'];
+    ECHO "" . $_POST['tags']; 
 
-
-
-
-
-//    exit;
-//Facebook Config
+	//exit;
+	//Facebook Config
     require '../../../fs_folders/API/facebook-php-sdk-master/src/facebook.php'; 
 	$config = array(
 	  'appId' => '528594163842974',
@@ -70,15 +66,26 @@ LookbookDatabase::$database = $db;
 	 	$_SESSION['mno'] = $mc->get_cookie( 'mno' , 136 );  
 	 	$mno 	 		 = $mc->get_cookie( 'mno' , 136 );       
 		$mno2            = 134; // owner of the modal  
+
+		$method			 = ( !empty($_GET['method'])) 		? $_GET['method']     	: null ;
+		$method          = ( empty($method) )               ? $_REQUEST['method']   : $method; 
+		
 		$action          = ( !empty($_GET['action']) )      ? $_GET['action']      	: null; 
 		$action          = ( empty($action) )               ? $_REQUEST['action']   : $action; 
+
 		$process         = ( !empty($_GET['process']) )     ? $_GET['process']     	: null;   
 		$process         = ( empty($process) )              ? $_REQUEST['process']  : $process; 
+
 		$step            = ( !empty($_GET['step']) )        ? $_GET['step']        	: null ;    
 		$type            = ( !empty($_GET['type']) )        ? $_GET['type']        	: null ;   
-		$stat            = ( !empty($_GET['stat']) )        ? $_GET['stat']        	: null ;     
+		$stat            = ( !empty($_GET['stat']) )        ? $_GET['stat']        	: null ;   
+
 		$table_name      = ( !empty($_GET['table_name']) )  ? $_GET['table_name']  	: 'postedlooks' ;   
+		$table_name         = ( empty($table_name) )              ? $_REQUEST['table_name']  : $table_name; 
+
 		$table_id        = ( !empty($_GET['table_id']) )    ? $_GET['table_id']    	:  0 ;  
+		$table_id         = ( empty($table_id) )              ? $_REQUEST['table_id']  : $table_id; 
+
 		$comment         = ( !empty($_GET['comment']) )     ? $_GET['comment'] : '' ;  
 		$msg             = ( !empty($_GET['msg']) )         ? $_GET['msg']         	: null ;  
 		$keySearch       = ( !empty($_GET['keySearch']) )   ? $_GET['keySearch']   	: null ;    
@@ -104,8 +111,7 @@ LookbookDatabase::$database = $db;
 		$season 		 = ( !empty($_GET['season'])) 		? $_GET['season']       : null ;
 		$keyword 		 = ( !empty($_GET['keyword'])) 	? $_GET['keyword']     		: null ;  
 		$desc 		  	 = ( !empty($_GET['desc'])) 		? $_GET['desc']         : null ;
-		$article 		 = ( !empty($_GET['article'])) 	? $_GET['article']     	  	: null ;
-		$method			 = ( !empty($_GET['method'])) 		? $_GET['method']     	: null ;
+		$article 		 = ( !empty($_GET['article'])) 	? $_GET['article']     	  	: null ; 
 		$orderby	     = ( !empty($_GET['orderby']))     ? $_GET['orderby']     	: null ;
 		$like	     	 = ( !empty($_GET['like']))        ? $_GET['like']        	: null ;
 		$sub	      	 = ( !empty($_GET['sub']))         ? $_GET['sub']         	: null ;
@@ -699,49 +705,49 @@ LookbookDatabase::$database = $db;
 		 				} 
 	 			break;
 	 		case 'modal-attribute': 
-	 			 	switch ( $process ) { 
+	 			 	switch ( $process ) {
 
-	 			 		case 'insert': 
+case 'insert':
 
-									$color         = $_REQUEST['color'];   
-									$brand         = $_REQUEST['brand'];   	 			 					
-	 			 					$garment       = $_REQUEST['garment']; 
-	 			 					$material      = $_REQUEST['material']; 
-	 			 					$pattern       = $_REQUEST['pattern']; 
-	 			 					$price         = $_REQUEST['price']; 
-	 			 					$purchased_at  = $_REQUEST['purchased_at']; 
-	 			 					$pos_x_y   	   = $_REQUEST['pos_x_y']; 
-	 			 					$style    	   = $_REQUEST['style']; 
-	 			 					$occasion      = $_REQUEST['occasion']; 
-	 			 					$season    	   = $_REQUEST['season']; 
-	 			 					$keyword       = $_REQUEST['keyword']; 
-	 			 					$title    	   = $_REQUEST['title']; 
-	 			 					$desc    	   = $_REQUEST['desc']; 
-	 			 					$article       = $_REQUEST['article']; 
-	 			 					$isAgreed      = $_REQUEST['isAgreed']; 
-
-
- 
-	 			 				echo " modal attribute insert <br>";
+$color = $_REQUEST['color'];
+$brand = $_REQUEST['brand'];
+$garment = $_REQUEST['garment'];
+$material = $_REQUEST['material'];
+$pattern = $_REQUEST['pattern'];
+$price = $_REQUEST['price'];
+$purchased_at = $_REQUEST['purchased_at'];
+$pos_x_y = $_REQUEST['pos_x_y'];
+$style = $_REQUEST['style'];
+$occasion = $_REQUEST['occasion'];
+$season = $_REQUEST['season'];
+$keyword = $_REQUEST['keyword'];
+$title = $_REQUEST['title'];
+$desc = $_REQUEST['desc'];
+$article = $_REQUEST['article'];
+$isAgreed = $_REQUEST['isAgreed'];
 
 
-	 							// data print 
+echo " modal attribute insert <br>";
 
 
-	 			 				 //   $input = array("a" => "green", "red", "b" => "green", "blue", "red");
-								   // $result = array_unique($input);
-								   // print_r($result);
+// data print
 
 
-	 			 					$occasion1 = $occasion; 
+//   $input = array("a" => "green", "red", "b" => "green", "blue", "red");
+// $result = array_unique($input);
+// print_r($result);
 
-	 			 					$occasion = revoveDuplicateSingleArray($occasion);  
-								    $occasion = implode($occasion, ','); 
- 
-								    $season = revoveDuplicateSingleArray($season);  
-								    $season = implode($season, ','); 
 
-			 			 			echo "   
+$occasion1 = $occasion;
+
+$occasion = revoveDuplicateSingleArray($occasion);
+$occasion = implode($occasion, ',');
+
+$season = revoveDuplicateSingleArray($season);
+$season = implode($season, ',');
+
+echo "
+                                        method    = $method <br>
 			 			 				color     = $color <br>
 										brand     = $brand <br>
 										garment   = $garment <br>
@@ -758,122 +764,128 @@ LookbookDatabase::$database = $db;
 										desc      = $desc<br> 
 										article   = $article <br> 
 										isAgreed  = $isAgreed <br>
-									";  
+									";
+
+
+/**
+ * set agreement cockie
+ */
+
+setcookie(
+    "isAgreed",
+    $isAgreed,
+    time() + (10 * 365 * 24 * 60 * 60)
+);
+
+
+// return the dot of the article url
+
+$article = str_replace(' ', '.', $article);
+
+// initialize data and expload string via comma to array
+
+$color = explode('-', $color);
+$brand = explode(',', $brand);
+$garment = explode(',', $garment);
+$material = explode(',', $material);
+$pattern = explode(',', $pattern);
+$price = explode(',', $price);
+$purchased_at = explode(',', $purchased_at);
+$pos_x_y = explode(',', $pos_x_y);
+$x1 = 0;
+$y1 = 0;
+$len = count($color) - 1;
+$tag['dcolor'] = 'Charcoal';
+$table_name = 'postedlooks';
+$category = $style;
+
+
+
+echo "<h3> <pre> ";
+
+print_r($brand);
+
+
+echo " </pre> </h3>";
+
+// echo " url = " . $purchased_at . "<br>";
+
+
+                            if ($method == 'edit'){
+
+
+
+                            //update user post_look_agree
+                                $response = mysql_query("UPDATE fs_members SET post_look_agree = 1 WHERE mno = $mno");
+                                if ($response) {
+                                    echo "post look agree updated <br>";
+                                } else {
+                                    echo "post look agree not updated <br>";
+                                }
+
+                                // update look
+
+                                $response = mysql_query("UPDATE postedlooks SET lookName = '$title' , lookAbout = '$desc' , article_link = '$article' , occasion = '$occasion' , season = '$season' , style = '$style' , keyword = '$keyword' WHERE plno = $table_id ");
+                                $mc->message('update new look info ', $response, '');
+
+                                // delete keyword search
+
+                            //									 	$response = $mc->fs_search( array(  'type'=> 'delete' , 'table_name'=>'postedlooks' , 'table_id'=>$table_id ) );
+                            //									 	$mc->message( " delete fs search table id $table_id "  , $response , '' );
+                                if ($database->delete('fs_search', "table_name = 'postedlooks' and table_id = $table_id")) {
+                                    echo "fs search successfully deleted <br>";
+                                }
+                                // delete tag
+
+                                // $response = $mc->fs_pltag( array(  'type'=> 'delete' , 'table_id'=>$table_id) );
+                                // $mc->message( " delete fs pltags table id $table_id "  , $response , '' );
+
+
+
+
+                                if ($database->delete('fs_pltag', "plno = $table_id")) {
+                                    echo "Tags successfully deleted fs_pltag plno = $table_id <br>";
+                                } else {
+                                    echo "Tags failed to deleted fs_pltag plno = $table_id <br>";
+                                }
  
-
-									/**
-									* set agreement cockie
-									*/
-
-									setcookie(
-									  "isAgreed",
-									  $isAgreed,
-									  time() + (10 * 365 * 24 * 60 * 60)
-									); 
+                            } else {
 
 
- 
-								// return the dot of the article url  
+                                //update user post_look_agree
 
-									$article = str_replace(' ', '.', $article);
-	 
-								// initialize data and expload string via comma to array
-	 									
-	 								$color   	   = explode('-', $color ); 
-	 								$brand   	   = explode(',', $brand ); 
-	 								$garment 	   = explode(',', $garment ); 
-	 								$material	   = explode(',', $material ); 
-	 								$pattern 	   = explode(',', $pattern ); 
-	 								$price 	  	   = explode(',', $price );  
-	 								$purchased_at  = explode(',', $purchased_at );  
-	 								$pos_x_y 	   = explode(',', $pos_x_y );  
-	 								$x1 	 	   = 0; 
-									$y1 	 	   = 0;
-									$len     	   = count( $color )-1; 
-									$tag['dcolor'] = 'Charcoal'; 
-									$table_name    = 'postedlooks';
-									$category 	   = $style;
+                                echo "mno  = $mno <br>";
+                                $response = mysql_query("UPDATE fs_members SET post_look_agree = 1 WHERE mno = $mno");
+                                if ($response) {
+                                    echo "post look agree updated <br>";
+                                } else {
+                                    echo "post look agree not updated <br>";
+                                }
+
+                                // add new look
 
 
-									// echo " url = " . $purchased_at . "<br>";
+                                $table_id = $mc->posted_modals_postedlooks_Query(
+                                    array(
+                                        'postedlooks_query' => 'insert',
+                                        'mno' => $mno,
+                                        'lookName' => $title,
+                                        'lookAbout' => $desc,
+                                        'article_link' => $article,
+                                        'occasion' => $occasion,
+                                        'season' => $season,
+                                        'style' => $style,
+                                        'keyword' => $keyword,
+                                        'active' => 1,
+                                        'gender' => $mc->gender,
+                                        'plus_blogger' => $mc->plus_blogger
+                                    )
+                                );
 
 
-
-
-
-
-
-
- 
-								if ( $method == 'edit' ):
-
-
-
-									//update user post_look_agree  
-										$response = mysql_query( "UPDATE fs_members SET post_look_agree = 1 WHERE mno = $mno"); 
-										if(	$response) {
-											echo "post look agree updated <br>";
-										} else { 
-											echo "post look agree not updated <br>";
-										}
- 
-									// update look 
-
-										$response = mysql_query( "UPDATE postedlooks SET lookName = '$title' , lookAbout = '$desc' , article_link = '$article' , occasion = '$occasion' , season = '$season' , style = '$style' , keyword = '$keyword' WHERE plno = $table_id "); 
-										$mc->message( 'update new look info ' , $response , '' );  
-
-									// delete keyword search 
-
-									 	$response = $mc->fs_search( array(  'type'=> 'delete' , 'table_name'=>'postedlooks' , 'table_id'=>$table_id ) );  
- 
-									 	$mc->message( " delete fs search table id $table_id "  , $response , '' );
-
-									// delete tag 
-
-									 	$response = $mc->fs_pltag( array(  'type'=> 'delete' , 'table_id'=>$table_id) );   
- 
-										$mc->message( " delete fs pltags table id $table_id "  , $response , '' );									 	 
-
-								else:
-
-
-
-
-									//update user post_look_agree  
-
-									echo "mno  = $mno <br>";
-										$response = mysql_query( "UPDATE fs_members SET post_look_agree = 1 WHERE mno = $mno"); 
-										if(	$response) {
-											echo "post look agree updated <br>";
-										} else { 
-											echo "post look agree not updated <br>";
-										}
-
-									// add new look  
-
-										 
-										$table_id = $mc->posted_modals_postedlooks_Query( 
-											array( 
-												'postedlooks_query' => 'insert',
-												'mno' => $mno,
-												'lookName' => $title,
-												'lookAbout' => $desc,
-												'article_link' => $article,
-												'occasion' => $occasion,
-												'season' => $season,
-												'style' => $style,
-												'keyword' =>$keyword,
-												'active' => 1,
-												'gender' => $mc->gender,
-												'plus_blogger' => $mc->plus_blogger
-											) 
-										);    
-
-
-
-										echo " plus blogger " . $mc->plus_blogger . "<br>";
-										$mc->message( "add new look look id = $table_id ", $table_id , '' );  
-								endif;  
+                                echo " plus blogger " . $mc->plus_blogger . "<br>";
+                                $mc->message("add new look look id = $table_id ", $table_id, '');
+                            }
 
 								// add new look tags 
  
@@ -982,6 +994,22 @@ LookbookDatabase::$database = $db;
 									for ($i=0; $i < $len ; $i++) {  
 
 
+
+
+										echo "<h1> i = $i </h1>";
+
+
+										//Jump the index because it is how recieved from sending js
+
+										// if($i>0) { 
+										// 	$j = $i + 1;
+										// } else {
+										// 	$j = 0;
+										// }
+
+
+
+
 										// get the x and y position 
 
 											if ( $i == 0 ) {
@@ -1002,8 +1030,7 @@ LookbookDatabase::$database = $db;
 												#echo " color = $color[$i] brand = $brand[$i]  garment = $garment[$i]  material = $material[$i] pattern = $pattern[$i] x = $x  y = $y <br> "; 	
 
 
-											// pass the value
-
+											// pass the value 
 												$color_         = ( !empty($color[$i]) ) ? $color[$i] : $tag['dcolor']; 
 												$brand_ 	    = $brand[$i];
 												$garment_ 	    = $garment[$i];
@@ -4070,6 +4097,7 @@ LookbookDatabase::$database = $db;
                                             }
 
                                             // fs topic category
+                                            /*
                                             $response = select_V3("fs_topic_category", "*", "id > 0");
                                             if(empty($response)) {
                                                 //insert topic category
@@ -4080,6 +4108,10 @@ LookbookDatabase::$database = $db;
                                                     echo 'new topic category inserted ' . $category . '<br>';
                                                 }
                                             } 
+                                            */
+
+
+
 
                                             // fs tag
                                             $tagsArray = explode(',',  $tags);  
@@ -5315,7 +5347,16 @@ LookbookDatabase::$database = $db;
 		 				
 
 		 			// print data
-	 		
+	 			
+						$mno        = $_REQUEST['mno'];
+						$comment    = $_REQUEST['comment']; 
+						$table_id   = $_REQUEST['table_id'];
+						$table_name = $_REQUEST['table_name'];  
+						$page  	    = $_REQUEST['page'];
+							
+
+						 /*
+						
 	 					echo " 
 		 					this is the comment modal sent <br> send <br> sent <br> $mno        <br>
 							comment = $comment     <br>
@@ -5323,6 +5364,13 @@ LookbookDatabase::$database = $db;
 							table_name = $table_name  <br> 
 							type = $type <br> 
 						";  
+
+						*/
+
+
+						echo "<H1> Commend $comment  <br></H1>";
+
+  
 
  
 	 				switch ( $type ) {
