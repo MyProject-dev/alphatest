@@ -22,20 +22,26 @@ $category = 'beauty';
 print_r($_REQUEST); 
 
 
-$db->update('fs_postedarticles',
-    array('title'=> $_REQUEST['title'],
-        'description'=> $_REQUEST['desc'],
+$response = $db->update('fs_postedarticles',
+    array(
         'tags'=> $_REQUEST['tags'],
         'topic'=> $_REQUEST['topic'],
-        'category'=> $_REQUEST['category'],
-        'source_url'=>$_REQUEST['url']
+        'category'=> $_REQUEST['category']
     ),
-    " artno = " . $_REQUEST['id']
-); 
+    " artno = " . intval($_REQUEST['id'])
+);
+
+$response1 = mysql_query("UPDATE fs_postedarticles SET title = '". $_REQUEST['title'] ."', source_url = '" . $_REQUEST['url'] . "', description = '" . $_REQUEST['desc'] ."' WHERE artno = " . intval($_REQUEST['id']));
 
 
+if($response) {
+    echo "Successfully updated <br>";
+} else {
+    echo "Failed to updated <br>";
+}
 
-
-
-
-
+if($response1) {
+    echo "description updated <br>";
+} else {
+    echo "description not updated <br>";
+}
