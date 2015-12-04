@@ -2,6 +2,7 @@
 
 use App\Reset;
 use App\User;
+use App\php_function\Color;
 
 class Look
 {
@@ -691,10 +692,34 @@ class Look
      * @param $i
      * @param $counter
      */
-    public function print_tags($i, $counter)
+    public function print_tags($i, $counter, $tags=null)
     {
 
+        $ObjectColor = new Color();
 
+ 
+        $c = $i-1;
+        $tagT = count($tags)-1;
+        // echo "counter i = $counter  c = $c T TAG  $tagT <br>";
+
+        if($tagT >= $c) {  
+            $colors            = $tags[$c]['plt_color']; 
+            $plt_color         = explode(',', $tags[$c]['plt_color'])[1] . ',';
+            $plt_brand         = $tags[$c]['plt_brand'] . ',';
+            $plt_garment       = $tags[$c]['plt_garment'] . ',';
+            $plt_material      = $tags[$c]['plt_material'] . ',';
+            $plt_pattern       = $tags[$c]['plt_pattern'] . ',';
+            $plt_price         = $tags[$c]['plt_price'] . ',';
+            $plt_purchased_at  = $tags[$c]['plt_purchased_at'] . '';
+            $plt_x             = $tags[$c]['plt_x'];
+            $plt_y             = $tags[$c]['plt_y'];
+            $plt_date          = $tags[$c]['plt_date'];
+
+            $colorsString      = $colors;
+            $colorsArray       = explode(',', $colors);
+        }
+
+//         print_r($colorsArray);
 
         $j = $counter;
 
@@ -1110,9 +1135,14 @@ class Look
                        <li>   
                            <div class="tag-color-image" id="tag-color-image">
                                <table id="tag-color-image-table">
+                                   <?php $c=0; ?>
                                    <?php for ($i = 0; $i < 5; $i++) { ?>
+                                       <?php $c++; ?>
+                                       <?php $coloHtmlCode = $ObjectColor->getHtmlCode($colorsArray[$c]) ?>
+                                       <?php $colorHtmlName =  $colorsArray[$c]; ?>
                                        <tr>
-                                           <td class='tag-selected-color' id='tag-selected-color-td-<?php echo $j ?>-<?php echo $i ?>' onclick="tag_select_color_enable_edit_mode('<?php echo $j ?>', '<?php echo $i ?>')">
+                                           <td style="background-color:<?php echo $coloHtmlCode; ?>" class='tag-selected-color'  id='tag-selected-color-td-<?php echo $j ?>-<?php echo $i ?>' onclick="tag_select_color_enable_edit_mode('<?php echo $j ?>', '<?php echo $i ?>')">
+                                                <?php echo $colorHtmlName; ?>
                                            </td>
                                        </tr>
                                    <?php } ?>
@@ -1127,36 +1157,31 @@ class Look
            <div class="tag-row-container" id="tag-row-container-brand-<?php echo $j ?>" style="display:none">
                <div class="tag-search">
                    <input type="text" placeholder="search" class="search-field" id="tag-search-keyword-brand-<?php echo $j ?>"
-                          onkeyup="tag_search_data('brand', '<?php echo $j ?>')"/>
+                          onkeyup="tag_search_data('brand', '<?php echo $j ?>')" value="<?php echo str_replace(',','', $plt_brand); ?>"/>
                </div>
                <div class="clear"></div>
                <div class="tag-content">
                    <ul class="tag-content-ul">
                        <li>
-                            
-                               <div class="tag-container-left" id="tag-result-search-brand-<?php echo $j; ?>">
-                                   <ul>
-                                        <?php if(false): ?>
-                                            <?php for ($k = 0; $k < 35; $k++) { ?>
-                                               <li><span
-                                                       onclick="tag_select_item('brand', '<?php echo "Brand name $k" ?>', '<?php echo rand(767, 780); ?>', '<?php echo $j; ?>')">   <?php echo (!empty($itemName[$k])) ? $itemName[$k] : ""; ?> </span>
-                                               </li>
-                                            <?php } ?>
-                                        <?php endif; ?>
-                                   </ul>
-                               </div>
-
-                          
+                           <div class="tag-container-left" id="tag-result-search-brand-<?php echo $j; ?>">
+                               <ul>
+                                    <?php if(false): ?>
+                                        <?php for ($k = 0; $k < 35; $k++) { ?>
+                                           <li><span
+                                                   onclick="tag_select_item('brand', '<?php echo "Brand name $k" ?>', '<?php echo rand(767, 780); ?>', '<?php echo $j; ?>')">   <?php echo (!empty($itemName[$k])) ? $itemName[$k] : ""; ?> </span>
+                                           </li>
+                                        <?php } ?>
+                                    <?php endif; ?>
+                               </ul>
+                           </div>
                        </li>
                        <li>
                            <div class="tag-container-right" id="tag-color-image">
                                <img class="tag-color-image-preview" id="tag-color-image-brand-<?php echo $j; ?>"
                                     src="<?php echo $_SESSION['tagPath']; ?>/default/default.jpg"/>
-
                            </div>
                        </li>
                    </ul>
-
                    <div class="clear"></div>
                </div>
                <div class="clear"></div>
@@ -1165,7 +1190,9 @@ class Look
                <div class="tag-search">
                    <input type="text" placeholder="search" class="search-field"
                           id="tag-search-keyword-pattern-<?php echo $j ?>"
-                          onkeyup="tag_search_data('pattern', '<?php echo $j ?>')"/>
+                          onkeyup="tag_search_data('pattern', '<?php echo $j ?>')"
+                          value="<?php echo str_replace(',','', $plt_pattern); ?>"
+                       />
                </div>
                <div class="clear"></div>
                <div class="tag-content">
@@ -1202,7 +1229,9 @@ class Look
                <div class="tag-search">
                    <input type="text" placeholder="search" class="search-field"
                           id="tag-search-keyword-material-<?php echo $j ?>"
-                          onkeyup="tag_search_data('material', '<?php echo $j ?>')"/>
+                          onkeyup="tag_search_data('material', '<?php echo $j ?>')"
+                          value="<?php echo str_replace(',','', $plt_material); ?>"
+                       />
                </div>
                <div class="clear"></div>
                <div class="tag-content">
@@ -1238,7 +1267,9 @@ class Look
                <div class="tag-search">
                    <input type="text" placeholder="search" class="search-field"
                           id="tag-search-keyword-garment-<?php echo $j ?>"
-                          onkeyup="tag_search_data('garment', '<?php echo $j ?>')"/>
+                          onkeyup="tag_search_data('garment', '<?php echo $j ?>')"
+                          value="<?php echo str_replace(',','', $plt_garment); ?>"
+                       />
                </div>
                <div class="clear"></div>
                <div class="tag-content">
@@ -1335,11 +1366,15 @@ class Look
            </div>
            <div class="tag-row-container" id="tag-row-container-price-<?php echo $j ?>" style="display:none">
                <input type="text" id="tag-field-price-<?php echo $j ?>" placeholder="Price" class="tag-field-input"
-                      onkeyup="tag_select_item('price', '', '<?php echo rand(767, 780); ?>', '<?php echo $j; ?>')">
+                      onkeyup="tag_select_item('price', '', '<?php echo rand(767, 780); ?>', '<?php echo $j; ?>')"
+                      value="<?php echo str_replace(',','', $plt_price); ?>"
+                   >
            </div>
            <div class="tag-row-container" id="tag-row-container-url-<?php echo $j ?>" style="display:none">
                <input type="text" id="tag-field-url-<?php echo $j ?>" placeholder="Url" class="tag-field-input"
-                      onkeyup="tag_select_item('url', '', '<?php echo rand(767, 780); ?>', '<?php echo $j; ?>')">
+                      onkeyup="tag_select_item('url', '', '<?php echo rand(767, 780); ?>', '<?php echo $j; ?>')"
+                      value="<?php echo str_replace(',','', $plt_purchased_at); ?>"
+                   >
            </div>
            </div>
            </div>
@@ -1351,43 +1386,51 @@ class Look
                        <li><p> Description: </p></li>
                        <li>
                            <p>
-                               <span id="tag-list-data-color-<?php echo $j ?>"></span>
-                               <span id="tag-list-data-brand-<?php echo $j ?>"></span>
-                               <span id="tag-list-data-pattern-<?php echo $j ?>"></span>
-                               <span id="tag-list-data-material-<?php echo $j ?>"></span>
-                               <span id="tag-list-data-garment-<?php echo $j ?>"></span>
-                               <span id="tag-list-data-price-<?php echo $j ?>"></span>
-                               <span id="tag-list-data-url-<?php echo $j ?>"></span>
+                               <span id="tag-list-data-color-<?php echo $j ?>"><?php echo $plt_color; ?></span>
+                               <span id="tag-list-data-brand-<?php echo $j ?>"><?php echo $plt_brand; ?></span>
+                               <span id="tag-list-data-pattern-<?php echo $j ?>"><?php echo $plt_pattern; ?></span>
+                               <span id="tag-list-data-material-<?php echo $j ?>"><?php echo $plt_material; ?></span>
+                               <span id="tag-list-data-garment-<?php echo $j ?>"><?php echo $plt_garment; ?></span>
+                               <span id="tag-list-data-price-<?php echo $j ?>"><?php echo $plt_price; ?></span>
+                               <span id="tag-list-data-url-<?php echo $j ?>"><?php echo $plt_purchased_at; ?></span>
                            </p>
                        </li>
                    </ul>
-               </div>
-
-
+               </div> 
                <div class="clear"></div>
-
+           <!--  $colors            = $tags[$c]['plt_color'];
+            $plt_color         = explode(',', $tags[$c]['plt_color'])[1] . ',';
+            $plt_brand         = $tags[$c]['plt_brand'] . ',';
+            $plt_garment       = $tags[$c]['plt_garment'] . ',';
+            $plt_material      = $tags[$c]['plt_material'] . ',';
+            $plt_pattern       = $tags[$c]['plt_pattern'] . ',';
+            $plt_price         = $tags[$c]['plt_price'] . ',';
+            $plt_purchased_at  = $tags[$c]['plt_purchased_at'] . '';
+            $plt_x             = $tags[$c]['plt_x'];
+            $plt_y             = $tags[$c]['plt_y'];
+            $plt_date          = $tags[$c]['plt_date'];  -->
 
                <table class="tag-database-data" cellpadding="0" cellspacing="0" style="display:none">
                    <tr>
-                       <td><input type="text" value="" placeholder="color"
+                       <td><input type="text" value="<?php echo $colorsString; ?>" placeholder="color"
                                   id="tag-color-database-data-color-<?php echo $j ?>"/></td>
                    <tr>
-                       <td><input type="text" value="" placeholder="brand"
+                       <td><input type="text" value="<?php echo str_replace(',', '', $plt_brand); ?>" placeholder="brand"
                                   id="tag-color-database-data-brand-<?php echo $j ?>"/></td>
                    <tr>
-                       <td><input type="text" value="" placeholder="pattern"
+                       <td><input type="text" value="<?php echo str_replace(',', '', $plt_pattern); ?>" placeholder="pattern"
                                   id="tag-color-database-data-pattern-<?php echo $j ?>"/></td>
                    <tr>
-                       <td><input type="text" value="" placeholder="material"
+                       <td><input type="text" value="<?php echo str_replace(',', '', $plt_material); ?>" placeholder="material"
                                   id="tag-color-database-data-material-<?php echo $j ?>"/></td>
                    <tr>
-                       <td><input type="text" value="" placeholder="garment"
+                       <td><input type="text" value="<?php echo str_replace(',', '', $plt_garment); ?>" placeholder="garment"
                                   id="tag-color-database-data-garment-<?php echo $j ?>"/></td>
                    <tr>
-                       <td><input type="text" value="" placeholder="price"
+                       <td><input type="text" value="<?php echo str_replace(',', '', $plt_price); ?>" placeholder="price"
                                   id="tag-color-database-data-price-<?php echo $j ?>"/></td>
                    <tr>
-                       <td><input type="text" value="" placeholder="url" id="tag-color-database-data-url-<?php echo $j ?>"/>
+                       <td><input type="text" value="<?php echo str_replace(',', '', $plt_purchased_at); ?>" placeholder="url" id="tag-color-database-data-url-<?php echo $j ?>"/>
                        </td>
                    <tr>
                        <td><input type="text" value="" placeholder="url" id="pos_x_y<?php echo $j ?>"/>
