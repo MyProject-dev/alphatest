@@ -50,17 +50,19 @@ $response = $database->getResult();
 
 
 
-
-if(!$response) {
-    ?>
+if($rowName != 'topic-category' and !$response) {
+    echo "No result for <em style='color:black; cursor: pointer'> $keyword</em> please try another.";
+} else if(!$response) { ?>
 
     Please click
     <em style='color:black; cursor: pointer' onclick="tag_select_item('<?php echo $rowName ?>', '<?php echo $keyword; ?>',  '0', '<?php echo $tagNum; ?>')" >
         <?php echo $keyword; ?>
     </em>
     If you think this <?php echo $rowName; ?> is <br> for this tag.
-<?php
+    <?php
 }
+
+
 $response_total = count($response);
 ?>
 
