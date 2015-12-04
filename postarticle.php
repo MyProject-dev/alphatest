@@ -134,7 +134,14 @@ $reset = new  Reset();
 			$modal['cstyle']         = 'height:auto';
 			$modal['dstyle']         = 'padding-top:5%';
             $modal['tags']           = $response[0]['tags'];
-            $modal['source_url']     = $response[0]['source_url'];  
+            $modal['source_url']     = $response[0]['source_url'];
+//			echo "<pre>";
+//			print_r($response);
+//		exit;
+
+
+			echo "<div id='content' style='display:none'>" . $modal['description'] . " </div>";
+
 		endif;  
 
 
@@ -179,7 +186,7 @@ $reset = new  Reset();
     <?php } ?>
 
 
- 		<div id="textarea-content" style="display:none"><?php echo $modal['description']; ?></div>
+<!-- 		<div id="textarea-content" style="display:none">--><?php //echo $modal['description']; ?><!--</div>-->
  
 										<!-- new plugin  -->
 										   <script type="text/javascript"> 
@@ -501,17 +508,17 @@ $reset = new  Reset();
 										 							<tr style="background-color: white">
 										 								<td class="postarticle-category-td" >
 										 									<div>
-									 											 <?php $article->designPostArticleCategory(); ?>
+									 											 <?php $article->designPostArticleCategory($modal['category']); ?>
 								 											</div>
 										 								</td> 
 										 								<td class="postarticle-topic-td" >
 										 									<div>
-                                                                                <?php $article->designPostArticleTopicItem(); ?>
+                                                                                <?php $article->designPostArticleTopicItem($modal['topic']); ?>
 								 											</div>  
 										 								</td> 
 										 								<td class="postarticle-tags-td">
 										 									<div>
-                                                                              <?php $article->designPostarticleTag(); ?>
+                                                                              <?php $article->designPostarticleTag($modal['tags']); ?>
 										 									</div>
 										 								</td>
 								 								</table>  
@@ -715,7 +722,6 @@ $reset = new  Reset();
             //     }
             // });
 
- 
             //Topic
             var tags = [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ];
             $( "#postarticle-topic-field" ).autocomplete({
@@ -726,8 +732,6 @@ $reset = new  Reset();
                     }) );
                 }
             });
-
-
         </script>
 	</body>
 </html>
