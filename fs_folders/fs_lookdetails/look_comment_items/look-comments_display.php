@@ -28,9 +28,34 @@
 	$comment   = str_replace('\'',"\"", $comment); 
 	$dtime     = $mc->date_time;  
 	$comment = $mc->text_cleaner( $comment );      
-	// echo " <li>  htis is adfasdf </li> "; 
+	// echo " <li>  htis is adfasdf </li> ";
+
+
   
-	$comment = str_replace('[-double-dot-]', ':' , $comment ); // domain url 
+	$comment = str_replace('[-double-dot-]', ':' , $comment ); // domain url
+
+
+$comment       = $_REQUEST['comment'];
+$post_comment  = $_REQUEST['post_comment'];
+$table_name	   = $_REQUEST['table_name'];
+$plno 		   = $_REQUEST['plno'];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	if ( $plcld_action == 'Thumb-Up' ) {
