@@ -568,7 +568,7 @@ if ((!empty($_GET['welcome'])) ? $_GET['welcome'] : ''  == 'get-started' || $mc-
                                                              */
 
                                                             $left = $pltags[$i]["plt_x"];
-                                                            $top = $pltags[$i]["plt_y"]+85;
+                                                            $top = $pltags[$i]["plt_y"]-23;
 
                                                             // echo " x =  $left and y = $top <br> ";
                                                             // set position for the red circle tag.
