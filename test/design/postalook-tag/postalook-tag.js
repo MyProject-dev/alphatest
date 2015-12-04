@@ -25,16 +25,17 @@ function tag_select_color_enable_edit_mode(tagNum, colorPosition) {
     $('#tag-selected-color-td' + '-' + tagNum + '-' + colorPosition).css('opacity', '0.5');
 }
 function tag_select_color(rowName, color_name, color_html, tagNum) {
+    
     //alert('clicked row color = ' + object.tag_color_row_click + ' tag_color_td_click = ' + object.tag_color_td_click + ' tag_color_td_clicke_name = ' + object.tag_color_td_clicke_name);
     //get total color field-up from the right rectangle
     var color_lenght = $('#tag-color-database-data-' + rowName + '-' + tagNum).val().split(',').length - 1;
 
     // Validate if its in edit mode
     if (object.tag_color_row_click == tagNum) {
-
+        
         // detect if duplicate color selected
         if(tag_is_color_exist(color_html, tagNum)) { return false }
-
+            
         // find the selected row be replaced with color
         // replace the specific td that the user clicked
         //add color to the td right rectangle
@@ -445,7 +446,7 @@ function tag_is_color_exist(html_color, tagNum) {
             alert('duplicate color occur, please select another.');
             return true;
         } else {
-            $('#tag-selected-color-td-'+tagNum+'-'+i).css('border', 'none');
+            $('#tag-selected-color-td-'+tagNum+'-'+i).css('border', '1px solid #D4D4D4');
         }
     }
     return false;
