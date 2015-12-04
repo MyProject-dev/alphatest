@@ -18,8 +18,9 @@
  			  // echo " not connected to localhost <br>";
  		}
 
-        $_SESSION['tagPath'] = 'http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads';
+        $_SESSION['tagPath']     = 'http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads';
         $_SESSION['tagPatShort'] = 'fs_folders/images/uploads';
+        $_SESSION['is_online']   = 'no';
 
     }
  	else
@@ -40,8 +41,9 @@
  			// echo " not connected to online <br>";
  		}
 
-        $_SESSION['tagPath'] = 'http://dev.fashionsponge.com/fs_folders/images/uploads';
-        $_SESSION['tagPatShort'] = 'fs_folders/images/uploads';
+        $_SESSION['tagPath']      = 'http://dev.fashionsponge.com/fs_folders/images/uploads';
+        $_SESSION['tagPatShort']  = 'fs_folders/images/uploads';
+        $_SESSION['is_online']    = 'yes';
  	} 
  	 $dbConn = mysql_select_db($dbName) or die("dili ka-connect sa database"); //fs
 
