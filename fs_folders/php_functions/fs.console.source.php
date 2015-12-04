@@ -15668,6 +15668,9 @@
 									  $response =  $mc->posted_modals_comment_Query ( $array );
 								*/ 
 
+
+									  echo "comment to be insert $comment <br>";
+
 								$response = insert(
 									$tdb,  
 									array( 
@@ -16572,7 +16575,7 @@
 							case 'flag-modal-dropdown':   
 
 								if($table_name == 'postedlooks') {
-									$posting_link = 'postalook?kooldi='.$table_id; 
+									$posting_link = 'postalook?id='.$table_id; 
 								} else  { 
 									$posting_link = 'postarticle?id='.$table_id;
 								}  
@@ -17639,6 +17642,36 @@
 							$response    = '';
 							$tdb         = 'fs_pltag';    
 
+
+
+
+
+						echo "<h4>";
+
+								echo "
+										pltgno = $pltgno           <br>
+										plno = $plno 		      <br>
+										plt_color = $plt_color        <br>
+										plt_brand = $plt_brand        <br>
+										plt_garment = $plt_garment      <br>
+										plt_material = $plt_material    <br>
+										plt_pattern = $plt_pattern     <br>
+										plt_price = $plt_price       <br>
+										plt_purchased_at = $plt_purchased_at <br>
+										plt_x = $plt_x 			 <br>
+										plt_y = $plt_y 			 <br>
+										plt_date = $plt_date 	     <br>
+										table_id = $table_id 	     <br>
+								";
+
+
+						echo "<h4>";
+
+
+
+
+
+
  						// $this->print_r1(  $array );
 						switch ( $type ) {  
 							case 'insert':   
@@ -18472,9 +18505,9 @@
 				}
 		    	public function clean_text_before_save_to_db( $string ) {
 
-		    		$clear  = str_replace('&','[ampersand]', $string ); // ampersand 
-				    $clear  = str_replace("’","[sigle-qutation-mark]",  $clear  );    // comma   
-				    $clear  = mysql_real_escape_string($clear); 
+		    		// $clear  = str_replace('&','[ampersand]', $string ); // ampersand 
+				    // $clear  = str_replace("’","[sigle-qutation-mark]",  $clear  );    // comma   
+				    // $clear  = mysql_real_escape_string($clear); 
 
  
 
@@ -18503,7 +18536,7 @@
 
 
 
-				    return $clear;   
+				    return $string;   
 
 		    	}
 		    	public function cleant_text_print_from_db( $string ) {  
