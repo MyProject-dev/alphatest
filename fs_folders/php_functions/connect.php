@@ -3,8 +3,8 @@
     error_reporting(0);
 	#xampp version : win32 v 1.8.1 
     // $_SERVER['HTTP_HOST'] = 'localhost';
-
-	if ($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['HTTP_HOST'] == '192.168.1.126')
+// echo " host " . $_SERVER['HTTP_HOST'];
+	if ($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['HTTP_HOST'] == '192.168.1.126'|| $_SERVER['HTTP_HOST'] == '192.168.254.102')
  	{
  		// mysql_connect("localhost","root","replacement") or die(mysql_error()); Nnetbook
  		$con = mysql_connect("localhost","root","") or die(mysql_error()); //laptop
