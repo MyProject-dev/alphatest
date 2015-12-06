@@ -1,6 +1,7 @@
 <?php 
 	session_start();
     session_destroy();
+    error_reporting(0);
     setcookie( 'mno' , 136  ,   time() - (10 * 365 * 24 * 60 * 60) );
 
     require("fs_folders/php_functions/connect1.php");
