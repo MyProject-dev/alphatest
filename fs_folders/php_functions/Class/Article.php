@@ -249,7 +249,6 @@ class Article{
             echo "fs_comment failed to delete <br>";
         }
 
-
         if(unlink($url . "fs_folders/images/uploads/posted articles/home/$id.jpg")) {
             echo $url . "fs_folders/images/uploads/posted articles/home/$id.jpg  successfully deleted <br>";
         } else {
@@ -267,10 +266,181 @@ class Article{
         } else {
             echo $url . "fs_folders/images/uploads/posted articles/thumbnail/$id.jpg  successfully deleted <br>";
         }
-
         $user->resetInformation($user->mno);
     }
+    public function designPostArticleCategory($topic=null) {  ?>
+
+        <input type="text" value="<?php echo $topic; ?>" placeholder="Category"  id="postarticle-change-topic-category" onclick="tag_hide_show('#table_container_', '#table_container_1a, #table_container_2a', '#tag-search-keyword-topic-category-1');tag_search_data('topic-category', '1')" />
+    
+
+        <div>  
+        <?php for ($j = 1; $j < 2; $j++) { ?>
 
 
+            <div id="table_container_" class="item_ look-tag-container tag-container-single postarticle-tag-category">
+                      
+                <ul class="tag-menu" style="display:none">
+                    <li class="active" >
+                    <span  > Category  </span>
+                  </li> 
+                </ul>
+             
+                <!-- Tag content -->
+                <div class="clear"></div>
+                <div class="tag-container-result">
+                <div class="tag-result-color" id="tag-result-color" style="display:block">
+                 
+                    <div class="tag-row-container" id="tag-row-container-style-<?php echo $j ?>" style="display:block">
+                        <div class="tag-search">
+                            <input type="text" placeholder="search" class="search-field" id="tag-search-keyword-topic-category-<?php echo $j ?>"
+                                   onkeyup="tag_search_data('topic-category', '<?php echo $j ?>')"/>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="tag-content">
+                            <ul class="tag-content-ul">
+                                <li>
+
+                                    <div class="tag-container-left" id="tag-result-search-topic-category-<?php echo $j; ?>">
+                                       
+
+                                        <!-- content here -->
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="tag-container-right" id="tag-color-image">
+                                        <img class="tag-color-image-preview" id="tag-color-image-topic_category-<?php echo $j; ?>"
+                                             src="<?php echo $_SESSION['tagPath']; ?>/default/default.jpg"/>
+
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <div class="clear"></div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                </div>
+                </div> 
+            </div>  
+        <?php }  
+    }
+    public function designPostArticleTopicItem($topicItem=null) { ?>
+
+        <input type="text" value="<?php echo $topicItem; ?>" placeholder="Topic"  id="tag-color-database-data-topic" onclick="tag_hide_show('#table_container_1a', '#table_container_, #table_container_2a', '#tag-search-keyword-topic-item-1'); tag_search_data('topic-item', '1')" /></td>
+        <?php for ($j = 1; $j < 2; $j++) { ?>
+            <div id="table_container_1a" class="item_ look-tag-container tag-container-single-occasion postarticle-tag-topic">
+                <!-- Tag menus -->
+                <ul class="tag-menu" style="display:none">
+                    <li class="active" >
+                        <span  >Topic  </span>
+                    </li>
+                </ul>
+
+                <!-- Tag content -->
+                <div class="clear"></div>
+                <div class="tag-container-result">
+                    <div class="tag-result-color" id="tag-result-color" style="display:block">
+
+                        <div class="tag-row-container" id="tag-row-container-occasion-<?php echo $j ?>" style="display:block">
+                            <div class="tag-search">
+                                <input type="text" placeholder="search" class="search-field" id="tag-search-keyword-topic-item-<?php echo $j ?>"
+                                       onkeyup="tag_search_data('topic-item', '<?php echo $j ?>')"/>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="tag-content">
+                                <ul class="tag-content-ul">
+                                    <li>
+
+                                        <div class="tag-container-left" id="tag-result-search-topic-item-<?php echo $j; ?>">
+                                            <ul>
+                                                <?php for ($k = 0; $k < 35; $k++) { ?>
+                                                    <li><span
+                                                            onclick="tag_select_item('occasion', '<?php echo "Brand name $k" ?>', '<?php echo rand(767, 780); ?>', '<?php echo $j; ?>')">   <?php echo (!empty($itemName[$k])) ? $itemName[$k] : ""; ?> </span>
+                                                    </li>
+                                                <?php } ?>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="tag-container-right" id="tag-color-image">
+                                            <img class="tag-color-image-preview" id="tag-color-image-topic-<?php echo $j; ?>"
+                                                 src="<?php echo $_SESSION['tagPath']; ?>/default/default.jpg"/>
+
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="clear"></div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <?php } ?> <?php
+    }
+    public function designPostarticleTag($tag=null) { ?>
+
+        <?php $path = $_SESSION['tagPath']; ?>
+        <input type="text" value="<?php  echo $tag; ?>"  placeholder="Tag"  id="tag-color-database-data-article-tag" onclick="tag_hide_show('#table_container_2a', '#table_container_, #table_container_1a', '#tag-search-keyword-article-tag-1'); tag_search_data('article-tag', '1')" /></td>
+        <!-- <div id="table_container_1a" class="item_ look-tag-container tag-container-single-occasion"> -->
+        <!-- Start your code here -->
+        <?php for ($j = 1; $j < 2; $j++) { ?>
+            <div id="table_container_2a" class="item_ look-tag-container tag-container-single-season postarticle-tag-tags" >
+
+                <!-- Tag menus -->
+                <ul class="tag-menu" style="display:none" >
+                    <li class="active" >
+                        <span  >TAG  </span>
+                    </li>
+                </ul>
+
+                <!-- Tag content -->
+                <div class="clear"></div>
+                <div class="tag-container-result">
+                    <div class="tag-result-color" id="tag-result-color" style="display:block">
+
+                        <div class="tag-row-container" id="tag-row-container-occasion-<?php echo $j ?>" style="display:block">
+                            <div class="tag-search">
+                                <input type="text" placeholder="search" class="search-field" id="tag-search-keyword-article-tag-<?php echo $j ?>"
+                                       onkeyup="tag_search_data('article-tag', '<?php echo $j ?>')"/>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="tag-content">
+                                <ul class="tag-content-ul">
+                                    <li>
+
+                                        <div class="tag-container-left" id="tag-result-search-article-tag-<?php echo $j; ?>">
+                                            <ul>
+                                                <?php for ($k = 0; $k < 35; $k++) { ?>
+                                                    <li><span
+                                                            onclick="tag_select_item('occasion', '<?php echo "Brand name $k" ?>', '<?php echo rand(767, 780); ?>', '<?php echo $j; ?>')">   <?php echo (!empty($itemName[$k])) ? $itemName[$k] : ""; ?> </span>
+                                                    </li>
+                                                <?php } ?>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="tag-container-right" id="tag-color-image">
+                                            <img class="tag-color-image-preview" id="tag-color-image-tag-<?php echo $j; ?>"
+                                                 src="<?php echo $_SESSION['tagPath']; ?>/default/default.jpg"/>
+
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="clear"></div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        <?php }
+
+    }
 }
 ?>

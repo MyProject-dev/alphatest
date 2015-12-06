@@ -129,7 +129,7 @@ $(document).ready(function () {
                         radius = 100;
                         padding = '5px 6px 5px 6px';
                     } else {
-                        padding = '4px 8px 4px 8px';
+                        padding = '1px 8px 1px 8px';
                     }
                     var x = parseInt(myarr[i - 2]);
                     var y = parseInt(myarr[i - 1]);

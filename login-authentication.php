@@ -1,5 +1,6 @@
 <?php
 	@session_start();
+	error_reporting(0);
 	// $_SESSION['temp_mno'] = 754; //
 	// $_SESSION['temp_mno'] = 133; // rico
 	// $_SESSION['temp_mno'] = 134;  kayab
@@ -22,6 +23,8 @@
 		// $mc->add_new_member_time_lime( $_SESSION['mno'] );
 		$db->update('fs_members',array('logtime'=>"$mc->date_time"),"mno=$_SESSION[mno]"); //update logtime everylogin 
 		$db->update('fs_members',array('logstat'=>1),"mno=$_SESSION[mno]"); //update logtime everylogin 
+
+		echo "authenticate...";
 		$mc->go("$lastpagevisited");   
 		
 	}

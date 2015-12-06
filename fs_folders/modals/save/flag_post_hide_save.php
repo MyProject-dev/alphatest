@@ -23,10 +23,29 @@
  $db->connect();
  $_SESSION['mno'] = $mc->get_cookie( 'mno' , 136 );
  $mno = $mc->get_cookie( 'mno' , 136 );
+
+/*
  $comment    = $_GET['comment'];
  $table_id   = $_GET['table_id'];
  $table_name = $_GET['table_name'];
  $action     = $_GET['action'];
+
+ */
+
+
+$comment                  = ( !empty($_GET['comment']) ) ? intval($_GET['comment']) : "" ;  
+$comment                  = ( empty($comment) )               ? $_REQUEST['comment']   : $comment;
+
+$table_id                 = ( !empty($_GET['table_id']) ) ? intval($_GET['table_id']) : "" ;  
+$table_id                 = ( empty($table_id) )               ? $_REQUEST['table_id']   : $table_id;
+
+$table_name               = ( !empty($_GET['table_name']) ) ? intval($_GET['table_name']) : "" ;  
+$table_name               = ( empty($table_name) )               ? $_REQUEST['table_name']   : $table_name;
+
+$action                   = ( !empty($_GET['action']) ) ? intval($_GET['action']) : "" ;  
+$action                   = ( empty($action) )               ? $_REQUEST['action']   : $action;
+
+
 
 /** Insert flag */
  if($db->insert(

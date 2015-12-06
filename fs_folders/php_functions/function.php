@@ -264,7 +264,7 @@
 				// echo "row$i = ".$row_name_array[$i]." values$i = ".$values_array[$i]."<br>"; 
 				// $b1=mysql_query("UPDATE $table_name SET $row_name_array[$i] = '$values_array[$i]' WHERE $row_id_name = $last_id"); 
 				$value = mysql_real_escape_string( $values_array[$i] );
-				$value = make_links_clickable1($value); 
+//				$value = make_links_clickable1($value);
 				$b1=mysql_query("UPDATE $table_name SET $row_name_array[$i] = '$value' WHERE $row_id_name = $last_id"); 
 			}	 
 		}
@@ -862,5 +862,19 @@
 	    $text = preg_replace('!(((f|ht)tp(s)?://)[-a-zA-Zа-яА-Я()0-9@:%_+.~#?&;//=]+)!i', '<a id="text-domain" target="_blank" href="$1">$1</a>' , $text);
 	    // $text = str_replace('.', ' ', $text); 
 	    return $text;
+	}
+
+	function isLocal()
+	{
+	  	// return !checkdnsrr($_SERVER['SERVER_NAME'], 'NS'); 
+    	// return checkdnsrr('http://fashionsponge.com/', 'ANY');	
+
+		// echo " " . $_SERVER['HTTP_HOST'];
+    	if ($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['HTTP_HOST'] == '192.168.1.126') {
+ 			return false;
+ 		} else {
+ 			return true;
+ 		} 
+
 	}
 ?>

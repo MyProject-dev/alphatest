@@ -17,20 +17,59 @@
  	$mno2                      =  134;
 
 	$plno 					   =  ( !empty($_GET['plno']) ) ? $_GET['plno'] : 0 ;
-	$post_comment              =  ( !empty($_GET["post_comment"]) ) ? $_GET["post_comment"] : '' ;  
-	$comment                   =  ( !empty($_GET["comment"]) ) ? $_GET["comment"] : '' ;   
-	$nexprev                   =  ( !empty($_GET['nexprev']) ) ? $_GET['nexprev'] : '' ;  
-	$plcld_action              =  ( !empty($_GET['thum_up_or_down']) ) ? $_GET['thum_up_or_down'] : '' ;  
-	$plcno                     =  ( !empty($_GET['plcno']) ) ? $_GET['plcno'] : '' ; 
-    $type                      =  ( !empty($_GET['type']) ) ? $_GET['type'] : '' ;   
-   	$_SESSION['sort_comment']  = ( !empty($_SESSION['sort_comment'] ) ) ? $_SESSION['sort_comment']  : 'order by plcno desc' ;
+	$plno                      =  ( empty($plno) )          ? $_REQUEST['plno']  : $plno;
+
+    $post_comment              =  ( !empty($_GET["post_comment"]) ) ? $_GET["post_comment"] : '' ;
+	$post_comment              =  ( empty($post_comment) )          ? $_REQUEST['post_comment']  : $post_comment;
+
+	$comment                   =  ( !empty($_GET["comment"]) ) ? $_GET["comment"] : '' ;
+	$comment                	   =  ( empty($comment) )        ? $_REQUEST['comment']  : $comment;
+
+	$nexprev                   =  ( !empty($_GET['nexprev']) ) ? $_GET['nexprev'] : '' ;
+	$nexprev                	   =  ( empty($nexprev) )        ? $_REQUEST['nexprev']  : $nexprev;
+
+	$plcld_action              =  ( !empty($_GET['thum_up_or_down']) ) ? $_GET['thum_up_or_down'] : '' ;
+	$plcld_action              =  ( empty($plcld_action) )        ? $_REQUEST['thum_up_or_down']  : $plcld_action;
+
+	$plcno                     =  ( !empty($_GET['plcno']) ) ? $_GET['plcno'] : '' ;
+	$plcno                     =  ( empty($plcno) )        ? $_REQUEST['plcno']  : $plcno;
+
+	$type                      =  ( !empty($_GET['type']) )  ? $_GET['type'] : '' ;
+	$type                	   =  ( empty($type) )        ? $_REQUEST['type']  : $type;
+
+	$_SESSION['sort_comment']  = ( !empty($_SESSION['sort_comment'] ) ) ? $_SESSION['sort_comment']  : 'order by plcno desc' ;
     $_SESSION['sort_comment']  =  ( !empty($_GET['sort_comment']) ) ? $_GET['sort_comment'] :  $_SESSION['sort_comment']   ; 
 	$comment   = str_replace('\'',"\"", $comment); 
 	$dtime     = $mc->date_time;  
 	$comment = $mc->text_cleaner( $comment );      
-	// echo " <li>  htis is adfasdf </li> "; 
+	// echo " <li>  htis is adfasdf </li> ";
+
+
   
-	$comment = str_replace('[-double-dot-]', ':' , $comment ); // domain url 
+	$comment = str_replace('[-double-dot-]', ':' , $comment ); // domain url
+
+
+//	$comment       = $_REQUEST['type'];
+//	$post_comment  = $_REQUEST['plcno'];
+//	$table_name	   = $_REQUEST['thum_up_or_down'];
+//	$plno 		   = $_REQUEST['plno'];
+//
+//
+//
+
+
+
+
+
+echo "plcld_action = $plcld_action <br>";
+
+
+
+
+
+
+
+
 
 
 	if ( $plcld_action == 'Thumb-Up' ) {

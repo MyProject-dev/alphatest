@@ -8,14 +8,19 @@
     require('fs_folders/php_functions/Helper/helper.php');
     require("fs_folders/php_functions/Class/Look.php");
     require("fs_folders/php_functions/Class/Reset.php");
+    require("fs_folders/php_functions/Color/Color.php");
 
-
+     use App\php_function;
 	 use App\Reset;
 	 use App\User;
 	 $mc = new myclass();
 	 $reset = new  Reset();
 	 $db = new Database();
 	 $db->connect();
+
+
+
+     $color = new php_function\Color();
 
 
 
@@ -33,7 +38,7 @@
     $look = new Look($mc->mno,  $db);
 
 
-echo "<div style='display:none' >";
+echo "<div style='display:block' >";
 
 //echo "<pre>";
     $user              = new User($mno, $db);
@@ -52,12 +57,16 @@ if (!empty($_SESSION['adm_no'])) {
 	}
 	$_SESSION['post_a_look_is_look_upload_once_in_db'] = false;
 
-	  echo " this is is to be edited look = ".tobe_edite_look_id().'<br>';
+//	  echo " this is is to be edited look = ".tobe_edite_look_id().'<br>';
 
 	if( is_edit_look( tobe_edite_look_id() ) ) {
+
 		// echo "edite look";
+
 		$plno=tobe_edite_look_id();
+//        print($plno);
 		$pl_info=$mc->posted_look_info($plno);
+
 		// print_r($pl_info);
 		// echo 'lnmae '.$pl_info['lookName'].' ldesc'.$pl_info['lookAbout'];
 		// echo " total tags = ".count($pl_info['pltags']);
@@ -65,23 +74,38 @@ if (!empty($_SESSION['adm_no'])) {
 		// 	$pl_info[$i][]
 		// 	 echo " pltags = ";
 		// }
+
 		$lookAbout                      = $pl_info['lookAbout'];
 		$pltags                         = $pl_info['pltags'];
 		$lookName                       = $pl_info['lookName'];
 		$occasion                       = $pl_info['occasion'];
 		$season                         = $pl_info['season'];
-		$style                          = $pl_info['style'];
+		$styleFashion                          = $pl_info['style'];
 		$article_link                   = $pl_info['article_link'];
-		$pltags                         = $pl_info['pltags'];
 		$Ttag                           = count($pl_info['pltags']);
 		$_SESSION['last_look_uploaded'] = $plno;
 		$_SESSION['look_edit']          = true;
-		// echo "plno = $plno";
 
+        foreach($pltags as $tag) {
+            $colorArray[] = explode(',', $tag['plt_color'])[1];
+        }
+
+		// echo "plno = $plno";
 		echo"<span id='type' style='display:none'>".$_GET['type']."</span>";
 		echo"<span id='plno' style='display:none'>".$_GET['kooldi']."</span>";
 		// echo "edit";
 
+//                echo "<pre>";
+
+        //        print_r($pl_info);
+//        print_r($pltags);
+
+
+//        print_r($colorArray);
+//               exit;
+
+
+        echo "<div id='content' style='display:none'>$lookAbout</div>";
 	}
 	else {
 		// echo " new uploaded look ";
@@ -124,7 +148,7 @@ if (!empty($_SESSION['adm_no'])) {
 		"OOTD | Trends | Fashion Blogs | Beauty Tips | Fashion Inspiration "
 	);
     echo " </div>";
-	$method  = 'not edit';
+	$method  =  $_GET['method'];
 //    echo  date("Y-m-d h:i:s a");
 ?>
 
@@ -163,12 +187,15 @@ if (!empty($_SESSION['adm_no'])) {
 					PopupCenter("http://twitter.com/share?url=http://fashionsponge.com/fs/lookdetails.php?id=<?php echo $rs[0]; ?>&text="+lName+"\n","",660,330);
 				}
 			}
-		</script>
+		</script> 
 
-
-
-
-
+		<?php if(isLocal()) { ?> 
+			<div id="postalook-tag-preivew-path" style="display:none" >http://dev.fashionsponge.com/fs_folders/images/uploads</div>
+            <?php $_SESSION['tagPath'] = 'http://dev.fashionsponge.com/fs_folders/images/uploads' ?>
+		<?php } else { ?>
+			<div id="postalook-tag-preivew-path" style="display:none" >http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads</div> 
+		    <?php $_SESSION['tagPath'] = 'http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads' ?>
+        <?php } ?>
 
 	</head>
 
@@ -194,48 +221,48 @@ if (!empty($_SESSION['adm_no'])) {
 	 			 					switch ( $method ) {
 	 			 						case 'edit':
 
-		 			 							$ri = new resizeImage ();
-			 									// echo "edite look";
-												$pl_info=$mc->posted_look_info($table_id);
-												// print_r($pl_info);
-												// echo 'lnmae '.$pl_info['lookName'].' ldesc'.$pl_info['lookAbout'];
-												// echo " total tags = ".count($pl_info['pltags']);
-												// for ($i=0; $i < count($pl_info['pltags']) ; $i++) {
-												// 	$pl_info[$i][]
-												// 	 echo " pltags = ";
-												// }
-
-												$modal['desc']                  = $pl_info['lookAbout'];
-												$modal['title']                 = $pl_info['lookName'];
-												$modal['occasion']              = $pl_info['occasion'];
-												$modal['season']                = $pl_info['season'];
-												$modal['style']                 = $pl_info['style'];
-												$modal['url']                   = $pl_info['article_link'];
-												$modal['keyword']               = $pl_info['keyword'];
-
-
-												$pltags                         = $pl_info['pltags'];
-												$pltags                         = $pl_info['pltags'];
-												$Ttag                           = count($pl_info['pltags']);
-												$_SESSION['last_look_uploaded'] = $table_id;
-												$_SESSION['look_edit']          = true;
-												// echo "plno = $plno";
-												echo"<span id='type' style='display:none'>".$method."</span>";
-												echo"<span id='plno' style='display:none'>".$table_id."</span>";
-												// echo "edit";
-												$modal['src']  = "$mc->look_folder_lookdetails/$table_id.jpg";
+//		 			 							$ri = new resizeImage ();
+//			 									// echo "edite look";
+//												$pl_info=$mc->posted_look_info($table_id);
+//												// print_r($pl_info);
+//												// echo 'lnmae '.$pl_info['lookName'].' ldesc'.$pl_info['lookAbout'];
+//												// echo " total tags = ".count($pl_info['pltags']);
+//												// for ($i=0; $i < count($pl_info['pltags']) ; $i++) {
+//												// 	$pl_info[$i][]
+//												// 	 echo " pltags = ";
+//												// }
+//
+//												$modal['desc']                  = $pl_info['lookAbout'];
+//												$modal['title']                 = $pl_info['lookName'];
+//												$modal['occasion']              = $pl_info['occasion'];
+//												$modal['season']                = $pl_info['season'];
+//												$modal['style']                 = $pl_info['style'];
+//												$modal['url']                   = $pl_info['article_link'];
+//												$modal['keyword']               = $pl_info['keyword'];
+//
+//
+//												$pltags                         = $pl_info['pltags'];
+//												$pltags                         = $pl_info['pltags'];
+//												$Ttag                           = count($pl_info['pltags']);
+//												$_SESSION['last_look_uploaded'] = $table_id;
+//												$_SESSION['look_edit']          = true;
+//												// echo "plno = $plno";
+//												echo"<span id='type' style='display:none'>".$method."</span>";
+//												echo"<span id='plno' style='display:none'>".$table_id."</span>";
+//												// echo "edit";
+												$modal['src']  = "$mc->look_folder_lookdetails/$plno.jpg";
 												$lookmodalsstyle     = $mc->lookdetails_set_size_of_the_look( "../../../".$modal['src'] , $ri );
-
-												// selected
-												    $modal['select']     = ( $modal['style'] == ''           ) ? 'selected' : null ;
-													$modal['selected0']  = ( $modal['style'] == 'Chic'       ) ? 'selected' : null ;
-													$modal['selected1']  = ( $modal['style'] == 'Menswear'   ) ? 'selected' : null ;
-													$modal['selected2']  = ( $modal['style'] == 'Preppy'     ) ? 'selected' : null ;
-													$modal['selected3']  = ( $modal['style'] == 'Streetwear' ) ? 'selected' : null ;
-													$modal['selected4']  = ( $modal['style'] == 'bohemian'   ) ? 'selected' : null ;
-													$modal['selected5']  = ( $modal['style'] == 'casual'     ) ? 'selected' : null ;
-													$modal['selected6']  = ( $modal['style'] == 'Formal'     ) ? 'selected' : null ;
-													$modal['selected7']  = ( $modal['style'] == 'Grunge'     ) ? 'selected' : null ;
+//
+//												// selected
+//												    $modal['select']     = ( $modal['style'] == ''           ) ? 'selected' : null ;
+//													$modal['selected0']  = ( $modal['style'] == 'Chic'       ) ? 'selected' : null ;
+//													$modal['selected1']  = ( $modal['style'] == 'Menswear'   ) ? 'selected' : null ;
+//													$modal['selected2']  = ( $modal['style'] == 'Preppy'     ) ? 'selected' : null ;
+//													$modal['selected3']  = ( $modal['style'] == 'Streetwear' ) ? 'selected' : null ;
+//													$modal['selected4']  = ( $modal['style'] == 'bohemian'   ) ? 'selected' : null ;
+//													$modal['selected5']  = ( $modal['style'] == 'casual'     ) ? 'selected' : null ;
+//													$modal['selected6']  = ( $modal['style'] == 'Formal'     ) ? 'selected' : null ;
+//													$modal['selected7']  = ( $modal['style'] == 'Grunge'     ) ? 'selected' : null ;
 
 	 			 							break;
 	 			 						default:
@@ -257,7 +284,7 @@ if (!empty($_SESSION['adm_no'])) {
 
 									 		?>
 										</head>
-										<body style="padding-bottom:0px; margin-bottom:0px;padding-top:0px; margin-top:0px;" id='label-look-body' >
+										<body style="padding-bottom:0px; margin-bottom:0px;padding-top:0px; margin-top:0px;" id='label-look-body' onload="postalook()" >
 
 
 												<!-- <div id="new-postalook-label-container" >  -->
@@ -352,10 +379,10 @@ if (!empty($_SESSION['adm_no'])) {
 																						 	<?php
                                                                                             $look->print_tags_includes();
 																							 $c=0;
-																							 for ($i=1; $i <5 ; $i++):
+																							 for ($i=1; $i <16 ; $i++):
 																							 	 $c++;
 																							 	 $background  = '';
-                                                                                                 $look->print_tags($i, $c);
+                                                                                                 $look->print_tags($i, $c, $pl_info['pltags']);
                                                                                              endfor;
                                                                                             ?>
 																		 				</div>
@@ -374,7 +401,7 @@ if (!empty($_SESSION['adm_no'])) {
 																				 	<!--  images -->
 
 
-																					<?php if ( $method != 'edit' ): ?>
+																					<?php if ( $method != 'edit' ) {  ?>
 
 																						<div style="position:absolute; border:1px solid none;" id="modal-upload-div" onmouseover ="$('#modal-upload-div').css('display','block')" >
 																							<form  action="photo.resize.php?type=upload-look-and-resize" method="POST" enctype="multipart/form-data" id="upload-modal" >
@@ -392,7 +419,7 @@ if (!empty($_SESSION['adm_no'])) {
 																								onmouseout="mouseout_change_button (  '#postarticle-upload-image' , 'fs_folders/images/post/upload-article.png' ) "
 																							/>
 																						</div>
-																					<?php endif; ?>
+
 																 						<center>
 																	 						<!-- <img src="<?php echo "$mc->look_folder_home/6.jpg";  ?>"  style='<?php echo $lookmodalssize; ?>' id="modal-image"   />   	  -->
 																	 						<img src="<?php echo $modal['src']; ?>"  style='<?php echo $lookmodalsstyle; ?>' id="modal-image"   />
@@ -425,6 +452,39 @@ if (!empty($_SESSION['adm_no'])) {
                                																	<!-- <input type="checkbox" name="post-look-agreement" id="post-look-agreement" checked=""> Agree Term <a href="agreement" target="_blank"> read </a> </div> -->
 																							</div>
 																						</center>
+
+
+                                                                                    <?php } else { ?>
+
+
+                                                                                        <center>
+                                                                                            <img src="<?php echo $modal['src']; ?>"  style='<?php echo $lookmodalsstyle; ?>' id="modal-image"   /> 
+                                                                                        </center>
+
+                                                                                     	<center>  
+																	 						<div id="postalook-agreement-and-rotate" > 
+																							    <table>
+																							      	<tbody><tr>
+																							          <td class="postarticle-want-crop-agreement" >
+																							          		<input type="checkbox"><span>I want to crop or rotate my image</span>
+																							          </td>
+																							        </tr><tr>
+																							          <td>
+                                                                                                          <?php if( $user->post_look_agree == 0) { ?>
+																							          		<input type="checkbox" id="post-look-agreement" ><span>I agree to the posting a look rules</span>
+                                                                                                          <?php } else { ?>
+                                                                                                              <input type="checkbox" id="post-look-agreement"  checked><span>I agree to the posting a look rules</span>
+                                                                                                          <?php } ?>
+																							          </td>
+																							  		</tr></tbody>
+																							  	</table>
+																							  	<!-- <div style="position: absolute;float: left;margin: 20px 0px 0px 0px; ">    -->
+                               																	<!-- <input type="checkbox" name="post-look-agreement" id="post-look-agreement" checked=""> Agree Term <a href="agreement" target="_blank"> read </a> </div> -->
+																							</div>
+																						</center>
+                                                                                    <?php } ?>
+
+
 																					</td>
 																			<tr>
 																				<td>
@@ -442,22 +502,21 @@ if (!empty($_SESSION['adm_no'])) {
 																												<tr>";
 																													for ($i=0; $i < 15 ; $i++) {
 																														$c++;
-																														$plt_color = (!empty($pltags[$i]["plt_color"])) ? $pltags[$i]["plt_color"] : null ;
-																														$tc = $mc->get_html_colo_code( str_replace(" ","",$plt_color));
-
+                                                                                                                        $colorPrint = (!empty($colorArray[$i])) ? $colorArray[$i] : null ;
+                                                                                                                        $tc =  $color->getHtmlCode($colorPrint);
 																														if ($c <= count($pltags)) {
 																															#  sa mga tag nga naay color
 																															if ( $i==0 ) {
 																																#sugod td sa color pallete
-																																$style = "display:block; background-color:#$tc; border-radius:0 0 0 5px;";
+																																$style = "display:block; background-color:$tc; border-radius:0 0 0 5px;";
 																															}
 																															else if ( $i== count($pltags)-1 ) {
 
 																																#last print td sa color pallete
-																																$style = "display:block; background-color:#$tc; border-radius:0 0 5px 0;";
+																																$style = "display:block; background-color:$tc; border-radius:0 0 5px 0;";
 																															}
 																															else{
-																																$style = "display:block; background-color:#$tc";
+																																$style = "display:block; background-color:$tc";
 																															}
 																														}
 																														else{
@@ -523,11 +582,11 @@ if (!empty($_SESSION['adm_no'])) {
 																								      <td><div>Title</div></td><td style="padding-left: 7px;" ><div>Article Url</div></td> </tr><tr>
 
 																								     <td>
-																								          <input placeholder="160 characters max" type="text" id="onetwo" class="look_name"   title="Name your look (160) character." style="width:100%;" value="">
+																								          <input placeholder="160 characters max" type="text" id="onetwo" class="look_name"   title="Name your look (160) character." style="width:100%;" value="<?php echo $lookName; ?>" >
 																								    </td>
 
 																								    <td style="padding-left: 5px;">
-																								      <input title="Add source url of the article (optional)." type="text" class="look-article-field" value="" placeholder="paste look url" style="width:100%; border:1px solid none; ">
+																								      <input title="Add source url of the article (optional)." type="text" class="look-article-field" value="<?php echo $article_link; ?>" placeholder="paste look url" style="width:100%; border:1px solid none; ">
 																								    </td>
 																									</tr>
 																									</tbody>
@@ -535,7 +594,7 @@ if (!empty($_SESSION['adm_no'])) {
 																						</td>
 																				    <tr>
 																					 	<td style="padding-top:10px;" >
-																					 		<table border="0" cellpadding="0" cellspacing="0" width="100%;" >
+																					 		<table border="0" cellpadding="0" cellspacing="0" style="width: 883px;margin-left: 4px;">
 																					 			<tr>
 																					 				<td> <div style="padding-bottom:10px;" >Style</div> </td>
 																					 				<td> <div style="padding-bottom:10px;margin-left:4px;" > Occasion </div> </td>
@@ -543,157 +602,40 @@ if (!empty($_SESSION['adm_no'])) {
 																					 				<td> <div style="padding-bottom:10px;margin-left:4px; display:none" > Tags </div> </td>
 																						 		<tr>
 																						 			<td style="background:white; border:1px solid white" >
-																						 				<div>
-																						 					<select  style="width:100%;padding:5px;border:none;" id="style"   >
-																						 						<option>Select</option>
-													                                                            <option <?php echo $modal['selected4']; ?>>Bohemian</option>
-													                                                            <option <?php echo $modal['selected5']; ?>>Casual</option>
-													                                                            <option <?php echo $modal['selected0']; ?>>Chic</option>
-													                                                            <option <?php echo $modal['selected6']; ?>>Formal</option>
-													                                                            <option <?php echo $modal['selected7']; ?>>Grunge</option>
-													                                                            <option <?php echo $modal['selected1']; ?>>Menswear</option>
-													                                                            <option <?php echo $modal['selected2']; ?>>Preppy</option>
-													                                                            <option <?php echo $modal['selected3']; ?>>Streetwear</option>
-																											</select>
-																										</div>
+																						 				 <?php $look->designPostAlookStyle($styleFashion); ?>
+																						 			</td>
+ 
+
+																						 			<td style="background:white; border:1px solid white" > 
+																						 			<?php $look->designPostAlookOccasion($occasion); ?>
+
+																						 			 		
+  																										    <input style="display:none; width:100%;display:none; visibility:hidden; border:1px solid none; "  type='text' value='<?php  echo $occasion; ?>' id='input345' class='occasion hide'    placeholder='Where can you wear this?'  onclick="hide_all_open_dropdown('none','res_occasion','none')"; >
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
 																						 			</td>
 																						 			<td style="background:white; border:1px solid white" >
 
-																										<input style="width:100%;display:none; visibility:hidden; border:1px solid none; "  type='text' value='<?php  echo $occasion; ?>' id='input345' class='occasion'    placeholder='Where can you wear this?'  onclick="hide_all_open_dropdown('none','res_occasion','none')"; >
+																						 					<?php $look->designPostAlookSeason($season); ?> 
 
 
-
-																										<div class='res_occasion' id='res_occasion' style="visibility:hidden" >
-																											<?php
-																												$a = array('Amusement Park','Baby Shower','BBQ','Beach','Birthday Dinner','Blind Date','Bridal Shower','Brunch','Casual Party','Clubbing','Cocktail','College','Company Event','Conference','Dinner Date','Dinner Party','Everyday','Formal Event','High School','Internship','Interview','Lunch Date','Movie Night','Music Concert','Photo shoot','Picnic','Pool Party','Prom','Romantic Dinner','Theater / Play / Opera','Wedding','Wine Tasting','Work');
-																												$c=0;
-																												echo "<span onclick='close_x()'   class='x_out'  title='(close)' >x</span>";
-																												echo " <br> <center> <span>Occasion </span></center> <br>";
-																												echo "<table border=0>" ;
-																												for ($i=0; $i < count($a) ; $i++) {
-																													$c++;
-																													$b=$a[$i];
-																													echo "<td><p onclick='hide_x_beore_accasion_name(\"$i\");remove_Selected_taggs(\"$b\")'  id='remove_tags_$i' class='remove_tags_occasion'>x</p></td>
-																													<td onclick='get_clicked_accation(\"$b\",\"$i\")' style=''   >   $b </td>
-																													";
-																													if ($c%5==0) {
-																														echo "<tr>";
-																													}
-																												}
-																												echo "</table>";
-																											?>
-																										</div>
-
-																										<!--  new version -->
-																											<input
-																												value="<?php echo $modal['occasion']; ?>"
-																												style="width:100%; padding:5px;border:none"
-																												id="occasion"
-																												class="occasion"
-																												placeholder='Where can you wear this?'
-																												title="put a comma after word to add tag."
-																												type='text'
-																												onkeyup="modal( 'modal-attribute' , 'search' , 'occasion' , 'autocomplete-dropdown-loader-occasion' , 'autocomplete-dropdown-container-occasion' , 'occasion' , '' , true )"
-																												onClick="show('#autocomplete-dropdown-container-occasion-1, #label-look-dropdown-container')"
-																											/>
-
-
-																						 					<!-- <div id="label-look-dropdown-container" style="margin-top:33px;width:243px;" >
-																											    <div class="autocomplete-dropdown-container" id="autocomplete-dropdown-container-occasion"  >  
-																											    	<center><div id="autocomplete-dropdown-loader-cotainer"  class="autocomplete-dropdown-loader-cotainer-occasion"   >  <?php $mc->image( array( 'type'=>'loader' , 'id'=>"autocomplete-dropdown-loader-occasion" ,'style'=>'visibility:visible;height:10px;'  ) ); ?></div></center>
-																											    </div> 
-																											</div>  -->
-
-
-																											<div id="label-look-dropdown-container" style="margin-top:33px;width:243px; display:none" >
-																											    <div class="autocomplete-dropdown-container" id="autocomplete-dropdown-container-occasion-1" style="display:none" >
-
-																											    	 <center>
-																												    	 <div id="autocomplete-dropdown-loader-cotainer"  class="autocomplete-dropdown-loader-cotainer-occasion"   >
-																												    	 	<div style="display:block; width: 244px;color:none;margin-left: -5px;">
-
-
-																														        <table border="0" cellpadding="0" cellspacing="0">
-																														            <tbody>
-																														            	<tr> <td onclick="modal( 'get-value-selected' , '' , '' , '' , 'autocomplete-dropdown-container-occasion' , occasion , 'conference, ' , '1' )">conference</td>
-																													        			</tr><tr> <td onclick="modal( 'get-value-selected' , '' , '' , '' , 'autocomplete-dropdown-container-occasion' , occasion , 'company event, ' , '1' )">company event</td>
-																													        			</tr><tr> <td onclick="modal( 'get-value-selected' , '' , '' , '' , 'autocomplete-dropdown-container-occasion' , occasion , 'college, ' , '1' )">college</td>
-																													        			</tr><tr> <td onclick="modal( 'get-value-selected' , '' , '' , '' , 'autocomplete-dropdown-container-occasion' , occasion , 'cocktail, ' , '1' )">cocktail</td>
-																													        			</tr><tr> <td onclick="modal( 'get-value-selected' , '' , '' , '' , 'autocomplete-dropdown-container-occasion' , occasion , 'clubbing, ' , '1' )">clubbing</td>
-																													        			</tr><tr> <td onclick="modal( 'get-value-selected' , '' , '' , '' , 'autocomplete-dropdown-container-occasion' , occasion , 'casual party, ' , '1' )">casual party</td>
-																													        			</tr><tr>
-																													        			</tr>
-																												        			</tbody>
-																												        		</table>
-																								 			 				</div>
-																												    	 </div>
-																											    	 </center>
-																											    </div>
-																											</div>
-																						 			</td>
-																						 			<td style="background:white; border:1px solid white" >
-																										<input  style="width:100%;display:none"  type='text' value='<?php  echo $season; ?>' id='input345' class='season'      placeholder='During what seasons can you wear this?'   style="width:248px; border:1px solid none;float:right"  onclick="hide_all_open_dropdown('none','res_season','none')";  >
-																										<div style='' class='res_season' id='res_season'  style="display:none" >
-																											<?php
-																												$a =array('Winter','Spring','Summer','Fall');
-																												$c=0;
-																												echo "<span onclick='close_x()' class='x_out'  title='(close)' >x</span>";
-																												echo " <br> <center> <span>Session </span></center> <br>";
-																												echo "<table border=0>" ;
-																												for ($i=0; $i < count($a) ; $i++) {
-																													$c++;
-																													$b=$a[$i];
-																													echo "
-																													<td><p onclick='remove_Selected_taggs(\"$b\");hide_x_beore_session_name(\"$i\")'  id='remove_tags_session_$i' class='remove_tags_session' >x</p></td>
-																													<td onclick='get_clicked_session(\"$b\",\"$i\")' style=''   >   $b </td>
-																													";
-																													if ($c%5==0) {
-																														echo "<tr>";
-																													}
-																												}
-																												echo "</table>";
-																											?>
-																										</div>
-
-																										<!--  new version -->
-																											<input
-																												value="<?php echo $modal['season']; ?>"
-																												style="width:100%; padding:5px;border:none"
-																												id="season"
-																												placeholder='During what seasons can you wear this?'
-																												title="put a comma after word to add tag."
-																												type='text'
-																												onkeyup="modal( 'modal-attribute' , 'search' , 'season' , 'autocomplete-dropdown-loader-season' , 'autocomplete-dropdown-container-season' , 'season' , '' , true )"
-																												onCLick="show('#autocomplete-dropdown-container-season-1, #label-look-dropdown-container')"
-																											/>
-
-
-																						 					<!-- <div id="label-look-dropdown-container" style="margin-top:33px;width:244px;" >
-																											    <div class="autocomplete-dropdown-container" id="autocomplete-dropdown-container-season" >  
-																											    	<center><div id="autocomplete-dropdown-loader-cotainer"  class="autocomplete-dropdown-loader-cotainer-season"   >  <?php $mc->image( array( 'type'=>'loader' , 'id'=>"autocomplete-dropdown-loader-season" ,'style'=>'visibility:visible;height:10px;'  ) ); ?></div></center>
-																											    </div> 
-																											</div>   -->
-
-																											<div id="label-look-dropdown-container" class="label-look-dropdown-container-1" style="margin-top:33px;width:243px; display:none" >
-																											    <div class="autocomplete-dropdown-container" id="autocomplete-dropdown-container-season-1" style="display:none" >
-
-																											    	 <center>
-																												    	 <div id="autocomplete-dropdown-loader-cotainer"  class="autocomplete-dropdown-loader-cotainer-occasion"   >
-																												    	 	<div style="display:block; width: 244px;color:none;margin-left: -5px;">
-																								 			 					 <div style="display:block; color:none; ">
-
-																																	        <table border="0" cellpadding="0" cellspacing="0">
-																																	            <tbody><tr>								              		<td onclick="modal( 'get-value-selected' , '' , '' , '' , 'autocomplete-dropdown-container-season' , season , 'summer, ' , '1' )">summer</td>
-																																	        			</tr><tr> 								              		<td onclick="modal( 'get-value-selected' , '' , '' , '' , 'autocomplete-dropdown-container-season' , season , 'spring, ' , '1' )">spring</td>
-																																	        			</tr><tr> 								        </tr></tbody></table>
-																												 			 				</div>
-
-																								 			 				</div>
-																												    	 </div>
-																											    	 </center>
-																											    </div>
-																											</div>
-
+																										
+																										<input  style="display:none;width:100%;display:none"  type='text' value='<?php  echo $season; ?>' id='input345' class='season'      placeholder='During what seasons can you wear this?'   style="width:248px; border:1px solid none;float:right"  onclick="hide_all_open_dropdown('none','res_season','none')";  >
+																										   
 																						 			</td>
 																						 			<td style="background:white; border:1px solid white; display:none" >
 																						 				<!--  new version -->
@@ -742,6 +684,14 @@ if (!empty($_SESSION['adm_no'])) {
 																								Description  1
 																							</div>
 																							<?php   require("$base_url/fs_folders/ckeditor/samples/replacebyclass.html");  ?>
+
+
+
+
+
+
+
+
 																							<!-- <textarea placeholder='320 characters  max' rows='10' cols='30' maxlength='320' id='onetwo' class='textarea' title="What’s the story behind your look?" style="height:50px;" ><?php echo $modal['desc']; ?></textarea> -->
 																						</td>
 																					<!--
@@ -902,7 +852,7 @@ if (!empty($_SESSION['adm_no'])) {
 																										<img
 																											id="postarticle-submit"
 																											src="<?php echo "$mc->genImgs/post.png"; ?>"
-																											onclick="modal ( 'modal-attribute' ,  'insert' , 'post-modal' , '.look_name' , 'Title Required' , '' , '' , '' , '<?php echo $method; ?>' , '<?php echo $table_id; ?>' ) "
+																											onclick="modal ( 'modal-attribute' ,  'insert' , 'post-modal' , '.look_name' , 'Title Required' , '' , '' , '' , '<?php echo $method; ?>' , '<?php echo $plno; ?>', '', '#post-look-agreement') "
 																											onmousemove=" mousein_change_button ( '#postarticle-submit' , '<?php echo "$mc->genImgs/post.png"; ?>' )"
 																											onmouseout="mouseout_change_button (  '#postarticle-submit'  , '<?php echo "$mc->genImgs/post.png"; ?>' ) "
 																										/>

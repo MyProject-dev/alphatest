@@ -3,9 +3,16 @@
 	require("fs_folders/php_functions/function.php");
 	require("fs_folders/php_functions/myclass.php");
 	require("fs_folders/php_functions/library.php");
-	require("fs_folders/php_functions/source.php"); 
+	require("fs_folders/php_functions/source.php");  
+	 
 	$mc = new myclass();
 	$am = new admin();
+	$db = new Database();
+
+
+
+
+
 	$mc-> auto_detect_path();
 	$am->initialize_when_reload(); 
 	$adminpage  = ( !empty($_GET['p']) ) ? $_GET['p'] : '' ;   
@@ -112,11 +119,11 @@
 //								 		} else {
 //								 			require("fs_folders/admin/php_file/viewlooks.php");
 //								 		}
-                        if(file_exists("fs_folders/admin/php_file/$adminpage.php")) {
-                            require("fs_folders/admin/php_file/$adminpage.php");
-                        } else {
-                            require("fs_folders/admin/php_file/viewlooks.php");
-                        }
+					                        if(file_exists("fs_folders/admin/php_file/$adminpage.php")) {
+					                            require("fs_folders/admin/php_file/$adminpage.php");
+					                        } else {
+					                            require("fs_folders/admin/php_file/viewlooks.php");
+					                        }
 
 
 

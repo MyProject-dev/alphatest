@@ -7,7 +7,7 @@ class Topic
 {
     private $db = 0;
     private $mno = 0;
-    private $table = 'topic';
+    private $table = 'fs_tag_topic';
 
     function __construct($db, $mno)
     {
@@ -17,7 +17,7 @@ class Topic
     }
 
     public function add($name, $category_id) {
-        if($this->db->insert($this->table, array('name'=> $name, 'category_id'=>$category_id))) {
+        if($this->db->insert($this->table, array('name'=> $name, 'topic_category_id'=>$category_id))) {
             //echo "inserted new topic <br>";
             return true;
         } else {
@@ -39,7 +39,7 @@ class Topic
         $category_id = $this->category->getIdByNameOrAdd($category_name);
 
         if(!$this->isExist($name, $category_id)) {
-            if($this->db->insert($this->table, array('name'=> $name, 'category_id'=>$category_id))) {
+            if($this->db->insert($this->table, array('name'=> $name, 'topic_category_id'=>$category_id))) {
                 //echo "added <br>";
                 return true;
             } else {
@@ -67,26 +67,23 @@ class Topic
     }
 
     public function getByNameWithInCategory($name, $category_id) {
-        $response = select_v3($this->table, '*', " name = '$name' and category_id = $category_id");
+        $response = select_v3($this->table, '*', " name = '$name' and topic_category_id = $category_id");
         return $response;
     }
 
     public function getByNameSearchWithInCategory($name, $category_id) {
         // echo  " name Like '%$name%' and category_id = $category_id";
-        $response = select_v3($this->table, '*', " name Like '%$name%' and category_id = $category_id");
+        $response = select_v3($this->table, '*', " name Like '%$name%' and topic_category_id = $category_id");
         return $response;
     }
 
     public function isExist($name, $category_id) {
-        $response = select_v3($this->table, '*', " name = '$name' and category_id = $category_id");
+        $response = select_v3($this->table, '*', " name = '$name' and topic_category_id = $category_id");
         if(!empty($response)){
             return true;
         } else  {
             return false;
         }
     }
-
-
-
 
 }

@@ -6,12 +6,18 @@
     require ("../../../fs_folders/php_functions/source.php");
     require ("../../../fs_folders/php_functions/myclass.php");
     require("../../../fs_folders/php_functions/Class/Brand.php");
+    require("../../../fs_folders/php_functions/Class/TopicCategory.php");
+
     use app\Brand;
+    use app\TopicCategory;
 
 	$mc = new myclass();
     $db = new Database();
+
     $db->connect();
     $brandObject = new Brand($db, $mc->mno);
+    $topicCategory   = new TopicCategory($db, $mc->mno);
+
 
  	$_SESSION['mno'] =  $mc->get_cookie( 'mno' , 136 );  
  	$mno 			 =  $mc->get_cookie( 'mno' , 136 );   
@@ -33,9 +39,11 @@
     if($type=='topic') {
         //echo "inside topic <br>";
         if($brand == 'all topics') {
-            $brandContent = $brandObject->brand(0,$brandObject->category('','','','topic'),2,'welcome','','bno desc', "$start, $end");
+            echo "all topic <br>";
+            $brandContent = $brandObject->topic(0,  $topicCategory->categoryIds(),2,'welcome','','id desc', "$start, $end");
         } else {
-            $brandContent = $brandObject->brand(0,$brandObject->category('',$brand,'','topic')[0]['bcno'],2,'welcome','','bno desc', "$start, $end");
+            echo "single topic <br>";
+            $brandContent = $brandObject->topic(0,  $topicCategory->categoryIdByName($brand),2,'welcome','','id desc', "$start, $end");
         }
     }
 	else {
@@ -52,18 +60,27 @@
         }
 	}
 
+
+
+//echo "<pre>";
+//    print_r($brandContent);
+//exit;
+
 	// Print modal and more button
+
+
+
 	if($type == 'topic') { ?>  
 		<modal>
             <?php for ($i=0; $i < count($brandContent); $i++): ?>
                 <?php
-                $bno  = $brandContent[$i]['bno'];
-                $bcno = $brandContent[$i]['bcno'];
-                $bname = $brandContent[$i]['bname'];
-                $branCategoryContent = $brandObject->category($bcno);
-                $type1 = $branCategoryContent[0]['type'];
+                $bno  = $brandContent[$i]['id'];
+                $bcno = $brandContent[$i]['topic_category_id'];
+                $bname = $brandContent[$i]['name'];
+//                $branCategoryContent = $brandObject->category($bcno);
+//                $type1 = $branCategoryContent[0]['type'];
                 //print($type1);
-                $path1 = 'fs_folders/images/uploads/brands/' . $bno . '_' . $type1 . '.jpg';
+                $path1 = 'fs_folders/images/uploads/topic/' . $bno .'.jpg';
                 ?>
                 <li>
                     <div>

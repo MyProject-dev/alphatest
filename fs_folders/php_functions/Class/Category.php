@@ -6,7 +6,7 @@ class Category
 {
     private $db = 0;
     private $mno = 0;
-    private $table = 'category';
+    private $table = 'fs_tag_topic_category';
 
     function __construct($db, $mno)
     {

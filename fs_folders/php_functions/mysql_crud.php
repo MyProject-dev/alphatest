@@ -248,7 +248,7 @@ class Database{
 			// Create the query
 			$sql='UPDATE '.$table.' SET '.implode(',',$args).' WHERE '.$where;
 
-          print_r($sql);
+//          print_r($sql);
 			// Make query to database
             $this->myQuery = $sql; // Pass back the SQL
             if($query = @mysql_query($sql)){

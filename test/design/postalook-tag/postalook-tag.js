@@ -25,13 +25,17 @@ function tag_select_color_enable_edit_mode(tagNum, colorPosition) {
     $('#tag-selected-color-td' + '-' + tagNum + '-' + colorPosition).css('opacity', '0.5');
 }
 function tag_select_color(rowName, color_name, color_html, tagNum) {
+    
     //alert('clicked row color = ' + object.tag_color_row_click + ' tag_color_td_click = ' + object.tag_color_td_click + ' tag_color_td_clicke_name = ' + object.tag_color_td_clicke_name);
     //get total color field-up from the right rectangle
     var color_lenght = $('#tag-color-database-data-' + rowName + '-' + tagNum).val().split(',').length - 1;
 
     // Validate if its in edit mode
     if (object.tag_color_row_click == tagNum) {
-
+        
+        // detect if duplicate color selected
+        if(tag_is_color_exist(color_html, tagNum)) { return false }
+            
         // find the selected row be replaced with color
         // replace the specific td that the user clicked
         //add color to the td right rectangle
@@ -66,6 +70,9 @@ function tag_select_color(rowName, color_name, color_html, tagNum) {
         // If less than 6 colors. 6 because it started with zero.
         if (color_lenght < 5) {
 
+            // detect if duplicate color selected
+            if(tag_is_color_exist(color_html, tagNum)) { return false }
+
             // get html color
             var color_html = color_html;
 
@@ -91,14 +98,122 @@ function tag_select_color(rowName, color_name, color_html, tagNum) {
             if (color_lenght == 0) {
                 tag_add_color_footer(color_html, color_name, tagNum);
             }
+
+
         }
     }
 }
 function tag_select_item(rowName, brand_name, brand_id, tagNum) {
+ 
+    console.log('id ' + brand_id + 'rowName  = ' + rowName);
+ 
 
     var imageView = true;
 
-    if (rowName == 'price' || rowName == 'url') {
+
+
+    if(rowName == 'topic_category') {
+
+        // add style to field
+        $('#postarticle-change-topic-category').val(brand_name);
+
+        //hide container
+        tag_hide_show('', '#table_container_');
+
+
+    } else if(rowName == 'topic') {
+        // add style to field
+        $('#tag-color-database-data-topic').val(brand_name);
+
+        //hide container
+        tag_hide_show('', '#table_container_1a');
+    } else if(rowName == 'tag') {
+        console.log('occasion in ');
+
+        //get occasion to field
+        var seasonVal = $('#tag-color-database-data-article-tag').val();
+
+        console.log(seasonVal)
+
+        //check if the selected is exist
+        // var str = "Hello world, welcome to the universe.";
+
+        var isExist = seasonVal.indexOf(brand_name);
+
+        console.log('exist = ' + isExist);
+        if(isExist > -1){
+            console.log(' item exist ');
+            //if exist then replace it
+        } else {
+            console.log(' item not exist ');
+            //else concat the new selected
+            seasonVal = seasonVal + ','  + brand_name;
+        }
+
+        //add to the field
+        $('#tag-color-database-data-article-tag').val(seasonVal);
+
+
+        //hide container
+        tag_hide_show('', '#table_container_2a');
+
+
+
+
+    } else if(rowName == 'style') {
+
+        // add style to field
+        $('#tag-color-database-data-style').val(brand_name);
+
+        //hide container 
+        tag_hide_show('', '#table_container_');
+
+    } else if (rowName == 'occasion') {   
+
+        console.log('occasion in ');
+
+        //get occasion to field 
+        var seasonVal = $('#tag-color-database-data-occasion').val();
+
+        console.log(seasonVal)
+
+        //check if the selected is exist 
+        // var str = "Hello world, welcome to the universe.";
+
+        var isExist = seasonVal.indexOf(brand_name);
+
+        console.log('exist = ' + isExist);
+       if(isExist > -1){
+           console.log(' item exist ');
+            //if exist then replace it  
+       } else { 
+            console.log(' item not exist ');
+            //else concat the new selected 
+             seasonVal = seasonVal + ','  + brand_name; 
+       } 
+
+       //add to the field
+       $('#tag-color-database-data-occasion').val(seasonVal);
+
+       
+        //hide container 
+        tag_hide_show('', '#table_container_1a');
+
+
+    } else if (rowName == 'season') {
+
+        //add the season selected from image 
+        $('#tag-color-database-data-season').val(brand_name);
+
+        //set don't show image preview
+        imageView = false;
+
+
+                //hide container 
+        tag_hide_show('', '#table_container_2a');
+
+
+    } else if (rowName == 'price' || rowName == 'url') {
         //get the field value
         //no view image from price and url
         brand_name = $('#tag-field-' + rowName + '-' + tagNum).val();
@@ -115,10 +230,38 @@ function tag_select_item(rowName, brand_name, brand_id, tagNum) {
     //add brand for field saving database
     $('#tag-color-database-data-' + rowName + '-' + tagNum).val(brand_name);
 
-    if (imageView == true) {
-        //display image of the brand
-        $('#tag-color-image-' + rowName + '-' + tagNum).attr('src', 'http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads/brands/' + brand_id + '_brand.jpg');
+    //This will prevent image showing when new item name is suggested
+    if(brand_id == 0){
+        return;
     }
+    
+    //set img src
+    if(rowName == 'brand') { 
+        var srcImg = $('#postalook-tag-preivew-path').text() + '/' + rowName + 's/' + brand_id + '_brand.jpg';
+    } else {
+        var srcImg = $('#postalook-tag-preivew-path').text() + '/' + rowName + '/' + brand_id + '.jpg';
+    }
+
+    console.log('src img ' + srcImg);
+
+    //display image preview
+    if (imageView == true) {  
+        $('#tag-color-image-' + rowName + '-' + tagNum).attr('src',  srcImg);
+    } 
+} 
+function mouseOverImagePreview(rowName, brand_id, tagNum) {
+
+    if(rowName == 'brand') { 
+        var srcImg = $('#postalook-tag-preivew-path').text() + '/' + rowName + 's/' + brand_id + '_brand.jpg';
+    } else if (rowName == 'default') {
+        var srcImg = $('#postalook-tag-preivew-path').text() + '/' + rowName + '/default.jpg';
+    } else {
+        var srcImg = $('#postalook-tag-preivew-path').text() + '/' + rowName + '/' + brand_id + '.jpg';
+    }  
+
+    console.log('src = ' + srcImg + ' append to ' + '#tag-color-image-' + rowName + '-' + tagNum);
+
+    $('#tag-color-image-' + rowName + '-' + tagNum).attr('src',  srcImg);   
 }
 function tag_add_price_url(tagNum) {
 }
@@ -130,18 +273,46 @@ function tag_search_data(rowName, tagNum) {
     //send http get request
     //assign handlers immediately after making the request,
     //and remember the jqxhr object for this request
-    var jqxhr = $.get("test/design/postalook-tag/postalook-tag-search.php?keyword=" + keyword + '&rowName=' + rowName + '&tagNum=' + tagNum, function () {
-        //alert( "success" );
-    })
 
-        // print result data
-        .done(function (data) {
+
+
+    if(rowName == 'topic-category' || rowName == 'topic-item' || rowName == 'article-tag') {
+
+        var jqxhr = $.get("test/design/postalook-tag/postarticle-tag-search.php?keyword=" + keyword + '&rowName=' + rowName + '&tagNum=' + tagNum, function () {
+            console.log('rowName = ' +  rowName + ' tagNum = ' + tagNum + 'keyword = ' + keyword);
+            // var jqxhr = $.get("postalook-tag-search.php?keyword=" + keyword + '&rowName=' + rowName + '&tagNum=' + tagNum, function () {
+            //alert( "success" );
+        })
+            // print result data
+            .done(function (data) {
+                //alert( "second success" + data);
+                $('#tag-result-search-' + rowName + '-' + tagNum).html(data);
+            })
+            .fail(function () {
+                alert("Error found, please contact Fashion Sponge support.");
+            })
+
+    } else {
+        var jqxhr = $.get("test/design/postalook-tag/postalook-tag-search.php?keyword=" + keyword + '&rowName=' + rowName + '&tagNum=' + tagNum, function () {
+         console.log('rowName = ' +  rowName + ' tagNum = ' + tagNum + 'keyword = ' + keyword);
+        // var jqxhr = $.get("postalook-tag-search.php?keyword=" + keyword + '&rowName=' + rowName + '&tagNum=' + tagNum, function () {
+            //alert( "success" );
+        })
+
+            // print result data
+            .done(function (data) {
             //alert( "second success" + data);
             $('#tag-result-search-' + rowName + '-' + tagNum).html(data);
-        })
-        .fail(function () {
-            alert("Error found, please contact Fashion Sponge support.");
-        })
+            })
+            .fail(function () {
+                alert("Error found, please contact Fashion Sponge support.");
+            })
+
+    }
+
+
+
+
 }
 function tag_change_content(rowName, tagNum) {
     // hide current open rows
@@ -164,16 +335,16 @@ function tag_change_content(rowName, tagNum) {
     $('#tag-tab-url-' + tagNum).attr('class', 'default');
     // set as active tab
     $('#tag-tab-' + rowName + '-' + tagNum).attr('class', 'active');
- 
+
     //hide reset options
     $('#tag-reset-div-color-'+tagNum).css('display', 'none');
     $('#tag-reset-div-brand-'+tagNum).css('display', 'none');
     $('#tag-reset-div-pattern-'+tagNum).css('display', 'none');
     $('#tag-reset-div-material-'+tagNum).css('display', 'none');
-    $('#tag-reset-div-garment-'+tagNum).css('display', 'none'); 
-       
+    $('#tag-reset-div-garment-'+tagNum).css('display', 'none');
+
     //show reset option 
-    $('#tag-reset-div-'+rowName+'-'+tagNum).css('display', 'block');  
+    $('#tag-reset-div-'+rowName+'-'+tagNum).css('display', 'block');
 }
 function tag_show_category_garment_data(categoryName, tagNum, id) {
 
@@ -204,21 +375,27 @@ function tag_show_category_garment_data(categoryName, tagNum, id) {
     tag_hide_show('#tag-result-container-garment-'+categoryName+'-'+tagNum, '#tag-result-container-category-garment-'+tagNum);
 
     //show category image
-    tag_show_image_preview(id, 'garment', tagNum);
-
+    tag_show_image_preview(id, 'garment', tagNum); 
 }
-function tag_hide_show(selector_show, selector_hide) {
+function tag_hide_show(selector_show, selector_hide, selector_focus) {
     //hide
     $(selector_hide).css('display', 'none');
 
     //show
     $(selector_show).css('display', 'block');
+
+
+    //fucos the cursor to field
+    $(selector_focus).focus();
 }
 function tag_add_color_footer(color_html, color_name, tagNum) {
+
     $('#new-postalook-tagcolor-td' + tagNum).css({'display': 'block', 'background-color': color_html})
 }
 function tag_show_image_preview(id, rowName, tagNum) {
+
     $('#tag-color-image-' + rowName + '-' + tagNum).attr('src', 'http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads/brands/' + id + '_brand.jpg');
+    $('#tag-color-image-' + rowName + '-' + tagNum).attr('alt', 'Image');
 }
 function tag_open_garmennt_sub_category(id, tagNum, selector_show, selector_hide) {
     // hide subcategory and show subcategory content
@@ -227,7 +404,7 @@ function tag_open_garmennt_sub_category(id, tagNum, selector_show, selector_hide
     //show sub category image
     tag_show_image_preview(id, 'garment', tagNum);
 }
-function tag_reset(name, tagNum) { 
+function tag_reset(name, tagNum) {
     if(name == 'color') {
         tag_reset_color(tagNum);
     } else if (name == 'reset' ) {
@@ -258,4 +435,27 @@ function tag_reset_items(name, tagNum) {
 
     //// Reset the database input
     $('#tag-color-database-data-'+name+'-'+tagNum).val('');
+}
+function tag_is_color_exist(html_color, tagNum) {
+    var rgb_input = hexToRgb(html_color);
+    for(var i = 0; i<5; i++) {
+        if(rgb_input ==  $('#tag-selected-color-td-' + tagNum + '-' + i).css('background-color')) {
+
+
+            $('#tag-selected-color-td-'+tagNum+'-'+i).css('border', '1px solid rgb(255, 12, 12)');
+            alert('duplicate color occur, please select another.');
+            return true;
+        } else {
+            $('#tag-selected-color-td-'+tagNum+'-'+i).css('border', '1px solid #D4D4D4');
+        }
+    }
+    return false;
+}
+function hexToRgb(hex) {
+    hex = hex.replace('#', '');
+    var bigint = parseInt(hex, 16);
+    var r = (bigint >> 16) & 255;
+    var g = (bigint >> 8) & 255;
+    var b = bigint & 255;
+    return "rgb(" + r + ", " + g + ", " + b + ")";
 }

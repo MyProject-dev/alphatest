@@ -154,6 +154,15 @@
 							$style_blue_header = 'border:1px solid none; margin-top:45px; margin-left:-1px;  background-color:#284372; position:absolute; width:1010px; height:45px;z-index:105;'; 
 						break;
 				} 
+
+
+
+
+				$activityFeed = '';
+				$activityFeedStye = '';
+				$tActivityFeed = 0;
+
+
 				/** 
 				* Show hide notification in suggested member dropdown icon if the suggested  member, friends on fs and friends on fb exist or not
 				* @todo add auto height for the specific dropdown suggested member use the variable suggestedMemberStyle or you can add more.  
@@ -245,12 +254,13 @@
                                                                 <img title='notifcations' id='notifcation_img1' src="fs_folders/images/header/icon-header-notifcation-icon.png"  onclick="notification ( 'view-notification-load' , '0' , '5' , '<?php echo $mno; ?>'  )"  >
                                                                 <img title='notifcations' id='notifcation_img2' src="fs_folders/images/header/icon-header-notification-red.png" onclick=" showHideParentOverFlow('body', 'show')"  >
                                                             </td>
-                                                            <td width="30px" >
-                                                                <?php if( $tnotification > 0 ): ?>
-                                                                    <div id="notification-container-buble" style='<?php echo "$notification_buble_Style"; ?>' ><?php echo $tnotification ?></div>
+
+                                                            <td width="30px">
+                                                                <?php if($tActivityFeed > 0): ?>
+                                                                    <div id="notification-container-buble" style='<?php echo "$activityFeedStye"; ?>' ><?php echo $activityFeed ?></div>
                                                                 <?php endif;?>
                                                                 <span> <!-- 999+ --> </span>
-                                                                <img title='notifcations' id='notifcation_img1' src="fs_folders/images/header/new-post.png"  onclick="notification ( 'view-notification-load' , '0' , '5' , '<?php echo $mno; ?>'  )"  >
+                                                                <img title='notifcations' id='notifcation_img1' src="fs_folders/images/header/new-post.png"  onclick="message('Comming soon!')">
                                                                 <img title='notifcations' id='notifcation_img2' src="fs_folders/images/header/new-post-mouse-over.png" onclick=" showHideParentOverFlow('body', 'show')"  >
                                                             </td>
 									 				 		<td>  

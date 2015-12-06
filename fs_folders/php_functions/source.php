@@ -728,9 +728,9 @@
 	}		
 	function tobe_edite_look_id()
 	{ 
-		if (!empty($_GET['kooldi'])) 
+		if (!empty($_GET['id']))
 		{
-			return intval($_GET['kooldi']);
+			return intval($_GET['id']);
 		}
 		else { 
 			return 0;

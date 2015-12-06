@@ -106,11 +106,14 @@
                             // Assign handlers immediately after making the request,
                             // and remember the jqxhr object for this request
                             var jqxhr = $.get( "fs_folders/modals/welcome/save.php?brand="+brand+"&topic="+topic+about, function(data) {
-                                console.log(  data );
+                                //console.log(  data );
+
                             })
 
+
                                 .done(function() {
-                                    console.log( "second success submit profile pic now!" );
+                                    //alert('brand and topic successfully saved');
+                                    //alert( "second success submit profile pic now!" );
                                     if($("#welcome-about-avatar-crop-input").is(":checked")){
                                         console.log('Allow crop.');
                                         $("#upload-profile-pic").attr("action", "profile_crop_display.php");
@@ -118,7 +121,10 @@
                                         console.log('Do not allow crop.');
                                         $("#upload-profile-pic").attr("action", "profile_crop_display.php?type=welcome");
                                     }
-                                    $( "#upload-profile-pic" ).submit();
+
+
+                                     $( "#upload-profile-pic" ).submit();
+
                                 })
                                 .fail(function() {
                                     console.log( "error" );

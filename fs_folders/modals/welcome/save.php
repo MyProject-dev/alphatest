@@ -14,18 +14,25 @@
     require ("../../../fs_folders/php_functions/myclass.php");
     require ("../../../fs_folders/php_functions/Class/Brand.php");
     require ("../../../fs_folders/php_functions/Class/User.php");
+    require ("../../../fs_folders/php_functions/Class/TopicSelected.php");
+
 
     use app\Brand;
+    use App\TopicSelected;
+
 	$mc = new myclass();
     $db = new Database();
     $db->connect();
 
+    use App\User;
+
     $brandObject = new Brand($db, $mc->mno);
     $userObject  = new User($mc->mno, $db);
-    
-    $fname        = $_GET['fname'];
-    $lname        = $_GET['lname'];
-    $uname        = $_GET['uname'];
+    $topicSelected = new TopicSelected($db, $mc->mno);
+
+    $fname        = ucfirst($_GET['fname']);
+    $lname        = ucfirst($_GET['lname']);
+    $uname        = strtolower($_GET['uname']);
     $bname        = $_GET['bname'];
     $burl         = $_GET['burl'];
     $gender       = $_GET['gender'];
@@ -65,7 +72,8 @@
             'gender'=>$gender,
             'plus_blogger'=>$plus_blogger,
             'tlog'=>3,
-            'status'=>0
+            'status'=>1,
+            'logstat'=>1
         ),
         "mno = $mc->mno"
     )){
@@ -85,12 +93,13 @@
 
     /**
     * Save the topic 
-    */ 
-    if($brandObject->Save($topic)) {
-        print('brand added <br>');
-    } else {
-        print('brand not added <br>');
-    }
+    */
+
+
+    $topic_ids = explode('-', $topic);
+
+    print_r( $topic_ids);
+    $topicSelected->save(null, $topic_ids);
 
 
 
@@ -99,7 +108,7 @@
 
 
 
-    print("mno = $mc->mno <br>");
+//    print("mno = $mc->mno <br>");
 
 
 

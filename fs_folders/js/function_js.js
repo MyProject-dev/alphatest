@@ -21,7 +21,7 @@
  1 = loading  
  2 = loaded      
  3 = interactive         
- 4 = completev  
+ 4 = completev  follow_unfollow_fs_member 
  responseText   
  Returns the server response as a string. 
  responseXML
@@ -3041,16 +3041,22 @@ function follow_unfollow_fs_member (buttonid , mno1 , page, counterId) {
             var button_follow = 'fs_folders/images/profile/follow.png';
         }
         if ( c == 'suggested-member-follow' ) {
+
+
             // alert('follow following button = '+button_following );  
             $(buttonid).attr('src',button_following);
             $(buttonid).attr("class","suggested-member-unfollow");
             // $(buttonid).attr('src','fs_folders/images/body/Member/following-button.png');   
             $(".suggested_member_follow_loading").css("visibility","hidden");
             $('#suggested_member_follow_loading'+mno1).css("visibility","visible");
+
+
+
+
+            /*
             if (window.XMLHttpRequest)  { xmlhttp = new XMLHttpRequest(); } else { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP'); } xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 document.getElementById('fs-general-ajax-response').innerHTML = xmlhttp.responseText;
-
-
+ 
 
                 var tfollowing=xmlhttp.responseText.split("<tfollowing>");
                 var tfollower=xmlhttp.responseText.split("<tfollower>");
@@ -3068,14 +3074,53 @@ function follow_unfollow_fs_member (buttonid , mno1 , page, counterId) {
                 true
             );
             xmlhttp.send();
+            */
+
+
+            $.post( "fs_folders/modals/account_settings/account_settings_modals.php", {
+                mno1: mno1,
+                action: 'follow',
+                account_seettings_tab: 'account-settings-suggested-member-follow'
+            })
+                .done(function( data ) {
+                    //var r = data.split("<li>");
+                    // $('#comments_result').append(data); 
+                    var tfollowing=data.split("<tfollowing>");
+                    var tfollower=data.split("<tfollower>");
+                    var following = tfollowing[1];
+                    var follower  = tfollower[1];
+                    // alert(follower); 
+                    $('.mem_total_follower'+mno1).text(follower);
+                    notification( ); 
+
+                });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
         else{
+
+
             // alert('un-follow')
             $(buttonid).attr("class","suggested-member-follow");
             // $(buttonid).attr('src','fs_folders/images/body/Member/follow-button.png');  
             $(buttonid).attr('src',button_follow);
             $(".suggested_member_follow_loading").css("visibility","hidden");
             $('#suggested_member_follow_loading'+mno1).css("visibility","visible");
+
+            /*
             if (window.XMLHttpRequest)  { xmlhttp = new XMLHttpRequest(); } else { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP'); } xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 document.getElementById('footer_res').innerHTML = xmlhttp.responseText;
                 var tfollowing=xmlhttp.responseText.split("<tfollowing>");
@@ -3092,13 +3137,28 @@ function follow_unfollow_fs_member (buttonid , mno1 , page, counterId) {
                 true
             );
             xmlhttp.send();
+            */ 
+             $.post( "fs_folders/modals/account_settings/account_settings_modals.php", {
+                    account_seettings_tab: 'account-settings-suggested-member-follow',
+                    mno1:mno1,
+                    action: 'unfollow'
+                })
+                .done(function( data ) { 
+                     document.getElementById('footer_res').innerHTML = data;
+                    var tfollowing=data.split("<tfollowing>");
+                    var tfollower=data.split("<tfollower>");
+                    var following = tfollowing[1];
+                    var follower  = tfollower[1];
+                    // alert(follower); 
+                    $('.mem_total_follower'+mno1).text(follower); 
+                }); 
         }
     }
     else{
         document.location='login';
     }
 
-    alert('working ...');
+    // alert('working ...');
 }
 
 
@@ -3466,8 +3526,8 @@ function next_prev_number_restore_color ( total , color ) {
 // NEW LOOK COMMENT 
 function look_comment_thump_up_or_down (plcno, action , id, thumbsName, plno, trateid, crated, table_name, rate_type, mno)
 {
-
-    // detect if login or logout redirect 
+    //look_comment_thump_up_or_down( '382' , 'Thumb-Up' , '#img_like_382'  , 'comment-like-liked.png'  , '222522' , '#modal-comment-tlike382' , '0' )
+    // detect if login or logout redirect
 
     logout_interaction_response (  sessionStorage.mno );
 
@@ -3475,7 +3535,7 @@ function look_comment_thump_up_or_down (plcno, action , id, thumbsName, plno, tr
     console.log('id = ' + id);
 
 
-
+    //alert('you are liking or disliking a comment');
 
 
 
@@ -3489,6 +3549,10 @@ function look_comment_thump_up_or_down (plcno, action , id, thumbsName, plno, tr
         var trate = parseInt( $(trateid).text() ) + 1;
         // alert( trate+' id = '+trateid   );   
         if ($(id).attr('class') != 'disabled_like') {
+
+
+            // alert('gen modal liking disliking');
+
             $(trateid).text( trate );
             // alert( plcno+" , "+action+' thumbsName = '+thumbsName ); 
             // $(id).attr('src','fs_folders/images/icons/'+thumbsName);
@@ -3496,8 +3560,9 @@ function look_comment_thump_up_or_down (plcno, action , id, thumbsName, plno, tr
             // $(img_like_id).attr('src','fs_folders/images/icons/Thumbs-up.png'); 
 
 
-
+            /*
             if(table_name == 'posted_looks_comments') {
+                alert('loo comment display');
                 ajax_insert_and_append_result(
                     'comment_sending_result',
                     'fs_folders/fs_lookdetails/look_comment_items/look-comments_display.php?type=thumbs-up-or-down&plcno='+plcno+'&thum_up_or_down='+action+'&plno='+plno,
@@ -3505,37 +3570,72 @@ function look_comment_thump_up_or_down (plcno, action , id, thumbsName, plno, tr
                     null
                 );
 
-                console.log('comment look rating');
+               console.log('comment look rating');
+               */
+
+                $.post( "fs_folders/fs_lookdetails/look_comment_items/look-comments_display.php", {
+                        type: 'thumbs-up-or-down',
+                        plcno: plcno,
+                        thum_up_or_down: action,
+                        plno: plno
+                    })
+                    .done(function( data ) {
+                        //var r = data.split("<li>");
+                        //$('#comments_result').append(data);
+                    });
+
 
             } else {
 
 
 
+                // alert('gen modal');
                 // console.log('comment article rating');
-
-                var data = 'action=modal-comment-like-dislike&mno='+mno+'&table_id='+plcno+'&table_name='+table_name+'&rate_type='+rate_type;
-
-                console.log(data );
-
-                if (window.XMLHttpRequest)  { xmlhttp = new XMLHttpRequest(); } else { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP'); }
-                xmlhttp.onreadystatechange = function() {
-                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                        //document.getElementById('').innerHTML = xmlhttp.responseText;
-                        console.log(xmlhttp.responseText);
-                        // alert('rated successfully.');
+                /*
+                    var data = 'action=modal-comment-like-dislike&mno='+mno+'&table_id='+plcno+'&table_name='+table_name+'&rate_type='+rate_type;
+                    console.log(data );
+                    if (window.XMLHttpRequest)  { xmlhttp = new XMLHttpRequest(); } else { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP'); }
+                    xmlhttp.onreadystatechange = function() {
+                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                            //document.getElementById('').innerHTML = xmlhttp.responseText;
+                            console.log(xmlhttp.responseText);
+                            // alert('rated successfully.');
+                        }
                     }
-                }
-                xmlhttp.open('GET', 'fs_folders/modals/general_modals/gen.modals.func.php?'+data,true);
-                xmlhttp.send();
+                    xmlhttp.open('GET', 'fs_folders/modals/general_modals/gen.modals.func.php?'+data,true);
+                    xmlhttp.send();
+                */
+
+
+
+                $.post( "fs_folders/modals/general_modals/gen.modals.func.php", {
+                        action: 'modal-comment-like-dislike',
+                        mno: mno,
+                        table_id: plcno,
+                        table_name: table_name,
+                        rate_type: rate_type
+                    })
+                    .done(function( data ) {
+                        //var r = data.split("<li>");
+                        $('#comments_result').append(data);
+                    });
             }
             $('#img_like_'+plcno).attr('class','disabled_like');
             $('#img_dislike_'+plcno).attr('class','disabled_like');
-        }
-        else{
-            alert('already thums action');
+
+
+
+
+
+
+
 
         }
-    }
+        else{
+            alert('already thumbs action');
+
+        }
+
 
     /**
      * for mouse over
@@ -3717,14 +3817,38 @@ function comment_box_hit_enter_js( plno , e , type, rCDiv) {
 
 
         var comment = $('#comment_box').val( );
-        comment = text_trim( comment );
-        var data    = 'comment='+comment+'&table_name=postedlooks&plno='+plno;
-        ajax_insert_and_append_result(
-            'comments_result',
-            'fs_folders/fs_lookdetails/look_comment_items/look-comments_display.php?post_comment=posted_a_comment&'+data,
-            '#comment_post_loader1 img'
-        );
+
+        //comment = text_trim( comment );
+
+        /* This is the comment sendin using GET
+            var data    = 'comment='+comment+'&table_name=postedlooks&plno='+plno;
+            ajax_insert_and_append_result(
+                'comments_result',
+                'fs_folders/fs_lookdetails/look_comment_items/look-comments_display.php?post_comment=posted_a_comment&'+data,
+                '#comment_post_loader1 img'
+            );
+        */
+
+        $.post( "fs_folders/fs_lookdetails/look_comment_items/look-comments_display.php", {
+                post_comment: 'posted_a_comment',
+                comment: comment,
+                plno: plno,
+                table_name: 'postedlooks'
+            })
+            .done(function( data ) {
+                //var r = data.split("<li>");
+                $('#comments_result').append(data);
+            });
+
+
+
+
+
         $('#comment_box').val('');
+
+
+
+
 
 
         //add in total comment
@@ -4662,6 +4786,8 @@ function drip_popup_show( mno , table_name , table_id , title , modal_type , mno
 
         $(imgid).attr('src',imgsrc);
         $('#drip-modal-wrapper').css('height','100px');
+
+
         var data = 'action=fs-drip-modals&steps=design&mno='+mno+'&table_name='+table_name+'&table_id='+table_id+'&mno1='+mno1+'&modal_type='+modal_type+'&title='+title+'&ano='+ano;
         ajax_send_data(
             'popup-response' ,
@@ -4671,18 +4797,83 @@ function drip_popup_show( mno , table_name , table_id , title , modal_type , mno
 
         );
         $('#popup-response').text('');
-        // $('#popUp-background').fadeIn( 'normal' ); 
         gen_popup( 'show' );
-    }
+        // $('#popUp-background').fadeIn( 'normal' );
 
+
+
+
+/*
+        $.post( "fs_folders/modals/general_modals/gen.modals.func.php", {
+                action: 'fs-drip-modals',
+                steps: 'design',
+                mno: mno,
+                table_name: table_name,
+                table_id: table_id,
+                mno1:mno1,
+                modal_type: modal_type,
+                title: title,
+                ano: ano
+            })
+            .done(function( data ) {
+
+                alert(data);
+                var view_result_id = 'popup-response';
+                notification_stat = false;
+                $('#'+view_result_id).css('display','none');
+                $('#'+view_result_id).fadeIn('slow');
+                $('#'+loader).css('visibility','hidden');
+                document.getElementById(view_result_id).innerHTML = data;
+            });
+        $('#popup-response').text('');
+        gen_popup( 'show' );
+
+        */
+
+    }
 }
+
 function drip_posting( mno , table_name , table_id , mno1 , counterid ) {
 
     // alert( counterid );
     auto_count( counterid );
     var comment = $('#dript-comment').val();
-    var data = 'action=fs-drip-modals&steps=function&mno='+mno+'&table_name='+table_name+'&table_id='+table_id+'&comment='+comment+'&mno1='+mno1;
-    ajax_send_data( 'popup-response' , 'fs_folders/modals/general_modals/gen.modals.func.php?'+data, 'popup-more-doing-the-action-loader img' , 'success-popup' );
+   /// var data = 'action=fs-drip-modals&steps=function&mno='+mno+'&table_name='+table_name+'&table_id='+table_id+'&comment='+comment+'&mno1='+mno1;
+
+
+    //ajax_send_data( 'popup-response' , 'fs_folders/modals/general_modals/gen.modals.func.php?'+data, 'popup-more-doing-the-action-loader img' , 'success-popup' );
+
+
+    //alert('about to drip now step is function is ');
+    $.post( "fs_folders/modals/general_modals/gen.modals.func.php", {
+            action: 'fs-drip-modals',
+            mno: mno,
+            table_name: table_name,
+            table_id: table_id,
+            comment: comment,
+            mno1: mno1,
+            steps: 'function'
+
+        })
+        .done(function( data ) {
+
+
+            //alert(data);
+            alert('Successfully shared!');
+
+            // var pos = set_position_of_response_popup( 10 );
+             gen_popup( 'hide' );
+            //$('#popup-response').css( 'margin-top' , '200' );
+
+            //document.getElementById(view_result_id).innerHTML = xmlhttp.responseText
+            //$('#'+view_result_id).css('display','none');
+            // $('#'+view_result_id).show( "drop", 500 );
+            //$('#'+view_result_id).fadeIn('slow');
+            //$('#'+loader).css('visibility','hidden');
+            // auto_hide_response_popup_container ( 5000 );
+        });
+
+
     // $('#popup-response').text('');   
     // 
     // alert( ' successfully dripted !' ); 
@@ -4713,13 +4904,50 @@ function favorite_posting( mno , table_name , table_id , headermssg , contentmss
 
     }
     else {
+
+
         auto_count( counterid );
         $(imgid).attr('src',imgsrc);
+        /*
         var data = 'action=fs-favorite-modals&steps=function&mno='+mno+'&table_name='+table_name+'&table_id='+table_id+'&headermssg='+headermssg+'&contentmssg='+contentmssg+'&modal_type='+modal_type+'&mno1='+mno1;
         ajax_send_data( 'popup-response' , 'fs_folders/modals/general_modals/gen.modals.func.php?'+data, 'popup-more-doing-the-action-loader img' , 'success-popup' );
+        */
 
+
+
+        $.post('fs_folders/modals/general_modals/gen.modals.func.php',{
+             action: 'fs-favorite-modals',
+             steps: 'function',
+             mno: mno,
+             table_name: table_name,
+             table_id: table_id,
+             headermssg: headermssg,
+             contentmssg: contentmssg,
+             modal_type: modal_type,
+             mno1: mno1  
+        }) 
+        .done(function(data){
+            alert('done');
+            /*
+            var view_result_id = 'popup-response';
+            // var pos = set_position_of_response_popup( 10 ); 
+            // gen_popup( 'hide' );
+            $('#popup-response').css( 'margin-top' , '200' );
+
+            document.getElementById(view_result_id).innerHTML = data;
+            $('#'+view_result_id).css('display','none');
+            // $('#'+view_result_id).show( "drop", 500 );  
+            $('#'+view_result_id).fadeIn('slow');
+            $('#'+loader).css('visibility','hidden');
+            // auto_hide_response_popup_container ( 5000 );  
+
+            */ 
+            $('#popUp-background').fadeOut( 'normal' );
+        })  
+ 
         $('#popup-response').text('');
         $('#popUp-background').fadeIn( 'normal' );
+ 
     }
 
 }
@@ -5037,10 +5265,10 @@ function modal_comment_send ( mno , table_id , table_name , id , e , page , resp
         var comment = $('#modal-comment-field'+id).val();
         $('#modal-comment-field'+id).val('');
 
-        comment = text_trim( comment );
+      //  comment = text_trim( comment );
 
         // alert( 'thi is the comment '+comment );
-        var data = 'action=modal-comment-send&mno='+mno+'&comment='+comment+'&table_id='+table_id+'&table_name='+table_name+'&page='+page;
+        //var data = 'action=modal-comment-send&mno='+mno+'&comment='+comment+'&table_id='+table_id+'&table_name='+table_name+'&page='+page;
 
         // alert(mno+table_id+table_name+id++page+comment); 
 
@@ -5069,36 +5297,60 @@ function modal_comment_send ( mno , table_id , table_name , id , e , page , resp
         //  id
         // );  
 
-        appendNow(
-            // 'comments_result',
-            response,
-            'fs_folders/modals/general_modals/gen.modals.func.php?'+data,
-            // '#modal-comment-loader-test1 , #modal-comment-loader-test2',
-            loader,
-            'modal-comment',
-            id
-        );
 
+
+
+        var data = 'action=modal-comment-send&mno='+mno+'&comment='+comment+'&table_id='+table_id+'&table_name='+table_name+'&page='+page;
+
+
+        $.post( "fs_folders/modals/general_modals/gen.modals.func.php", {
+                action: 'modal-comment-send',
+                mno: mno,
+                comment: comment,
+                table_id: table_id,
+                table_name: table_name,
+                page: page
+            })
+            .done(function( data ) {
+
+               //alert( "Data Loaded: " + data );
+                //document.location ='articledetails-dev.php?id='+id
+                var comment = data.split("<modal-comment>");
+                $("#"+response).append(comment[1]);
+            });
+
+        /*
+            appendNow(
+                // 'comments_result',
+                response,
+                'fs_folders/modals/general_modals/gen.modals.func.php?'+data,
+                // '#modal-comment-loader-test1 , #modal-comment-loader-test2',
+                loader,
+                'modal-comment',
+                id
+            );
+        */
+
+
+
+
+
+
+        /*
 
         if(table_name == 'postedlooks') {
-
             console.log('redirect to member postalookdetails-dev.php');
             window.location = 'lookdetails-dev.php?id='+table_id+'#comment';
         } else if(table_name == 'fs_postedarticles') {
-
             auto_count('#details-total-comment');
-
-
             console.log('redirect to member articledetails-dev.php');
-
             window.location = 'articledetails-dev.php?id='+table_id+'#comment';
             // window.location = "http://www.yoururl.com";
-
         } else if(table_name == 'fs_member_profile_pic') {
-
             // console.log('redirect to member profile comments');
             //document.location = 'articledetails-dev.php?id='+table-id;
         }
+        */
 
     }
     else{
@@ -5160,6 +5412,7 @@ function modal_comment_like_dislike( mno , table_id , table_name , rate_type , t
         //);
 
         //send to server
+        /*
         if (window.XMLHttpRequest)  { xmlhttp = new XMLHttpRequest(); } else { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP'); }
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -5170,7 +5423,19 @@ function modal_comment_like_dislike( mno , table_id , table_name , rate_type , t
         }
         xmlhttp.open('GET', 'fs_folders/modals/general_modals/gen.modals.func.php?'+data,true);
         xmlhttp.send();
+        */
 
+        $.post( "fs_folders/modals/general_modals/gen.modals.func.php", {
+                action: 'modal-comment-like-dislike',
+                mno: mno,
+                table_id: table_id,
+                table_name: table_name,
+                rate_type: rate_type
+            })
+            .done(function( data ) {
+                //var r = data.split("<li>");
+                //$('#comments_result').append(data);
+            });
 
 
 
@@ -5586,29 +5851,38 @@ function article_nex_prev ( type , stat , response , loader , e , method , table
 
 
 
-        var category   = $( '#postarticle-change-category' ).val( );
+        var category   = $( '#postarticle-change-topic-category' ).val( );
         // var topic      = $( '#postarticle-topic').val( );
         var title      = $( '#article-title' ).val( ); //'this is the title'; 
         var desc       = CKEDITOR.instances.editor1.getData(); // $( '#postarticle-description' ).val( ); //'this is the desc'; 
         var url        = $('#postarticle-link-to-article').val();
-        var keyword    = $( '#postarticle-keyword' ).text( ); //'this is the keyword';   
+        var keyword    = $('#postarticle-keyword' ).text( ); //'this is the keyword';
         var selected   = $('#article-upload-selected').val();
-        var image      = $('#content-image img').size( );
+        var image      = $("#content-image img").size( );
         var upload     = false;
         var titlefield = '#article-title';  // article title  
         var titleval = $(titlefield).val(); // get title field value  
         // var topic     = $('#postarticle-topic-field').val();
-        var topic       = $('.article-topic').val();
+        var topic       = $('#tag-color-database-data-topic').val();
 
-        var tags = $('#postarticle-tags-field').val();
-        var tags = $('.article-tags').val();
-        var topic = $('.occasion').val();
+        //var tags = $('#postarticle-tags-field').val();
+        var tags = $('#tag-color-database-data-article-tag').val();
+        //var topic = $('.occasion').val();
  
         // alert('topic = ' + topic + ' tags  = ' + tags);
 
+        console.log(
+            ' category = ' + category +
+            ' topic = ' + topic +
+            ' tags = ' + tags +
+            'title = '  + title +
+            ' url = ' +  url +
+            ' desc = ' + desc
+        );
 
 
-        console.log('title = '  + title + ' url = ' +  url   + ' category = ' + category + ' topic = ' + topic + ' tags = ' + tags + ' desc = ' + desc);
+
+       //return false;
 
         // alert("this is the best");
 
@@ -5682,22 +5956,49 @@ function article_nex_prev ( type , stat , response , loader , e , method , table
             // show the fake submit image
                 $('#postarticle-submit-1-fake').css('display','block'); 
 
-   
+            console.log('save data! ');
 
- 
-            var data = 'action=postarticle&process=insert&category='+category+'&topic='+topic+'&title='+title+'&desc='+desc+'&keyword='+keyword+'&type='+selected+'&method='+method+'&table_id='+table_id+'&url='+url+'&tags='+tags;
-            ajax_send_data(
-                'fs-general-ajax-response',
-                'fs_folders/modals/general_modals/gen.modals.func.php?'+data,
-                loader,
-                'postarticle-insert',
-                selected,
-                method
-            );
 
-            
-             
-        
+
+
+
+
+
+            /*
+                var data = 'action=postarticle&process=insert&category='+category+'&topic='+topic+'&title='+title+'&desc='+desc+'&keyword='+keyword+'&type='+selected+'&method='+method+'&table_id='+table_id+'&url='+url+'&tags='+tags;
+                ajax_send_data(
+                    'fs-general-ajax-response',
+                    'fs_folders/modals/general_modals/gen.modals.func.php?'+data,
+                    loader,
+                    'postarticle-insert',
+                    selected,
+                    method
+                );
+            */
+
+
+            alert('method = ' + method);
+            $.post("fs_folders/modals/general_modals/gen.modals.func.php", {
+                action: 'postarticle',
+                process: 'insert',
+                category: category,
+                topic: topic,
+                desc: desc,
+                keyword: keyword,
+                type: selected,
+                method: method,
+                table_id: table_id,
+                tags: tags,
+                url: url,
+                title: title
+            }, function(result) {
+                //$('#upload-modal').submit();
+                $('#upload-article').submit();
+                //console.log('done..')
+            });
+
+
+
 
 
  
@@ -5858,15 +6159,17 @@ function article_nex_prev ( type , stat , response , loader , e , method , table
 
 function postarticle_edit_save(id) {
 
-     
-        var title      = $( '#article-title' ).val( ); //'this is the title'; 
+
+        //alert('edit clicked');
+        var title      = $('#article-title').val( ); //'this is the title';
         var url        = $('#postarticle-link-to-article').val();
-        var category   = $( '#postarticle-change-category' ).val( );
-        var topic      = $('.occasion').val(); 
+        var category   = $('#postarticle-change-topic-category' ).val( );
+        var topic      = $('#tag-color-database-data-topic').val();
         var desc       = CKEDITOR.instances.editor1.getData(); // $( '#postarticle-description' ).val( ); //'this is the desc'; 
-        var tags = $('.article-tags').val();
+        var tags       = $('#tag-color-database-data-article-tag').val();
          
 
+        //alert('start to the posting');
         $.post( "fs_folders/modals/article/edit_save.php", { 
             title: title, 
             url: url,
@@ -5877,14 +6180,19 @@ function postarticle_edit_save(id) {
             tags:tags
          })
           .done(function( data ) {
-              // alert( "Data Loaded: " + data ); 
-              document.location ='articledetails-dev.php?id='+id
+               //alert( "Data Loaded: " + data );
+               document.location ='articledetails-dev.php?id='+id
           });
 }
 
-function postarticle_loaded(content) {   
-    // alert('test');
-    CKEDITOR.instances.editor1.setData($('#textarea-content').text());
+function postarticle_loaded(content) {
+
+
+
+    //loading the description content
+    myVar = setTimeout(function(){
+        CKEDITOR.instances.editor1.setData($('#content').html());
+    }, 2000);
 }
 
 
@@ -6158,6 +6466,15 @@ function flag ( action , table_name , table_id , imgid , imgsrc , type ) {
     var door = '';
 
 
+    var message = ''; 
+    
+    if(table_name == 'posted_looks_comments') { 
+        message  = 'Are you sure you want to flag this comment?';
+    } else {
+        message = 'Are you sure to flag this modal?';
+    }
+
+
     if ( type == 'modal-flag-dropdown' ) {
 
         door = $('#flag-dropdown-container'+table_id).attr('name');
@@ -6180,7 +6497,7 @@ function flag ( action , table_name , table_id , imgid , imgsrc , type ) {
 
         // ask question if continue or not 
 
-        if ( confirm( 'are you sure to flag this modal ? ' ) ) {
+        if (confirm(message)) {
             $( imgid ).attr('src', imgsrc );
             var comment = '';
             var data = 'action='+action+'&table_name='+table_name+'&table_id='+table_id+'&comment='+comment;
@@ -6524,15 +6841,32 @@ function modal ( action , process , type , loader , response , textfieldid , val
     // alert ( "modal ( action = "+action+" , process = "+process+" , type = "+type+" , loader = "+loader+" , response = "+response+" , textfieldid = "+textfieldid+" , value = "+value+" , multivalue = "+multivalue+" , method = "+method+" , table_id = "+table_id+" , table_name = "+table_name+" ) "); 
     // initialized data 
 
-    var cval       = '';   // string 
-    var cval1      = '';   // sub sting 
-    var len        = 0 ;   // accept the total lenght 
-    var keySearch1 = '';   // sub keysearch variable  
-    var data       = '';   // main data storage
-    var data1      = '';   // sub main data storage
-    var test_c     = 'fs-general-ajax-response';   // test container 
-    var title      = '', desc = '' , article = '' , color = '' ,  brand = '' ,  garment = '' , material = '' ,  pattern = '', price = '', purchased_at = '',  pos_x_y = '' , style = '' , occasion = '' , season = '' , keyword = '' ; // initialize look varialble attribute 
-    var title_id   = '.look_name'  , desc_id = '.textarea' , article_id = '.look-article-field' , brand_id = '#brand' , garment_id = '#garment' , material_id='#material' , pattern_id = '#pattern', price_id = '#price', purchased_at_id = '#purchased_at', pos_x_y_id = '#pos_x_y', style_id = '#style' ,  occasion_id = '#occasion', season_id = '#season', keyword_id = '#keyword';  // initialize look attribute id
+    var cval             = '';   // string 
+    var cval1            = '';   // sub sting 
+    var len              = 0 ;   // accept the total lenght 
+    var keySearch1       = '';   // sub keysearch variable  
+    var data             = '';   // main data storage
+    var data1            = '';   // sub main data storage
+    var test_c           = 'fs-general-ajax-response';   // test container 
+    var title            = '', desc = '' , article = '' , color = '' ,  brand = '' ,  garment = '' , material = '' ,  pattern = '', price = '', purchased_at = '',  pos_x_y = '' , style = '' , occasion = '' , season = '' , keyword = '' ; // initialize look varialble attribute 
+    //var title_id       = '.look_name'  , desc_id = '.textarea' , article_id = '.look-article-field' , brand_id = '#brand' , garment_id = '#garment' , material_id='#material' , pattern_id = '#pattern', price_id = '#price', purchased_at_id = '#purchased_at', pos_x_y_id = '#pos_x_y', style_id = '#style' ,  occasion_id = '#occasion', season_id = '#season', keyword_id = '#keyword';  // initialize look attribute id
+    var title_id         = '.look_name'  ,
+    desc_id          = '.textarea' ,
+    article_id       = '.look-article-field' ,
+    brand_id         = '#tag-color-database-data-brand-' ,
+    garment_id       = '#tag-color-database-data-garment-' ,
+    material_id      ='#tag-color-database-data-material-' ,
+    pattern_id       = '#tag-color-database-data-pattern-',
+    price_id         = '#tag-color-database-data-price-',
+    purchased_at_id  = '#tag-color-database-data-url-',
+    color_id         = '#tag-color-database-data-color-',
+    pos_x_y_id       = '#pos_x_y',
+    style_id         = '#tag-color-database-data-style' ,
+    occasion_id      = '#tag-color-database-data-occasion',
+    season_id        = '#tag-color-database-data-season',
+    keyword_id       = '#keyword';  // initialize look attribute id
+
+
     var lookname   = ''; // look title 
     var bool       = true; // boolean true or false condition 
     var comment    = ''; // comment variable initialized 
@@ -6550,11 +6884,11 @@ function modal ( action , process , type , loader , response , textfieldid , val
 
     // alert for all the data type comming in 
 
-    // alert(' action = '+action+' process = '+process+' type = '+type+' loader = '+loader+' response = '+response+' textfieldid = '+textfieldid+' value = '+value+' multivalue = '+multivalue+' method = '+method+' table_id = '+table_id );
+      // alert(' action = '+action+' process = '+process+' type = '+type+' loader = '+loader+' response = '+response+' textfieldid = '+textfieldid+' value = '+value+' multivalue = '+multivalue+' method = '+method+' table_id = '+table_id );
 
     if ( type == 'post-modal' )
     {
-        // alert(isAgreed); 
+          // alert(isAgreed); 
 
         /**
          * validate if the agreenebt is being read.
@@ -6583,22 +6917,37 @@ function modal ( action , process , type , loader , response , textfieldid , val
             if ( bool == true )
             {
 
+
+
+                //Entrance message
+
+
+                // alert('about to send the data..');
+
+
                 // get total tags 
 
                 len  = $('.block_circle_tag').length;
 
+
+                // alert('len = ' + len);
                 // initialize for look label data 
 
                 for (var i = 1; i <= len; i++) {
                     // pass the values 
-                    color         = color+$("#hashtag_"+i+"_0").text().replace('#','')+',';
-                    brand         = brand+$(brand_id+i).val().replace('#','')+',';
+
+                    // alert('brand id '  + brand_id+i);
+                    color         = color+$(color_id+i).val()+'-';
+                    brand         = brand+$(brand_id+i).val()+',';
                     garment       = garment+$(garment_id+i).val()+',';
                     material      = material+$(material_id+i).val()+',';
                     pattern       = pattern+$(pattern_id+i).val()+',';
                     price         = price+$(price_id+i).val()+',';
                     purchased_at  = purchased_at+$(purchased_at_id+i).val()+',';
                     pos_x_y       = pos_x_y+$(pos_x_y_id+i).val()+',';
+                    
+                    
+                    // alert(pos_x_y);
 
                 };
                 style             = $(style_id).val();
@@ -6609,9 +6958,21 @@ function modal ( action , process , type , loader , response , textfieldid , val
                 desc              = ckeditorContent;//$(desc_id).val();
                 article           = $(article_id).val();
 
+
+
+
+
+                // alert('brand = ' + brand);
+
+
+
+
+
+
+
                 // replace article url dot with space to allow online to pass the ajax request
 
-                article = replace_all ( article , '.' , ' ' );
+                //article = replace_all ( article , '.' , ' ' );
 
                 // alert test 
 
@@ -6619,22 +6980,58 @@ function modal ( action , process , type , loader , response , textfieldid , val
 
                 // initialize data
 
-                data = 'action='+action+'&process='+process+'&type='+type+'&color='+color+'&brand='+brand+'&garment='+garment+'&material='+material+'&pattern='+pattern+'&price='+price+'&purchased_at='+purchased_at+'&pos_x_y='+pos_x_y+'&style='+style+'&occasion='+occasion+'&season='+season+'&keyword='+keyword+'&title='+title+'&desc='+desc+'&article='+article+'&method='+method+'&table_id='+table_id+'&isAgreed='+isAgreed;
-                data1 = 'fs_folders/modals/general_modals/gen.modals.func.php?'+data;
+
+                // alert(brand);
+
+                 data = 'action='+action+'&process='+process+'&type='+type+'&color='+color+'&brand='+brand+'&garment='+garment+'&material='+material+'&pattern='+pattern+'&price='+price+'&purchased_at='+purchased_at+'&pos_x_y='+pos_x_y+'&style='+style+'&occasion='+occasion+'&season='+season+'&keyword='+keyword+'&title='+title+'&desc='+desc+'&article='+article+'&method='+method+'&table_id='+table_id+'&isAgreed='+isAgreed;
+                 data1 = 'fs_folders/modals/general_modals/gen.modals.func.php?'+data;
 
 
-                console.log(data1);
+                // alert(data1); 
+                
+                 $.post("fs_folders/modals/general_modals/gen.modals.func.php", {
+                    action: action,
+                    process: process,
+                    type: type, 
+                    color: color, 
+                    brand: brand, 
+                    garment: garment, 
+                    material: material, 
+                    pattern: pattern, 
+                    price: price, 
+                    purchased_at: purchased_at, 
+                    pos_x_y: pos_x_y, 
+                    style: style, 
+                    occasion: occasion, 
+                    season: season, 
+                    keyword: keyword, 
+                    title: title, 
+                    desc: desc, 
+                    article: article, 
+                    method: method, 
+                    table_id: table_id, 
+                    isAgreed: isAgreed
+                }, function(result) { 
+                    if(method == 'edit') { 
+                        document.location = 'lookdetails-dev.php?id='+table_id;
+                    } else { 
+                        $('#upload-modal').submit();
+                    }
+                });
+
+
+                //console.log(data1);
 
                 // send data 
 
-                ajax_send_data(
-                    test_c,         // response container
-                    data1,          // value
-                    'post-modal',   // loader
-                    'modal-insert',  // page
-                    method
-                );
- 
+                //ajax_send_data(
+                //    test_c,         // response container
+                //    data1,          // value
+                //    'post-modal',   // loader
+                //    'modal-insert',  // page
+                //    method
+                //);
+                //
                 // hide the current submit image  
                     $('#postarticle-submit').css('display','none'); 
  
@@ -7945,6 +8342,7 @@ function welcome_select_brand_tab(brand, num, type) {
         console.log('welcome_thumbnail_select('+ idName +','+ id +','+ select +','+ btn_id+')');
         $(loader).css('display','none');
     });
+ 
 }
 function welcome_select_brand_more(brand, page, type) {
 
@@ -8164,22 +8562,40 @@ function resend_email() {
 
 
 function modal_follow(mno, id) {  
+
     var val = $('.'+id).text();   
-    var url = '';
 
+    var url = ''; 
 
+    var action = ''; 
 
-
-    if(val == 'FOLLOW') {  
-        $('.'+id).text('FOLLOWING'); 
-        url = 'fs_folders/modals/account_settings/account_settings_modals.php?&account_seettings_tab=account-settings-suggested-member-follow&mno1='+mno+'&action=follow';
-    } else { 
-        $('.'+id).text('FOLLOW');
-        url =  'fs_folders/modals/account_settings/account_settings_modals.php?&account_seettings_tab=account-settings-suggested-member-follow&mno1='+mno+'&action=unfollow';
+    if(val == 'FOLLOW') {   
+        $('.'+id).text('FOLLOWING');  
+        // url = 'fs_folders/modals/account_settings/account_settings_modals.php?&account_seettings_tab=account-settings-suggested-member-follow&mno1='+mno+'&action=follow';
+        action = 'follow';
+    } else {  
+        $('.'+id).text('FOLLOW'); 
+        // url =  'fs_folders/modals/account_settings/account_settings_modals.php?&account_seettings_tab=account-settings-suggested-member-follow&mno1='+mno+'&action=unfollow';
+        action = 'unfollow'; 
     }   
-    var jqxhr = $.get( url, function() {
-      alert( "done.." );
-    });
-
+    // var jqxhr = $.get( url, function() {
+      // alert( "done.." );
+    // });
+ 
+    $.post('fs_folders/modals/account_settings/account_settings_modals.php', {
+        account_seettings_tab: 'account-settings-suggested-member-follow',
+        mno1: mno,
+        action: action
+    })
+    .done(function(data) { 
+        // alert( "done.." );
+    });   
 }
+ 
+function postalook() {
+    CKEDITOR.instances['editor1'].setData($('#content').html());
+} 
 
+function message(msg) { 
+    alert(msg); 
+}

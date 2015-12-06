@@ -18,6 +18,7 @@ function look_like_click( mno , table_id , table_name , rate_type , thumbsName ,
 
 
 function send_flag( action , table_id , table_name , comment, fileName) {
+
 	get_login_stat ( ); 
     //set up url
     var url = 'fs_folders/modals/save/'+fileName+'.php?action='+action+'&table_id='+table_id+'&table_name='+table_name+'&comment='+$('#flag-comment').val();
@@ -50,9 +51,9 @@ function send_flag( action , table_id , table_name , comment, fileName) {
         alert('feed');
         $('.'+table_name+'-'+table_id).fadeOut('fast');
     }
-
-
-    //send to server
+ 
+    //send to server 
+    /*
     if (window.XMLHttpRequest)  { xmlhttp = new XMLHttpRequest(); } else { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP'); }
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -60,7 +61,19 @@ function send_flag( action , table_id , table_name , comment, fileName) {
         }
     }
     xmlhttp.open('GET',url,true);
-    xmlhttp.send();
+    xmlhttp.send(); 
+    */
+
+
+    $.post( 'fs_folders/modals/save/'+fileName+'.php', {
+            action: action,
+            table_id: table_id,
+            table_name: table_name,
+            comment: $('#flag-comment').val() 
+        })
+        .done(function(data) { 
+            document.getElementById('flag-modal-container').innerHTML = data;    
+        });  
 }
 
 

@@ -4,3 +4,16 @@ Add version of email when sending
 Later on
 Fix the scraping lookbook
 
+
+
+
+Changes:
+change date to timestam fs_drip
+add visible to fs_tag_topic
+create table fs_tag_topic_Selected
+id
+name
+created_at
+updated_at
+
+

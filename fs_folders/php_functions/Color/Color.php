@@ -5,13 +5,13 @@
  * Date: 1/24/2015
  * Time: 1:33 AM
  */
-
-namespace Design;
-
+namespace App\php_function;
 
 class Color {
 
     private $classColor = "";
+    private static $table = 'fs_tag_color';
+
     public function __construct() {
 
     }
@@ -88,6 +88,16 @@ class Color {
     public static function shuffleClass($class=array()) {
         $i = rand(0,count($class)-1);
         return $class[$i];
+    }
+
+    public static function getHtmlCode($colorName) {
+        $response = select_v3(self::$table, '*',  "  name = '$colorName'");
+      return (!empty($response[0]['hex'])) ?  $response[0]['hex'] : '';
+    }
+
+    public static function getName($htmlCode) {
+        $response = select_v3(self::$table, '*',  " hex = '$htmlCode'");
+        return (!empty($response[0]['name'])) ?  $response[0]['name'] : '';
     }
 
 

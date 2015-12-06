@@ -17,6 +17,14 @@ class User {
         $this->db  = $db;
     }
 
+
+    public function update($mno, $data=array()) {
+        if(empty($mno)) {
+            $mno = $this->mno;
+        }
+        return $this->db->update($this->table, $data, "mno = " . $mno);
+    }
+
     /**
      * @param $newEmail
      * @return int

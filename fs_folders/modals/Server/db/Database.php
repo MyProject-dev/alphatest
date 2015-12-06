@@ -158,7 +158,7 @@ class Database{
     } 
 	public function select($table, $rows = '*', $join = null, $where = null, $order = null, $limit = null) { 
 		// Create query from the variables passed to the function
-//    echo " select($table, $rows = '*', $join = null, $where = null, $order = null, $limit = null)";
+   echo " select($table, $rows = '*', $join = null, $where = null, $order = null, $limit = null)";
         $q = 'SELECT '.$rows.' FROM '.$table;
 		if($join != null){
 			$q .= ' JOIN '.$join;

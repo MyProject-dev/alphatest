@@ -18,7 +18,7 @@ function tour_next(id1, id2) {
 
 function tour_done( ) {
 
-    console.log ('tour closing..');
+    //alert ('tour closing now');
     // Assign handlers immediately after making the request,
    // and remember the jqxhr object for this request
     var jqxhr = $.get( "fs_folders/modals/welcome/tour.php", function(data) {

@@ -79,6 +79,68 @@ class Brand {
         return $this->db->getResult();
     }
 
+
+    /**
+     * @param null $bno
+     * @param null $bcno
+     * @param null $visible
+     * @return mixed
+     */
+    public function topic($bno=NULL, $bcno=NULL, $visible=NULL, $page=NULL, $bname=NULL, $order='bno desc', $limit=100) {
+
+        $and = '';
+        $where = '';
+
+        if(!empty($bno)) {
+            $where .= " id = $bno ";
+            $and    = " and ";
+        }
+
+        if(!empty($bcno)) {
+
+            if(is_array($bcno)) {
+                $ids = '';
+                for($i=0; $i<count($bcno); $i++){
+                    $ids .= '' . $bcno[$i]['id'];
+                    if($i < count($bcno)-1){
+                        $ids .= ',';
+                    }
+                }
+
+                // echo "bcno no ids =  $ids<br>";
+
+                $where .= " $and topic_category_id in($ids)";
+                $and    = " and ";
+            } else {
+                $where .= " $and topic_category_id = $bcno";
+                $and    = " and ";
+            }
+        }
+
+        if(!empty($visible)) {
+            $where  .= " $and visible = $visible";
+            $and    = " and ";
+        }
+
+        //        if(!empty($page)) {
+        //            $where  .= " $and page = '$page'";
+        //            $and    = " and ";
+        //        }
+
+        if(!empty($bname)) {
+            $where  .= " $and name = '$bname'";
+            $and    = " and ";
+        }
+
+        echo "'fs_tag_topic', '*', '',  $where, $order, $limit";
+        //echo "where  $where ";
+        $this->db->select('fs_tag_topic', '*', '',  $where, $order, $limit);
+        return $this->db->getResult();
+    }
+
+
+
+
     public function category($bcno=NULL, $bc_name=NULL, $gender=NULL, $type=NULL, $order='bcno desc', $limit=100) {
         $and = '';
         $where = '';

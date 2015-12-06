@@ -16,14 +16,12 @@
     require("../../../fs_folders/php_functions/Class/Topic.php");
     require("../../../fs_folders/php_functions/Class/Category.php");
 
+      // print_r($_REQUEST);
 
+//    ECHO "" . $_POST['tags'];
 
-
-
-
-
-
-    //Facebook Config
+	//exit;
+	//Facebook Config
     require '../../../fs_folders/API/facebook-php-sdk-master/src/facebook.php'; 
 	$config = array(
 	  'appId' => '528594163842974',
@@ -33,11 +31,7 @@
   	$user_id = $facebook->getUser();
 
 
-
-
-
-
-
+ 
 
     use App\Topic;
     use App\Category;
@@ -71,15 +65,27 @@ LookbookDatabase::$database = $db;
     // initialized  
 	 	$_SESSION['mno'] = $mc->get_cookie( 'mno' , 136 );  
 	 	$mno 	 		 = $mc->get_cookie( 'mno' , 136 );       
-		$mno2            = 134; // owner of the modal 
-  
-		$action          = ( !empty($_GET['action']) )      ? $_GET['action']      	: null ;        
-		$process         = ( !empty($_GET['process']) )     ? $_GET['process']     	: null ;  
+		$mno2            = 134; // owner of the modal  
+
+		$method			 = ( !empty($_GET['method'])) 		? $_GET['method']     	: null ;
+		$method          = ( empty($method) )               ? $_REQUEST['method']   : $method; 
+		
+		$action          = ( !empty($_GET['action']) )      ? $_GET['action']      	: null; 
+		$action          = ( empty($action) )               ? $_REQUEST['action']   : $action;
+
+		$process         = ( !empty($_GET['process']) )     ? $_GET['process']     	: null;   
+		$process         = ( empty($process) )              ? $_REQUEST['process']  : $process; 
+
 		$step            = ( !empty($_GET['step']) )        ? $_GET['step']        	: null ;    
 		$type            = ( !empty($_GET['type']) )        ? $_GET['type']        	: null ;   
-		$stat            = ( !empty($_GET['stat']) )        ? $_GET['stat']        	: null ;     
+		$stat            = ( !empty($_GET['stat']) )        ? $_GET['stat']        	: null ;   
+
 		$table_name      = ( !empty($_GET['table_name']) )  ? $_GET['table_name']  	: 'postedlooks' ;   
+		$table_name         = ( empty($table_name) )              ? $_REQUEST['table_name']  : $table_name; 
+
 		$table_id        = ( !empty($_GET['table_id']) )    ? $_GET['table_id']    	:  0 ;  
+		$table_id         = ( empty($table_id) )              ? $_REQUEST['table_id']  : $table_id; 
+
 		$comment         = ( !empty($_GET['comment']) )     ? $_GET['comment'] : '' ;  
 		$msg             = ( !empty($_GET['msg']) )         ? $_GET['msg']         	: null ;  
 		$keySearch       = ( !empty($_GET['keySearch']) )   ? $_GET['keySearch']   	: null ;    
@@ -105,8 +111,7 @@ LookbookDatabase::$database = $db;
 		$season 		 = ( !empty($_GET['season'])) 		? $_GET['season']       : null ;
 		$keyword 		 = ( !empty($_GET['keyword'])) 	? $_GET['keyword']     		: null ;  
 		$desc 		  	 = ( !empty($_GET['desc'])) 		? $_GET['desc']         : null ;
-		$article 		 = ( !empty($_GET['article'])) 	? $_GET['article']     	  	: null ;
-		$method			 = ( !empty($_GET['method'])) 		? $_GET['method']     	: null ;
+		$article 		 = ( !empty($_GET['article'])) 	? $_GET['article']     	  	: null ; 
 		$orderby	     = ( !empty($_GET['orderby']))     ? $_GET['orderby']     	: null ;
 		$like	     	 = ( !empty($_GET['like']))        ? $_GET['like']        	: null ;
 		$sub	      	 = ( !empty($_GET['sub']))         ? $_GET['sub']         	: null ;
@@ -137,6 +142,9 @@ LookbookDatabase::$database = $db;
 		$isAgreed        = ( !empty($_GET['isAgreed']) )    ? $_GET['isAgreed']      : '' ; 
 
 
+
+
+		// print_r($_GET);
 		 
  
 			// echo " <br> <br> <br> <br> dateTime $DateTime    <br>";
@@ -160,6 +168,13 @@ LookbookDatabase::$database = $db;
  	// echo "adsasdas da<br> dasdada<b>"; 
  	// echo "table name = $table_name and table_id $table_id <br> "; 
 	// echo " method $method <br>";
+
+
+
+
+  		
+  		
+  		// echo "Process $process <br> Action $action <br>";
 
 	echo "<div style='display:block; color:none' >"; 
 	 	switch ( $action ) {  
@@ -690,25 +705,49 @@ LookbookDatabase::$database = $db;
 		 				} 
 	 			break;
 	 		case 'modal-attribute': 
-	 			 	switch ( $process ) { 
+	 			 	switch ( $process ) {
 
-	 			 		case 'insert': 
-	 							// data print 
+case 'insert':
+
+$color = $_REQUEST['color'];
+$brand = $_REQUEST['brand'];
+$garment = $_REQUEST['garment'];
+$material = $_REQUEST['material'];
+$pattern = $_REQUEST['pattern'];
+$price = $_REQUEST['price'];
+$purchased_at = $_REQUEST['purchased_at'];
+$pos_x_y = $_REQUEST['pos_x_y'];
+$style = $_REQUEST['style'];
+$occasion = $_REQUEST['occasion'];
+$season = $_REQUEST['season'];
+$keyword = $_REQUEST['keyword'];
+$title = $_REQUEST['title'];
+$desc = $_REQUEST['desc'];
+$article = $_REQUEST['article'];
+$isAgreed = $_REQUEST['isAgreed'];
 
 
-	 			 				 //   $input = array("a" => "green", "red", "b" => "green", "blue", "red");
-								   // $result = array_unique($input);
-								   // print_r($result);
+echo " modal attribute insert <br>";
 
 
+// data print
 
-	 			 					$occasion = revoveDuplicateSingleArray($occasion);  
-								    $occasion = implode($occasion, ','); 
- 
-								    $season = revoveDuplicateSingleArray($season);  
-								    $season = implode($season, ','); 
 
-			 			 			echo "   
+//   $input = array("a" => "green", "red", "b" => "green", "blue", "red");
+// $result = array_unique($input);
+// print_r($result);
+
+
+$occasion1 = $occasion;
+
+$occasion = revoveDuplicateSingleArray($occasion);
+$occasion = implode($occasion, ',');
+
+$season = revoveDuplicateSingleArray($season);
+$season = implode($season, ',');
+
+echo "
+                                        method    = $method <br>
 			 			 				color     = $color <br>
 										brand     = $brand <br>
 										garment   = $garment <br>
@@ -725,118 +764,128 @@ LookbookDatabase::$database = $db;
 										desc      = $desc<br> 
 										article   = $article <br> 
 										isAgreed  = $isAgreed <br>
-									";  
+									";
+
+
+/**
+ * set agreement cockie
+ */
+
+setcookie(
+    "isAgreed",
+    $isAgreed,
+    time() + (10 * 365 * 24 * 60 * 60)
+);
+
+
+// return the dot of the article url
+
+$article = str_replace(' ', '.', $article);
+
+// initialize data and expload string via comma to array
+
+$color = explode('-', $color);
+$brand = explode(',', $brand);
+$garment = explode(',', $garment);
+$material = explode(',', $material);
+$pattern = explode(',', $pattern);
+$price = explode(',', $price);
+$purchased_at = explode(',', $purchased_at);
+$pos_x_y = explode(',', $pos_x_y);
+$x1 = 0;
+$y1 = 0;
+$len = count($color) - 1;
+$tag['dcolor'] = 'Charcoal';
+$table_name = 'postedlooks';
+$category = $style;
+
+
+
+echo "<h3> <pre> ";
+
+print_r($brand);
+
+
+echo " </pre> </h3>";
+
+// echo " url = " . $purchased_at . "<br>";
+
+
+                            if ($method == 'edit'){
+
+
+
+                            //update user post_look_agree
+                                $response = mysql_query("UPDATE fs_members SET post_look_agree = 1 WHERE mno = $mno");
+                                if ($response) {
+                                    echo "post look agree updated <br>";
+                                } else {
+                                    echo "post look agree not updated <br>";
+                                }
+
+                                // update look
+
+                                $response = mysql_query("UPDATE postedlooks SET lookName = '$title' , lookAbout = '$desc' , article_link = '$article' , occasion = '$occasion' , season = '$season' , style = '$style' , keyword = '$keyword' WHERE plno = $table_id ");
+                                $mc->message('update new look info ', $response, '');
+
+                                // delete keyword search
+
+                            //									 	$response = $mc->fs_search( array(  'type'=> 'delete' , 'table_name'=>'postedlooks' , 'table_id'=>$table_id ) );
+                            //									 	$mc->message( " delete fs search table id $table_id "  , $response , '' );
+                                if ($database->delete('fs_search', "table_name = 'postedlooks' and table_id = $table_id")) {
+                                    echo "fs search successfully deleted <br>";
+                                }
+                                // delete tag
+
+                                // $response = $mc->fs_pltag( array(  'type'=> 'delete' , 'table_id'=>$table_id) );
+                                // $mc->message( " delete fs pltags table id $table_id "  , $response , '' );
+
+
+
+
+                                if ($database->delete('fs_pltag', "plno = $table_id")) {
+                                    echo "Tags successfully deleted fs_pltag plno = $table_id <br>";
+                                } else {
+                                    echo "Tags failed to deleted fs_pltag plno = $table_id <br>";
+                                }
  
-
-									/**
-									* set agreement cockie
-									*/
-
-									setcookie(
-									  "isAgreed",
-									  $isAgreed,
-									  time() + (10 * 365 * 24 * 60 * 60)
-									); 
+                            } else {
 
 
- 
-								// return the dot of the article url  
+                                //update user post_look_agree
 
-									$article = str_replace(' ', '.', $article);
-	 
-								// initialize data and expload string via comma to array
-	 									
-	 								$color   	   = explode(',', $color ); 
-	 								$brand   	   = explode(',', $brand ); 
-	 								$garment 	   = explode(',', $garment ); 
-	 								$material	   = explode(',', $material ); 
-	 								$pattern 	   = explode(',', $pattern ); 
-	 								$price 	  	   = explode(',', $price );  
-	 								$purchased_at  = explode(',', $purchased_at );  
-	 								$pos_x_y 	   = explode(',', $pos_x_y );  
-	 								$x1 	 	   = 0; 
-									$y1 	 	   = 0;
-									$len     	   = count( $color )-1; 
-									$tag['dcolor'] = 'Charcoal'; 
-									$table_name    = 'postedlooks';
-									$category 	   = $style;
+                                echo "mno  = $mno <br>";
+                                $response = mysql_query("UPDATE fs_members SET post_look_agree = 1 WHERE mno = $mno");
+                                if ($response) {
+                                    echo "post look agree updated <br>";
+                                } else {
+                                    echo "post look agree not updated <br>";
+                                }
+
+                                // add new look
 
 
+                                $table_id = $mc->posted_modals_postedlooks_Query(
+                                    array(
+                                        'postedlooks_query' => 'insert',
+                                        'mno' => $mno,
+                                        'lookName' => $title,
+                                        'lookAbout' => $desc,
+                                        'article_link' => $article,
+                                        'occasion' => $occasion,
+                                        'season' => $season,
+                                        'style' => $style,
+                                        'keyword' => $keyword,
+                                        'active' => 1,
+                                        'gender' => $mc->gender,
+                                        'plus_blogger' => $mc->plus_blogger
+                                    )
+                                );
 
 
-
-
-
-
- 
-								if ( $method == 'edit' ):
-
-
-
-									//update user post_look_agree  
-										$response = mysql_query( "UPDATE fs_members SET post_look_agree = 1 WHERE mno = $mno"); 
-										if(	$response) {
-											echo "post look agree updated <br>";
-										} else { 
-											echo "post look agree not updated <br>";
-										}
- 
-									// update look 
-
-										$response = mysql_query( "UPDATE postedlooks SET lookName = '$title' , lookAbout = '$desc' , article_link = '$article' , occasion = '$occasion' , season = '$season' , style = '$style' , keyword = '$keyword' WHERE plno = $table_id "); 
-										$mc->message( 'update new look info ' , $response , '' );  
-
-									// delete keyword search 
-
-									 	$response = $mc->fs_search( array(  'type'=> 'delete' , 'table_name'=>'postedlooks' , 'table_id'=>$table_id ) );  
- 
-									 	$mc->message( " delete fs search table id $table_id "  , $response , '' );
-
-									// delete tag 
-
-									 	$response = $mc->fs_pltag( array(  'type'=> 'delete' , 'table_id'=>$table_id) );   
- 
-										$mc->message( " delete fs pltags table id $table_id "  , $response , '' );									 	 
-
-								else:
-
-
-
-
-									//update user post_look_agree  
-
-									echo "mno  = $mno <br>";
-										$response = mysql_query( "UPDATE fs_members SET post_look_agree = 1 WHERE mno = $mno"); 
-										if(	$response) {
-											echo "post look agree updated <br>";
-										} else { 
-											echo "post look agree not updated <br>";
-										}
-
-									// add new look  
-
-										$table_id = $mc->posted_modals_postedlooks_Query( 
-											array( 
-												'postedlooks_query' => 'insert',
-												'mno' => $mno,
-												'lookName' => $title,
-												'lookAbout' => $desc,
-												'article_link' => $article,
-												'occasion' => $occasion,
-												'season' => $season,
-												'style' => $style,
-												'keyword' =>$keyword,
-												'active' => 1,
-												'gender' => $mc->gender,
-												'plus_blogger' => $mc->plus_blogger
-											) 
-										);   
-
-
-
-										echo " plus blogger " . $mc->plus_blogger . "<br>";
-										$mc->message( "add new look look id = $table_id ", $table_id , '' );  
-								endif;  
+                                echo " plus blogger " . $mc->plus_blogger . "<br>";
+                                $mc->message("add new look look id = $table_id ", $table_id, '');
+                            }
 
 								// add new look tags 
  
@@ -846,10 +895,119 @@ LookbookDatabase::$database = $db;
 									// $mc->print_r1( $material );
 									// $mc->print_r1( $pattern );
 									// $mc->print_r1( $pos_x_y );
-	  
-								// insert tags 
+								
+
+
+								//add if not exist style
+								$tableName = 'fs_tag_style'; 
+								$rowName = 'name';
+
+								if(!$database->selectV1($tableName, '*', "name = '$style'")) {
+
+                    				 if($database->insert($tableName, array($rowName => $style))){
+                                         echo "new data has been inserted <br>";
+                                     } else {
+                                         echo "failed to insert <br>";
+                                     } 
+                             	}
+
+
+
+
+
+								// ADD  SEASON   IF NOT EXIST
+
+                             	echo " occasion string $occasion <br>";
+                                $occasionArray = explode(',', $occasion);
+								foreach ($occasionArray as $key => $itemName1) {
+									$tableName = 'fs_tag_occasion';
+									$rowName = 'name';
+		            				echo " data to be check  $itemName1 <br> ";
+		            				if(!empty($tableName)) {  
+		                				if(!$database->selectV1($tableName, '*', "name = '$itemName1'")) {
+
+		                    				 if($database->insert($tableName, array($rowName => $itemName1))){
+		                                         echo "new data has been inserted <br>";
+		                                     } else {
+		                                         echo "failed to insert <br>";
+		                                     } 
+		                             	}
+		                         	} else {
+		                        		//exist do nothing
+		                        		echo "do nothing table name = $tableName   item name == $itemName1 row name is = " . $rowName . '<br> ';
+		                        	} 	
+		            			}
+
+
+
+		            			//ADD SEASON IF NOT EXIST
+                                echo " occasion string $occasion <br>";
+                                $seasonArray = explode(',', $season);
+		            			foreach ($seasonArray as $key => $itemName1) {
+									$tableName = 'fs_tag_season';
+									$rowName = 'name';
+		            				echo " data to be check  $itemName1 <br> ";
+		            				if(!empty($tableName)) {  
+		                				if(!$database->selectV1($tableName, '*', "name = '$itemName1'")) {
+
+		                    				 if($database->insert($tableName, array($rowName => $itemName1))){
+		                                         echo "new data has been inserted <br>";
+		                                     } else {
+		                                         echo "failed to insert <br>";
+		                                     } 
+		                             	}
+		                         	} else {
+		                        		//exist do nothing
+		                        		echo "do nothing table name = $tableName   item name == $itemName1 row name is = " . $rowName . '<br> ';
+		                        	} 	
+		            			}
+
+
+
+
+
+ 
+
+
+
+
+
+
+								// insert tags  
+									$tagRowName = array (
+										'fs_brands' => array('rowId' => 'bno', 'rowName' => 'bname'),
+										'fs_tag_garment' => array('rowId' => 'id', 'rowName' => 'name'),
+										'fs_tag_material' => array('rowId' => 'id', 'rowName' => 'name'),	
+										'fs_tag_pattern' => array('rowId' => 'id', 'rowName' => 'name'),	
+										'fs_tag_price' => array('rowId' => 'id', 'rowName' => 'name'),	
+										'fs_tag_url' => array('rowId' => 'id', 'rowName' => 'name') 
+							 		); 
+							 		$tagRowVal = array(
+										'fs_brands' =>  '',
+										'fs_tag_garment' =>  '',
+										'fs_tag_material' =>  '',
+										'fs_tag_pattern' =>  '',
+										'fs_tag_price' =>  '',
+										'fs_tag_url' => '' 
+							 		); 
 
 									for ($i=0; $i < $len ; $i++) {  
+
+
+
+
+										echo "<h1> i = $i </h1>";
+
+
+										//Jump the index because it is how recieved from sending js
+
+										// if($i>0) { 
+										// 	$j = $i + 1;
+										// } else {
+										// 	$j = 0;
+										// }
+
+
 
 
 										// get the x and y position 
@@ -872,8 +1030,7 @@ LookbookDatabase::$database = $db;
 												#echo " color = $color[$i] brand = $brand[$i]  garment = $garment[$i]  material = $material[$i] pattern = $pattern[$i] x = $x  y = $y <br> "; 	
 
 
-											// pass the value
-
+											// pass the value 
 												$color_         = ( !empty($color[$i]) ) ? $color[$i] : $tag['dcolor']; 
 												$brand_ 	    = $brand[$i];
 												$garment_ 	    = $garment[$i];
@@ -882,9 +1039,80 @@ LookbookDatabase::$database = $db;
 												$price_ 	    = $price[$i];
 												$purchased_at_ 	= $purchased_at[$i];
 												$x_ 		    = $x;
-												$y_ 		    = $y;
-									 
-	 
+												$y_ 		    = $y;  
+ 	
+
+
+												echo "brand = $brand_ <br>";
+
+												$tagRowVal = array(
+													'fs_brands' => array('name' =>  $brand_),
+													'fs_tag_garment' => array('name' => $garment_),
+													'fs_tag_material' => array('name' => $material_),
+													'fs_tag_pattern' => array('name' => $pattern_),
+													'fs_tag_price' => array('name' => $price_),
+													'fs_tag_url' =>  array('name' => $purchased_at_) 
+										 		); 
+										 		 
+												//check if exists eveything then ensert it.  
+												foreach ($tagRowName as $tableName => $value) {    
+
+														$rowId = $value['rowId'];
+														$rowName = $value['rowName'];
+
+														$itemName = $tagRowVal[$tableName]['name'];
+                                                        // $database->select($tableName, '*', '', "$rowName = '$itemName'");
+//                                                        $response = $database->getResult();
+
+ 
+                                            			if(!$database->selectV1($tableName, '*', "$rowName = '$itemName'")) {
+
+
+                                                    		//not exist then insert it 
+                                                    		echo "table name = $tableName  to be insert item name == $itemName row name is = " . $rowName . '<br> ';
+                                                    	
+
+                                                    		 if($database->insert($tableName, array($rowName => $itemName))){
+                                                                 echo "new data has been inserted <br>";
+                                                             } else {
+                                                                 echo "failed to insert <br>";
+                                                             }
+                                                     	} else {
+                                                    		//exist do nothing
+                                                    		echo "do nothing table name = $tableName   item name == $itemName row name is = " . $rowName . '<br> ';
+                                                    	} 	 
+                                                    	
+												} 
+
+												//check if brand exist
+
+												//check if garment exist
+
+												//check if material exist
+
+												//check if pattern exit
+
+												//check if price exist
+
+												//check if purchased at exist  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	 										echo " insert purchased_at = " . $purchased_at_ . '<br>';
 	 										// insert tag  
 												$response = $mc->fs_pltag( 
 													array( 
@@ -2124,7 +2352,7 @@ LookbookDatabase::$database = $db;
 							    		'limit_end'  => $_SESSION['msg_limit_end']  
 							    	)  
 							    );      
-	 				 		 	$mc->notification_design_message( $variables['response'] , null , $mno ); 
+	 				 		 	$mc->notification_design_message( $variables['response'] , '../../../'  , $mno ); 
 	 				 		break;
 	 				 	case 'view-messages-load':
 
@@ -2156,10 +2384,15 @@ LookbookDatabase::$database = $db;
 								    		'limit_end'  => $_SESSION['msg_limit_end']  
 								    	)  
 								    );    
+  
+
+		 				 		//delete thhe unknow data or unknown message  
+
+
 							    /*
 							    * print modals
 							    */  
-	 				 		 		$mc->notification_design_message( $variables['response'] , null , $mno ); 
+	 				 		 		$mc->notification_design_message( $variables['response'] , '../../../' , $mno ); 
 	 				 		break;
 	 				 	default:  
 	 				 		break;
@@ -3821,10 +4054,10 @@ LookbookDatabase::$database = $db;
 																	echo "<allowimage>$allowimageresponsenumber<allowimage>";
 									echo " </div>"; 
 			 			  		break;   
-			 			  	case 'insert':  	
+			 			  	case 'insert':
 
 
-
+                                    echo "action " . $action . '<br>';
 			 			  			$tags = (!empty($_GET['tags'])) ? $_GET['tags'] : "";
 
 
@@ -3832,14 +4065,16 @@ LookbookDatabase::$database = $db;
 
  
 			 			  			// initialize  
-			 			  				$category    = $_GET['category']; 
-										$topic       =  (count(explode(',', $_GET['topic'])) > 0)? explode(',', $_GET['topic'])[0] : $_GET['topic']; 
-										$title       = $_GET['title']; 
-										$desc        = $_GET['desc']; 
-										$keyword     = $_GET['keyword'];    
+			 			  				$category    = $_POST['category'];
+										$topic       = (count(explode(',', $_POST['topic'])) > 0)? explode(',', $_POST['topic'])[0] : $_POST['topic'];
+                                        $tags        = $_POST['tags'];
+										$title       = $_POST['title'];
+										$desc        = $_POST['desc'];
+										$keyword     = $_POST['keyword'];
+ 										$url         = $_POST['url'];
+
  										/*
 										if ( $selected == 'video') {
-
 											$source_url  = ( !empty($_SESSION['source_url'])  ) ? $_SESSION['source_url'] : null ;  	 
 										}
 										else{
@@ -3849,6 +4084,55 @@ LookbookDatabase::$database = $db;
 										} 
 										*/
 
+
+
+                                          /**
+                                           * Add to fs_tag, fs_topic_category and fs_topic if not exist
+                                           */ 
+
+                                          	// fs topic
+                                            $response = select_V3("fs_topic", "*", "name = '$topic'");
+                                            if(empty($response)) {
+                                                //insert topic category
+                                                if($db->insert('fs_topic', array(
+                                                    'name'=>$topic
+                                                ))) {
+                                                    echo 'new topic inserted ' . $topic . '<br>';
+                                                }
+                                            }
+
+                                            // fs topic category
+                                            /*
+                                            $response = select_V3("fs_topic_category", "*", "id > 0");
+                                            if(empty($response)) {
+                                                //insert topic category
+                                                //insert topic category
+                                                if($db->insert('fs_topic_category', array(
+                                                    'name'=>$category
+                                                ))) {
+                                                    echo 'new topic category inserted ' . $category . '<br>';
+                                                }
+                                            } 
+                                            */
+
+
+
+
+                                            // fs tag
+                                            $tagsArray = explode(',',  $tags);  
+                                            foreach ($tagsArray as $key => $tag) { 
+	                                            $response = select_V3("fs_tag", "*", "name = '$tag'");
+	                                            if(empty($response)) {
+ 	                                                //insert topic category
+ 	                                                if($db->insert('fs_tag', array(
+                                                    	'name'=>$tag
+                                               	 	))) {
+                                                    	echo 'new tag inserted ' . $tag . '<br>';
+                                                	}
+                                            	} 
+                                            } 
+                                            
+ 										//Initialized insert to fs_postarticle
                                         if($topic_instance->addIfNotExist($topic, $category)){
                                             echo "topic is not exist and its added topic = $topic category = $category ";
                                         } else {
@@ -4938,15 +5222,17 @@ LookbookDatabase::$database = $db;
 						endfor; 
 	 			break;
 	 		case 'modal-comment-like-dislike':
-
-
-	 			
-
 	 				// initialized
-		 				$rate_type  = $_GET['rate_type'];
-		 				$table_id   = $_GET['table_id'];
-		 				$table_name = $_GET['table_name'];
-		 				$mno        = $_GET['mno']; 
+						/*
+							$rate_type  = $_GET['rate_type'];
+							$table_id   = $_GET['table_id'];
+							$table_name = $_GET['table_name'];
+							$mno        = $_GET['mno'];
+						*/
+						$rate_type  = $_REQUEST['rate_type'];
+						$table_id   = $_REQUEST['table_id'];
+						$table_name = $_REQUEST['table_name'];
+						$mno        = $_REQUEST['mno'];
 	 				// print data 
 		 				echo " 
 		 					rate_type = $rate_type  <br>
@@ -4976,11 +5262,6 @@ LookbookDatabase::$database = $db;
 		 				else{  
 		 					echo " u already rated this <br>";
 		 				}
-
-
-
-
-
 		 			// count total rate and update comment 
 	 					$tlike    = $mc->posted_modals_rate_Query( array( 'table_name'=>$table_name , 'table_id'=>$table_id, 'rate_query'=>'get-rate-total-likes'    ));   
 	 					$tdislike = $mc->posted_modals_rate_Query( array( 'table_name'=>$table_name , 'table_id'=>$table_id, 'rate_query'=>'get-rate-total-dislikes' ));    
@@ -5068,7 +5349,16 @@ LookbookDatabase::$database = $db;
 		 				
 
 		 			// print data
-	 		
+	 			
+						$mno        = $_REQUEST['mno'];
+						$comment    = $_REQUEST['comment']; 
+						$table_id   = $_REQUEST['table_id'];
+						$table_name = $_REQUEST['table_name'];  
+						$page  	    = $_REQUEST['page'];
+							
+
+						 /*
+						
 	 					echo " 
 		 					this is the comment modal sent <br> send <br> sent <br> $mno        <br>
 							comment = $comment     <br>
@@ -5076,6 +5366,13 @@ LookbookDatabase::$database = $db;
 							table_name = $table_name  <br> 
 							type = $type <br> 
 						";  
+
+						*/
+
+
+						echo "<H1> Commend $comment  <br></H1>";
+
+  
 
  
 	 				switch ( $type ) {
@@ -5296,10 +5593,10 @@ LookbookDatabase::$database = $db;
 		 			 			 			 
 			 			 			 			<ul>
 			 			 			 				<li> 
-			 			 			 					<table style="width:100%;" border='1' >
+			 			 			 					<table style="width:100%;" border='0' >
 			 			 			 						<tr>
 			 			 			 							<td> 
-			 			 			 								<textarea rows="5"  id="modal-comment-edit-textarea" ><?php echo $comment; ?></textarea>
+			 			 			 								<textarea rows="10"  id="modal-comment-edit-textarea"  ><?php echo $comment; ?></textarea>
 			 			 			 							</td>
 			 			 			 					</table> 
 			 			 			 				</li>
@@ -5327,8 +5624,8 @@ LookbookDatabase::$database = $db;
 	 			 			 					width: 50%;
 	 			 			 					height: 130px;
 	 			 			 					padding: 10px;
-	 			 			 					background-color: #f6f7f8;
-	 			 			 					border-radius: 5px;
+	 			 			 					background-color: #F9F9F9;
+	 			 			 					border-radius: 10px;
 
 	 			 			 				}
 	 			 			 				#modal-comment-edit-container ul li { 
@@ -5339,10 +5636,19 @@ LookbookDatabase::$database = $db;
 	 			 			 					resize:none;
 	 			 			 					border:1px solid grey;
 	 			 			 					border-radius: 5px;
+	 			 			 					padding:5px;
 	 			 			 				}  
 	 			 			 				#modal-comment-edit-container table {  
 	 			 			 					position: relative; 
 	 			 			 					float: left;
+	 			 			 				}
+
+	 			 			 				#modal-comment-edit-container table td {  
+	 			 			 					 padding:5px;
+	 			 			 				}
+
+	 			 			 				#modal-comment-edit-container table td input {  
+	 			 			 					border-radius: 5px; 
 	 			 			 				}
 
 	 			 			 			</style>
@@ -5731,18 +6037,65 @@ LookbookDatabase::$database = $db;
 					 		echo "</div>";  
 	 			break; 
 	 		case 'fs-drip-modals':
+				/*
+				$mno         = $_GET['mno'];
+				$table_name  = $_GET['table_name'];
+				$table_id    = $_GET['table_id'];
+				$mno1        = $_GET['mno1'];
+				*/
 
-	 				$mno         = $_GET['mno'];
-					$table_name  = $_GET['table_name'];
-					$table_id    = $_GET['table_id'];
-					$mno1        = $_GET['mno1'];
-					$comment     = ( !empty( $_GET['comment'] )    ) ? $_GET['comment'] : null ; 
-	 				$modal_type  = ( !empty( $_GET['modal_type'] ) ) ? $_GET['modal_type'] : 'Look' ; 
-	 				$title       = ( !empty( $_GET['title'] )      ) ? $_GET['title'] : null ;   
+				$mno     = ( !empty( $_GET['mno'] )    ) ? $_GET['mno'] : null ;
+				$mno     = ( empty($mno) )               ? $_REQUEST['mno']   : $mno;
 
-	 				switch ( $_GET['steps'] ) {
+
+				$table_name     = ( !empty( $_GET['table_name'] )    ) ? $_GET['table_name'] : null ;
+				$table_name     = ( empty($table_name) )               ? $_REQUEST['table_name']   : $table_name;
+
+
+				$table_id     = ( !empty( $_GET['table_id'] )    ) ? $_GET['table_id'] : null ;
+				$table_id     = ( empty($table_id) )               ? $_REQUEST['table_id']   : $table_id;
+
+				$mno1     = ( !empty( $_GET['mno1'] )    ) ? $_GET['mno1'] : null ;
+				$mno1     = ( empty($mno1) )               ? $_REQUEST['mno1']   : $mno1;
+
+				$comment     = ( !empty( $_GET['comment'] )    ) ? $_GET['comment'] : null ;
+				$comment     = ( empty($comment) )               ? $_REQUEST['comment']   : $comment;
+
+	 		    $modal_type  = ( !empty( $_GET['modal_type'] ) ) ? $_GET['modal_type'] : 'Look' ;
+				$modal_type  = ( empty($modal_type) )            ? $_REQUEST['modal_type']   : $modal_type;
+
+	 			$title       = ( !empty( $_GET['title'] )      ) ? $_GET['title'] : null ;
+				$title       = ( empty($title) )                 ? $_REQUEST['title']   : $title;
+
+				$steps  = ( !empty( $_GET['steps'] ) )           ? $_GET['steps'] : '' ;
+				$steps       = ( empty($steps) )                 ? $_REQUEST['steps']   : $steps;
+
+	 				// echo " this is the tespes " . $_GET['steps'] . '<br>';
+
+
+
+
+
+
+					echo " 
+
+						mno = $mno <br>
+						table_name = $table_name <br>
+						table_id = $table_id <br>
+												mno1 = $mno1 <br>
+						comment = $comment <br>
+						modal_type = $modal_type <br>
+						title = $title <br>
+						steps = $steps <br> 
+
+					";
+
+
+
+	 				switch ($steps) {
 	 					case 'design': 
-	 
+	 					echo "inside design<br>";
+	 								// echo " This is the design <br>";
 	 							// $image = $mc->modal( 
 	 							//  	array(
 	 							//  		'table_name' =>$table_name,
@@ -5833,7 +6186,10 @@ LookbookDatabase::$database = $db;
 									</center>
 	 							"; 
 	 						break;  
-	 					case 'function':  
+	 					case 'function':
+
+
+								echo "inside function ";
 								// insert to fs drip table  
 
 			  						$response =  $mc->fs_drip_modals_Query ( array( 'mno'=> $mno,   'table_id'=>$table_id,  'table_name'=>$table_name,  'comment'=> $comment,  'mno1'=>$mno1, 'query_drip'=>'drip-insert'  ) ); 
@@ -5853,7 +6209,9 @@ LookbookDatabase::$database = $db;
 
 			  					// update table total dripped  
 			  						$mc->update_fs_table_auto( $table_id , array('tdrip'=>$pltdrip)  , $table_name );  
-			  					// print the thank you message  
+			  					// print the thank you message
+
+									echo "Thank you message here..";
 			  						$mc->dialog( array('type'=> 'alert' , 'headermssg'=> 'SUCCESSFUL POST' , 'contentmssg'=> 'This post was succesfully posted to your feed.' ) );    
 
 			  					// set notification  
@@ -5868,15 +6226,15 @@ LookbookDatabase::$database = $db;
 			  						} else { 
 			  						}
 
-									$mc->set_session_notification($mno, $table_name, $table_id, $action, $comment); 
-
+									$mc->set_session_notification($mno, $table_name, $table_id, $action, $comment);  
 	 						break; 
-	 					default: 
+	 					default:
+							echo "inside default <br>";
 	 						break;
 	 				} 
 	 			break;  
 	 		case 'fs-favorite-modals':
-
+	 				/*
 	 				$mno         = $_GET['mno'];
 					$table_name  = $_GET['table_name'];
 					$table_id    = $_GET['table_id'];
@@ -5886,13 +6244,62 @@ LookbookDatabase::$database = $db;
 	 				$title       = ( !empty( $_GET['title'] )      ) ? $_GET['title'] : null ;   
 	 				$headermssg  = ( !empty( $_GET['headermssg'])  ) ? $_GET['headermssg'] : 'POST' ;   
 	 				$contentmssg = ( !empty( $_GET['contentmssg']) ) ? $_GET['contentmssg'] : 'POST IS SUCCESSFUL!' ;   
+	 				*/
+
+
+	 				$mno                   = ( !empty($_GET['mno']) ) ? intval($_GET['mno']) : "" ;  
+					$mno                   = ( empty($mno) )               ? $_REQUEST['mno']   : $mno; 
+
+					$table_name            = ( !empty($_GET['table_name']) ) ? intval($_GET['table_name']) : "" ;  
+					$table_name            = ( empty($table_name) )               ? $_REQUEST['table_name']   : $table_name;
+
+					$table_id              = ( !empty($_GET['table_id']) ) ? intval($_GET['table_id']) : "" ;  
+					$table_id              = ( empty($table_id) )               ? $_REQUEST['table_id']   : $table_id;
+
+					$mno1                  = ( !empty($_GET['mno1']) ) ? intval($_GET['mno1']) : "" ;  
+					$mno1                  = ( empty($mno1) )               ? $_REQUEST['mno1']   : $mno1;
+
+					$comment               = ( !empty($_GET['comment']) ) ? intval($_GET['comment']) : "" ;  
+					$comment               = ( empty($comment) )               ? $_REQUEST['comment']   : $comment;
+
+					$modal_type            = ( !empty($_GET['modal_type']) ) ? intval($_GET['modal_type']) : "" ;  
+					$modal_type            = ( empty($modal_type) )               ? $_REQUEST['modal_type']   : $modal_type;
+
+					$title                 = ( !empty($_GET['title']) ) ? intval($_GET['title']) : "" ;  
+					$title                 = ( empty($title) )               ? $_REQUEST['title']   : $title;
+
+					$headermssg            = ( !empty($_GET['headermssg']) ) ? intval($_GET['headermssg']) : "" ;  
+					$headermssg            = ( empty($headermssg) )               ? $_REQUEST['headermssg']   : $headermssg;
+
+					$contentmssg           = ( !empty($_GET['contentmssg']) ) ? intval($_GET['contentmssg']) : "" ;  
+					$contentmssg           = ( empty($contentmssg) )               ? $_REQUEST['contentmssg']   : $contentmssg;
+
+					$steps                 = ( !empty($_GET['steps']) ) ? intval($_GET['steps']) : "" ;  
+					$steps                 = ( empty($steps) )               ? $_REQUEST['steps']   : $steps;
+
+
+					 
+ 
+					echo "
+						mno = $mno <br>
+						table_name = $table_name <br>
+						table_id = $table_id <br>
+						mno1 = $mno1 <br>
+						comment = $comment <br>
+						modal_type = $modal_type <br>
+						title = $title <br>
+						headermssg = $headermssg <br>
+						contentmssg = $contentmssg <br>
+					";
+
+
 	 				// echo "mno = $mno <br>  table_name = $table_name <br>  table_id = $table_id   <br>  mno1 = $mno1       <br>  comment = $comment    <br>  modal_type = $modal_type <br>  title = $title      <br>  headermssg = $headermssg <br>  contentmssg = $contentmssg <br>  "; 
 	 				// 	echo " 
 	 				// 	$mno          
 					// $table_name   
 					// $table_id     
 					// $mno1        "; 
-	 				switch ( $_GET['steps'] ) {
+	 				switch ( $steps ) {
 	 					case 'design':  
 
 	 						break;  

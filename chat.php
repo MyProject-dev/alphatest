@@ -140,7 +140,6 @@
 	 										<td> <div><?php echo "<b>TALK TO :</b> $fullname1 "; ?> </div></td>
 	 								</table> 
 	 							</td>
-
 	 						<tr> 
 	 							<td style="height:200px;" id="chat-main-messages-container" > 
 	 								<div id="chat-message-container" > 
@@ -154,7 +153,7 @@
 		 										<tr> 
 		 											<td id='chat-profilepic' > 
 			 											<div > 
-			 												<?php  $mc->member_thumbnail_display( $mc->ppic_thumbnail , $variable[$i]['mno'] , "$mc->ppic_thumbnail" , null , '35px;'  );   ?> 
+			 												<?php  $mc->member_thumbnail_display( $mc->ppic_thumbnail , $variable[$i]['mno'] , "$mc->ppic_thumbnail" , null , '35px;', null, '35px'  );   ?>
 			 											</div> 
 		 											</td> 
 		 											<td>  

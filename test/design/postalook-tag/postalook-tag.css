@@ -10,7 +10,7 @@ p, a, span, label {
 }
 
 .look-tag-container {
-    padding: 5px;
+    padding: 7px !important;
     border: 1px solid #D4D4D4;
     /* height: 351px; */
     width: 535px;
@@ -26,6 +26,7 @@ p, a, span, label {
     font-size: 10pt;
     color: #888888;
     text-align: center;
+    background-color: #F6F7F8;
 }
 
 .tag-menu {
@@ -75,6 +76,7 @@ p, a, span, label {
 .tag-content-ul {
     padding: 0px;
     margin: 0px;
+
 }
 
 .tag-content-ul li {
@@ -92,8 +94,17 @@ p, a, span, label {
 }
 
 .tag-content-ul li:nth-child(2) {
-    width: 155px;
+    width: 141px;
 }
+
+.tag-content-season img {
+    width: 121px;
+    margin: 5px;
+    /*border: 1px solid red;*/
+    height: auto;
+    cursor: pointer;
+}
+
 
 .tag-color-palette {
     border-right: 1px solid #D4D4D4;
@@ -132,6 +143,8 @@ p, a, span, label {
 
 .tag-container-result {
     border: 1px solid #D4D4D4;
+    border-radius: 5px;
+    background-color: white;
 }
 
 .tag-footer-description {
@@ -146,11 +159,14 @@ p, a, span, label {
 
 
 .tag-container-left {
-    height: 166px;
+    /* height: 166px; */
     /* border-right: 1px solid #D24848; */
     /* padding-right: 20px; */
-    padding-left: 3px;
+    padding-left: 5px;
     padding-bottom: 6px;
+    /* border: 1px solid red; */
+    padding-top: 5px;
+    padding-bottom: 27px !important;
 }
 
 .tag-container-left ul {
@@ -180,6 +196,9 @@ p, a, span, label {
 
 .tag-container-right {
 
+    margin-top: 7px;
+
+    margin-bottom: 3px;
 }
 
 .tag-field-input {
@@ -190,7 +209,7 @@ p, a, span, label {
 
 .tag-row-container  {
     text-align: left;
-
+    padding: 4px;
 }
 
 .tag-result-container-category-garment  {
@@ -225,7 +244,8 @@ p, a, span, label {
 }
 
 .tag-color-image-preview {
-    width: 153px;
+    width: 144px;
+    padding-bottom: 4px;
 }
 
 .tag-view-data {
@@ -288,4 +308,63 @@ p, a, span, label {
 .tag-reset-div:hover {
     color:#FF9898 !important;
     cursor:pointer;
+}
+
+.tag-container-single, .tag-container-single-occasion, .tag-container-single-season {
+    position: absolute;
+    margin-top: 34px;
+    z-index: 100;
+    display: none;
+}
+
+.tag-container-single-occasion {
+    margin-top: 96px !important;
+    position: absolute;
+    margin-left: 303px;
+}
+
+.tag-container-single-season {
+    margin-top: 96px !important;
+    position: absolute;
+    margin-left: 345px;
+}
+
+
+#tag-color-database-data-style, #tag-color-database-data-occasion, #tag-color-database-data-season {
+
+    border:none !important;
+    width: 100%;
+}
+
+.search-field {
+    width: 100% !important;
+}
+
+.postarticle-tag-category {
+    margin-top: 2px !important;
+}
+
+.postarticle-tag-topic {
+    margin-top: 56px !important;
+    margin-left: 304px !important;
+}
+
+.postarticle-tag-tags {
+    margin-top: 56px !important;
+    margin-left: 334px !important;
+}
+
+.postalook-tag-occasion {
+    margin-top: 66px !important
+}
+
+.postalook-tag-tag {
+    margin-top: 66px !important
+;
+    margin-left: 335px;
+}
+
+#postarticle-change-topic-category, #tag-color-database-data-topic, #tag-color-database-data-article-tag {
+    border:none !important;
+    height:33px !important;
 }

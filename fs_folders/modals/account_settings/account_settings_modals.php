@@ -5,18 +5,34 @@
     require ("../../../fs_folders/php_functions/source.php"); 
     require ("../../../fs_folders/php_functions/myclass.php");
 
-	$mc = new myclass();  
-    $mc->auto_detect_path();
+	$mc = new myclass();   
+    $mc->auto_detect_path(); 
     $facebook = $mc->fb_init('../../API/facebook-php-sdk-master/src/facebook.php');
 
     $_SESSION['mno'] =  $mc->get_cookie( 'mno' , 136 );  
-    $mno    = $_SESSION['mno'];     
-    $mno1   = ( !empty($_GET['mno1']) ) ? intval($_GET['mno1']) : "" ;    
-    $spnp   = ( !empty($_GET['select_page_next_prev']) ) ? intval($_GET['select_page_next_prev']) : "" ;  
-    $action = (!empty($_GET['action']) ) ?  $_GET['action'] : "" ;  
-    $account_seettings_tab = $_GET['account_seettings_tab'];  
-    echo " mno = $mno and mno1 = $mno1 <br>";
- 
+    
+    $mno                    = $_SESSION['mno'];     
+    
+    $mno1                   = ( !empty($_GET['mno1']) ) ? intval($_GET['mno1']) : "" ;    
+    $mno1                   = ( empty($mno1) )               ? $_REQUEST['mno1']   : $mno1;
+     
+    $spnp                   = ( !empty($_GET['select_page_next_prev']) ) ? intval($_GET['select_page_next_prev']) : "" ;  
+    $spnp                   = ( empty($spnp) )               ? $_REQUEST['spnp']   : $spnp;
+    
+    $action                 = (!empty($_GET['action']) ) ?  $_GET['action'] : "" ;  
+    $action                 = ( empty($action) )               ? $_REQUEST['action']   : $action;
+     
+    $account_seettings_tab  = (!empty($_GET['account_seettings_tab']) ) ?  $_GET['account_seettings_tab'] : "" ;  
+    $account_seettings_tab  = ( empty($account_seettings_tab) ) ? $_REQUEST['account_seettings_tab']   : $account_seettings_tab; 
+    
+    echo "
+        mno = $mno  <br>
+        mno1 = $mno1  <br>
+        spnp = $spnp  <br>
+        action = $action  <br>
+        account_seettings_tab = $account_seettings_tab  <br> 
+    "; 
+
     /**
     * created: jan 22 , 2014
     * by jesus erwin suarezs

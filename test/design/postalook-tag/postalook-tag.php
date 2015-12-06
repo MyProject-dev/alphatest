@@ -553,11 +553,9 @@ sort($patternItems);
     <div class="tag-container-result">
     <div class="tag-result-color" id="tag-result-color" style="display:block">
     <div class="tag-row-container" id="tag-row-container-color-<?php echo $j ?>" style="display:block">
-
         <div class="tag-search" style="display:none">
             <input type="text" placeholder="search" class="search-field"/>
         </div>
-
         <div class="clear" style="height:0px;"></div>
         <div class="tag-content">
             <ul class="tag-content-ul">
