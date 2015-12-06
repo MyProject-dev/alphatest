@@ -103,14 +103,22 @@
 	                                </td> 
 	                                <?php if($mno1 != $_SESSION['mno']): ?>
 		                          		<td> 
-		 								    <!-- <img src="fs_folders/images/profile/follow.png"> --> 
-		 								    <img 
-							 					id="profile-follow-button"  
-							 					style="margin-left:3px;" 
-								 				src="fs_folders/images/profile/follow.png"  
-								 				onmousemove=" mousein_change_button ( '#profile-follow-button' , 'fs_folders/images/profile/following.png' )" 
-								 				onmouseout="mouseout_change_button (  '#profile-follow-button'  , 'fs_folders/images/profile/follow.png' ) "
-							 				/> 
+		                          			<div style="padding-left:2px;" >
+			                          		 	<?php
+		                                        	// echo "mno = $mno1 and mno1 = $mno1 <br>";
+		                                            echo  $mc->print_user_modals_follow_or_unfollow_buttons($mno,  $mno1, 'width:121px !important', 'fs_folders/images/profile/follow.png', 'fs_folders/images/profile/following.png', 'details', '#details-follow-counter');
+		                                        ?>
+	                                        </div>
+		 								    <!-- <img src="fs_folders/images/profile/follow.png"> -->  
+									 		<!-- 
+			 								    <img 
+								 					id="profile-follow-button"  
+								 					style="margin-left:3px;" 
+									 				src="fs_folders/images/profile/follow.png"  
+									 				onmousemove=" mousein_change_button ( '#profile-follow-button' , 'fs_folders/images/profile/following.png' )" 
+									 				onmouseout="mouseout_change_button (  '#profile-follow-button'  , 'fs_folders/images/profile/follow.png' ) "
+								 				/> 
+ 							 			    -->
 		                                </td>
 		                                <td>  
 		  									  <img 
@@ -119,7 +127,11 @@
 								 				src="fs_folders/images/profile/message.png"  
 								 				onmousemove=" mousein_change_button ( '#profile-message-button' , 'fs_folders/images/profile/message-mouse.png' )" 
 								 				onmouseout="mouseout_change_button (  '#profile-message-button'  , 'fs_folders/images/profile/message.png' ) "
+								 				onclick="chat( 'chat?u=<?php echo $member['username']; ?>' , 'open-new-chat' ) " 
 							 				/> 
+
+
+
 		                                </td>
 		                            <?php else: ?>
 		                            	  <td> 
