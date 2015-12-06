@@ -9322,7 +9322,7 @@
 
 																			    <?php   
 																			    	echo " 
-																			    		$firstname $lastname of Fashion Sponge  
+																			    		<span class='member-modal-full-name'>$firstname $lastname</span> of Fashion Sponge  
 																			    	    " . ucwords (  $location  ) . "  
 																			    		Joined $datejoined  &nbsp; | $onlineStat  <br>
 																			    	";
@@ -10905,29 +10905,39 @@
 
 						// print notification message design  
 
+							if($username != 'FashionSponge') {  
+								?>	   	
+		 							<table border="0" cellspacing="0" cellpadding="0" id="notification-table-subcontainer"  style="width:100%; " >
+		 								<tr> 
+		 									<td style="padding-bottom:5px; padding-top:5px; padding-left:10px;<?php echo $variables['style']; ?>" > 
+							 					<div id="notification-subcontainer" >
+							 						<ul style='border:1px solid none' >
+								 							<li style="width:50px; border:1px solid none "> 
+							 								<?php  $this->member_thumbnail_display( "fs_folders/images/uploads/members/mem_thumnails/", $variables['mno1'] ,  $path."fs_folders/images/uploads/members/mem_thumnails/", null , '40px;' );  ?>
+							 							</li>
+								 							<li style="width:250px;border:1px solid none" >
+							 								<a onclick="chat( 'chat?u=<?php  echo "$username"; ?>' , 'open-new-chat' ) " style="cursor:pointer;" > 
+							 									<div> 	
+							 										 <?php echo "$content"; ?>
+							 									</div>
+							 								</a>
+							 							</li> 
+							 						</ul>  
+							 					</div> 
+							 				</td>
+							 		</table>  
+		 					 	<?php  
+	 					 	} else { 
+	 					 		//Delete message if its empty and null  
+	 					 		//Delete this message if it's a result of an error 
+	 					 		//Delete this message if user name is FashionSponge and which means that it's an error.
+ 
+	 					 		mysql_query("DELETE FROM fs_message WHERE table_name = 'fs_message' and table_id = " . $variables['msgno']  );
+
+	 					 		mysql_query("DELETE FROM fs_message WHERE msgno = " . $variables['msgno']); 
+	 					 	}
 
 
-							?>	   	
- 							<table border="0" cellspacing="0" cellpadding="0" id="notification-table-subcontainer"  style="width:100%; " >
- 								<tr> 
- 									<td style="padding-bottom:5px; padding-top:5px; padding-left:10px;<?php echo $variables['style']; ?>" > 
-					 					<div id="notification-subcontainer" >
-					 						<ul style='border:1px solid none' >
-						 							<li style="width:50px; border:1px solid none "> 
-					 								<?php  $this->member_thumbnail_display( "fs_folders/images/uploads/members/mem_thumnails/", $variables['mno1'] ,  $path."fs_folders/images/uploads/members/mem_thumnails/", null , '40px;' );  ?>
-					 							</li>
-						 							<li style="width:250px;border:1px solid none" >
-					 								<a onclick="chat( 'chat?u=<?php  echo "$username"; ?>' , 'open-new-chat' ) " style="cursor:pointer;" > 
-					 									<div> 	
-					 										 <?php echo "$content"; ?>
-					 									</div>
-					 								</a>
-					 							</li> 
-					 						</ul>  
-					 					</div> 
-					 				</td>
-					 		</table>  
-	 					 <?php  
  					endfor;  
 				}
 				public function notification_design_rating( $response  ,  $path=null , $mno=null , $type=null , $isowner=false , $category=null ) {
@@ -11173,7 +11183,8 @@
 								 								<a href="<?php echo $link; ?>"> <div> <?php  echo "<b> $noti_fullname1   $info "; ?> </div></a>  
 								 							</li>
 								 							<li style="width:50px;padding-left:5px;" > 
-								 								<?php $this->print_user_modals_follow_or_unfollow_buttons( $this->mno , $noti_mno , 'width:40px; height:40px;'); ?>
+
+								 								<?php $this->print_user_modals_follow_or_unfollow_buttons( $this->mno , $noti_mno , 'width: 96px;height: 35px;margin-left: -45px;margin-top: 7px;border-radius: 5px;border: 1px solid #E2E2DF;'); ?>
 
 
 								 								<?php 
