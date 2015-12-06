@@ -15,6 +15,7 @@ require ("../../../fs_folders/php_functions/myclass.php");
 require ("../../../fs_folders/php_functions/Class/Brand.php");
 require ("../../../fs_folders/php_functions/Class/User.php");
 
+use App\User;
 $mc = new myclass();
 $db = new Database();
 $db->connect();
