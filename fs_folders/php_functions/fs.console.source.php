@@ -206,9 +206,11 @@
 						"mno = $this->mno"
 					);  
 
+ 
 				    // print_r($myFlag);  
 					//remove if flagged 
 				    $activity = $this->remove_activity_by_flagged($act, $myFlag);  
+
  					// echo "<H3>mno = $this->mno</H3>";  
  					// print_r($activity);
 					return $activity;   
@@ -233,7 +235,7 @@
 							$table_id   = $myFlag[$j]['table_id'];      
 							$action     = $myFlag[$j]['action'];        
 
-				    		if ($table_name == $_table  and $_table_id == $table_id and $action == 'hide post') { 
+				    		if ($table_name == $_table  and $_table_id == $table_id and ($action == 'hide post' || $action == 'flag post')) { 
 				    			 //This post is flagged and don't show in the feed
 				    		 	// echo "table name = $table_name and id = $table_id <br>"; 
 				    		 	$remove = true;
@@ -2201,7 +2203,7 @@
 						        </center>
 						    </body>
 						</html>
- 
+
 		      		<?php 
 		      	}
 
