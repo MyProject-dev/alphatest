@@ -3969,11 +3969,11 @@
 			<?php 	 
 	    }  
 	    public function new_footer() {   
-	    		// if($_SESSION['is_online'] == 'yes') {
-	    		// 	$url = 'http://dev.fashionsponge.com';		
-	    		// } else {
-	    		// 	$url = 'http://localhost/fs/new_fs/alphatest'; 		
-	    		// } 
+	    		if($_SESSION['is_online'] == 'yes') {
+	    			$url = 'http://dev.fashionsponge.com';		
+	    		} else {
+	    			$url = 'http://localhost/fs/new_fs/alphatest'; 		
+	    		} 
               // require ("$url/fs_folders/page_footer/footer_php_file/footer.php");  
 	    }
 
