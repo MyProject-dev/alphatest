@@ -123,7 +123,8 @@
 		  	// $mc->add_user_profile_view( $mno  , $mno1 ,  $mc->date_time ); 
 
 		  	$mppno 						= $mc ->member_profile_pic_query( array('mno'=>$mno1  , 'type'=>'get-latest-mppno' ) );
-		  	$total['activity']          = count( $mc->get_my_profile_feed_activity( $mno1 ) ); 
+			// @TODO ACTIVITY COUNTING TOTAL RESULT MUST NEED TO USE A JOIN QUERY WITH DATABASE
+		  	$total['activity']          = count( $mc->get_my_profile_feed_activity( $mno1 ) );
 		  	$total['looks']             = $mc->posted_modals_postedlooks_Query(  array(  'postedlooks_query'=>'get-tlook', 'mno'=>$mno1 )  );  
 		  	$total['followers']         = $mc->get_total_follower( $mno1 ); 
 		  	$total['following']         = $mc->get_total_following( $mno1 );   	  
@@ -191,7 +192,7 @@
 				</div>
 			";
 			*/   
-			$mc->fs_popup_container_and_response( ); 
+//			$mc->fs_popup_container_and_response( );
 			
 			$mc->header_attribute( 
  				"$fullname | Fashion Sponge  " , 
@@ -237,8 +238,18 @@
 
 	</div>
 	</head>   
-	<body onload="<?php echo $member['tab_load']; ?>" >     
-		<?php 
+	<body onload="<?php echo $member['tab_load']; ?>" >
+
+	<?php
+		/**
+		* to display the popup container
+		*/
+		$mc->fs_popup_container_and_response( 'display:none' );
+	?>
+
+
+
+	<?php
 			if ( $mno == 136 ) {  
 			 	// require('fs_folders/fs_popUp/popUp_php_file/popupinvite.php');  
 	 		}  
