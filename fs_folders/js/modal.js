@@ -45,10 +45,10 @@ function send_flag( action , table_id , table_name , comment, fileName) {
 
     //hide modal
     if(action == 'stop notification') {
-        alert('stop notification');
+        // alert('stop notification');
         $('.'+table_name+'-'+table_id+'-notification').fadeOut('fast');
     } else {
-        alert('feed');
+        // alert('feed');
         $('.'+table_name+'-'+table_id).fadeOut('fast');
     }
  
@@ -63,16 +63,16 @@ function send_flag( action , table_id , table_name , comment, fileName) {
     xmlhttp.open('GET',url,true);
     xmlhttp.send(); 
     */
-
-
+ 
     $.post( 'fs_folders/modals/save/'+fileName+'.php', {
             action: action,
             table_id: table_id,
             table_name: table_name,
             comment: $('#flag-comment').val() 
         })
-        .done(function(data) { 
-            document.getElementById('flag-modal-container').innerHTML = data;    
+        .done(function(data) {   
+            var reponse = data.split('<message>');  
+            document.getElementById('flag-modal-container').innerHTML = reponse[1];    
         });  
 }
 
