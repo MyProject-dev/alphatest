@@ -58,7 +58,7 @@ $action                   = ( empty($action) )               ? $_REQUEST['action
          'action'=>$action
      )
  )) {
-     echo "<div style='color:green' >This post is now hidden from all of your feeds.</div>";
+     echo "<message><div style='color:green' >This post is now hidden from all of your feeds.</div><message>";
  } else {
-     echo "<div style='color:red' >Ohps, Something wrong. Failed to hide.</div>";
+     echo "<message><div style='color:red' >Ohps, Something wrong. Failed to hide.</div><message>";
  }
