@@ -51,11 +51,8 @@ $action                   = ( empty($action) )               ? $_REQUEST['action
 
 $option                   = ( !empty($_GET['option']) ) ? intval($_GET['option']) : "" ;  
 $option                   = ( empty($option) )               ? $_REQUEST['option']   : $option;
-
-
-
-
-
+ 
+/*
 echo "
  comment = $comment <br>
  table_id = $table_id <br>
@@ -63,17 +60,8 @@ echo "
  action = $action <br>
  option = $option <br>
 ";
+*/ 
 
-
-
-
-
-
-
-
-
-
- 
 /** Insert flag */
  if($db->insert(
      'fs_flag',
@@ -87,7 +75,7 @@ echo "
      )
  )) {
 
-     echo "<div style='color:green' >You successfully flagged this post.</div>";
+     echo "<message><div style='color:green' >You successfully flagged this post.</div><message>";
 
 
      /** setup message here */
@@ -116,5 +104,5 @@ echo "
     // require('http://localhost/fs/new_fs/alphatest/fs_folders/modals/general_modals/gen.modals.func.php?action=messaging&type=insert-message&mno1=133&message=flagged message');
 
  } else {
-     echo "<div style='color:red' >Ohps, Something wrong. Failed to flag.</div>";
+     echo "<message><div style='color:red' >Ohps, Something wrong. Failed to flag.</div><message>";
  }
