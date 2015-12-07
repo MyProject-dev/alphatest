@@ -16,6 +16,8 @@
     require("../../../fs_folders/php_functions/Class/Topic.php");
     require("../../../fs_folders/php_functions/Class/Category.php");
 
+	require('../../../fs_folders/php_functions/Class/Flag.php');
+
       // print_r($_REQUEST);
 
 //    ECHO "" . $_POST['tags'];
@@ -32,7 +34,7 @@
 
 
  
-
+	use App\Flag;
     use App\Topic;
     use App\Category;
     use App\Article;
@@ -50,6 +52,7 @@
     $look1           =  new Look($mc->mno, $db);
     $topic_instance  =  new Topic( $db, $mno);
     $category_instance  =  new Category($db, $mno);
+	$flag  = new Flag($db, $mno);
 
 
 
@@ -5804,7 +5807,14 @@ echo " </pre> </h3>";
 									'category'=>$category
 			 					)
 			 				);  	 
-						  
+
+
+
+
+					//Remove flagged modals in the result
+					$response = $flag->remove_activity_by_flagged($response, $flag->getFlagged($mno1));
+
+
 		 			// count total result 
 
 						$response_len = count( $response );  
