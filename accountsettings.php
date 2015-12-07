@@ -282,7 +282,7 @@
 								 				<div style="<?php echo "$invite_friends_bar_red_color1"; ?>" > |   </div>
 								 			</td>
 								 		<tr>
-								 			<td id="accountsetting-wrapper-container-table-body-left-tablecontainer-menutab" > 
+								 			<td id="accountsetting-wrapper-container-table-body-left-tablecontainer-menutab" style="display:none" > 
 								 				<a href="account?at=5" >
 								 					<span id='accountsetting-notification' style="<?php echo "$notification_bar_red_color"; ?>"> Notifications  </span>
 								 				</a>
