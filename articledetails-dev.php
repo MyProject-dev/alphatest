@@ -1114,7 +1114,7 @@ echo "</div>";
                 <div style="clear: both"></div>
             
                 <div class="comment-container">
-                    <div class="auto padding-top-comment">
+                    <div class="auto padding-top-comment" id="details-comment-view"  >
                         <table border="0" class="margin-auto" style="width:33%;">
                             <tbody><tr>
                                 <td style="width:45%">
