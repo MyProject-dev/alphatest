@@ -4239,7 +4239,7 @@
 				public function print_look_comment_v1( $mno , $plno , $comment1 , $post_comment , $dtime , $st , $nexprev=null , $sort='order by plcno asc' , $profilepath=null ) { ?> 
 					<!--original file: look-comment-display old --> 
 					<link rel="stylesheet" type="text/css" href="style.css">
-					<div class='main_comment_container' style="border:1px solid none" >   
+					<div class='main_comment_container' style="border:1px solid none" id='details-comment-view' >   
 						<?php    
 							echo "<li style='list-style:none'>";  
 
