@@ -68,9 +68,12 @@
                         echo "username asdad 1111111111111<br>";
                         $username_bool = select_V3('fs_members', '*', " identity_username = '$rv' AND NOT mno = $mc->mno ");
                         if(empty($username_bool)){
+                           	
+
+                           	
                             echo "updating now!2222222222222222222222<br> ";
-                            update1('fs_members','identity_username', $rv,array('mno',$mno) );
-                            update1('fs_member_accounts',$rn, $rv,array('mno',$mno) );
+                            update1('fs_members','identity_username', strtolower($rv),array('mno',$mno) );
+                            update1('fs_member_accounts',$rn, strtolower($rv),array('mno',$mno) );
                         }
                         else {
                             echo "not updateing3333333333333333333";
