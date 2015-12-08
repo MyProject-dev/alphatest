@@ -180,7 +180,7 @@ $article = new \App\Article($db, $this->mno);
                 </a>
             </li>
             <?php } ?>
-            <li>
+            <li class="hide" >
                 <a href="look?category=alllook&toplook=toprated">
                     <div>
                         <br>
@@ -213,7 +213,7 @@ $article = new \App\Article($db, $this->mno);
             foreach($r as $art) {
                 ?>
                 <li>
-                    <a href="#">
+                    <a href="article?category=beauty">
                         <?php $src = $article->sourceCategoryDropDown($art['artno']); ?>
                         <div style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 123px;" >
                         </div>
@@ -223,7 +223,7 @@ $article = new \App\Article($db, $this->mno);
                     </a>
                 </li>
             <?php } ?>
-            <li>
+            <li class="hide" >
                 <a href="article?category=beauty">
                     <div>
                         <br>
@@ -240,8 +240,8 @@ $article = new \App\Article($db, $this->mno);
     <!-- LIFESTYLE -->
     <div class="header-dropdown-container"    id="dropdown-header-lifestyle"   >
         <ul class="header-dropdown-ul-1-container"    >
-            <li>
-                <a href="#" >
+            <li  >
+                <a href="article?category=lifestyle" >
                     <div>
                         <div>
                             <br>
@@ -256,7 +256,7 @@ $article = new \App\Article($db, $this->mno);
             foreach($r as $art) {
                 ?>
                 <li>
-                    <a href="#">
+                    <a href="article?category=lifestyle" >
                         <?php $src = $article->sourceCategoryDropDown($art['artno']); ?>
                         <div style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 123px;" >
                         </div>
@@ -266,7 +266,7 @@ $article = new \App\Article($db, $this->mno);
                     </a>
                 </li>
             <?php } ?>
-            <li>
+            <li class="hide" >
                 <a href="article?category=lifestyle" >
                     <div>
                         <br>
@@ -283,7 +283,7 @@ $article = new \App\Article($db, $this->mno);
     <!-- ENTERTAINMENT -->
     <div class="header-dropdown-container"    id="dropdown-header-entertainment"   >
         <ul class="header-dropdown-ul-1-container"    >
-            <li>
+            <li  >
                 <a href="article?category=entertainment" >
                     <div>
                         <div>
@@ -299,7 +299,7 @@ $article = new \App\Article($db, $this->mno);
             foreach($r as $art) {
                 ?>
                 <li>
-                    <a href="#">
+                    <a href="article?category=entertainment" >
                         <?php $src = $article->sourceCategoryDropDown($art['artno']); ?>
                         <div style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 123px;" >
                         </div>
@@ -309,7 +309,7 @@ $article = new \App\Article($db, $this->mno);
                     </a>
                 </li>
             <?php } ?>
-            <li>
+            <li class="hide" >
                 <a href="article?category=entertainment" >
                     <div>
                         <br>
