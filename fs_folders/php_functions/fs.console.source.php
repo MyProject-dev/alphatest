@@ -10773,32 +10773,38 @@
  						$noti_fullname1      = '';  
  						$pos 				 = 0; 
 
-						// generate subject modals 
-
+						// generate subject modals  
 							$noti_fullname1 = ''; //$this->get_full_name_by_id ( $noti_mno );
 							$noti_fullname2 = ''; //( !empty($noti_mno2) ) ? $this->get_full_name_by_id ( $noti_mno2 ) :  null ; 
 							$notif_date     = $this->get_time_ago( $date );    
 							// echo " mno $noti_mno "; 
 
 						// style
-
 							$variables['style'] = ( $status == 0  or $status == 1 )  ? 'background-color:#f4f3f2;'  : 'background-color:none;' ; // get the background color of the message container to identify if its already oppened or not. 
 
- 						// add the notification id to used that if the notification was clicked and it must show a ilhanan that it was already opend and it must show white
- 								
-							$pos = strpos( $action , 'following' );
- 							if ( $pos < 1  ) { 
- 								$link .= "&nno=$nno";  
- 							} 
+ 						// add the notification id to used that if the notification was clicked and it must show a ilhanan that it was already opend and it must show white 	
+							 $pos1 = -1;
+							 $pos2 = -1;
+							$pos1 = strpos( $action , 'following' );
+							$pos2 = strpos( $action , 'updated' );
+ 							if ($pos1 >  -1  || $pos2 > -1) { 
+ 								$link .= "-nno$nno";  
+ 							}  else {
+ 								$link .= '&nno='.$nno;
+ 							}
+ 						//Updated
 
- 							 
 
-						// set comment location when the notification is about commenting 
 
+ 
+						// set comment location when the notification is about commenting  
 							$pos = strpos( $action , 'commented' );
 							if ( $pos > 0  ) { 
 								$link .= '#comment_content';  
  							} 
+
+
+
  							
  						// Check if has multiple notification specific notification 
 							$notification_total = select_v3( 
@@ -10806,12 +10812,7 @@
 								'count(nno), nno', 
 								"table_name = '" . $table_name."' and table_id = ". $table_id." and mno1 = " . $noti_mno1 
 							);
-							$notification_total = $notification_total[0]['count(nno)']; 
- 
-
-
-
-
+							$notification_total = $notification_total[0]['count(nno)'];   
 							?>	  
 		 					<!-- <table border="1" cellpadding="0" cellspacing="0" >  -->
 		 						<!-- <tr>  --> 
@@ -10825,10 +10826,8 @@
 								 							</li>
 								 							<li style="width:210px;" ><a href="<?php echo $link; ?>"> <div> <?php  echo "<b> $noti_fullname1  </b> $action <b> $noti_fullname2 </b> <br> <span style='font-size:10px;color:grey' > $notif_date </span>"; ?></div></a></li>
 								 							<li style="width:50px;padding-left:5px;" > 
-								 								<?php 
-
-								 								$style = 'cursor:pointer;color:red !important;font-size: 50px;margin: 0px;padding: 0px;line-height: 0px; margin-left:303px;margin-top: -10px;';
-
+								 								<?php  
+								 								$style = 'cursor:pointer;color:red !important;font-size: 50px;margin: 0px;padding: 0px;line-height: 0px; margin-left:303px;margin-top: -10px;'; 
 								 								switch ( $type ) {
 								 									case 'join-fb':  
 								 										break; 
@@ -15812,8 +15811,7 @@
 				* tabelname: fs_members  
 				* created: july 21 , 2014 
 				*/    
-				public function posted_modals_notification_Query( $array ) {   
-
+				public function posted_modals_notification_Query( $array ) {    
 
 				    $db = new Database(); 
 					/*
@@ -15827,8 +15825,7 @@
 						mno2 int(25)			 
 						status smallint(1)		 
 						date timestamp	
-					*/ 
- 		 
+					*/  
 					/*
 						table_name : fs_members , postedlooks , fs_postedmedia , fs_postedarticles
 					*/
@@ -16070,7 +16067,7 @@
 								$response = select_v3( 
 									$tdb, 
 									'*', 
-									" mno1 = $mno1 and status = 1 order by $orderby limit $limit_start , $limit_end " 
+									" mno1 = $mno1 and status > 0  and status < 3 order by $orderby limit $limit_start , $limit_end " 
 								); 
 								return $response ;    
 							break;  		
