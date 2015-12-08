@@ -9,7 +9,7 @@ RewriteRule    	^editimage/?$    					editimage.php    [NC,L]
 RewriteRule    	^topmembers/?$    					topmembers.php    [NC,L] 
 RewriteRule    	^toplooks/?$    					toplooks.php    [NC,L] 
 RewriteRule    	^latest/?$    						latest.php    [NC,L]  
-RewriteRule    	^lookdetails/?$    					lookdetails.php    [NC,L] 
+RewriteRule    	^lookdetails/?$    					lookdetails-dev.php    [NC,L] 
 RewriteRule    	^follow/?$    						findfriends.php    [NC,L] 
 RewriteRule    	^postalook/?$    					postalook.php    [NC,L] 
 RewriteRule    	^postarticle/?$    					postarticle.php    [NC,L] 
@@ -52,7 +52,7 @@ RewriteRule    	^logout/?$                 		    logout.php [NC,L]
 RewriteRule    	^verify/?$                   		member-email-verification.php [NC,L]  
 RewriteRule    	^feed/?$                 		    member-feed.php [NC,L]  
 
-RewriteRule    	^detail/?$            			    detail.php [NC,L]  
+RewriteRule    	^detail/?$            			    articledetails-dev.php [NC,L]  
 
 
 RewriteRule    	^email/?$            			    email.php [NC,L]  
