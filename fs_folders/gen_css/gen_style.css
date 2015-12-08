@@ -11107,3 +11107,8 @@ profile-body {
 .member-modal-full-name {  
     font-weight: bold;  
 }
+
+#details-status-1, #details-status-2 { 
+
+    cursor: pointer;
+}
