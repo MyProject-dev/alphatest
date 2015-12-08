@@ -59,9 +59,38 @@
 		 			'page'=>'profile-tabs'
 		 		)  
 		 	); 
-		 	echo $member['tab_load'];  
+		 	echo $member['tab_load'];   
+
+	    #check it's a notification 
+
+		 	if(strpos($member['tab1'], 'nno') > -1) {  
+
+		 		$nno = str_replace('nno', '', $member['tab1']); 
+	 		    $nno  = intval($nno);
+		 		echo "clicked from notification nno = $nno <br>"; 
+
+		 		# UPDATE NOTIFICATION AS VIEWED 
+				if ( $nno  != 0 ) {
+				    $response =  $mc->posted_modals_notification_Query (
+				        array(
+				            'nno'=>$nno,
+				            'notification_query'=>'set-notification-viewed'
+				        )
+			    	);
+			    } 
+
+		 	} else {
+		 		echo "not clicked from notification <br>";
+		 	}
+		 	echo " test " . $member['tab1'];
+		 	
+
+
 
 		# get information  
+
+
+
 
 		 	// echo $mc->get_username_by_mno( $mno1 ); 
 		 	// echo " mno1 $mno1"; 
