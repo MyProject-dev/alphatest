@@ -4239,7 +4239,7 @@
 				public function print_look_comment_v1( $mno , $plno , $comment1 , $post_comment , $dtime , $st , $nexprev=null , $sort='order by plcno asc' , $profilepath=null ) { ?> 
 					<!--original file: look-comment-display old --> 
 					<link rel="stylesheet" type="text/css" href="style.css">
-					<div class='main_comment_container' style="border:1px solid none" id='details-comment-view' >   
+					<div class='main_comment_container' style="border:1px solid none" >   
 						<?php    
 							echo "<li style='list-style:none'>";  
 
@@ -7291,7 +7291,7 @@
 
 							      											<!-- <div onclick="fs_popup( 'modal-details' , 'feed-modal-clicked-detail-view' , 'process' , 'method' , '<?php  echo $plno; ?>' , '<?php echo $look_attr['table_name']; ?>' , '<?php echo $title; ?>' )" >   -->
 
-																			<a href="lookdetails-dev.php?id=<?php echo $plno; ?>">    
+																			<a href="lookdetails?id=<?php echo $plno; ?>">    
 	                                                                        	<img src="<?php echo $look_attr['src']; ?>" style='position:relative;width:100%;    ' />
 																			</a> 
 																			<!-- </div> -->
@@ -7344,7 +7344,7 @@
 
 
 		 										<?php if( !empty($look_attr['title']) ):  ?> 
-		 											<a href="lookdetails-dev.php?id=<?php echo $plno; ?>">
+		 											<a href="lookdetails?id=<?php echo $plno; ?>">
 				      									<div id="new-look-modals-title1-container" > 
 				      										<?php echo "$look_attr[title]"; ?>    
 			      											<?php if($feed == TRUE): ?>	 
@@ -7883,7 +7883,7 @@
 																 	for ($i=0; $i < count($featuredLooks); $i++) {   ?> 
 																   		<td> 
 																			<div>    
-																				<a href="lookdetails-dev.php?id=<?php echo  $featuredLooks[$i]['plno']; ?>#details-title" > 
+																				<a href="lookdetails?id=<?php echo  $featuredLooks[$i]['plno']; ?>#details-title" > 
 																					<div style="
 																					    background-image: url(fs_folders/images/uploads/posted%20looks/home/<?php echo $featuredLooks[$i]['plno']; ?>.jpg);
 																					    background-repeat: no-repeat;
@@ -8265,18 +8265,18 @@
 
 								      													 echo "<div id='mouserover-video-play' class='mouserover-video-play$artno' onmouseover='article_nex_prev ( \"video-mouseover\" , \"$artno\" , \"response\" , \"loader\" ,  \"e\"  )'   onmouseout='article_nex_prev ( \"video-mouseout\" , \"$artno\" , \"response\" , \"loader\" ,  \"e\"  )'     > 
  
-								      														<a href='articledetails-dev.php?id=$artno' >  
+								      														<a href='detail?id=$artno' >  
 								      															<center> <img alt='$alt' src='$this->genImgs/video-play-3.png' id='video-play' class='video-play$artno' /> </center>
 								      														</a>
 								      													</div>";  
 								      													echo "  
-									      													<a href='articledetails-dev.php?id=$artno' >  
+									      													<a href='detail?id=$artno' >  
 									      														<img  alt='$alt' src='$look_attr[src]' style='position:relative;width:100%;height:220px;' />  
 									      													</a>
 								      													";    
 								      												else:
 								      													echo "  
-								      														<a href='articledetails-dev.php?id=$artno' >  
+								      														<a href='detail?id=$artno' >  
 								      															<img  alt='$alt' src='$look_attr[src]' style='position:relative;width:100%;height:auto;' />  
 								      														</a>
 							      														";    
@@ -8344,7 +8344,7 @@
 											<!-- title message -->	
 
 		 										<?php if( !empty($look_attr['title']) ):  ?>
-		 											<a href="articledetails-dev.php?id=<?php echo $plno; ?>" > 
+		 											<a href="detail?id=<?php echo $plno; ?>" > 
 				      									<div id="new-look-modals-title1-container" > 
 				      										<?php echo "$look_attr[title]"; ?>
 				  										</div>  
@@ -8868,7 +8868,7 @@
 																 	for ($i=0; $i < count($featuredLooks); $i++) {   ?> 
 																   		<td> 
 																			<div>   
-																				<a href="articledetails-dev.php?id=<?php echo  $featuredLooks[$i]['artno']; ?>#details-title" > 
+																				<a href="detail?id=<?php echo  $featuredLooks[$i]['artno']; ?>#details-title" > 
 																					<div style="
 																					    background-image: url(fs_folders/images/uploads/posted%20articles/home/<?php echo $featuredLooks[$i]['artno']; ?>.jpg);
 																					    background-repeat: no-repeat;
@@ -10785,9 +10785,12 @@
  						// add the notification id to used that if the notification was clicked and it must show a ilhanan that it was already opend and it must show white 	
 							 $pos1 = -1;
 							 $pos2 = -1;
+							 $pos3 = -1;
+
 							$pos1 = strpos( $action , 'following' );
 							$pos2 = strpos( $action , 'updated' );
- 							if ($pos1 >  -1  || $pos2 > -1) { 
+							$pos3 = strpos( $action , 'joined' );
+ 							if ($pos1 >  -1  || $pos2 > -1 || $pos3 > -1) { 
  								$link .= "-nno$nno";  
  							}  else {
  								$link .= '&nno='.$nno;
@@ -10800,8 +10803,10 @@
 						// set comment location when the notification is about commenting  
 							$pos = strpos( $action , 'commented' );
 							if ( $pos > 0  ) { 
-								$link .= '#comment_content';  
- 							} 
+								$link .= '#details-comment-view';  
+ 							} else {
+ 								$link .= '#details-title'; 
+ 							}
 
 
 
@@ -14808,10 +14813,10 @@
 					} 
 					else {  
 					 	$string = substr($string,0,$limit);
-					    $string .= "... <a href='lookdetails-dev.php?id=$id'><span  class='modal-description-more-text' >see more</span></a>";	
+					    $string .= "... <a href='lookdetails?id=$id'><span  class='modal-description-more-text' >see more</span></a>";	
 					    return $string;
 					}  
-					//$string .= "<a href='lookdetails-dev.php?id=$id'><span  class='modal-description-more-text' >view more</span></a>";	 
+					//$string .= "<a href='lookdetails?id=$id'><span  class='modal-description-more-text' >view more</span></a>";	 
 				} 
 				elseif ($type == 'article') { 
 					// echo "total char " . strlen($string); 
@@ -14820,10 +14825,10 @@
 					} 
 					else {  
 					 	$string = substr($string,0,$limit);
-					 	$string .= "... <a href='articledetails-dev.php?id=$id'><span  class='modal-description-more-text' >view more</span></a>";	
+					 	$string .= "... <a href='detail?id=$id'><span  class='modal-description-more-text' >view more</span></a>";	
 						  return $string;
 					}  
-					//$string .= "<a href='articledetails-dev.php?id=$id'><span  class='modal-description-more-text' >view more</span></a>";	
+					//$string .= "<a href='detail?id=$id'><span  class='modal-description-more-text' >view more</span></a>";	
 				} 
 				else {  
 					  // echo "limit $limit total char " . strlen($string); 
