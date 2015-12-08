@@ -136,7 +136,7 @@ $(document).ready(function( ) {
 
 		// NEW PROFILE
 			function readImage2(file) {
-                alert('clicked');
+                // alert('clicked');
 		        var reader = new FileReader();
 		        var image  = new Image(); 
 		        reader.readAsDataURL(file);  
