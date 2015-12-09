@@ -233,7 +233,15 @@
 				    	{   
 							$table_name = $myFlag[$j]['table_name'];
 							$table_id   = $myFlag[$j]['table_id'];      
-							$action     = $myFlag[$j]['action'];        
+							$action     = $myFlag[$j]['action'];     
+
+
+							//Flagged is the member and get the profile pic and block it.
+							if($table_name == 'fs_members') {  
+									$r = select_v3( 'fs_member_profile_pic' , '*' , "mno = $table_id order by mppno desc limit 1" );  
+									 $table_id = $r[0]['mppno'];
+									 $table_name = 'fs_member_profile_pic';
+							}
 
 				    		if ($table_name == $_table  and $_table_id == $table_id and ($action == 'hide post' || $action == 'flag post')) { 
 				    			 //This post is flagged and don't show in the feed
@@ -4734,7 +4742,7 @@
 													 		  	// } 
 												 		  	?>  
 
-															<div class="comment_span_content_container"  id='comment_span_<?php echo $cno; ?>' >
+															<div class="comment_span_content_container comment-message-container"  id='comment_span_<?php echo $cno; ?>' >
 																<div>
 																	<?php echo  $this->cleant_text_print_from_db( $comment[$i][4] ); ?>
 																</div>
@@ -5001,8 +5009,8 @@
 		                                    </a>
 		                                </h4> 
 
-		                                <div class="black" id='comment_span_<?php echo $cno; ?>'  >
-		                                   <?php echo $message; ?>
+		                                <div class="black comment-message-container" id='comment_span_<?php echo $cno; ?>'   >
+		                                   <?php echo $message; ?> 
 		                                </div>  
 
 		                                <!--Reply Text-->  
@@ -5090,7 +5098,7 @@
 														 		 		<img src="<?php echo $this->path_icons; ?>/comment-edit.png"  class='img_like'  title='reply comment'  onclick="fs_popup( 'popup-small' , 'modal-comment-edit' , 'modal-comment-edit-design' , 'method' , '<?php echo $cno; ?>' , '<?php echo $table_name; ?>' )"  />
 														 		 	</td>
 														 		 	<td id='edit-text-<?php echo $cno; ?>'  style='visibility:hidden' class="padding-left-10 comment_list_<?php echo $cno; ?>-edit" >  
-															 	 		<span class='red_bold' onclick="fs_popup( 'popup-function' , 'modal-comment-edit' , 'modal-comment-edit-design' , 'method' , '<?php echo $cno; ?>' , '<?php echo $table_name; ?>' )" style='cursor:pointer'  > 
+															 	 		<span class='red_bold'   style='cursor:pointer'  > 
 															 	 			EDIT
 															 	 		</span>
 														 		 	</td>
@@ -5875,7 +5883,7 @@
 																</div>
 														 		<!-- <div class='rcomment' id='comment_<?php echo $cno; ?>' >  -->
 														 		<div class='rcomment' id='comment_<?php echo $cno; ?>' >  
-																	<div id='comment_span_<?php echo $cno; ?>' class='comment_span_content_container' >
+																	<div id='comment_span_<?php echo $cno; ?>' class='comment_span_content_container comment-message-container' >
 																		<div><?php echo  $this->cleant_text_print_from_db( $msg ); ?></div>
 																	</div>
 														 		</div>
@@ -10786,11 +10794,17 @@
 							 $pos1 = -1;
 							 $pos2 = -1;
 							 $pos3 = -1;
+							 $pos4 = -1;
+							 $pos5 = -1;
 
 							$pos1 = strpos( $action , 'following' );
 							$pos2 = strpos( $action , 'updated' );
 							$pos3 = strpos( $action , 'joined' );
- 							if ($pos1 >  -1  || $pos2 > -1 || $pos3 > -1) { 
+							$pos4 = strpos( $action , 'commented' );
+							$pos5 = strpos( $action , 'flagged' );
+
+							// echo "vaue = " . $pos4 . '<br>';
+ 							if ($pos1 >  -1  || $pos2 > -1 || $pos3 > -1 || $pos5 > -1 || ($pos4 > -1 and $table_name == 'fs_member_profile_pic')) { 
  								$link .= "-nno$nno";  
  							}  else {
  								$link .= '&nno='.$nno;
@@ -11772,13 +11786,28 @@
 			#NEW PROFILE PIC   
 
 
-			 	public function member_profile_pic_change( $mno ) {   
+			 	public function member_profile_pic_change( $mno ) {    
 
-				    $mppno = $this ->member_profile_pic_query( array('mno'=>$mno  , 'type'=>'get-latest-mppno' ) ); 
-				 			 $this ->member_profile_pic_query( array('mno'=>$mno  , 'mppno'=>$mppno , 'type'=>'update-and-hide-activity-current-profile-posted' ) ); 
-				             $this ->member_profile_pic_query( array('mno'=>$mno  , 'type'=>'insert-new-profile-pic-db' , 'action'=> 'Updated' ) );  
 				    $mppno = $this ->member_profile_pic_query( array('mno'=>$mno  , 'type'=>'get-latest-mppno' ) );  
-				 		// $this ->member_profile_pic_query( array('mno'=>$mno  , 'mppno'=>$mppno , 'action'=> 'Updated' , 'type'=>'insert-new-profile-pic-activity-wall' ) ); 
+				 			 $this ->member_profile_pic_query( array('mno'=>$mno  , 'mppno'=> $mppno , 'type'=>'update-and-hide-activity-current-profile-posted' ) );   
+				     	     $this ->member_profile_pic_query( array('mno'=>$mno  , 'type'=>'insert-new-profile-pic-db' , 'action'=> 'Updated' ) );  
+				   	 $mppno = $this ->member_profile_pic_query( array('mno'=>$mno  , 'type'=>'get-latest-mppno' ) );    
+
+
+
+
+				     // $this ->member_profile_pic_query( array('mno'=>$mno  , 'mppno'=>$mppno , 'action'=> 'Updated' , 'type'=>'insert-new-profile-pic-activity-wall' ) );  
+		 			 // Delete all the activity from the previous profile pic  
+		 			 $mppnos = $this ->member_profile_pic_query( array('mno'=>$mno  , 'type'=>'get-all-profile-pic' ) );    
+		 			 echo "<pre>";
+		 			 // print_r($mppnos);
+		 			 for($i=0; $i < count($mppnos); $i++) {
+		 			 	$mppno1 = $mppnos[$i]['mppno'];  
+		 			 	if(mysql_query("DELETE FROM activity WHERE _table = 'fs_member_profile_pic' and _table_id =  $mppno1")){
+		 			 		echo "mppno1 $mppno1 = deleted from activity <br>";
+		 			 	} 
+		 			 }
+ 
 				    	$this->update_or_add_my_activity_wall_post( $mno , $mppno , 'Updated' , 'fs_member_profile_pic' , $this->date_time );  
 				    return $mppno;
 			 	} 
@@ -16595,6 +16624,8 @@
 									$posting_link = 'postarticle?id='.$table_id;
 								}  
 								// echo " $table_name and $id " . $_SESSION['mno'] ; 
+
+								$username = $this->get_username_by_mno($table_id); 
 							 ?>
 									<div class="flag-dropdown-container"  id="flag-dropdown-container<?php echo $id; ?>" name='close' >
 								        <ul>
@@ -16602,9 +16633,11 @@
 								        	<?php if($id == $_SESSION['mno'] and $table_name == 'fs_members'):?> 
  
 									          	<li> 
-									          		<div   id="new-look-modals-share-icon-1" class='share_look_modals<?php echo $id; ?>' >    
-									          		 	UPDATE PICTURE
-													</div> 
+									          		<a href="<?php echo $username ?>">
+									          			<div   id="new-look-modals-share-icon-1" class='share_look_modals<?php echo $id; ?>' >    
+										          		 	UPDATE PICTURE
+														</div> 
+													</a>
 									          	</li>   
 
 
