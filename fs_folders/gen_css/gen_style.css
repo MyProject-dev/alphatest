@@ -11112,3 +11112,9 @@ profile-body {
 
     cursor: pointer;
 }
+
+.comment-message-container {  
+    position: relative;
+    word-wrap: inherit; 
+    width: 669px;  
+}
