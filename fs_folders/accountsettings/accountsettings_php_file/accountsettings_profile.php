@@ -349,7 +349,7 @@
 		<tr>
         <td id='accountsetting-wrapper-container-table-body-right-profile-table-name' onmouseover="show_hide_profile_options ( '.profile-username-edit' , 'show' )"        onmouseout="show_hide_profile_options ( '.profile-username-edit' , 'hide' )"  class="accountsetting-wrapper-container-table-body-right-profile-table-td" >
 				<div id="accountsetting-wrapper-container-table-body-right-profile-table-name-right"   >  
-					<div id='settings' class='profile-username-edit' style='text-decoration:underline;visibility:hidden' onclick="account_profile_edit('#profile-username-table' , 'slideDown' )" >
+					<div class="hide" id='settings' class='profile-username-edit' style='text-decoration:underline;visibility:hidden' onclick="account_profile_edit('#profile-username-table' , 'slideDown' )" >
 						<!-- endable this to make the username editable -->
 						 edit <img src='<?php echo "$mc->genImgs/edit.png"; ?>'  />
 					</div id='settings'>
