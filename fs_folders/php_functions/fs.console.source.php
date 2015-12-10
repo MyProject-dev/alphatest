@@ -9237,6 +9237,18 @@
 			    		$onlineStat = "<span class='green'>Online Now </span>";  
 
 			    	}  
+
+
+
+
+
+ 
+
+			    	// Add space in the action
+			    	$action    = str_replace('updated', ' updated ', $action);
+			    	$action    = str_replace('commented', ' commented ', $action);
+			    	$following = str_replace('following', ' following ', $action);
+ 
 	            	?>      
       				<modals-item >  
 
@@ -16695,7 +16707,7 @@
 													</div> 
 									          	</li>   
 									          	<li> 
-									          		<div   id="new-look-modals-share-icon-1" class='share_look_modals_follow<?php echo $id; ?>' onclick="modal_follow('<?php echo $mno; ?>', 'share_look_modals_follow<?php echo $id; ?>')" ><?php 
+									          		<div   id="new-look-modals-share-icon-1" class='share_look_modals_follow<?php echo $id; ?>' onclick="modal_follow('<?php echo $id; ?>', 'share_look_modals_follow<?php echo $id; ?>')" ><?php 
 									          			$followed  = $this->check_if_already_followed( $this->mno , $mno );    
 									          			if($followed) { 
 									          				print("FOLLOWING"); 
