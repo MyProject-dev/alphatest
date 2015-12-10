@@ -9013,7 +9013,7 @@
 					            		  	// $mno1  = $this->member_profile_pic_query( array('mppno'=>$mno1  , 'type'=>'get-specific-mno-by-mppno' ) );  
 					            		    // $mno1 = $this->member_profile_pic_query( array('mno'=>$mno1  , 'type'=>'get-latest-mppno' ) );  
 
-					            		    // $userActivity1 =  'Commented';
+					            		    $userActivity1 =  'Commented';
 					            		    $profile_pic    = $mno1;
 					            		    $mno1           = $this->member_profile_pic_query( array('mppno'=>$mno1  , 'type'=>'get-specific-mno-by-mppno' ) );  // owner of the modal
 					            		    $username1      = $this->get_username_by_mno( $mno1 ); 
@@ -9615,7 +9615,7 @@
 											 --> 
 
 
-											 								<?php if($userActivity1 == 'Following') { $table_id = $mno1; } ?>
+											 								<?php if($userActivity1 == 'Following' || $userActivity1 == 'Commented') { $table_id = $mno1; } ?>
 																		 	<div   id="new-look-modals-share-icon-1" class='share_look_modals<?php echo $ano; ?>' onclick="flag ( 'action' , '<?php echo $table_name; ?>'  , '<?php echo $table_id; ?>' , 'imgid' , 'imgsrc' , 'modal-flag-dropdown' ) "  > 	 
 																				<img style='height: 17px;width: 17px;' src="fs_folders/images/modal/look/more-icon.png" id="modal-flag-icon<?php echo $ano; ?>" class="modal-flag-icon<?php echo $ano; ?>" onmouseenter=" mousein_change_button ( '.modal-flag-icon<?php echo $ano; ?>', 'fs_folders/images/modal/look/more-icon-dark.png' )" onmouseleave="mouseout_change_button ( '.modal-flag-icon<?php echo $ano; ?>', 'fs_folders/images/modal/look/more-icon.png' ) ">
 																			</div>    
@@ -9626,7 +9626,7 @@
 
 
 
-											  										echo "<h1> $userActivity1 </h1>";
+											  										// echo "<h1> $userActivity1 </h1>";
 											  											$this->fs_flag( 
 											  												array(
 											  													'type'=>'flag-modal-dropdown',
