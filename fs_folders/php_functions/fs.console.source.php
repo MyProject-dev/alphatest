@@ -26,7 +26,8 @@
 		public function	 print_rating_bubble( $mno , $plno ); 
 		public function	 print_rating_message( $mno , $plno );    
 		// public function  url( $array );  
-	}       
+	}        
+
 
 	class myclassCode implements myInterface {   
 		public $post = '';
@@ -8921,6 +8922,9 @@
       			public function modal_version1_member ( $ano , $type=null  , $profilepath=null , $headerstyle=null ,  $page=null , $comment_style = null ) {  
  			
  
+
+
+
 	      			switch ( $page ):
 	      				case 'profile-tab-followers': 
 	      						$mno = $ano; 
@@ -8941,12 +8945,19 @@
 	      					break;
 	      				default:
 	      						// echo " activity wall retrieve ";
-		      				 	$activity    = $this->get_activity_posted( $ano );   
-					            $_date       =  $activity[0]['_date']; 
-					            $mno         =  intval($activity[0]['mno']); 
-					            $mno1        =  intval($activity[0]['_table_id']); 
-					            $action      =  $activity[0]['action'];   
+		      				 	$activity     = $this->get_activity_posted( $ano );   
+					            $_date        =  $activity[0]['_date']; 
+					            $mno          =  intval($activity[0]['mno']); 
+					            $mno1         =  intval($activity[0]['_table_id']); 
+					            $action       =  $activity[0]['action'];    
+					            $userActivity1 =  'Not Set';   
 
+
+
+
+
+
+					            // echo " action  $action<br>";
 					            // print_r($activity);
 
 					            // echo " $action ";
@@ -8957,7 +8968,8 @@
 					            		 	$username    = $this->get_username_by_mno( $mno );
 											$username1   = $this->get_username_by_mno( $mno1 );
 											$memFsInfo   = $this->get_user_full_fs_info( $mno1 );
-											$owner_fullname =  $memFsInfo['fullName1'];   
+											$owner_fullname =  $memFsInfo['fullName1']; 
+											$userActivity1 =  'Joined';   
 					            		break; 
 					            	case 'Joined': 
 					            			$profile_pic = $mno1;
@@ -8967,9 +8979,20 @@
 											$memFsInfo   = $this->get_user_full_fs_info( $mno1 );
 											$owner_fullname =  $memFsInfo['fullName1'];   
 					            		break; 
-					            	case 'Following':  
-					            			// $profile_pic = $mno1; 
-					            			// echo " Following $profile_pic"; 
+					            	case 'Following':   
+					            			$userActivity1 =  'Following';   
+					            			// echo "<pre><span style='color:red'>";
+					            			$profile_pic = $mno1; 
+					            			// echo "  Following $profile_pic "; 
+
+
+
+					            			$followedMno = $this->member_profile_pic_query( array('mppno'=>$profile_pic  , 'type'=>'get-specific-mno-by-mppno' ) ); 
+					            			// echo "member profile pic";
+					            			// print_r($memberFollowedMno);   
+					            			// echo "</span></pre>";
+
+					            			// $mno1 = $memberFollowedMno;  
 
 					            			//$mno1          //= $this->member_profile_pic_query( array('mppno'=>$mno1  , 'type'=>'get-specific-mno-by-mppno' ) );  // owner of the modal
 					            			$profile_pic    = $mno1;   // $this ->member_profile_pic_query( array('mno'=>$mno1  , 'type'=>'get-latest-mppno' ) );    
@@ -8977,7 +9000,8 @@
 					            			$username       = $this->get_username_by_mno( $mno );
 											$username1      = $this->get_username_by_mno( $mno1 );
 											$memFsInfo      = $this->get_user_full_fs_info( $mno1 );   
- 											$owner_fullname =  $memFsInfo['fullName1'];   
+ 											$owner_fullname =  $memFsInfo['fullName1'];    
+
 					            		break;  
 					            	case 'Commented':   
 					            			// $profile_pic = $mno1;
@@ -8988,7 +9012,8 @@
 					            	 		// echo "asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd"; 
 					            		  	// $mno1  = $this->member_profile_pic_query( array('mppno'=>$mno1  , 'type'=>'get-specific-mno-by-mppno' ) );  
 					            		    // $mno1 = $this->member_profile_pic_query( array('mno'=>$mno1  , 'type'=>'get-latest-mppno' ) );  
-					            		    
+
+					            		    // $userActivity1 =  'Commented';
 					            		    $profile_pic    = $mno1;
 					            		    $mno1           = $this->member_profile_pic_query( array('mppno'=>$mno1  , 'type'=>'get-specific-mno-by-mppno' ) );  // owner of the modal
 					            		    $username1      = $this->get_username_by_mno( $mno1 ); 
@@ -9025,12 +9050,19 @@
       				// echo  " owner of the modal $mno1 <br> "; 
 	      			// echo " profile pic mppno  $profile_pic <br>"; 
 
+	    	
+
+
 	    			$_SESSION['mno'] =  $this->get_cookie( 'mno' , 136 );  
 	    			$mno2            = $_SESSION['mno'];     
 		            $mem_info1       = $this->get_user_full_fs_info( $mno , 'fullName' );   
 		            $fullname1       = $mem_info1['fullName1'];    
 	            	$mem_info        = $this->get_user_info_by_id( intval($mno1) );     
 
+
+
+
+ 
     		 		// $this->print_r1($mem_info);  
     		 		// this is the profile modal name 
 	            	// $this->print_r1($memFsInfo);
@@ -9580,15 +9612,21 @@
 																			<!-- <div   id="new-look-modals-share-icon-1" class='share_look_modals<?php echo $ano; ?>' onclick="flag ( 'action' , '<?php echo $table_name; ?>'  , '<?php echo $table_id; ?>' , 'imgid' , 'imgsrc' , 'modal-flag-dropdown' ) "  > 	 
 																				<img src="<?php echo "$this->genImgs/$src_img_flag"; ?>"  style=' height:17px;  ' id='modal-flag-icon<?php echo $table_id; ?>'  title='more' /> 
 																			</div>  
-											 -->
+											 --> 
 
+
+											 								<?php if($userActivity1 == 'Following') { $table_id = $mno1; } ?>
 																		 	<div   id="new-look-modals-share-icon-1" class='share_look_modals<?php echo $ano; ?>' onclick="flag ( 'action' , '<?php echo $table_name; ?>'  , '<?php echo $table_id; ?>' , 'imgid' , 'imgsrc' , 'modal-flag-dropdown' ) "  > 	 
 																				<img style='height: 17px;width: 17px;' src="fs_folders/images/modal/look/more-icon.png" id="modal-flag-icon<?php echo $ano; ?>" class="modal-flag-icon<?php echo $ano; ?>" onmouseenter=" mousein_change_button ( '.modal-flag-icon<?php echo $ano; ?>', 'fs_folders/images/modal/look/more-icon-dark.png' )" onmouseleave="mouseout_change_button ( '.modal-flag-icon<?php echo $ano; ?>', 'fs_folders/images/modal/look/more-icon.png' ) ">
 																			</div>    
 
 																			<!-- dropdown flag design  --> 
 																				<div style="margin-left: -238px; margin-top: 9px; background-color:white" > 
-											  										<?php  
+											  										<?php    
+
+
+
+											  										echo "<h1> $userActivity1 </h1>";
 											  											$this->fs_flag( 
 											  												array(
 											  													'type'=>'flag-modal-dropdown',
@@ -16623,9 +16661,12 @@
 								} else  { 
 									$posting_link = 'postarticle?id='.$table_id;
 								}  
-								// echo " $table_name and $id " . $_SESSION['mno'] ; 
+								// echo " $table_name and $id " . $_SESSION['mno'] ;  
+								$username = $this->get_username_by_mno($table_id);   
 
-								$username = $this->get_username_by_mno($table_id); 
+								// echo "asdasdasssssssssssssssssssssssssss"; 
+								// echo " table id = $table_id and table name = $table_name id =  $id "; 
+
 							 ?>
 									<div class="flag-dropdown-container"  id="flag-dropdown-container<?php echo $id; ?>" name='close' >
 								        <ul>
