@@ -9236,13 +9236,13 @@
 			    		//show  online
 			    		$onlineStat = "<span class='green'>Online Now </span>";  
 
-			    	}  
+			    	}   
 
 
 
 
 
- 
+
 
 			    	// Add space in the action
 			    	$action    = str_replace('updated', ' updated ', $action);
@@ -16666,7 +16666,8 @@
 									$response = mysql_query( " DELETE FROM $tdb  WHERE table_name = '$table_name' and table_id = $table_id " );
 									// echo " delete here <br> ";  
 								break;  
-							case 'flag-modal-dropdown':   
+
+									case 'flag-modal-dropdown':    
 
 								if($table_name == 'postedlooks') {
 									$posting_link = 'postalook?id='.$table_id; 
@@ -16674,28 +16675,42 @@
 									$posting_link = 'postarticle?id='.$table_id;
 								}  
 								// echo " $table_name and $id " . $_SESSION['mno'] ;  
-								$username = $this->get_username_by_mno($table_id);   
+								$username = $this->get_username_by_mno($table_id);    
 
 								// echo "asdasdasssssssssssssssssssssssssss"; 
 								// echo " table id = $table_id and table name = $table_name id =  $id "; 
+
+
+
+								// echo 'table name ' . $table_name .   ' table id '  . $table_id .    '<br>';
+
+				          		// echo " id = $id <br>";
+
 
 							 ?>
 									<div class="flag-dropdown-container"  id="flag-dropdown-container<?php echo $id; ?>" name='close' >
 								        <ul>
 
-								        	<?php if($id == $_SESSION['mno'] and $table_name == 'fs_members'):?> 
- 
+								        	<?php if($id == $_SESSION['mno'] and $table_name == 'fs_members'):?>   
 									          	<li> 
 									          		<a href="<?php echo $username ?>">
 									          			<div   id="new-look-modals-share-icon-1" class='share_look_modals<?php echo $id; ?>' >    
 										          		 	UPDATE PICTURE
 														</div> 
 													</a>
-									          	</li>   
-
-
+									          	</li>    
 								        	<!-- if not owner of the post -->  
-								          	<?php elseif ( $mno != $_SESSION['mno'] ): ?>
+								          	<?php elseif ($mno != $_SESSION['mno'] ): ?>  
+
+								          		<?php  								          			
+													if($table_name == 'postedlooks' || $table_name == 'fs_postedarticles') {
+									          			  $id = $mno;
+									          		} else {
+									          			  $id = $table_id;
+									          		} 
+								          		?>
+ 
+
 									          	<li style="border-bottom:1px solid #e2e2df" >
 									          		<div id="new-look-modals-share-icon-1" class='share_look_modals<?php echo $id; ?>' onclick="fs_popup( 'popup-small' , 'modal-attribute' , 'flag' , 'method' , '<?php echo $table_id; ?>' , '<?php echo $table_name; ?>' , 'design' )" > 
 									          			FLAG 
