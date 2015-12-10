@@ -9240,7 +9240,7 @@
 	            	?>      
       				<modals-item >  
 
-      					<div class="<?php echo "$table_name-$table_id"; ?>" > 
+      					<div class="<?php echo "$table_name-$table_id-disabled"; ?>" > 
 	      					<div style="position:absolute;visibility:hidden;"> 
 								<class>member_t<?php echo $ano; ?></class><class>member_t<?php echo $ano; ?></class>
 							</div>  
@@ -9507,7 +9507,7 @@
 
 							      						?> 
 
-
+							      						<?php if($userActivity1 == 'Following' || $userActivity1 == 'Commented') { $table_id = $mno1; } ?>
 							      						<!-- grey line -->
 							      							
 
@@ -9615,7 +9615,7 @@
 											 --> 
 
 
-											 								<?php if($userActivity1 == 'Following' || $userActivity1 == 'Commented') { $table_id = $mno1; } ?>
+											 								
 																		 	<div   id="new-look-modals-share-icon-1" class='share_look_modals<?php echo $ano; ?>' onclick="flag ( 'action' , '<?php echo $table_name; ?>'  , '<?php echo $table_id; ?>' , 'imgid' , 'imgsrc' , 'modal-flag-dropdown' ) "  > 	 
 																				<img style='height: 17px;width: 17px;' src="fs_folders/images/modal/look/more-icon.png" id="modal-flag-icon<?php echo $ano; ?>" class="modal-flag-icon<?php echo $ano; ?>" onmouseenter=" mousein_change_button ( '.modal-flag-icon<?php echo $ano; ?>', 'fs_folders/images/modal/look/more-icon-dark.png' )" onmouseleave="mouseout_change_button ( '.modal-flag-icon<?php echo $ano; ?>', 'fs_folders/images/modal/look/more-icon.png' ) ">
 																			</div>    
