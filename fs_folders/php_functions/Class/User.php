@@ -384,9 +384,7 @@ class User {
         return $response[0]['total_uploaded']; 
 
     }
-
-
-
+ 
     public static function getTotalUploadedMediaModal() {}
 
     public static function getTotalProfileViews() {}
@@ -396,5 +394,5 @@ class User {
     public static function getTotalActivities() {}
     public static function getTotalComments() {}
     public static function getTotalFavorited() {}     
-    
+
 }
