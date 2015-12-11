@@ -320,7 +320,6 @@ class User {
         }
     }
 
-
     public function  getOverAllUploadedLookModalLike($mno = null) {     
         
         $mno = (!empty($mno)) ? $mno : $this->mno;
@@ -373,6 +372,7 @@ class User {
         return $response[0]['total_uploaded'];
 
     }
+
     public function getTotalUploadedArticleModal($mno = null) {    
 
         $mno = (!empty($mno)) ? $mno : $this->mno;
@@ -385,14 +385,56 @@ class User {
 
     }
  
-    public static function getTotalUploadedMediaModal() {}
+    public static function getTotalUploadedMediaModal() {
 
-    public static function getTotalProfileViews() {}
-    public static function getTotalFollower() {}
-    public static function getTotalFollowing() {}
+    }
+ 
+    public static function getTotalProfileViews() {                    
+    }
+ 
+    public function getTotalFollower($mno = null) { 
 
-    public static function getTotalActivities() {}
-    public static function getTotalComments() {}
-    public static function getTotalFavorited() {}     
+        $mno = (!empty($mno)) ? $mno : $this->mno;
+
+        $query= mysql_query("SELECT count(mno) as total_follower FROM fs_follow WHERE mno1 = $mno"); 
+
+        $response = execute_query($query);  
+
+        return $response[0]['total_follower'];   
+
+    } 
+
+    public function getTotalFollowing($mno = null) { 
+
+        $mno = (!empty($mno)) ? $mno : $this->mno;
+
+        $query= mysql_query("SELECT count(mno) as total_following FROM fs_follow WHERE mno = $mno"); 
+
+        $response = execute_query($query);  
+
+        return $response[0]['total_following'];   
+
+    }
+
+    public static function getTotalActivities() {
+
+    }
+
+    public static function getTotalComments() {
+
+    }
+
+    public function getTotalFavorited($mno = null) {
+
+        $mno = (!empty($mno)) ? $mno : $this->mno;
+
+        $query= mysql_query("SELECT count(mno) as total_favorited FROM fs_favorite_modals WHERE mno = $mno"); 
+
+        $response = execute_query($query);  
+
+        return $response[0]['total_favorited']; 
+
+    }    
+
 
 }
