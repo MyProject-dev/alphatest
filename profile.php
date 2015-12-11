@@ -6,14 +6,18 @@
     require("fs_folders/php_functions/Class/Look.php");
     require("fs_folders/php_functions/Class/UserProfilePic.php");
     require ('fs_folders/php_functions/Database/post.php');
-    require ('fs_folders/php_functions/Helper/helper.php');
+    require ('fs_folders/php_functions/Helper/helper.php'); 
+
  
     use App\UserProfilePic;
     use App\Article;
+    use App\User;
+
     $article        = new Article($mc->mno, $db);
     $look           = new Look($mc->mno, $db);
     $userProfilePic = new UserProfilePic($mc->mno, $db);
    	$mc->post = new Post();
+   	$userObject1 = new User($mc->mno, $db);
 
 
 
@@ -154,11 +158,11 @@
 		  	$mppno 						= $mc ->member_profile_pic_query( array('mno'=>$mno1  , 'type'=>'get-latest-mppno' ) );
 			// @TODO ACTIVITY COUNTING TOTAL RESULT MUST NEED TO USE A JOIN QUERY WITH DATABASE
 		  	$total['activity']          = count( $mc->get_my_profile_feed_activity( $mno1 ) );
-		  	$total['looks']             = $mc->posted_modals_postedlooks_Query(  array(  'postedlooks_query'=>'get-tlook', 'mno'=>$mno1 )  );  
-		  	$total['followers']         = $mc->get_total_follower( $mno1 ); 
-		  	$total['following']         = $mc->get_total_following( $mno1 );   	  
-		  	$total['favorite']          = count( selectV1( '*', 'fs_favorite_modals', array('mno'=>$mno1) ) );                      
-		  	$total['articles']          = count($mc->fs_postedarticles( array(  'aticle_type'=> 'select', 'limit_start'=>0, 'limit_end'=>10000,  'where'=>"mno =  $mno1" )) );  
+		  	$total['looks']             = $userObject1->getTotalUploadedLookModal($mno1); //$mc->posted_modals_postedlooks_Query(  array(  'postedlooks_query'=>'get-tlook', 'mno'=>$mno1 )  );
+		  	$total['followers']         = $userObject1->getTotalFollower($mno1);//$mc->get_total_follower( $mno1 );
+		  	$total['following']         = $userObject1->getTotalFollowing($mno1); //$mc->get_total_following( $mno1 );
+		  	$total['favorite']          = $userObject1->getTotalFavorited($mno1); //count( selectV1( '*', 'fs_favorite_modals', array('mno'=>$mno1) ) );
+		  	$total['articles']          = $userObject1->getTotalUploadedArticleModal($mno1); //count($mc->fs_postedarticles( array(  'aticle_type'=> 'select', 'limit_start'=>0, 'limit_end'=>10000,  'where'=>"mno =  $mno1" )) );
 		  	$total['media']             = 0; 
 		  	$total['comment']           = 0; 
 		  	$total['comment_made']      = 0; 
