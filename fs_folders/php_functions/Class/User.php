@@ -321,44 +321,58 @@ class User {
     }
 
 
-    public function  getOverAllUploadedLookModalLike() {    
+    public function  getOverAllUploadedLookModalLike($mno = null) {     
+        
+        $mno = (!empty($mno)) ? $mno : $this->mno;
 
-            //Get all user looks
+        //Get all user looks
 
-            $query= mysql_query(" SELECT plno FROM postedlooks WHERE mno = $this->mno "); 
- 
-            $whereIn =  '(' . where_in(execute_query($query)) . ')';  
+        $query= mysql_query("SELECT plno FROM postedlooks WHERE mno = $mno"); 
 
-            //Get overall posted looks likes  
+        $whereIn =  '(' . where_in(execute_query($query)) . ')';  
 
-            $query= mysql_query(" SELECT count(table_id) as total_like FROM fs_rate_modals WHERE table_id in $whereIn  and table_name = 'postedlooks'"); 
+        //Get overall posted looks likes  
 
-            $response = execute_query($query);  
+        $query= mysql_query("SELECT count(table_id) as total_like FROM fs_rate_modals WHERE table_id in $whereIn  and table_name = 'postedlooks'"); 
 
-            return $response[0]['total_like'];  
+        $response = execute_query($query);  
+
+        return $response[0]['total_like'];  
     } 
  
-    public function getOverAllUploadedArticleModalLike() {
+    public function getOverAllUploadedArticleModalLike($mno = null) {    
 
-            //Get all user article
+        $mno = (!empty($mno)) ? $mno : $this->mno;
 
-            $query= mysql_query(" SELECT artno FROM fs_postedarticles WHERE mno = $this->mno "); 
-            
-            $whereIn =  '(' . where_in(execute_query($query)) . ')';  
+        //Get all user article
 
-            //Get overall posted looks likes  
+        $query= mysql_query("SELECT artno FROM fs_postedarticles WHERE mno = $mno"); 
+        
+        $whereIn =  '(' . where_in(execute_query($query)) . ')';  
 
-            $query= mysql_query(" SELECT count(table_id) as total_like FROM fs_rate_modals WHERE table_id in $whereIn  and table_name = 'fs_postedarticles'"); 
+        //Get overall posted looks likes  
 
-            $response = execute_query($query);  
+        $query= mysql_query("SELECT count(table_id) as total_like FROM fs_rate_modals WHERE table_id in $whereIn  and table_name = 'fs_postedarticles'"); 
 
-            return $response[0]['total_like'];   
+        $response = execute_query($query);  
+
+        return $response[0]['total_like'];   
+
+    } 
+
+    public function getOverAllUploadedMediaModalLike() {}
+
+    public function getTotalUploadedLookModal($mno = null) {
+
+
 
     }
-    public static function getOverAllUploadedMediaModalLike() {} 
+    public function getTotalUploadedArticleModal($mno = null) {    
 
-    public static function getTotalUploadedLookModal() {}
-    public static function getTotalUploadedArticleModal() {}
+    }
+
+
+
     public static function getTotalUploadedMediaModal() {}
 
     public static function getTotalProfileViews() {}
@@ -367,25 +381,6 @@ class User {
 
     public static function getTotalActivities() {}
     public static function getTotalComments() {}
-    public static function getTotalFavorited() {}
-     
-
-
-     
+    public static function getTotalFavorited() {}     
+    
 }
- 
- 
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
