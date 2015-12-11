@@ -22,11 +22,20 @@
 	*  comment[]  => for comment info   
 	*/ 
  
- 	    
+ 	 // use App\User;
+
+
  	require("mysql_crud.php"); 
 	$db = new Database();
 	$db->connect();
+
+
+	$_SESSION['db'] = $db;
 	require('fs.console.source.php'); 
+ 
+
+	use  App\User;
+
   
 	class myclass extends myclassCode {
 
