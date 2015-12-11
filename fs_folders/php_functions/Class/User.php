@@ -338,7 +338,23 @@ class User {
             return $response[0]['total_like'];  
     } 
  
-    public static function getOverAllUploadedArticleModalLike() {}
+    public function getOverAllUploadedArticleModalLike() {
+
+            //Get all user article
+
+            $query= mysql_query(" SELECT artno FROM fs_postedarticles WHERE mno = $this->mno "); 
+            
+            $whereIn =  '(' . where_in(execute_query($query)) . ')';  
+
+            //Get overall posted looks likes  
+
+            $query= mysql_query(" SELECT count(table_id) as total_like FROM fs_rate_modals WHERE table_id in $whereIn  and table_name = 'fs_postedarticles'"); 
+
+            $response = execute_query($query);  
+
+            return $response[0]['total_like'];   
+
+    }
     public static function getOverAllUploadedMediaModalLike() {} 
 
     public static function getTotalUploadedLookModal() {}
