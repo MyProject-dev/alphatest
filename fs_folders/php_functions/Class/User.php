@@ -1,7 +1,8 @@
-<?php namespace App;
+<?php namespace App;  
 
-use app\Brand;
-class User {
+use app\Brand;  
+
+class User { 
 
     public $mno = 0;
     public $db = '';
@@ -11,13 +12,12 @@ class User {
     /**
      * @param $mno
      */
-    function __construct($mno, $db)
+    function __construct($mno=null, $db=null)
     {
         $this->mno = $mno;
         $this->db  = $db;
     }
-
-
+ 
     public function update($mno, $data=array()) {
         if(empty($mno)) {
             $mno = $this->mno;
@@ -436,5 +436,11 @@ class User {
 
     }    
 
+    public function rankArticle() { 
+        return '0';
+    }
 
+    public function rankLook() { 
+        return '0';
+    } 
 }
