@@ -373,7 +373,16 @@ class User {
         return $response[0]['total_uploaded'];
 
     }
-    public function getTotalUploadedArticleModal($mno = null) {     
+    public function getTotalUploadedArticleModal($mno = null) {    
+
+        $mno = (!empty($mno)) ? $mno : $this->mno;
+
+        $query= mysql_query("SELECT count(artno) as total_uploaded FROM fs_postedarticles WHERE mno = $mno"); 
+
+        $response = execute_query($query);  
+
+        return $response[0]['total_uploaded']; 
+
     }
 
 
@@ -387,5 +396,5 @@ class User {
     public static function getTotalActivities() {}
     public static function getTotalComments() {}
     public static function getTotalFavorited() {}     
-
+    
 }
