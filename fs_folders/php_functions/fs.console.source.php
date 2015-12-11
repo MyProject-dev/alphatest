@@ -7696,7 +7696,12 @@
 						      										 	<li style="width:228px;font-family:arial; font-size:12px; border:1px solid none; padding-top:5px;  " >
 						      										 		<div style="margin-top:-2px;" >
 							      										 		<div style="margin-left:7px;font-family: 'Avenir LT Std 35 Light' !important;color: #000000 !important;"  >
-							      										 		 	 <a href='<?php echo $username; ?>'> <b style="color:#284372;font-family: 'Avenir LT Std 35 Light' !important; color:#225b99" > <?php echo $fullname; ?> </b></a> <?php echo $this->cleant_text_print_from_db ( $msg ); ?>
+							      										 		 	 <a href='<?php echo $username; ?>'> <b style="color:#284372;font-family: 'Avenir LT Std 35 Light' !important; color:#225b99" > <?php echo $fullname; ?> </b></a> 
+								      										 		 	 
+								      										 		    <?php //echo $this->cleant_text_print_from_db ( $msg ); ?>
+								      										 		    <?php echo shorten_string($msg); ?>
+
+
 							      										 		</div> 
 							      										 		<div style="margin-left:7px; color:#d6051d"  >   
 							      										 			<table border="0" cellpadding="0" cellspacing="0" style="width:auto; padding-top:2px !important; margin:0px !important;  " name='table8' > 
@@ -7772,7 +7777,7 @@
 					      											 	</div>   -->
 
 					      											 	<div style="margin-left:5px;"  > 
-						      										 		<input id="modal-comment-field<?php echo $ano; ?>" type="text" placeholder='Leave a comment' style=" border:1px solid #e2e2df; height:35px; width:228px; padding-left:5px; font-family: 'Avenir LT Std 35 Light' !important; color: #d2d0d0 !important;"     onkeyup="modal_comment_send ( '<?php echo $mno; ?>' , '<?php echo $plno ; ?>' , 'postedlooks' , '<?php echo $ano; ?>' , event , 'feed' , 'comment-container<?php echo $ano; ?>' , '#modal-comment-loader-test<?php echo $ano; ?>' )"        >      										 		 	 
+						      										 		<input id="modal-comment-field<?php echo $ano; ?>" type="text" placeholder='1 Leave a comment' style=" border:1px solid #e2e2df; height:35px; width:228px; padding-left:5px; font-family: 'Avenir LT Std 35 Light' !important; color: #d2d0d0 !important;"     onkeyup="modal_comment_send ( '<?php echo $mno; ?>' , '<?php echo $plno ; ?>' , 'postedlooks' , '<?php echo $ano; ?>' , event , 'feed' , 'comment-container<?php echo $ano; ?>' , '#modal-comment-loader-test<?php echo $ano; ?>' )"        >      										 		 	 
 					      											 	</div>   
 				      											 	<!-- </a> -->
 				      										 	</li>  
@@ -8735,7 +8740,10 @@
 											      										 	<li style="width:228px;font-family:arial; font-size:12px;  " >
 											      										 		<div style="margin-top:-2px;" >
 												      										 		<div style="margin-left:7px;"  >
-												      										 		 	<a href='<?php echo $username; ?>'> <b style='color:#284372;font-family: 'Avenir LT Std 35 Light' !important; color:#225b99' > <?php echo $fullname; ?> </b></a> <span id='modal-comment-color' > <?php echo $this->cleant_text_print_from_db ( $comment ); ?></span>
+												      										 		 	<a href='<?php echo $username; ?>'> <b style='color:#284372;font-family: 'Avenir LT Std 35 Light' !important; color:#225b99' > <?php echo $fullname; ?> </b></a> <span id='modal-comment-color' > 
+													      										 		 	<?php //echo $this->cleant_text_print_from_db ( $comment ); ?>
+													      										 		 	<?php echo shorten_string($comment); ?>
+												      										 		 	</span>
 												      										 		</div>  
 												      										 		<div style="margin-left:7px; color:#d6051d"  >   
 												      										 			<table border="0" cellpadding="0" cellspacing="0" style="width:auto;padding:none;margin:0px; " name='table8' > 
@@ -8811,7 +8819,7 @@
 								      										 	</li>   
 								      										 	<li style="width:225px;font-family:arial; font-size:12px;" > 	 
 								      										 		<div style="margin-left:5px;"  > 
-								      										 			<input id="modal-comment-field<?php echo $ano; ?>" type="text" placeholder='Leave a comment' style=" border:1px solid #e2e2df; height:35px; width:228px; padding-left:5px; "     onkeyup="modal_comment_send ( '<?php echo $mno; ?>' , '<?php echo $artno ; ?>' , 'fs_postedarticles' , '<?php echo $ano; ?>' , event , 'feed' , 'comment-container<?php echo $ano; ?>' , '#modal-comment-loader-test<?php echo $ano; ?>' )"        >      										 		 	 
+								      										 			<input id="modal-comment-field<?php echo $ano; ?>" type="text" placeholder='2 Leave a comment' style=" border:1px solid #e2e2df; height:35px; width:228px; padding-left:5px; "     onkeyup="modal_comment_send ( '<?php echo $mno; ?>' , '<?php echo $artno ; ?>' , 'fs_postedarticles' , '<?php echo $ano; ?>' , event , 'feed' , 'comment-container<?php echo $ano; ?>' , '#modal-comment-loader-test<?php echo $ano; ?>' )"        >      										 		 	 
 								      											 	</div>   
 								      										 	</li>  
 								      										</ul>   
@@ -9819,7 +9827,10 @@
 											      										 	<li style="width:228px;font-family:arial; font-size:12px;  " >
 											      										 		<div style="margin-top:-2px;" >
 												      										 		<div style="margin-left:7px;"  >
-												      										 		 	<a href='<?php echo $username; ?>'> <b style="font-family:'Avenir LT Std 35 Light' !important; color:#225b99" > <?php echo $fullname; ?> </b></a> <span id='modal-comment-color' > <?php echo $this->cleant_text_print_from_db ( $comment ); ?></span>
+												      										 		 	<a href='<?php echo $username; ?>'> <b style="font-family:'Avenir LT Std 35 Light' !important; color:#225b99" > <?php echo $fullname; ?> </b></a> <span id='modal-comment-color' > 
+												      										 		 		<?php //echo $this->cleant_text_print_from_db ( $comment ); ?>
+												      										 		 		<?php echo shorten_string($comment) ?>
+												      										 		 	</span>
 												      										 		</div> 
 												      										 		<div style="margin-left:7px; color:#d6051d"  >  
 
