@@ -15,6 +15,20 @@
 			// echo " not connected<br>"; 
 		}
 		mysql_select_db($db)or die (mysql_error());  
+	} 
+	function execute_query($query) {
+		$c=0;
+		$result = array( );
+		$mno = 133;
+		if (!empty($query)) {
+			while ($db=mysql_fetch_array($query)) {
+                $result[$c] = $db;
+				$c++;
+			}  
+			return $result;
+		}else {  
+			return 0;
+		} 
 	}
 	function select($tableName,$tablen,$where=null,$orderby=null,$limit=null){
 		$key=0;
@@ -877,4 +891,32 @@
  		} 
 
 	}
+
+
+    function flatten(array $array) {
+        $return = array();
+        array_walk_recursive($array, function($a) use (&$return) { $return[] = $a; });
+        return $return;
+    }
+
+    /**
+    * Result from database automatic set as where in
+    */
+    function where_in(array $array) { 
+
+    	if(!empty( $array)) {
+    		$response = array_unique(flatten($array)); 
+
+	        $response =  implode(",",$response);  
+
+	        return $response;	
+    	}
+    	else 
+    	{
+    		return 0;
+    	} 
+    	
+    }
+
+
 ?>
