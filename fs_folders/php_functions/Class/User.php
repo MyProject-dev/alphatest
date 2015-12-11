@@ -319,8 +319,52 @@ class User {
             return false;
         }
     }
-}
 
+
+    public function  getOverAllUploadedLookModalLike() {    
+
+            //Get all user looks
+
+            $query= mysql_query(" SELECT plno FROM postedlooks WHERE mno = $this->mno "); 
+ 
+            $whereIn =  '(' . where_in(execute_query($query)) . ')';  
+
+            //Get overall posted looks likes  
+
+            $query= mysql_query(" SELECT count(table_id) as total_like FROM fs_rate_modals WHERE table_id in $whereIn  and table_name = 'postedlooks'"); 
+
+            $response = execute_query($query);  
+
+            return $response[0]['total_like'];  
+    } 
+ 
+    public static function getOverAllUploadedArticleModalLike() {}
+    public static function getOverAllUploadedMediaModalLike() {} 
+
+    public static function getTotalUploadedLookModal() {}
+    public static function getTotalUploadedArticleModal() {}
+    public static function getTotalUploadedMediaModal() {}
+
+    public static function getTotalProfileViews() {}
+    public static function getTotalFollower() {}
+    public static function getTotalFollowing() {}
+
+    public static function getTotalActivities() {}
+    public static function getTotalComments() {}
+    public static function getTotalFavorited() {}
+     
+
+
+     
+}
+ 
+ 
+
+
+
+
+
+ 
 
 
 
