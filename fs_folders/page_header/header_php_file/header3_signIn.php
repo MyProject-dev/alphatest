@@ -472,12 +472,18 @@
 								 			</td>  
 								 			<td id="prof_ratings"  width="200px" >
 
+								 				<?php 
+
+								 					$user = new App\User($this->mno, $_SESSION['db']);
+
+								 				?>
+
                                                 <table border="0" cellpadding="0" cellspacing="0" id="header-article-stat" >
                                                     <tr>
                                                         <td  id="ratigs" > <span>  </span> </td>
-                                                        <td  id="ratigs" > <a href="<?php echo "$this->identity_username-articles"; ?>" ><span>  <?php echo $this->trating_article; ?> </span>  </a> </td>
-                                                        <td  id="ratigs" > <a href="<?php echo "$this->identity_username-articles"; ?>" ><span>  #<?php echo "$rank"; ?>  </span>  </a> </td>
-                                                        <td  id="ratigs" > <a href="<?php echo "$this->identity_username-followers"; ?>" ><span>  <?php echo "$tfollowers"; ?>  </span> </a></td>
+                                                        <td  id="ratigs" > <a href="<?php echo "$this->identity_username-articles"; ?>" ><span> <?php echo $user->getOverAllUploadedArticleModalLike(); ?> </span>  </a> </td>
+                                                        <td  id="ratigs" > <a href="<?php echo "$this->identity_username-articles"; ?>" ><span>  #<?php echo $user->rankArticle(); ?>  </span>  </a> </td>
+                                                        <td  id="ratigs" > <a href="<?php echo "$this->identity_username-followers"; ?>" ><span>  <?php echo $user->getTotalFollower(); ?>  </span> </a></td>
                                                     <tr>
                                                         <td id="ratigs_names"> <div class="modal-stat" onclick="hide_show_hide('#header-article-stat', '#header-look-stat')" > ARTICLE </div> </td>
                                                         <td id="ratigs_names"  > <a href="<?php echo "$this->identity_username-articles"; ?>" > <span> LIKES </span> </a>  </td>
@@ -488,9 +494,9 @@
                                                 <table border="0" cellpadding="0" cellspacing="0" id="header-look-stat" style="display:none"  >
                                                     <tr>
                                                         <td  id="ratigs" > <span>  </span> </td>
-                                                        <td  id="ratigs" > <a href="<?php echo "$this->identity_username-looks"; ?>" ><span>  <?php echo $this->trating_look; ?> </span> </a> </td>
-                                                        <td  id="ratigs" > <a href="<?php echo "$this->identity_username-looks"; ?>" ><span>  #<?php echo "$rank"; ?>  </span> </a> </td>
-                                                        <td  id="ratigs" > <a href="<?php echo "$this->identity_username-followers"; ?>" ><span>  <?php echo "$tfollowers"; ?>  </span> </a></td>
+                                                        <td  id="ratigs" > <a href="<?php echo "$this->identity_username-looks"; ?>" ><span> <?php echo $user->getOverAllUploadedLookModalLike(); ?> </span>  </a> </td>
+                                                        <td  id="ratigs" > <a href="<?php echo "$this->identity_username-looks"; ?>" ><span>  #<?php echo $user->rankLook(); ?>  </span>  </a> </td>
+                                                        <td  id="ratigs" > <a href="<?php echo "$this->identity_username-followers"; ?>" ><span>   <?php echo $user->getTotalFollower(); ?>  </span> </a></td>
                                                     <tr>
                                                         <td id="ratigs_names"> <div class="modal-stat" onclick="hide_show_hide('#header-look-stat', '#header-article-stat')" > LOOKS </div> </td>
                                                         <td id="ratigs_names"  >  <a href="<?php echo "$this->identity_username-looks"; ?>" ><span> LIKES </span> </a></td>
