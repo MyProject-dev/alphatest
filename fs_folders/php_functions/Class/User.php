@@ -364,11 +364,16 @@ class User {
 
     public function getTotalUploadedLookModal($mno = null) {
 
+        $mno = (!empty($mno)) ? $mno : $this->mno;
 
+        $query = mysql_query("SELECT count(plno) as total_uploaded FROM postedlooks WHERE mno = $mno ");
+
+        $response = execute_query($query);  
+
+        return $response[0]['total_uploaded'];
 
     }
-    public function getTotalUploadedArticleModal($mno = null) {    
-
+    public function getTotalUploadedArticleModal($mno = null) {     
     }
 
 
@@ -382,5 +387,5 @@ class User {
     public static function getTotalActivities() {}
     public static function getTotalComments() {}
     public static function getTotalFavorited() {}     
-    
+
 }
