@@ -5,6 +5,8 @@
 	* 
 	*/        
 
+use App\User;
+
 	interface myInterface  { 
 		public function	 set_check_profile_exist( $type , $mno ); 
 		public function	 get_loop_start( $tres1 , $tres2 );
@@ -8927,10 +8929,10 @@
       			}
       			public function modal_version1_media ( ) { 
       			}  
-      			public function modal_version1_member ( $ano , $type=null  , $profilepath=null , $headerstyle=null ,  $page=null , $comment_style = null ) {  
- 			
- 
+      			public function modal_version1_member ( $ano , $type=null  , $profilepath=null , $headerstyle=null ,  $page=null , $comment_style = null ) {
 
+
+					$userObject = new User();
 
 
 	      			switch ( $page ):
@@ -8958,16 +8960,14 @@
 					            $mno          =  intval($activity[0]['mno']); 
 					            $mno1         =  intval($activity[0]['_table_id']); 
 					            $action       =  $activity[0]['action'];    
-					            $userActivity1 =  'Not Set';   
-
-
-
-
-
-
-					            // echo " action  $action<br>";
-					            // print_r($activity);
-
+					            $userActivity1 =  'Not Set';    
+					            $isFollowing   = 0; 
+					            $isCommented   = 0; 
+					            //if commented and following action
+					            $isFollowing = strpos($action, 'Following'); 
+					            $isCommented = strpos($action, 'Commented');   
+					           // echo " action  $action<br>";
+					            // print_r($activity); 
 					            // echo " $action ";
 					            switch ( $action ) {  
 					            	case 'Updated': 
@@ -8987,7 +8987,7 @@
 											$memFsInfo   = $this->get_user_full_fs_info( $mno1 );
 											$owner_fullname =  $memFsInfo['fullName1'];   
 					            		break; 
-					            	case 'Following':   
+					            	case 'Following' || $isFollowing > -1:   
 					            			$userActivity1 =  'Following';   
 					            			// echo "<pre><span style='color:red'>";
 					            			$profile_pic = $mno1; 
@@ -9011,7 +9011,7 @@
  											$owner_fullname =  $memFsInfo['fullName1'];    
 
 					            		break;  
-					            	case 'Commented':   
+					            	case 'Commented' || $isCommented > -1:   
 					            			// $profile_pic = $mno1;
 					            			// $mno1 = $mno;  
 					            	 		// $profile_pic  = $mno1;   
@@ -9105,25 +9105,27 @@
 	    			$city 			 = ( !empty(  $mem_info[0]['city']          ) ) ? $mem_info[0]['city'] : null ;
 	    			$zip 			 = ( !empty(  $mem_info[0]['zip']           ) ) ? $mem_info[0]['zip'] : null ;
 	    			$occupation      = ( !empty(  $mem_info[0]['occupation']    ) ) ? $mem_info[0]['occupation'] : null ;
-					$trating_look    = ( !empty(  $mem_info[0]['trating_look']    ) ) ? $mem_info[0]['trating_look'] : null ;
-					$trating_article = ( !empty(  $mem_info[0]['trating_article']    ) ) ? $mem_info[0]['trating_article'] : null ;
+					$trating_look    =  $userObject->getOverAllUploadedLookModalLike($mno1);  // ( !empty(  $mem_info[0]['trating_look']    ) ) ? $mem_info[0]['trating_look'] : null ;
+					$trating_article =  $userObject->getOverAllUploadedArticleModalLike($mno1); // ( !empty(  $mem_info[0]['trating_article']    ) ) ? $mem_info[0]['trating_article'] : null ;
 	    			$datejoined 	 = ( !empty(  $mem_info[0]['datejoined']    ) ) ? $this->date_format( $mem_info[0]['datejoined'] , '.' )   : null ;
 	    			$logtime 	     = ( $mem_info[0]['logtime'] != '0000-00-00 00:00:00' ) ? $this->get_time_ago($mem_info[0]['logtime']) : '22 HOURS' ;
 	    			$logstat 		 = $mem_info[0]['logstat'];
 				 	$logtime 	     = $mem_info[0]['logtime']; 
 					
-					
+
+
 					$location =  "$city $state_ $country"; 
 					$location = (strlen($location) > 40) ? '<br>' . substr($location, 0, 40) . "..." : '<br>' . $location;
- 
-  	    			$mem_total_look  = $tlooks;
+
+
+  	    			$mem_total_look  = $userObject->getTotalUploadedLookModal($mno1); //$tlooks;
 					$mem_total_media = $tmedia;  
-					$mem_total_article = $tarticle;
-					$mem_total_views = $tview;
+					$mem_total_article = $userObject->getTotalUploadedLookModal($mno1);// $tarticle;
+					$mem_total_views =   $tview;
 					$user_header_style = 0;
 					$mem_rating_percatage = $tpercentage; 
-					$mem_total_followers = $tfollower;
-					$mem_total_following = $tfollowing;    
+					$mem_total_followers = $userObject->getTotalFollower($mno1); //$tfollower;
+					$mem_total_following = $userObject->getTotalFollowing($mno1);// $tfollowing;
 
 
 					// set up date joined member
@@ -9255,7 +9257,9 @@
 			    	// Add space in the action
 			    	$action    = str_replace('updated', ' updated ', $action);
 			    	$action    = str_replace('commented', ' commented ', $action);
-			    	$following = str_replace('following', ' following ', $action);
+			    	$action = str_replace('following', ' following ', $action); 
+
+
  
 	            	?>      
       				<modals-item >  
@@ -9347,7 +9351,7 @@
 																		  		<table border="0" >
 																		  			<tr>
 																		  				<td> <text>Followers</text></td> 
-																		  				<td  style="width: 30px;" ><div style="float:right"><stat><?php echo $mem_total_followers; ?></stat> | </div></td> 
+																		  				<td  style="width: 30px;" ><div style="float:right"><stat><?php echo $mem_total_followers; ?></stat> | </div></td>
 																		  			    <td  style="padding-left: 5px;" > <text>Following</text> </td>  
 																		  			    <td  style="width: 30px;" ><div style="float:right"> <stat> <?php echo $mem_total_following; ?> </stat> </div></td><tr>  
 
@@ -9527,7 +9531,7 @@
 
 							      						?> 
 
-							      						<?php if($userActivity1 == 'Following' || $userActivity1 == 'Commented') { $table_id = $mno1; } ?>
+							      						<?php if($userActivity1 == 'Following' || $userActivity1 == 'Commented') { $table_id = $mno1; } ?> 
 							      						<!-- grey line -->
 							      							
 
@@ -10879,6 +10883,9 @@
 							$pos = strpos( $action , 'commented' );
 							if ( $pos > 0  ) { 
 								$link .= '#details-comment-view';  
+
+ 
+
  							} else {
  								$link .= '#details-title'; 
  							}
@@ -10892,7 +10899,12 @@
 								'count(nno), nno', 
 								"table_name = '" . $table_name."' and table_id = ". $table_id." and mno1 = " . $noti_mno1 
 							);
-							$notification_total = $notification_total[0]['count(nno)'];   
+							$notification_total = $notification_total[0]['count(nno)']; 
+
+						//If look, article and member comments notification  
+							 
+
+
 							?>	  
 		 					<!-- <table border="1" cellpadding="0" cellspacing="0" >  -->
 		 						<!-- <tr>  --> 
