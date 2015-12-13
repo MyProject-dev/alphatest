@@ -10,14 +10,21 @@ class User {
     public $table = 'fs_members';
 
     /**
-     * @param $mno
+     * User constructor.
+     * @param null $mno
+     * @param null $db
      */
     function __construct($mno=null, $db=null)
     {
         $this->mno = $mno;
         $this->db  = $db;
     }
- 
+
+    /**
+     * @param $mno
+     * @param array $data
+     * @return mixed
+     */
     public function update($mno, $data=array()) {
         if(empty($mno)) {
             $mno = $this->mno;
@@ -133,6 +140,7 @@ class User {
      * @return mixed
      */
     public function updateInfo($newInfoArray=array(), $where) {
+
         $bool = $this->db->update(
             $this->table,
             $newInfoArray,
@@ -252,6 +260,9 @@ class User {
         return $data ;
     }
 
+    /**
+     * @return string
+     */
     public function brand() {
 
         $brand = new Brand($this->db, $this->mno);
@@ -260,16 +271,29 @@ class User {
 
     }
 
+    /**
+     * @return string
+     */
     public function topic() {
         $brand = new Brand($this->db, $this->mno);
         return $brand->WhereIn($brand->category('','','','topic'));
     }
+
+    /**
+     *
+     */
     public function selectedBrand() {
     }
 
+    /**
+     *
+     */
     public function selectedTopic() {
     }
 
+    /**
+     * @param $mno
+     */
     function amIfollowing($mno) {
     }
 
@@ -287,6 +311,7 @@ class User {
      * look likes
      * Refresh the users data.
      * @param $mno
+     * @return bool
      */
     public  function resetInformation($mno) {
 
@@ -320,6 +345,10 @@ class User {
         }
     }
 
+    /**
+     * @param null $mno
+     * @return mixed
+     */
     public function  getOverAllUploadedLookModalLike($mno = null) {     
         
         $mno = (!empty($mno)) ? $mno : $this->mno;
@@ -337,8 +366,12 @@ class User {
         $response = execute_query($query);  
 
         return $response[0]['total_like'];  
-    } 
- 
+    }
+
+    /**
+     * @param null $mno
+     * @return mixed
+     */
     public function getOverAllUploadedArticleModalLike($mno = null) {    
 
         $mno = (!empty($mno)) ? $mno : $this->mno;
@@ -347,20 +380,27 @@ class User {
 
         $query= mysql_query("SELECT artno FROM fs_postedarticles WHERE mno = $mno"); 
         
-        $whereIn =  '(' . where_in(execute_query($query)) . ')';  
+        $whereIn =  '(' . where_in(execute_query($query)) . ')';
 
         //Get overall posted looks likes  
 
-        $query= mysql_query("SELECT count(table_id) as total_like FROM fs_rate_modals WHERE table_id in $whereIn  and table_name = 'fs_postedarticles'"); 
+        $query= mysql_query("SELECT count(table_id) as total_like FROM fs_rate_modals WHERE table_id in $whereIn  and table_name = 'fs_postedarticles'");
 
-        $response = execute_query($query);  
+        $response = execute_query($query);
 
-        return $response[0]['total_like'];   
+        return $response[0]['total_like'];
 
-    } 
+    }
 
+    /**
+     *
+     */
     public function getOverAllUploadedMediaModalLike() {}
 
+    /**
+     * @param null $mno
+     * @return mixed
+     */
     public function getTotalUploadedLookModal($mno = null) {
 
         $mno = (!empty($mno)) ? $mno : $this->mno;
@@ -373,6 +413,10 @@ class User {
 
     }
 
+    /**
+     * @param null $mno
+     * @return mixed
+     */
     public function getTotalUploadedArticleModal($mno = null) {    
 
         $mno = (!empty($mno)) ? $mno : $this->mno;
@@ -384,15 +428,26 @@ class User {
         return $response[0]['total_uploaded']; 
 
     }
- 
+
+    /**
+     *
+     */
     public static function getTotalUploadedMediaModal() {
 
     }
- 
+
+    /**
+     *
+     */
     public static function getTotalProfileViews() {                    
     }
- 
-    public function getTotalFollower($mno = null) { 
+
+    /**
+     * @param null $mno
+     * @return mixed
+     */
+    public function
+    getTotalFollower($mno = null) {
 
         $mno = (!empty($mno)) ? $mno : $this->mno;
 
@@ -402,8 +457,12 @@ class User {
 
         return $response[0]['total_follower'];   
 
-    } 
+    }
 
+    /**
+     * @param null $mno
+     * @return mixed
+     */
     public function getTotalFollowing($mno = null) { 
 
         $mno = (!empty($mno)) ? $mno : $this->mno;
@@ -416,14 +475,23 @@ class User {
 
     }
 
+    /**
+     *
+     */
     public static function getTotalActivities() {
 
     }
 
+    /**
+     *
+     */
     public static function getTotalComments() {
-
     }
 
+    /**
+     * @param null $mno
+     * @return mixed
+     */
     public function getTotalFavorited($mno = null) {
 
         $mno = (!empty($mno)) ? $mno : $this->mno;
@@ -434,12 +502,18 @@ class User {
 
         return $response[0]['total_favorited']; 
 
-    }    
+    }
 
-    public function rankArticle() { 
+    /**
+     * @return string
+     */
+    public function rankArticle() {
         return '0';
     }
 
+    /**
+     * @return string
+     */
     public function rankLook() { 
         return '0';
     } 
