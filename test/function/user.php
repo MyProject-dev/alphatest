@@ -15,7 +15,7 @@ use App\User;
 
 $db = new Database();
 $db->connect();
-$mno         = 1021;
+$mno         = 1022;
 $bno         = 23;
 $table       = 'fs_members';
 $gender      = 'male2';
@@ -71,16 +71,18 @@ $db->update(
     "mno = $mno"
 );
 */
+//$user->resetInformation($mno); 
 
+echo "my over all total looks like " . $user->getOverAllUploadedLookModalLike() . "\n<br";
 
+echo "my over all total article like " . $user->getOverAllUploadedArticleModalLike() . "\n<br>"; 
 
+echo "my total look  uploaded " . $user->getTotalUploadedLookModal() . "\n<br>"; 
 
+echo "my total article uploaded " . $user->getTotalUploadedArticleModal() . "\n<br>";
 
+echo "my total follower " . $user->getTotalFollower() . "\n<br>";
 
-$user->resetInformation($mno);
+echo "my total following " . $user->getTotalFollowing() . "\n<br>"; 
 
-
-
-
-
-
+echo "my total favorited " . $user->getTotalFavorited() . "\n<br>";
