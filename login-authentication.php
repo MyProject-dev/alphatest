@@ -1,11 +1,6 @@
 <?php
 	@session_start();
-	error_reporting(0);
-	// $_SESSION['temp_mno'] = 754; //
-	// $_SESSION['temp_mno'] = 133; // rico
-	// $_SESSION['temp_mno'] = 134;  kayab
-	// $_SESSION['temp_mno'] = 135;
-    // $_SESSION['temp_mno'] = 1169; 
+	error_reporting(0); 
 	$lastpagevisited = (!empty($_GET['url'])) ?  $_GET['url'] : $lastpagevisited; 
 	if ( $_SESSION['temp_mno'] != null ) {     
 		setcookie( 'mno' , $_SESSION['temp_mno']  ,   time() + (10 * 365 * 24 * 60 * 60) );       
