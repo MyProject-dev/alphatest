@@ -12,17 +12,16 @@
     require_once ("../../../fs_folders/php_functions/Database/Invited.php");
     require('../../../fs_folders/php_functions/Class/Article.php');
     require('../../../fs_folders/php_functions/Class/Look.php');
-
+    require('../../../fs_folders/php_functions/Class/User.php');
     require("../../../fs_folders/php_functions/Class/Topic.php");
     require("../../../fs_folders/php_functions/Class/Category.php");
 
-	require('../../../fs_folders/php_functions/Class/Flag.php');
+	require('../../../fs_folders/php_functions/Class/Flag.php');  
+	
+    // print_r($_REQUEST);
+ 	// ECHO "" . $_POST['tags']; 
 
-      // print_r($_REQUEST);
-
-//    ECHO "" . $_POST['tags'];
-
-	//exit;
+	//exit; 
 	//Facebook Config
     require '../../../fs_folders/API/facebook-php-sdk-master/src/facebook.php'; 
 	$config = array(
@@ -5097,7 +5096,7 @@ echo " </pre> </h3>";
                                 if(count($response)>0) {
                                 	$mc->notification_member_suggest( $response  , '../../../' );  	
                                 }else{
-                                	echo "No more member to suggest<br>";
+                                	// echo "No more member to suggest<br>";
                                 }
                                 
                             } else  if($type == 'fb-friends-on-fs') {  
@@ -5117,7 +5116,7 @@ echo " </pre> </h3>";
 	                            	// echo " limit " . $_SESSION['fb_freinds_on_fs_limit_start'] . ', ' . $_SESSION['fb_freinds_on_fs_limit_end']; 
 								    $_SESSION['fb_freinds_on_fs_limit_start']+=$_SESSION['noti_limit_end_init'];  
  								}else{
-                                	echo "No more fb friends on fs<br>";
+                                	// echo "No more fb friends on fs<br>";
                                 	 echo $mnos;   
                                 }
                             } else   if($type == 'fb-friends-to-invite-on-fs') {  
