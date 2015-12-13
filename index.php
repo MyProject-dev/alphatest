@@ -111,7 +111,7 @@
 	// 	blog_name = $mc->blog_name <br> 
 	// 	$mc->blogdom <br>
 	// </h2>"; 
-    //echo "$mc->mno <br>";
+    // echo "$mc->mno <br>";
 
 
     // echo "this a test <br> ";
@@ -119,7 +119,7 @@
   
 <?php 
 // print_r($fulleName);
-// echo " mno = " . $mc->	mno . '<br>';
+// echo " mno = " . $mc->mno . '<br>';
 //echo " tlog = " . $mc->tlog . '<br>';
 // echo "mppno  = $mc->mppno <br>";
 //echo "full name =  dsds " . $fulleName . '<br>';
@@ -168,6 +168,8 @@
                 		require('welcome.php');  
 					echo "</div>"; 	 
 					echo "</div>";    
+
+					exit;
 
 	 				 // fs_folders\login\pages\welcome-v1\slider\examples-bootstrap
 	 			}
