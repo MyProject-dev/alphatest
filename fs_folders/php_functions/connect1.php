@@ -1,5 +1,6 @@
 <?php 
-	if ($_SERVER['HTTP_HOST'] == 'localhost') 
+	error_reporting(0);
+	if ($_SERVER['HTTP_HOST'] == 'localhost' ||  strpos($_SERVER['HTTP_HOST'], '168') > -1) 
  	{
  		// mysql_connect("localhost","root","replacement") or die(mysql_error()); Nnetbook
  		$con = mysql_connect("localhost","root","") or die(mysql_error()); //laptop
