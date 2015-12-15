@@ -38,6 +38,8 @@ class Brand {
             $and    = " and ";
         }
 
+
+        // print_r($bcno); 
         if(!empty($bcno)) {
 
             if(is_array($bcno)) {
