@@ -260,8 +260,8 @@
                                                                     <div id="notification-container-buble" style='<?php echo "$activityFeedStye"; ?>' ><?php echo $activityFeed ?></div>
                                                                 <?php endif;?>
                                                                 <span> <!-- 999+ --> </span>
-                                                                <img title='notifcations' id='notifcation_img1' src="fs_folders/images/header/new-post.png"  onclick="message('Comming soon!')">
-                                                                <img title='notifcations' id='notifcation_img2' src="fs_folders/images/header/new-post-mouse-over.png" onclick=" showHideParentOverFlow('body', 'show')"  >
+                                                                <img title='activity feeds' id='notifcation_img1' src="fs_folders/images/header/new-post.png"  onclick="message('Comming soon!')">
+                                                                <img title='activity feeds' id='notifcation_img2' src="fs_folders/images/header/new-post-mouse-over.png" onclick=" showHideParentOverFlow('body', 'show')"  >
                                                             </td>
 									 				 		<td>  
 									 				 			<span  id='header_invisible' ><!-- (0) --></span>  
