@@ -34,7 +34,7 @@
 		 	//  $response = $mc->url( array('type'=>'get-dash-value' , 'url'=> $mc->url( array('type'=>'get-full-url') ) ) );    
 			// $member['username']  = ( !empty($response[0]) ) ? str_replace(' ', '' , basename($response[0]).PHP_EOL ) : null ;  // get username fashionsponge.com/jesus-activity => username = jesus 
 			// $member['tab1']      = ( !empty($response[1]) ) ? $response[1] : null ;    // get first tab after username-tab or ex: jesus-activity => tab = activity  
- 			print_r($_SESSION['url'] ); 
+ 			// print_r($_SESSION['url'] ); 
  			$url 			    = $_SESSION['url'];  
  			$member['username'] = $url[0]; 
  			$member['tab1']     = (!empty($url[1])) ? $url[1] : 'activity' ;   
@@ -44,16 +44,22 @@
  			
  			$c=0;
  			$data['date_uploaded']='';  
-			echo "<BR> USER NAME  = $member[username]  <BR> ";
-			echo " USER tab1  = $member[tab1]   <BR> ";  
-			echo " USER tab2  = $member[tab2]   <BR> ";    
-			echo " USER tab3  = $member[tab3]   <BR> ";    
-			echo " mno = $mno <br> ";    
-			echo " mno from username ".$mc->get_mnobyusername( $member['username'] ); 
+			// echo "<BR> USER NAME  = $member[username]  <BR> ";
+			// echo " USER tab1  = $member[tab1]   <BR> ";  
+			// echo " USER tab2  = $member[tab2]   <BR> ";    
+			// echo " USER tab3  = $member[tab3]   <BR> ";    
+			// echo " mno = $mno <br> ";    
+			// echo " mno from username ".$mc->get_mnobyusername( $member['username'] ); 
 	 	# get username 
 		 	if ( !empty($member['username']) ) {  $mno1 = intval($mc->get_mnobyusername( $member['username'] ) );   } else { $mno1  = 133; } 
 		  	 // $mno1  = 133; 
-		 	echo " mno1 = $mno1  <br> ";  
+		 	// echo " mno1 = $mno1  <br> ";  
+	   
+	  	//Redirect home when username is not found in the database
+		 	if($mno1 == 136) {
+		 		$mc->go('home');
+		 	}
+
 		# select tab loaded  
 		 	$member['tab_load'] = $mc->get_tab_load_init( 
 		 		array( 
@@ -63,15 +69,14 @@
 		 			'page'=>'profile-tabs'
 		 		)  
 		 	); 
-		 	echo $member['tab_load'];   
-
+		 	// echo $member['tab_load'];    
 	    #check it's a notification 
 
 		 	if(strpos($member['tab1'], 'nno') > -1) {  
 
 		 		$nno = str_replace('nno', '', $member['tab1']); 
 	 		    $nno  = intval($nno);
-		 		echo "clicked from notification nno = $nno <br>"; 
+		 		// echo "clicked from notification nno = $nno <br>"; 
 
 		 		# UPDATE NOTIFICATION AS VIEWED 
 				if ( $nno  != 0 ) {
@@ -84,9 +89,9 @@
 			    } 
 
 		 	} else {
-		 		echo "not clicked from notification <br>";
+		 		// echo "not clicked from notification <br>";
 		 	}
-		 	echo " test " . $member['tab1'];
+		 	// echo " test " . $member['tab1'];
 		 	
 
 
@@ -99,7 +104,7 @@
 		 	// echo $mc->get_username_by_mno( $mno1 ); 
 		 	// echo " mno1 $mno1"; 
 
-        echo "mno by username $mno1 <br>";
+        // echo "mno by username $mno1 <br>";
 			$uinfo                         = $mc->get_user_info_by_id( $mno1 );
 			$uacc                          = $mc->get_user_account_by_id( $mno1  ); 
 			$memFsInfo                     = $mc->get_user_full_fs_info( $mno1  );   
