@@ -378,6 +378,55 @@ class Look
         return $postAfterReset;
     }
 
+    /**
+     * @param null $plno
+     * @return int
+     */
+    public function totalView($plno = null) {
+        return 0;
+    }
+
+    public function totalLike($plno = null) {
+
+        $query= mysql_query("SELECT count(table_id) as total_like FROM fs_rate_modals  WHERE table_name  = 'postedlooks' and table_id = $plno");
+
+        $response = execute_query($query);
+
+        return $response[0]['total_like'];
+
+    }
+
+
+
+    public function totalDripped($plno = null) {
+
+        $query= mysql_query("SELECT count(table_id) as total_dripped FROM fs_drip_modals  WHERE table_name  = 'postedlooks' and table_id = $plno");
+
+        $response = execute_query($query);
+
+        return $response[0]['total_dripped'];
+
+    }
+    public function totalFavorite($plno = null) {
+
+        $query= mysql_query("SELECT count(table_id) as total_favorite FROM fs_favorite_modals WHERE table_name  = 'postedlooks' and table_id = $plno");
+
+        $response = execute_query($query);
+
+        return $response[0]['total_favorite'];
+
+    }
+    public function totalShared($plno = null) {
+
+        return 0;
+
+    }
+    public function totalFlagged($plno = null) {
+
+        return 0;
+
+    }
+
 
     /**
      * This is to totally delete the modal and it includes
