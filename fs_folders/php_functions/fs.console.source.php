@@ -9042,7 +9042,7 @@ use App\User;
 
 					           		} else if ($action == 'Commented' || $action == $isCommented > 0) {  
  
-					            			echo "Action is commented <br>";
+					            			// echo "Action is commented <br>";
 					            			// $profile_pic = $mno1;
 					            			// $mno1 = $mno;  
 					            	 		// $profile_pic  = $mno1;   
@@ -9190,7 +9190,7 @@ use App\User;
 	      				default: 
 		 					switch ( $action ) { 
 
-		 						case 'Following':  
+		 						case 'Following':   
 		 								/*
 			 								if ( $tfollowing1  < 2 ) {
 			 									$action = "<b> <a href='$username'   > $fullname1 </a> </b> <span style='color:#225B99' > is now </span>  $action_lower <b> <a href='$username1'  > $fullname </a> </b> $when ";  	 
@@ -9213,18 +9213,18 @@ use App\User;
 		 						case 'Updated':  
 		 							 	$action = "<b> <a href='$username1' >  $owner_fullname</a></b> $action_lower <span style='color:#225B99' > $gendertype profile picture </span> $when";  
 		 							break;
-		 						case 'Commented': 
+		 						case 'Commented':  
 
 			 							if ( $mno != $mno1 ): 
-			 								$action = "<b> <a href='$participant_username' >  $participant_fullname</a>  </b> $action_lower <span style='color:#225B99' > on <a href='$owner_fullname' >  <b>$owner_fullname</b></a> profile picture </span> $when";  
+			 								$action = "<b> <a href='$participant_username' >  $participant_fullname</a>  </b> $action_lower <span style='color:#225B99' > on <a href='$owner_username' >  <b>$owner_fullname</b></a> profile picture </span> $when";  
 			 							else:
 			 								$action = "<b> <a href='$participant_username' >  $participant_fullname</a>  </b> $action_lower <span style='color:#225B99' > on $gendertype profile picture </span> $when";  
 			 							endif; 
 			 								
 		 							break;
-		 						default: 
+		 						default:  
 			 							if ( $mno != $mno1 ): 
-			 								$action = "<b> <a href='$participant_username' >  $participant_fullname</a>  </b> $action_lower <span style='color:#225B99' > on <a href='$owner_fullname' >  <b>$owner_fullname</b></a> profile picture </span> $when";  
+			 								$action = "<b> <a href='$participant_username' >  $participant_fullname</a>  </b> $action_lower <span style='color:#225B99' > on <a href='$owner_username' > <b>$owner_fullname</b></a> profile picture </span> $when";  
 			 							else:
 			 								$action = "<b> <a href='$participant_username' >  $participant_fullname</a>  </b> $action_lower <span style='color:#225B99' > on $gendertype profile picture </span> $when";  
 			 							endif; 
