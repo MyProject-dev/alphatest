@@ -3983,7 +3983,7 @@
 	    		} else {
 	    			$url = 'http://localhost/fs/new_fs/alphatest'; 		
 	    		} 
-              // require ("$url/fs_folders/page_footer/footer_php_file/footer.php");  
+              require ("$url/fs_folders/page_footer/footer_php_file/footer.php");  
 	    }
 
 	    public function look_exist( $plno ) {
