@@ -488,7 +488,7 @@ use App\User;
 									  	// condition
 
 									  		if ( $total_days > 0 ) {  
-									  			  echo " current activity more than 1 day the action last action will replaced with the new one <br>";
+									  			  // echo " current activity more than 1 day the action last action will replaced with the new one <br>";
 									  			// replace the action 
 									  			// update time   
 												$newaction = $action;  
@@ -585,7 +585,7 @@ use App\User;
 								} 
 							break; 
 						case 'fs_member_profile_pic':    
-								echo " this is the profile pic "; 
+								// echo " this is the profile pic "; 
 								$mypost = $this->get_my_post_in_activty_wall( $mno , $_table_id , $_table );   
 								// print_r($mypost);
 
@@ -8935,6 +8935,12 @@ use App\User;
 					$userObject = new User();
 
 
+
+
+
+
+
+
 	      			switch ( $page ):
 	      				case 'profile-tab-followers': 
 	      						$mno = $ano; 
@@ -8966,11 +8972,14 @@ use App\User;
 					            //if commented and following action
 					            $isFollowing = strpos($action, 'Following'); 
 					            $isCommented = strpos($action, 'Commented');   
+   
+					            // echo " following " .  $isFollowing; 
 					           // echo " action  $action<br>";
 					            // print_r($activity); 
-					            // echo " $action ";
-					            switch ( $action ) {  
-					            	case 'Updated': 
+					            // echo " <h4>$action </h4>";
+ 
+					            	if($action  == 'Updated') {  
+					            			// echo "updated";
 					            			$profile_pic = $mno1;
 					            			$mno1        = $mno;   
 					            		 	$username    = $this->get_username_by_mno( $mno );
@@ -8978,31 +8987,30 @@ use App\User;
 											$memFsInfo   = $this->get_user_full_fs_info( $mno1 );
 											$owner_fullname =  $memFsInfo['fullName1']; 
 											$userActivity1 =  'Joined';   
-					            		break; 
-					            	case 'Joined': 
+
+					            	} else if ($action == 'Joined') { 
+					            	 
+					            			// echo "joined";
 					            			$profile_pic = $mno1;
 					            			$mno1        = $mno;   
 					            		 	$username    = $this->get_username_by_mno( $mno );
 											$username1   = $this->get_username_by_mno( $mno1 );
 											$memFsInfo   = $this->get_user_full_fs_info( $mno1 );
-											$owner_fullname =  $memFsInfo['fullName1'];   
-					            		break; 
-					            	case 'Following' || $isFollowing > -1:   
+											$owner_fullname =  $memFsInfo['fullName1'];    
+
+					            	} else if ($action == 'Following' || $action == $isFollowing > 0) {   
+ 											
+ 											// echo " following ";
 					            			$userActivity1 =  'Following';   
 					            			// echo "<pre><span style='color:red'>";
 					            			$profile_pic = $mno1; 
-					            			// echo "  Following $profile_pic "; 
-
-
-
+					            			// echo "  Following $profile_pic ";  
 					            			$followedMno = $this->member_profile_pic_query( array('mppno'=>$profile_pic  , 'type'=>'get-specific-mno-by-mppno' ) ); 
 					            			// echo "member profile pic";
 					            			// print_r($memberFollowedMno);   
-					            			// echo "</span></pre>";
-
-					            			// $mno1 = $memberFollowedMno;  
-
-					            			//$mno1          //= $this->member_profile_pic_query( array('mppno'=>$mno1  , 'type'=>'get-specific-mno-by-mppno' ) );  // owner of the modal
+					            			// echo "</span></pre>"; 
+					            			// $mno1 = $memberFollowedMno;   
+					            			//$mno1          //= $this->member_profile_pic_query( array('mppno'=>$mno1  , 'type'=>'get-specific-mno-by-mppno' ) );  // owner of the modal 
 					            			$profile_pic    = $mno1;   // $this ->member_profile_pic_query( array('mno'=>$mno1  , 'type'=>'get-latest-mppno' ) );    
 					            			$mno1           = $this->member_profile_pic_query( array('mppno'=>$mno1  , 'type'=>'get-specific-mno-by-mppno' ) );  // owner of the modal
 					            			$username       = $this->get_username_by_mno( $mno );
@@ -9010,8 +9018,9 @@ use App\User;
 											$memFsInfo      = $this->get_user_full_fs_info( $mno1 );   
  											$owner_fullname =  $memFsInfo['fullName1'];    
 
-					            		break;  
-					            	case 'Commented' || $isCommented > -1:   
+					           		} else if ($action == 'Commented' || $action == $isCommented > 0) {  
+ 
+					            			// echo "Action is commented <br>";
 					            			// $profile_pic = $mno1;
 					            			// $mno1 = $mno;  
 					            	 		// $profile_pic  = $mno1;   
@@ -9035,11 +9044,10 @@ use App\User;
 					            		    $memFsInfo      = $this->get_user_full_fs_info( $mno1 );
  												$owner_fullname       =  $memFsInfo['fullName1'];   
 												$owner_username       =  $this->get_username_by_mno( $mno1 );
+ 
+ 									} else   {  
 
-					            		 
-
-					            		break;
-					            	default:  
+					            			echo "default <br>";
 					            			$profile_pic    = $mno1;
 					            		    $mno1           = $this->member_profile_pic_query( array('mppno'=>$mno1  , 'type'=>'get-specific-mno-by-mppno' ) );  // owner of the modal 
 					            		    $memFsInfo      = $this->get_user_full_fs_info( $mno1 );
@@ -9049,10 +9057,10 @@ use App\User;
 					            			$memFsInfo      = $this->get_user_full_fs_info( $mno );
 												$participant_username = $this->get_username_by_mno( $mno ); 
 												$participant_fullname =  $memFsInfo['fullName'];   
- 
 					            		break;
-					            }   
-	      					break;
+					            	}    
+
+
 	      			endswitch;
  
       				// echo  " owner of the modal $mno1 <br> "; 
@@ -9254,10 +9262,15 @@ use App\User;
 
 
 
+
+
+
 			    	// Add space in the action
+
+			    	// echo " action = $action <br>";
 			    	$action    = str_replace('updated', ' updated ', $action);
 			    	$action    = str_replace('commented', ' commented ', $action);
-			    	$action = str_replace('following', ' following ', $action); 
+			    	$action    = str_replace('following', ' following ', $action); 
 
 
  
