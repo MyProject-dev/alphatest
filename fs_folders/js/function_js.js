@@ -5114,141 +5114,160 @@ function profile_change_tab ( tab , textid , underlineid , loaderid , mno1 , pag
 
     // initialized variable
 
-    var orderby    = '';
-    var like       = '';
-    var enter      = true;
-    var sub        = '';
-    var categories = '';
 
-    // initialized keyCode  
 
-    var enter   = true;
-    e = e || window.event;
-    var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
-    if (charCode && String.fromCharCode(charCode) == ":") {
-    }
 
-    // set 
 
-    $('.profile-texttab span').css({'color':'grey'});
-    $('.profile-underline div' ).css({'visibility':'hidden'});
-    $('.profile-loader div img' ).css({'visibility':'hidden'});
-    $(textid).css('color','#b21426');
-    $(underlineid).css({'visibility':'visible'});
-    // $(loaderid).css('visibility','visible');  
 
-    // validate keyCodes  
 
-    if ( tab == 'member-subdiv-search'  ) {
+        var orderby    = '';
+        var like       = '';
+        var enter      = true;
+        var sub        = '';
+        var categories = '';
 
-        // check if enter key hit
+        // initialized keyCode  
 
-        if ( e.keyCode == 13 ) {
-            enter = true;
-        }
-        else{
-            enter = false;
+        var enter   = true;
+        e = e || window.event;
+        var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
+        if (charCode && String.fromCharCode(charCode) == ":") {
         }
 
-    }
+        // set 
 
-    // alert(enter);
+        $('.profile-texttab span').css({'color':'grey'});
+        $('.profile-underline div' ).css({'visibility':'hidden'});
+        $('.profile-loader div img' ).css({'visibility':'hidden'});
+        $(textid).css('color','#b21426');
+        $(underlineid).css({'visibility':'visible'});
+        // $(loaderid).css('visibility','visible');  
 
-    if ( enter == true ) {
+        // validate keyCodes  
 
-        if ( tab == 'member-subdiv-dropdown' ) {
+        if ( tab == 'member-subdiv-search'  ) {
 
-            // get the tab value of the dropdown   
+            // check if enter key hit
 
-            var orderby = $(textid).val();
-
-            // assign back the member tab because the value of the subtab already retrieved 
-
-            tab   = 'member';
-
-            // sub design 
-
-            sub = 'dropdown';
-        }
-        else if ( tab == 'member-subdiv-search'  ) {
-
-            // get the tab value of the dropdown   
-
-            var like = $(textid).val();
-
-            // assign back the member tab because the value of the subtab already retrieved 
-
-            tab   = 'member';
-
-            // sub design 
-
-            sub = 'search';
-        }
-        else{
-
-            // if not subtab was clicked then the subtabs will change according to its tab
-            //  show sub tabs  
-
-            $('#profile-member-sub-tabs').css('display','none');
-            $('#profile-comment-sub-tabs').css('display','none');
-            $('#profile-blog-sub-tabs').css('display','none');
-            $('#profile-look-sub-tabs').css('display','none');
-
-            switch ( tab ) {
-                case 'comments':
-                    $('#profile-comment-sub-tabs').css('display','block');
-                    break;
-                case 'member':
-                    $('#profile-member-sub-tabs').css('display','block');
-                    break;
-                case 'blogs':
-                    $('#profile-blog-sub-tabs').css('display','block');
-                    break;
-                case 'looks':
-                    $('#profile-look-sub-tabs').css('display','block');
-                    break;
-                default:
-                    break;
+            if ( e.keyCode == 13 ) {
+                enter = true;
             }
+            else{
+                enter = false;
+            }
+
+        }
+
+        // alert(enter);
+
+        if ( enter == true ) {
+
+            if ( tab == 'member-subdiv-dropdown' ) {
+
+                // get the tab value of the dropdown   
+
+                var orderby = $(textid).val();
+
+                // assign back the member tab because the value of the subtab already retrieved 
+
+                tab   = 'member';
+
+                // sub design 
+
+                sub = 'dropdown';
+            }
+            else if ( tab == 'member-subdiv-search'  ) {
+
+                // get the tab value of the dropdown   
+
+                var like = $(textid).val();
+
+                // assign back the member tab because the value of the subtab already retrieved 
+
+                tab   = 'member';
+
+                // sub design 
+
+                sub = 'search';
+            }
+            else{
+
+                // if not subtab was clicked then the subtabs will change according to its tab
+                //  show sub tabs  
+
+                $('#profile-member-sub-tabs').css('display','none');
+                $('#profile-comment-sub-tabs').css('display','none');
+                $('#profile-blog-sub-tabs').css('display','none');
+                $('#profile-look-sub-tabs').css('display','none');
+
+                switch ( tab ) {
+                    case 'comments':
+                        $('#profile-comment-sub-tabs').css('display','block');
+                        break;
+                    case 'member':
+                        $('#profile-member-sub-tabs').css('display','block');
+                        break;
+                    case 'blogs':
+                        $('#profile-blog-sub-tabs').css('display','block');
+                        break;
+                    case 'looks':
+                        $('#profile-look-sub-tabs').css('display','block');
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+
+            // Save data to sessionStorage
+            sessionStorage.setItem('prev_color', 'rgb(178, 20, 38)');
+
+
+
+
+
+            // get sub categories  
+
+            category = $(sub_tab).val();
+            // alert( category ); 
+
+            // alert( 'tab = '+tab+' orderby = '+orderby ); 
+            // generate the content  
+
+            var data = 'action=profile-tabs&pagenum=1&pagenumgroup=1&pagenumgroup_limit=816&tab='+tab+'&mno1=+'+mno1+'&page='+page+'&orderby='+orderby+'&like='+like+'&category='+category;
+
+            // ajax_send_data( 
+            //  'fs-general-ajax-response' , 
+            //  'fs_folders/modals/general_modals/gen.modals.func.php?'+data 
+            // );     
+
+
+            // var tileOut = setTimeout(function(){   
+
+            //     alert('interval started');
+
+                    append_home(
+                        'popup-response',
+                        'fs_folders/modals/general_modals/gen.modals.func.php?'+data,
+                        '#'+loaderid,
+                        '',
+                        'profile-tabs',
+                        type
+                    );     
+ 
+
+                // action
+                // tab 
+                // grey all  
+                // red id  
+
+            // }, 3000);
+
+             
+            // clearTimeout(tileOut);
         }
 
 
-        // Save data to sessionStorage
-        sessionStorage.setItem('prev_color', 'rgb(178, 20, 38)');
-
-
-
-
-
-        // get sub categories  
-
-        category = $(sub_tab).val();
-        // alert( category ); 
-
-        // alert( 'tab = '+tab+' orderby = '+orderby ); 
-        // generate the content  
-
-        var data = 'action=profile-tabs&pagenum=1&pagenumgroup=1&pagenumgroup_limit=816&tab='+tab+'&mno1=+'+mno1+'&page='+page+'&orderby='+orderby+'&like='+like+'&category='+category;
-
-        // ajax_send_data( 
-        //  'fs-general-ajax-response' , 
-        //  'fs_folders/modals/general_modals/gen.modals.func.php?'+data 
-        // );     
-
-        append_home(
-            'popup-response',
-            'fs_folders/modals/general_modals/gen.modals.func.php?'+data,
-            '#'+loaderid,
-            '',
-            'profile-tabs',
-            type
-        );
-
-        // action
-        // tab 
-        // grey all  
-        // red id  
-    }
 
 }
 function profile_change_content ( ) {
@@ -5904,6 +5923,12 @@ function article_nex_prev ( type , stat , response , loader , e , method , table
 
 
 
+
+
+        // alert(selected);
+
+
+        // return false;
        //return false;
 
         // alert("this is the best");
@@ -5998,8 +6023,8 @@ function article_nex_prev ( type , stat , response , loader , e , method , table
                 );
             */
 
-
-            alert('method = ' + method);
+            // alert('type is ' + selected);
+ 
             $.post("fs_folders/modals/general_modals/gen.modals.func.php", {
                 action: 'postarticle',
                 process: 'insert',
@@ -6013,17 +6038,17 @@ function article_nex_prev ( type , stat , response , loader , e , method , table
                 tags: tags,
                 url: url,
                 title: title
-            }, function(result) {
-                //$('#upload-modal').submit();
-                $('#upload-article').submit();
-                //console.log('done..')
-            });
+            }, function(result) {  
+                if ( selected == 'image' ) {  
+                    // alert('type is image about to submit this image');
+                      $('#upload-article').submit();
+                } 
+                else{ 
+                    // alert('type is image about to reload this page');
+                    Go( 'photo.resize.php?type=upload-article-and-resize' );
+                }  
+            }); 
 
-
-
-
-
- 
             /*
                 var type = {}; 
                 type['selected'] = selected;

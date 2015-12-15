@@ -33,10 +33,8 @@
 	switch ( $type ) {
 		case 'profile-pic':
 				echo " profile pic <br>";  
-				$mppno = $mc ->member_profile_pic_change( $mno ); 
-
-				// $mc->resize_profile_pic_thumbnail_and_profile( $mno , $mppno );     
-
+				$mppno = $mc ->member_profile_pic_change( $mno );  
+				// $mc->resize_profile_pic_thumbnail_and_profile( $mno , $mppno );      
 				$response = $mc->resize_image( 
 				  	array( 
 					    'id' =>$table_id,
@@ -46,14 +44,12 @@
 					    'width1' => 420,
 					    'width2' => 170 
 				  	)  
-				);    
-
+				);     
 				// $mc->set_notification_info( 'fs_members' , $mno , null  ,  null , 0 , 'change-profile' );     
 				// $mc->set_session_notification( $mno , 'fs_member_profile_pic' , $mppno , 'updated' , null , null , 'change-profile' , 0 );   
 				$mc->set_notification_info( 'fs_member_profile_pic' ,  $mppno , null , null , null , 0 ,  'change-profile' );  
 				//$mc->go( $mc->get_username_by_mno( $mno ) );
-            $mc->go( 'home' );
-
+            	$mc->go( 'home' ); 
 			break;
         case 'profile-pic-welcome':
                 echo " profile pic <br>";
@@ -95,8 +91,7 @@
 				$mc->resize_posted_look( $plno , $mc->look_folder_cropped  );    
 
 				$mc->go("post-look-label?type=cropped"); 
-				echo " posted looks <br> ";  
-
+				echo " posted looks <br> ";   
 			break;   
 		case 'upload-article-and-resize':
 			 
@@ -223,9 +218,12 @@
                 //$mc->go( 'article/' . $artno );
 
 
-                $lastpagevisited = 'http://dev.fashionsponge.com/';
-	 		     $mc->go( $lastpagevisited );  	  
-
+	 			if(isLocal()) {
+	 				$lastpagevisited = 'http://dev.fashionsponge.com/';	
+	 			} else {
+	 				$lastpagevisited = 'http://localhost/fs/new_fs/alphatest/';
+	 			} 
+	 		    $mc->go( $lastpagevisited );  	 
 		 	break; 
 		case 'upload-look-and-resize': 
 
@@ -294,8 +292,7 @@
 					$mc-> message ( 'image upload ', $response , ' ' );   
  
 					// $mc->go( "post-look-crop-rotate?id=$table_id" ); 
-					$mc->go("post-look-crop-rotate"); 
-
+					$mc->go("post-look-crop-rotate");  
 			break; 
 		default:
 			echo " default <br> ";
