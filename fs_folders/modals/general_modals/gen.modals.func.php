@@ -4057,8 +4057,7 @@ echo " </pre> </h3>";
 									echo " </div>"; 
 			 			  		break;   
 			 			  	case 'insert':
-
-
+ 
                                     echo "action " . $action . '<br>';
 			 			  			$tags = (!empty($_GET['tags'])) ? $_GET['tags'] : "";
 
@@ -4074,6 +4073,7 @@ echo " </pre> </h3>";
 										$desc        = $_POST['desc'];
 										$keyword     = $_POST['keyword'];
  										$url         = $_POST['url'];
+
 
  										/*
 										if ( $selected == 'video') {
@@ -4141,8 +4141,9 @@ echo " </pre> </h3>";
                                             echo "topic exist topic = $topic category = $category <br>";
                                         }
 
-										$source_item = ( !empty($_SESSION['source_item']) ) ? $_SESSION['source_item'] : $url ;  
-										$type        = ( !empty($_GET['type']) ) ? $_GET['type'] : 'image' ;  
+										$source_item = ( !empty($_SESSION['source_item']) ) ? $_SESSION['source_item'] : $url ;   
+										$type        = ( !empty($_GET['type']) ) ? $_GET['type'] : '' ;    
+										$type        = (empty($type))? $_POST['type'] : $type; 
 										$table_name  = 'fs_postedarticles';
 
  
@@ -4259,9 +4260,7 @@ echo " </pre> </h3>";
 			 								} else {
 			 										echo "failed to update the total article of the poster <br>";
 			 								}
-			 								//echo " end script here t article $tarticle";
-
-
+			 								//echo " end script here t article $tarticle"; 
 			 			  		break;
 			 			  	case 'suggested-keyword':
 
@@ -5277,14 +5276,24 @@ echo " </pre> </h3>";
                         }
 
        				// Post to activity wall 	
-                       // $mc->update_or_add_my_activity_wall_post( $mno , $table_id , 'Liked' , $table_name , $mc->date_time );   
+                        $mc->update_or_add_my_activity_wall_post( $mno , $table_id , 'Liked' , $table_name , $mc->date_time );   
 
 					// Set notification	 	 
                     if($table_name == 'postedlooks' || $table_name == 'fs_postedarticles') { 
 
- 						echo "add notification here";
+ 						// echo "add notification here";
                    		$mc->set_session_notification( $mno , $table_name , $table_id , 'likes' );    
                    		$mc->send_notification_to_follower($_SESSION['mno']); 
+  
+						# set notification  
+						    $mc->set_session_notification( $mno , $table_name , $table_id , 'favorited'  );
+							// $mc->set_session_notification( $mno , $table_name , $table_id , 'favorited' );    
+							// $mc->set_notification_info( $table_name , $table_id ,"<span class='fs-text-red' >favorited</span>"  , $mno2 , 0 );
+ 
+	  					// post to activity wall   
+	  						// $b = $mc->update_or_add_my_activity_wall_post( $mno , $table_id , 'Favorited' , $table_name , $mc->date_time );    
+	  						// $mc->message(" posting to feed ", $b , "" );
+ 
                 	} else {  
 
 
@@ -6086,24 +6095,24 @@ echo " </pre> </h3>";
 
 
 
-					echo " 
+					// echo " 
 
-						mno = $mno <br>
-						table_name = $table_name <br>
-						table_id = $table_id <br>
-												mno1 = $mno1 <br>
-						comment = $comment <br>
-						modal_type = $modal_type <br>
-						title = $title <br>
-						steps = $steps <br> 
+					// 	mno = $mno <br>
+					// 	table_name = $table_name <br>
+					// 	table_id = $table_id <br>
+					// 							mno1 = $mno1 <br>
+					// 	comment = $comment <br>
+					// 	modal_type = $modal_type <br>
+					// 	title = $title <br>
+					// 	steps = $steps <br> 
 
-					";
+					// ";
 
 
 
 	 				switch ($steps) {
 	 					case 'design': 
-	 					echo "inside design<br>";
+	 						// echo "inside design<br>";
 	 								// echo " This is the design <br>";
 	 							// $image = $mc->modal( 
 	 							//  	array(
@@ -6125,6 +6134,7 @@ echo " </pre> </h3>";
 								); 
 
 	 							echo " 
+	 								<br> 
 	 								<center>
 			 							<div id='drip-modal-wrapper' >
 											<div id='drip-modal-container' >    
