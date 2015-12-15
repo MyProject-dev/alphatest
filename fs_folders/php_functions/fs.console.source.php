@@ -8969,9 +8969,24 @@ use App\User;
 					            $userActivity1 =  'Not Set';    
 					            $isFollowing   = 0; 
 					            $isCommented   = 0; 
-					            //if commented and following action
+
+					            //if commented and following action 
+
 					            $isFollowing = strpos($action, 'Following'); 
 					            $isCommented = strpos($action, 'Commented');   
+ 
+							    // echo "
+							    // isFollowing = $isFollowing <br>
+							    // isCommented = $isCommented <br>
+							    // "; 
+					            // Action converstion 
+					            // Francis Suarez commented and following on Regine Yacapin profile picture. 
+					            //@todo update the description at this area
+					            if($isCommented == 0) {
+					            	$isFollowing = -1;
+					            	$isCommented = 1;
+					            } 
+ 
    
 					            // echo " following " .  $isFollowing; 
 					           // echo " action  $action<br>";
@@ -9000,7 +9015,7 @@ use App\User;
 
 					            	} else if ($action == 'Following' || $action == $isFollowing > 0) {   
  											
- 											// echo " following ";
+ 											// echo " action is following ";
 					            			$userActivity1 =  'Following';   
 					            			// echo "<pre><span style='color:red'>";
 					            			$profile_pic = $mno1; 
@@ -9016,11 +9031,18 @@ use App\User;
 					            			$username       = $this->get_username_by_mno( $mno );
 											$username1      = $this->get_username_by_mno( $mno1 );
 											$memFsInfo      = $this->get_user_full_fs_info( $mno1 );   
- 											$owner_fullname =  $memFsInfo['fullName1'];    
+ 											$owner_fullname =  $memFsInfo['fullName1'];     
+
+ 											// echo "<pre>";
+ 											// print_r($memFsInfo);
+ 											// echo "</pre>"; 
+ 											// echo "Owner full name  : $owner_fullname <br>";
+
+ 
 
 					           		} else if ($action == 'Commented' || $action == $isCommented > 0) {  
  
-					            			// echo "Action is commented <br>";
+					            			echo "Action is commented <br>";
 					            			// $profile_pic = $mno1;
 					            			// $mno1 = $mno;  
 					            	 		// $profile_pic  = $mno1;   
@@ -9047,7 +9069,7 @@ use App\User;
  
  									} else   {  
 
-					            			echo "default <br>";
+					            			// echo "default <br>";
 					            			$profile_pic    = $mno1;
 					            		    $mno1           = $this->member_profile_pic_query( array('mppno'=>$mno1  , 'type'=>'get-specific-mno-by-mppno' ) );  // owner of the modal 
 					            		    $memFsInfo      = $this->get_user_full_fs_info( $mno1 );
@@ -9058,8 +9080,7 @@ use App\User;
 												$participant_username = $this->get_username_by_mno( $mno ); 
 												$participant_fullname =  $memFsInfo['fullName'];   
 					            		break;
-					            	}    
-
+					            	}     
 
 	      			endswitch;
  
@@ -16729,7 +16750,8 @@ use App\User;
 
 								        	<?php if($id == $_SESSION['mno'] and $table_name == 'fs_members'):?>   
 									          	<li> 
-									          		<a href="<?php echo $username ?>">
+									          		<!-- <a href="<?php echo $username ?>"> -->
+									          		<a href="account?at=1#accountsetting-wrapper-container-table-body-right-profile-table-social-accounts">
 									          			<div   id="new-look-modals-share-icon-1" class='share_look_modals<?php echo $id; ?>' >    
 										          		 	UPDATE PICTURE
 														</div> 
@@ -19264,7 +19286,7 @@ use App\User;
 				public function get_mnobyusername( $username ){ 
 					$username = preg_replace('/\s\s+/', ' ', $username); 
 
-					  echo " this is the username after preg $username <br> ";
+					  // echo " this is the username after preg $username <br> ";
 
 
 					$result =  select_v3( 'fs_members' , '*', " identity_username = '$username'"  );
@@ -19833,7 +19855,7 @@ use App\User;
 											} 
 											$this->update_fs_table_auto( $table_id , array('tview'=>$tview) , $table_name );  
 
-											echo " $table_id , array('tview'=>$tview) , $table_name "; 
+											// echo " $table_id , array('tview'=>$tview) , $table_name "; 
 								    } 
 				    			break; 
 				    		case 'add-view':
@@ -19875,7 +19897,7 @@ use App\User;
 											// update views 
 
 											$this->update_fs_table_auto( $table_id , array('tview'=>$tview) , $table_name );   
-											echo " $table_id , array('tview'=>$tview) , $table_name ";  
+											// echo " $table_id , array('tview'=>$tview) , $table_name ";  
 
 				    			break;
 				    		default: 
