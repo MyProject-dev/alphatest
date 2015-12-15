@@ -1,12 +1,6 @@
-Add version of email when sending 
-
-
+Add version of email when sending  
 Later on
-Fix the scraping lookbook
-
-
-
-
+Fix the scraping lookbook 
 Changes:
 change date to timestam fs_drip
 add visible to fs_tag_topic
@@ -15,5 +9,45 @@ id
 name
 created_at
 updated_at
+ 
+Update - 
+   - delete activity in the activity table   
+ 
+following - 
+   - delete activity in the activity table 
+ 
+comment - 
+   - no delete
+ 
+[Member modal fix] 
+ 
+	follow modal member  
+	  
+	  - if viewing owner of the modal 
+	     + dropdown "UPDATE PICTURE"
+	  - else viewing other user
+	     + flag 
+	     + hide this post 
+	     + following
+
+	comment modal member
+	  
+	    - if viewing owner of the modal 
+	      + dropdown "UPDATE PICTURE"
+	    - else viewing other user
+	      + flag 
+	      + hide this post 
+	      + following
 
 
+	update modal member
+
+	    - if viewing owner of the modal 
+	      + dropdown "UPDATE PICTURE"
+	    - else viewing other user
+	      + flag 
+	      + hide this post 
+	      + following 
+
+ 1022 - edsan barbecho
+ 1021 - Jesus erwin suarez mppno = 1098

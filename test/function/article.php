@@ -17,6 +17,7 @@ $db->connect();
 $mno = 1021;
 $article = new Article( $db, $mno);
 $category = 'beauty';
+$artno = 68;
 
 
 
@@ -74,7 +75,6 @@ foreach($tableNameArray as $key=>$value) {
 //$article->destroy(48);
 $db->insert('fs_postedarticles', array('mno'=> 1021, 'title'=>'title', 'description'=>'hello', 'date'=>'2015-10-29 00:00:00'));
 
-
-
-
-
+echo "total like = " . $article->totalLike($artno) . "\n<br>";
+echo "total dripped = " . $article->totalDripped($artno) . "\n<br>";
+echo "Total favorite = " . $article->totalFavorite($artno) . "\n<br>";

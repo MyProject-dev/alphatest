@@ -14,7 +14,7 @@ $db = new Database();
 $db->connect();
 $mno = 1021;
 $look = new Look($mno, $db);
-$plno = 222392;
+$plno = 222537;
 $style = 'chic';
 
 //echo "artno = "  . $article->latestSharedArticle() . '<br>';
@@ -37,4 +37,8 @@ if($look->isAllowPost($mno)) {
 //}
  // $look->destroy(222392);
 
-$db->insert('postedlooks', array('mno'=> 1021, 'lookName'=>'title', 'lookAbout'=>'hello', 'pludate'=>'2015-10-29 00:00:00', 'active'=>1));
+//$db->insert('postedlooks', array('mno'=> 1021, 'lookName'=>'title', 'lookAbout'=>'hello', 'pludate'=>'2015-10-29 00:00:00', 'active'=>1));
+
+echo "total like = " . $look->totalLike($plno) . "\n<br>";
+echo "total dripped = " . $look->totalDripped($plno) . "\n<br>";
+echo "Total favorite = " . $look->totalFavorite($plno) . "\n<br>";
