@@ -10972,7 +10972,7 @@ use App\User;
 							 					</div> 
 								 					<div title='click to stop notification.' style="<?php echo $style; ?>" onclick="send_flag( 'stop notification' , '<?php echo $table_id; ?>', '<?php echo $table_name; ?>' , '', 'flag_notification_save')" >.</div>  
 								 					<?php if($notification_total > 1 ) { ?> 
-								 						<a><div style="color: red !important;margin-top: 47px;position: relative;text-align: right;padding-right: 12px; "><?php echo $notification_total-1; ?> more.. </div></a>
+								 						<a><div style="color: red !important;margin-top: 47px;position: relative;text-align: right;padding-right: 12px; "  onclick="alert('Comming soon!')" ><?php echo $notification_total-1; ?> more.. </div></a>
 								 					<?php } ?> 
 							 				</td>
 							 		</table> 
