@@ -202,7 +202,7 @@ $brandContent1_len = (count($brandContent1) < 12) ? count($brandContent1)  : 12;
                                                             <span  style="margin: 5px; border:none" >Fashionsponge.com/</span>
                                                         </td>
                                                         <td>
-                                                            <input autocomplete=off onkeyUp="welcome_about('username-error', 'uname', 'checking-username')" type="text" id="uname" placeholder="Username"   value="<?php echo $username; ?>" style="width: 100%; padding:1%;border-radius: 5px;border: 1px solid #CACACA;" />
+                                                            <input autocomplete=off onkeyUp="welcome_about('username-error', 'uname', 'checking-username')" type="text" id="uname" placeholder="Username"   value="" style="width: 100%; padding:1%;border-radius: 5px;border: 1px solid #CACACA;" />
 
                                                             <div id="username-error" class='error-container' >
                                                             </div> 
@@ -297,9 +297,8 @@ $brandContent1_len = (count($brandContent1) < 12) ? count($brandContent1)  : 12;
                                                             </div>
                                                         </td>
                                                         <td>
-                                                            <div style="padding: 10px; " class='welcome-profile-upload-container'  >
-                                                                    image
-
+                                                            <div style="padding: 10px; margin-left:23px;" class='welcome-profile-upload-container'  > 
+                                                              
                                                                 <!--
                                                                     <img
                                                                         id="img_prev"
@@ -461,7 +460,7 @@ $brandContent1_len = (count($brandContent1) < 12) ? count($brandContent1)  : 12;
                             </div>
                             <div class="container">
                                 <center>
-                                    welcome_select_brand_tab
+                                   
                                 </center>
                             </div>
                         </div>
