@@ -4609,6 +4609,12 @@ function validate_login ( type , action , e ) {
                 );
                 break;
             case 'signup':
+
+
+
+
+                var loader = 'signup-loader img';
+ 
                 // alert('sign up');    
                 var c = $('#signup-code').val();
                 var f = $('#signup-fname').val();
@@ -4617,6 +4623,9 @@ function validate_login ( type , action , e ) {
                 var ua = $('#signup-uanswer').val();
                 var ra = $('#signup-ranswer').val();
 
+
+                /*
+
                 ajax_send_data(
                     'signup-error-or-success',
                     // 'fs-general-ajax-response', 
@@ -4624,6 +4633,112 @@ function validate_login ( type , action , e ) {
                     'signup-loader img',
                     'signup-form'
                 );
+
+                */
+
+    
+                  //alert('about to drip now step is function is ');
+
+                $('#'+loader).css('visibility','visible');
+
+                $.post( "fs_folders/modals/login/validate-login.php", { 
+                    fname:f,
+                    mail:e,
+                    pass:p,
+                    uanswer:ua,
+                    ranswer:ra,
+                    type: 'signup',
+                    signup_code: c
+                })
+                .done(function( data ) { 
+ 
+
+                    var m =data.split("<mno>");
+                    var mno = parseInt(m[1]);
+                    var fn =data.split("<fname>");
+                    var e =data.split("<email>");
+                    var p =data.split("<pass>");
+                    var sc =data.split("<signupcode>");
+                    var q =data.split("<question>"); 
+                    var error = '';
+ 
+                    if ( fn[1] == 'fname-error' ) {
+                        // alert('change red border fn'); 
+                        $('#signup-fname').css('border','1px solid #b32727');
+                        error = 1;
+                    }
+                    else{
+
+                        $('#signup-fname').css('border','1px solid grey');
+                    }
+
+                    if ( e[1] == 'email-error' ) {
+                        // alert('change red border email')
+                        $('#signup-email').css('border','1px solid #b32727');
+                        error = 1;
+                    }
+                    else{
+
+                        $('#signup-email').css('border','1px solid grey');
+                    }
+
+                    if ( p[1] == 'pass-error' ) {
+                        $('#signup-pass').css('border','1px solid #b32727');
+                        error = 1;
+                        // alert('change red border pass') 
+                    }
+                    else{
+
+                        $('#signup-pass').css('border','1px solid grey');
+                    }
+
+                    if ( sc[1] == 'signupcode-error' ) {
+                        $('#signup-code').css('border','1px solid #b32727');
+                        error = 1;
+                        // alert('change red border pass') 
+                    }
+                    else{
+
+                        $('#signup-code').css('border','1px solid grey');
+                    }
+
+                    if ( q[1] == 'question-error' ) {
+                        $('#signup-uanswer').css('border','1px solid #b32727');
+                        error = 1;
+                        // alert('question error') 
+                    }
+                    else{
+
+                        $('#signup-uanswer').css('border','1px solid grey');
+                    }
+
+                    // shake form when error found
+
+                    if ( error == 1 ) {
+                        shake( );
+                    }
+                    else{
+
+                        // Go('login-authentication.php'); 
+                    }
+
+
+                    $('#'+loader).css('visibility','hidden');
+
+                   
+                    document.getElementById('signup-error-or-success').innerHTML = data;
+
+                    if ( mno > 0 ) {
+                        Go('login-authentication.php?url=home');
+                    } 
+
+                });
+
+
+
+
+
+
 
                 break;
             case 'rcpass':
