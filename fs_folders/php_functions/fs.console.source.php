@@ -7632,10 +7632,10 @@ use App\User;
 			      									<div id="new-look-body-comment-container" >    
 		      											<?php if( $pltcomment > 2 ): ?>
 				      												<div style="padding-top:5px; padding-left:2px;"> 
-			      													<a href="lookdetails?id=<?php echo $plno; ?>#comment_content" style='text-decoration:none' > 
+			      													<a href="lookdetails?id=<?php echo $plno; ?>#details-comment-view" style='text-decoration:none' > 
 				      													<div style="cursor:pointer;color:#284372" >  
-				      														<!-- <a href="lookdetails?id=<?php echo $plno; ?>#comment_content">  -->
-				      															 <a href="lookdetails?id=<?php echo $plno; ?>#comment_content" > View all <span><?php echo "$pltcomment"; ?></span> comments</a>	
+				      														<!-- <a href="lookdetails?id=<?php echo $plno; ?>#details-comment-view">  -->
+				      															 <a href="lookdetails?id=<?php echo $plno; ?>#details-comment-view" > View all <span><?php echo "$pltcomment"; ?></span> comments</a>	
 				      														<!-- </a>  -->
 					      													<!--
 					      														# this is to redirect profile page  
@@ -8682,7 +8682,7 @@ use App\User;
 					      											<?php if( $tcomment > 2): ?>
 					      											<tr> 
 					      												<td style="padding-bottom:5px;padding-top:0px;padding-left:2px;"> 
-					      													<a href="detail?id=<?php echo $plno; ?>#comment_content" style='text-decoration:none' > 
+					      													<a href="detail?id=<?php echo $plno; ?>#details-comment-view" style='text-decoration:none' > 
 						      													<div style="cursor:pointer;color:#284372;font-family:arial; font-size:12px;" > 
 						      														<!-- <a href="<?php echo $user['username']; ?>-comments-article-123123" > -->
 							      														View all <span style="font-family: 'Avenir LT Std 85 Heavy ' !impotant" ><?php echo "$tcomment"; ?></span> comments	
