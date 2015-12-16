@@ -321,6 +321,9 @@ $article = new \App\Article($db, $this->mno);
         </ul>
         <div class="clear" >
         </div>
+    </div>  
+
+    <div style="border:1px solid none; background-color:none; color:black; height:10px;" onmouseover="hide_show_hide('#header-dropdown-look', '')"> 
     </div>
 
  </div>
