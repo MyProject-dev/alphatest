@@ -30,6 +30,9 @@
     $userObject  = new User($mc->mno, $db);
     $topicSelected = new TopicSelected($db, $mc->mno);
 
+
+
+
     $fname        = ucfirst($_GET['fname']);
     $lname        = ucfirst($_GET['lname']);
     $uname        = strtolower($_GET['uname']);
@@ -40,6 +43,25 @@
     $about        = $_GET['about'];
     $brand        = $_GET['brand'];
     $topic        = $_GET['topic']; 
+
+
+ 
+    $fname        = (empty($fname)) ? $_REQUEST['fname'] : $fname; 
+    $lname        = (empty($lname)) ? $_REQUEST['lname'] : $lname; 
+    $uname        = (empty($uname)) ? $_REQUEST['uname'] : $uname; 
+    $bname        = (empty($bname)) ? $_REQUEST['bname'] : $bname; 
+    $burl         = (empty($burl)) ? $_REQUEST['burl'] : $burl; 
+    $gender       = (empty($gender)) ? $_REQUEST['gender'] : $gender; 
+    $plus_blogger = (empty($plus_blogger)) ? $_REQUEST['plus_blogger'] : $plus_blogger; 
+    $about        = (empty($about)) ? $_REQUEST['about'] : $about; 
+    $brand        = (empty($brand)) ? $_REQUEST['brand'] : $brand; 
+    $topic        = (empty($topic)) ? $_REQUEST['topic'] : $topic; 
+
+
+
+ 
+
+
     echo "</div>";
 ?>
 
@@ -56,7 +78,7 @@
         gender = $gender <br>
         plus_blogger = $plus_blogger <br> 
     ";
-
+ 
 
     /**
     * Update the user information 
