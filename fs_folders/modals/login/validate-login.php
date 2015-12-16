@@ -8,6 +8,13 @@
 	$mc   = new myclass();  
 	$type = ( !empty( $_GET['type'] ) ) ? $_GET['type'] : null ;
 	$sc   = ( !empty( $_GET['sc'] ) ) ? $_GET['sc'] : null ;
+
+
+
+	$type          = ( empty($type) )               ? $_REQUEST['type']   : $type; 
+	$sc             = ( empty($sc) )               ? $_REQUEST['sc']   : $sc; 
+
+
 	$status = false;
  	$login_error = false;
 
@@ -42,7 +49,6 @@
 				else {
 					$login_error = "Ohhps! username and password combination is not correct !";
 				}
-
 			break; 
 		case 'signup':
 
@@ -52,7 +58,14 @@
 			 	$pass     	  = $_GET['pass'];   
 			 	$uanswer  	  = $_GET['uanswer'];   
 			 	$ranswer  	  = $_GET['ranswer'];   
-			 	$signupcode  = $_GET['signup_code'];   
+			 	$signupcode   = $_GET['signup_code'];   
+ 
+			 	$fname             = ( empty($fname) )               ? $_REQUEST['fname']   : $sc; 
+			 	$mail             = ( empty($mail) )               ? $_REQUEST['mail']   : $sc; 
+			 	$pass             = ( empty($pass) )               ? $_REQUEST['pass']   : $sc; 
+			 	$uanswer             = ( empty($uanswer) )               ? $_REQUEST['uanswer']   : $sc; 
+			 	$ranswer             = ( empty($ranswer) )               ? $_REQUEST['ranswer']   : $sc; 
+			 	$signupcode             = ( empty($signupcode) )               ? $_REQUEST['signup_code']   : $sc; 
 
 
 			 	$login_error = $mc->check_signup_fields( $fname , $mail , $pass , $uanswer ,  $ranswer , $signupcode , $login_error  ); 
