@@ -179,6 +179,9 @@
 <!-- profile avatar and circle options --> 
 	<div id="profile-body-content-info-left-1" style="border:1px solid none"   >
 		<div id="profile-body-content-info-left-pic" >
-			<?php  if ( file_exists("$mc->ppic_profile/$mppno.jpg") ) { echo "<img src='$mc->ppic_profile/$mppno.jpg' >"; }else{ $avatar = $mc->get_male_female_avatar( $mno1 );  echo "<img src='$mc->ppic_profile/$avatar' />"; }   ?>
+
+			<a href="account?at=1#accountsetting-wrapper-container-table-body-right-profile-table-social-accounts">
+				<?php  if ( file_exists("$mc->ppic_profile/$mppno.jpg") ) { echo "<img src='$mc->ppic_profile/$mppno.jpg' >"; }else{ $avatar = $mc->get_male_female_avatar( $mno1 );  echo "<img src='$mc->ppic_profile/$avatar' />"; }   ?>
+			</a>
 		</div>    
 	</div>
