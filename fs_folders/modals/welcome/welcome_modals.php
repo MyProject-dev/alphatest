@@ -29,9 +29,23 @@
 	echo "</div>"; 
 	switch ( $tab ) {
 		case 'checking-username' :
-                $bool = select_V3('fs_members', '*', " identity_username = '$typed' AND NOT mno = $mc->mno ");
+
+				if( strpos($typed, ' ') > -1) {
+						echo "<span style='color:red;font-size:9px;'>Username must don't have a space.</span> ";
+					exit;
+				} else if (with_special_characters($typed) == true) {
+						echo "<span style='color:red;font-size:9px;'>Username must don't have special characters.</span> ";
+					exit;
+				}
+
+
+
+				$bool = select_V3('fs_members', '*', " identity_username = '$typed' AND NOT mno = $mc->mno ");
+
+
 				if(!empty($bool)){
-					echo "Username exist. error<br>";
+
+					echo "<span style='color:red;font-size:9px;'>Username exist. error</span> ";
 			 	} 
 			 	else {
 			 		echo "<span style='color:green;font-size:9px;'>Username is valid.</span> ";
