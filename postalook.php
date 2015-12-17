@@ -35,6 +35,12 @@
  	$mno 			 =  $mc->get_cookie( 'mno' , 136 );
     is_allow_redirect('home', $mc->mno);
 
+
+    //Redirect home if not log in.
+    if($mno == 136) {
+    	$mc->go('home');
+    }
+  
     $look = new Look($mc->mno,  $db);
 
 
