@@ -143,13 +143,26 @@ if ( $show == true ):
                             <td id="new-header-signout-upper-td3" >
                                 <div>
                                     <table border="0" id="header_search_field">
-                                        <tbody><tr>
-                                            <td>
-                                                <input id="new-header-signout-search" type="text" placeholder="SEARCH">
-                                            </td>
-                                            <td>
-                                                <input id="new-header-signout-scope" type="image" src="fs_folders/images/genImg/header-search-icon.png">
-                                            </td>
+                                        <tbody><tr> 
+                                             
+                                              <!--   <td> 
+                                                    <input id='new-header-signout-search' type='text' placeholder="SEARCH" name="keyword" > 
+                                                </td>
+                                                <td>   
+                                                    <input  id='new-header-signout-scope' type='image' value="" src="fs_folders/images/genImg/header-search-icon.png"   >
+                                                </td> -->
+                                            
+
+                                            <form action="search" method="get" id="search-header"> 
+                                                <td>
+                                                    <input id="new-header-signout-search" type="text" placeholder="SEARCH"  name="keyword">
+                                                </td>
+                                                <td>
+                                                    <input id="new-header-signout-scope" type="image" src="fs_folders/images/genImg/header-search-icon.png">
+                                                </td>
+                                            </form>
+
+
                                         </tr></tbody></table>
                                 </div>
                             </td>
