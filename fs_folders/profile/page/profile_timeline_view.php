@@ -121,14 +121,29 @@
  							 			    -->
 		                                </td>
 		                                <td>  
-		  									  <img 
-							 					id="profile-message-button"  
-							 					style="margin-left:3px;" 
-								 				src="fs_folders/images/profile/message.png"  
-								 				onmousemove=" mousein_change_button ( '#profile-message-button' , 'fs_folders/images/profile/message-mouse.png' )" 
-								 				onmouseout="mouseout_change_button (  '#profile-message-button'  , 'fs_folders/images/profile/message.png' ) "
-								 				onclick="chat( 'chat?u=<?php echo $member['username']; ?>' , 'open-new-chat' ) " 
-							 				/> 
+
+
+		                                	<?php if($_SESSION['mno'] != 136) { ?>
+		  									  	<img 
+								 					id="profile-message-button"  
+								 					style="margin-left:3px;" 
+									 				src="fs_folders/images/profile/message.png"  
+									 				onmousemove=" mousein_change_button ( '#profile-message-button' , 'fs_folders/images/profile/message-mouse.png' )" 
+									 				onmouseout="mouseout_change_button (  '#profile-message-button'  , 'fs_folders/images/profile/message.png' ) "
+									 				onclick="chat( 'chat?u=<?php echo $member['username']; ?>' , 'open-new-chat' ) " 
+								 				/> 
+							 				<?php } else { ?>
+
+							 					<a href="signup">
+								 					<img 
+									 					id="profile-message-button"  
+									 					style="margin-left:3px;" 
+										 				src="fs_folders/images/profile/message.png"  
+										 				onmousemove=" mousein_change_button ( '#profile-message-button' , 'fs_folders/images/profile/message-mouse.png' )" 
+										 				onmouseout="mouseout_change_button (  '#profile-message-button'  , 'fs_folders/images/profile/message.png' ) " 
+									 				/> 
+									 			</a>
+							 				<?php }?>
 
 
 
