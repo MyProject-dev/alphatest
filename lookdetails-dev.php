@@ -28,6 +28,10 @@
 
 
 
+
+
+
+
 //capture the id and to be change to slug
 @setcookie( 'plno' , (!empty($_GET['id'])) ? $_GET['id'] : $_SESSION['table_id']  ,  time()+3600*24 );
 echo " <div style='display:none' > ";
@@ -36,9 +40,14 @@ $mc = new myclass();
 $ri = new resizeImage ();
 $mc->save_current_page_visited();
 
+
+
 # initialize 1
 $_SESSION['mno'] =  $mc->get_cookie( 'mno' , 136 );
 $mno 			 =  $mc->get_cookie( 'mno' , 136 );
+
+
+
 // echo " <bR><br><bR><Br>mno ".$_SESSION['mno'];
 // echo " $mno ";
 /*
@@ -50,8 +59,30 @@ if ( empty($_GET['id'])) {
 }
 */
 echo " get ".$_GET['id'].'<br>';
+
+
+
 $plno             = $_GET['id'];
 $plno             = $mc->clean_input( $plno );
+
+//If id is empty redirect to home page 
+if($plno == null) {
+    $mc->go('home');
+}
+
+
+//Redirect page if not exist
+if(!select_v3('postedlooks' , '*' , 'plno = ' . $plno)) { 
+    $mc->go('home');
+}   
+
+
+
+
+
+
+
+
 if ( $mc->look_exist( $plno )  ) {
 }
 else{
@@ -1309,7 +1340,7 @@ if ((!empty($_GET['welcome'])) ? $_GET['welcome'] : ''  == 'get-started' || $mc-
                                                 
  
                                                   <?php  
-                                                        $mc->member_thumbnail_display( $mc->ppic_thumbnail , $lookOwnerMno , $mc->ppic_thumbnail,  $lookOwnerName , '60px', '', '60px', 'border:1px solid  #e2e2df; margin-top: 21px;border-radius: 4px;; margin-left: 14px;' );    
+                                                        $mc->member_thumbnail_display( $mc->ppic_thumbnail , $mc->mno , $mc->ppic_thumbnail,  $lookOwnerName , '60px', '', '60px', 'border:1px solid  #e2e2df; margin-top: 21px;border-radius: 4px;; margin-left: 14px;' );    
                                                   ?> 
     
                                                     <!-- <img class="media-object margin-auto" id="details-comment-avatar" data-src="holder.js/64x64" alt="64x64" src="http://dev.fashionsponge.com/fs_folders/images/uploads/members/mem_thumnails/927.jpg" data-holder-rendered="true" style="width: 64px; height: 64px;"> -->
