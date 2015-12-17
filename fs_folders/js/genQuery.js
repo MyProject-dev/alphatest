@@ -1,5 +1,22 @@
 
 $(document).ready(function() {
+
+
+	//Header click button search  
+	$( "#new-header-signout-scope" ).click(function() {
+	  $( "#search-header" ).submit();
+	});
+
+
+
+
+
+
+
+
+
+
+
  	// initialized data
 		var variable = '';
 	// header sign in
