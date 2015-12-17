@@ -932,4 +932,14 @@
 	   return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
 	   
 	}
+
+	function with_special_characters($string) {
+		if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $string))
+		{
+		    return true;
+		}	
+	}
+	
+
+
 ?>
