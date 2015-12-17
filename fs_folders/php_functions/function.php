@@ -939,7 +939,9 @@
 		    return true;
 		}	
 	}
-	
+ 	function get_uri() {
+ 		return str_replace('/', '', $_SERVER['REQUEST_URI']); 
+ 	}
 
 
 ?>
