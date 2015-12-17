@@ -88,14 +88,16 @@ $response_total = count($response);
                 <?php
                 if($j == 0) {
                     $len = $response_total + $add;
-                    $from = 0;
+                    $from1 = 0;
                 } else if($j == 1) {
                     $len = $response_total + $response_total;
-                    $from = $response_total;
+                    $from1 = $response_total;
                 } else if($j == 2) {
-                    $len = $response_total + $response_total + $response_total;
-                    $from = $response_total + $response_total;
+                    $len = $response_total + $response_total + $response_total+1;
+                    $from1 = $response_total + $response_total;
                 }
+  
+                $from = $from1;
                 ?>
                 <?php  for($k=$from; $k<$len; $k++):  ?>
                 <tr>
