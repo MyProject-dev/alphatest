@@ -941,7 +941,8 @@
 	}
  	function get_uri() {
  		return str_replace('/', '', $_SERVER['REQUEST_URI']); 
- 	}
-
-
+ 	} 
+ 	function get_full_url() {
+ 		return "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; 
+ 	} 
 ?>
