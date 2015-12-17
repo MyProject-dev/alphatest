@@ -51,3 +51,14 @@ comment -
 
  1022 - edsan barbecho
  1021 - Jesus erwin suarez mppno = 1098
+
+
+add fs_about 
+id  id(11) AI
+name  varchar (255)
+description  (text)
+created_at (time stamp)
+updated_at  (datetime)
+
+
+
