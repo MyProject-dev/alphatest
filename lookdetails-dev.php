@@ -364,9 +364,7 @@ if ((!empty($_GET['welcome'])) ? $_GET['welcome'] : ''  == 'get-started' || $mc-
         <div id="webDesc"   ><?php echo $webDesc; ?></div>
         <div id='lookOwnerName'><?php echo $lookOwnerName; ?></div>
     </div>
-
-    <script src="//load.sumome.com/" data-sumo-site-id="fa7e9f07ee92651429290ee93a0e6696ecc87bef3ff77ee5ff9c21d62ff1885b" async="async"></script>
-
+ 
      <script>
           //iniitlaized mouse over for the modal because id will be duplicated if no id added and may cause not functioning correctly.
             //look_show_hide_tags('<?php echo $mno; ?>');
