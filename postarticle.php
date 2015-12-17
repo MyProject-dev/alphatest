@@ -16,7 +16,8 @@
  $db->connect();
  $article = new Article( $db, $mc->mno);
 $reset = new  Reset();
-
+$_SESSION['mno'] =  $mc->get_cookie( 'mno' , 136 );
+$mno 			 =  $mc->get_cookie( 'mno' , 136 );
 
 
 	//require('http://localhost/fs/new_fs/alphatest/fs_folders/ckeditor/samples/replacebyclass.html'); 
@@ -36,6 +37,14 @@ $reset = new  Reset();
 	$mc = new myclass();
 	$pa = new  postarticle( ); 
 	$pa->post_article( $mc ); 
+
+
+
+    //Redirect home if not log in.
+    if($mno == 136) {
+    	$mc->go('home');
+    }
+
  
 
 	$mc->header_attribute( 
