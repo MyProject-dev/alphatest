@@ -7,7 +7,7 @@
 	$mc = new myclass();  
     $ri = new resizeImage ();
 // $_GET['id']=1; 
-  echo "<div style='display:none' >";   
+  echo "<div style='display:block' >";   
   	$page_viewer=true;
 		$user_namel = explode('-',$_GET['user_name']); 
 		$_SESSION['url'] = $user_namel;
@@ -20,7 +20,14 @@
 		// $_SESSION['url']=$url;    
 	echo "</div>";
 	
-	if ($data['type']=='article'){  
+
+ 
+	 
+
+
+	if (in_array('search', $user_namel)) { 
+	 	require_once('search.php');
+	} else if ($data['type']=='article'){  
 		// require('detail.php');
 	}
 	elseif($data['type']=='look'){ 
