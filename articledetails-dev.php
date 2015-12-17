@@ -50,7 +50,24 @@ if ( empty($_GET['id'])) {
 echo " get ".$_GET['id'].'<br>';
 $plno             = $_GET['id'];
 $plno             = $mc->clean_input( $plno );
+if($plno == null) {
+    $mc->go('home');
+}
+
+
+//Redirect page if not exist
+if(!select_v3('fs_postedarticles' , '*' , 'artno = ' . $plno)) { 
+    $mc->go('home');
+}   
+
+
+
+
+
+
+
 if ( $mc->look_exist( $plno )  ) {
+    echo " <H1> NOT EXIST </H1>";
 }
 else{
     // $mc->go("/");
