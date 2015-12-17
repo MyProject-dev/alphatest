@@ -3531,7 +3531,7 @@ echo " </pre> </h3>";
 	                                            $background_color  = '';
 	                                        }  
 	                                    // function comment  
-	                                        $mc->modal_print_comment_v1( $modal['comments'][$i] , null , $background_color );   
+	                                        $mc->modal_print_comment_v1( $modal['comments'][$i] , '../../../' , $background_color );   
 	                                        $c++;
 	                                }   
 		 					break;  
@@ -3711,7 +3711,7 @@ echo " </pre> </h3>";
 		                                            $background_color  = '';
 		                                        }  
 		                                    // function comment  
-		                                        $mc->modal_print_comment_v1( $modal['comments'][$i] , null , $background_color );   
+		                                        $mc->modal_print_comment_v1( $modal['comments'][$i] , '../../../' , $background_color );   
 		                                        $c++;
 		                                }  
 									?>
