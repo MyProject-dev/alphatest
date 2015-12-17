@@ -62,10 +62,7 @@
  
 
 
-    echo "</div>";
-?>
-
- <?php
+    echo "</div>";  
     echo "
         about $about <br>
         brand $brand <br>
@@ -77,9 +74,10 @@
         burl = $burl <br>
         gender = $gender <br>
         plus_blogger = $plus_blogger <br> 
-    ";
- 
+    ";  
 
+    //Change white space to dash for username
+      
     /**
     * Update the user information 
     */
