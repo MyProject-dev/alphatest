@@ -666,7 +666,7 @@
 																								Input below will only do the search when hit enter
 														 								 	-->
 														 									<input id='new-header-signout-search' type='text' placeholder="SEARCH" name="keyword" >
-														 								 </form>
+														 								 
 														 							</td>
 														 							<td>   
 													 									<input  id='new-header-signout-scope' type='image' value="" src="fs_folders/images/genImg/header-search-icon.png"   >
