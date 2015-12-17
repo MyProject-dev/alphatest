@@ -4600,13 +4600,38 @@ function validate_login ( type , action , e ) {
             case 'login':
                 var e = $('#login-email').val();
                 var p = $('#login-password').val();
+
                 // alert('login: email = '+e+' password = '+p);   
-                ajax_send_data(
-                    'login-error-or-success',
-                    'fs_folders/modals/login/validate-login.php?mail='+e+'&pass='+p+'&type=login',
-                    'login-loader img',
-                    'login-form'
-                );
+                /*
+                    ajax_send_data(
+                        'login-error-or-success',
+                        'fs_folders/modals/login/validate-login.php?mail='+e+'&pass='+p+'&type=login',
+                        'login-loader img',
+                        'login-form'
+                    );
+                */
+
+                $('#login-loader img').css('visibility','visible');
+                $.post( "fs_folders/modals/login/validate-login.php", { 
+                    mail:e,
+                    type:'login',
+                    pass:p 
+                })
+                .done(function( data ) {  
+                    var m =data.split("<mno>");
+                    var mno = parseInt(m[1]);
+                    $('#login-loader img').css('visibility','hidden');
+                    document.getElementById('login-error-or-success').innerHTML = data;
+
+                    if ( mno > 0 ) {
+                        Go('login-authentication.php?url=home');
+                    }
+                    else{
+                        shake( );
+                    } 
+                });
+
+
                 break;
             case 'signup':
 

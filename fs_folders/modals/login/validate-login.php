@@ -20,9 +20,13 @@
 
 	switch ( $type ) { 
 		case 'login': 
+
+
 				$pass = $_GET['pass'];
 				$mail = $_GET['mail'];
 
+				$pass             = ( empty($pass) )               ? $_REQUEST['pass']   : $pass; 
+				$mail             = ( empty($mail) )               ? $_REQUEST['mail']   : $mail; 
 
 
 				if ( !empty($pass) and !empty($mail )) {
@@ -34,9 +38,7 @@
 						echo " pass: $pass and  npass: $npass <br> ";
 						echo " email: $mail <br> "; 
 						echo " mno: $mno ";   
-					*/
-
-
+					*/ 
 
                     $r = select_v3( 'fs_members' , '*' , "identity_email = '$mail' and identity_login = '$pass'" );
                     $mno = $r[0]['mno'];
