@@ -649,16 +649,31 @@
 								                            </td>
 											 				<td  id='htd3' >   
 											 					<div>
-												 					<table border="0" id='header_search_field' style="padding-right:50px;"  > 
-												 						<tr> 
-												 							<td>
-												 								<input id='new-header-signout-search' type='text' placeholder="SEARCH" onkeyup="header( 'search-field' , event  )"  onfocus="header( 'search-field-show' , event  )"   >
-												 								 
-												 							</td>
-												 							<td>   
-												 								<input id='new-header-signout-scope' type='image' src="fs_folders/images/genImg/header-search-icon.png" >
-												 							</td>
-												 					</table>   
+
+											 						
+													 					<table border="0" id='header_search_field' style="padding-right:50px;"  > 
+													 						<tr> 
+													 							<form action="search" method="get" id="search-header">	
+														 							<td>
+														 								
+														 									<!-- 
+														 										The commented input bellow will work like this. 
+														 										If member typing a keyword in the field them dropdown should show 
+														 									 -->
+														 									<!-- <input id='new-header-signout-search' type='text' placeholder="SEARCH" onkeyup="header( 'search-field' , event  )"  onfocus="header( 'search-field-show' , event  )"   > -->
+
+														 									<!-- 
+																								Input below will only do the search when hit enter
+														 								 	-->
+														 									<input id='new-header-signout-search' type='text' placeholder="SEARCH" name="keyword" >
+														 								 </form>
+														 							</td>
+														 							<td>   
+													 									<input  id='new-header-signout-scope' type='image' value="" src="fs_folders/images/genImg/header-search-icon.png"   >
+													 								</td>
+													 							</form>
+												 						</table>   
+												 					
 											 					</div>  
 											 				</td> 
 											 		</table> 
