@@ -77,7 +77,12 @@
 			$this->header_show_when_account_not_verified( $mno );   
 			$this->fs_notifiation( $mno );  
 			$this->initialize( ); 
-			$this->signInUser();
+			$this->signInUser(); 
+			
+			//Redirect home when page visiting is login
+			if(get_uri() == 'login') {
+				$this->go('home');
+			}
 		}      
 
 		public function signInUser() {     
