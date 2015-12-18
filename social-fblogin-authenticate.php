@@ -218,7 +218,7 @@
 								// redirect to the main page   
 	                                $_SESSION['type'] = 'new-member-fb-login';
 	                                $_SESSION['temp_mno'] = $mno1;  
-	                                $_SESSION['lastpagevisited'] = 'profile_crop_display.php'; 
+									// $_SESSION['lastpagevisited'] = 'profile_crop_display.php';
 									$mc->go( 'login-authentication' );   
 
 						}    
