@@ -1,6 +1,8 @@
 <?php
     session_start();
-    require ('../../../fs_folders/php_functions/Database/Database.php'); 
+    require("../../../fs_folders/php_functions/connect.php");
+    require('../../../fs_folders/php_functions/Database/Database.php');
+
     $database = new Database();
     $database->connect();
     $rowName = (!empty($_GET['rowName'])) ? $_GET['rowName'] : '';

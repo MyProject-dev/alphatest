@@ -192,7 +192,7 @@ LookbookDatabase::$database = $db;
 	 					}
 	 					else{
 	 						 // echo "online";
-	 						$url= 'http://dev.fashionsponge.com/';
+	 						$url= 'http://' . subDomain . 'fashionsponge.com/';
 	 					} 
 		 				if ($table_name == 'postedlooks' ) {
 		 					$page="lookdetails?id=$table_id"; 
@@ -2992,7 +2992,7 @@ echo " </pre> </h3>";
 					 					//PRINT    
 										    // echo "<li >    <img src='$modal[src]'  onmousemove='mouse_enter(\"#follow_div\",\"$modal[table_id]\" ,\"$modal[src_1]\" )'  onmouseout='mouse_out(\"#follow_div\")'   onclick='modal_thumbnail ( \"$modal[table_name]\" , \"$modal[table_id]\" , \"original\" , \"modal-thumbnail-loader\" , \"generate-specific-modal-detail\" , \"modal-detail\" )'   /> </li> "; 
 					 				    	echo "<li > 
-					 				    		<a href='articledetails-dev.php?id=$modal[table_id]#imgV' >
+					 				    		<a href='detail?id=$modal[table_id]#imgV' >
 					 				    			<img src='$modal[src]'  onmousemove='mouse_enter(\"#follow_div\",\"$modal[table_id]\" ,\"$modal[src_1]\" )'  onmouseout='mouse_out(\"#follow_div\")'     /> 
 					 				    		</a> 
 					 				    	</li> "; 

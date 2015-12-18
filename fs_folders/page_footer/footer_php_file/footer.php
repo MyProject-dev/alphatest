@@ -1,6 +1,12 @@
 <?php
 
-      $url = 'http://dev.fashionsponge.com';
+
+    /**
+     * Local development
+     */
+    //  echo "subdomain " . subDomain;
+    define('subDomain', 'dev.');
+    $url = 'http://' . subDomain . 'fashionsponge.com';
       // $url = 'http://localhost/fs/new_fs/alphatest';
 
 ?>

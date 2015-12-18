@@ -219,7 +219,7 @@
 
 
 	 			if(isLocal()) {
-	 				$lastpagevisited = 'http://dev.fashionsponge.com/';	
+	 				$lastpagevisited = 'http://' . subDomain . 'fashionsponge.com/';
 	 			} else {
 	 				$lastpagevisited = 'http://localhost/fs/new_fs/alphatest/';
 	 			} 
@@ -268,7 +268,7 @@
 					  	)  
 					);   
 					$mc-> message ( 'image resize ', $response , ' ' ); 
-					$mc->go( "lookdetails-dev.php?id=$table_id" );  
+					$mc->go( "lookdetails?id=$table_id" );
 			break;
 		case 'upload-look-modal-original-for-cropping':
 				//this is redirect to crop

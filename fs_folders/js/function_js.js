@@ -3535,12 +3535,9 @@ function look_comment_thump_up_or_down (plcno, action , id, thumbsName, plno, tr
     logout_interaction_response (  sessionStorage.mno );
 
 
-    console.log('id = ' + id);
-
+    //console.log('id = ' + id);
 
     //alert('you are liking or disliking a comment');
-
-
 
     // alert input 
 
@@ -3550,16 +3547,8 @@ function look_comment_thump_up_or_down (plcno, action , id, thumbsName, plno, tr
 
     if ( crated == 0 ) {
 
-
-
-
-
-
         var trate = parseInt( $(trateid).text() ) + 1;
         // alert( trate+' id = '+trateid   );   
- 
-
-
 
         if(table_name == 'fs_comment') {
             alert('comment like dislike');
@@ -3570,10 +3559,10 @@ function look_comment_thump_up_or_down (plcno, action , id, thumbsName, plno, tr
                 table_name: table_name,
                 rate_type: rate_type
             })
-                .done(function( data ) {
-                    //var r = data.split("<li>");
-                    $('#comments_result').append(data);
-                });
+            .done(function( data ) {
+                //var r = data.split("<li>");
+                $('#comments_result').append(data);
+            });
 
             return true;
         }
@@ -6368,7 +6357,7 @@ function postarticle_edit_save(id) {
          })
           .done(function( data ) {
                //alert( "Data Loaded: " + data );
-               document.location ='articledetails-dev.php?id='+id
+               document.location ='detail?id='+id
           });
 }
 
@@ -7200,7 +7189,7 @@ function modal ( action , process , type , loader , response , textfieldid , val
                     isAgreed: isAgreed
                 }, function(result) { 
                     if(method == 'edit') { 
-                        document.location = 'lookdetails-dev.php?id='+table_id;
+                        document.location = 'lookdetails?id='+table_id;
                     } else { 
                         $('#upload-modal').submit();
                     }

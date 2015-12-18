@@ -164,19 +164,19 @@ echo "<br>
 
 
 
-            $redirect = 'http://dev.fashionsponge.com/admindashboard?p=uploadbrands';
+            $redirect = 'http://' . subDomain . 'fashionsponge.com/admindashboard?p=uploadbrands';
 
 
         } else {
             echo " Category = $bc_name and gender = $gender not found <br>";
             $_SESSION['error'] = " Category = $bc_name and gender = $gender not found <br>";
             //$redirect = 'http://localhost/fs/new_fs/alphatest/admindashboard?p=uploadbrands';
-            $redirect = 'http://dev.fashionsponge.com/admindashboard?p=uploadbrands';
+            $redirect = 'http://' . subDomain . 'fashionsponge.com/admindashboard?p=uploadbrands';
         }
     } else {
         $_SESSION['error'] = "Please select where to display this $brand_type. <br>";
         //$redirect = 'http://localhost/fs/new_fs/alphatest/admindashboard?p=uploadbrands';
-        $redirect = 'http://dev.fashionsponge.com/admindashboard?p=uploadbrands';
+        $redirect = 'http://' . subDomain . ' fashionsponge.com/admindashboard?p=uploadbrands';
 
         
     }

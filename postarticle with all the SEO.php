@@ -9,7 +9,7 @@
 
 	//require('http://localhost/fs/new_fs/alphatest/fs_folders/ckeditor/samples/replacebyclass.html'); 
 	//$base_url = 'http://localhost/fs/new_fs/alphatest'; 
- 	$base_url = 'http://dev.fashionsponge.com'; 
+ 	$base_url = 'http://' . subDomain . 'fashionsponge.com';
 
 	// article_Id
 	// mno
@@ -774,5 +774,4 @@
 
 	</body>
 </html>
- 
  

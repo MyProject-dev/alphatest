@@ -67,7 +67,7 @@
 						 
 					    <!-- <img  onmousemove="mouse_enter('#follow_div' , '<?php echo $modal['table_id']; ?>' , '<?php echo $modal['src_1']; ?>' )" onmouseout="mouse_out('#follow_div')" onclick="thumbnail_clicked('<?php echo $modal['table_id']; ?>', '<?php echo $_SESSION['details_user_mno']; ?>' )" id='thumbnail<?php echo $modal['table_id']; ?>'  src="<?php echo $modal['src']; ?>" /> -->
 
-					    <a href="lookdetails-dev.php?id=<?php echo $modal['table_id']; ?>#imgV">
+					    <a href="lookdetails?id=<?php echo $modal['table_id']; ?>#imgV">
 					     	<img  onmousemove="mouse_enter('#follow_div' , '<?php echo $modal['table_id']; ?>' , '<?php echo $modal['src_1']; ?>' )" onmouseout="mouse_out('#follow_div')"  id='thumbnail<?php echo $modal['table_id']; ?>'  src="<?php echo $modal['src']; ?>" />
 					     </a>
 					</li>  

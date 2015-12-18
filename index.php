@@ -13,6 +13,8 @@
     require ('fs_folders/php_functions/Database/post.php');
 	$_SESSION['post_a_look_is_look_upload_once_in_db'] = false ;
 
+
+
     use App\UserProfilePic;
     use App\Article;
  	$mc             = new myclass();
@@ -20,10 +22,30 @@
     $look           = new Look($mc->mno, $db);
     $userProfilePic = new UserProfilePic($mc->mno, $db);
    	$mc->post = new Post();
- 
+
+
+
+
+
 
  	$mc->auto_detect_path();    
  	$mc->save_current_page_visited( );
+
+//	echo "Sub domain " . subDomain;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  	//redirect
     /*

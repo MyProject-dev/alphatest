@@ -1,5 +1,5 @@
 <?php 
-	echo "<div style='display:none' >";
+	echo "<div style='display:block' >";
 	require ("../../../fs_folders/php_functions/connect.php");
     require ("../../../fs_folders/php_functions/function.php");
     require ("../../../fs_folders/php_functions/library.php");
@@ -18,7 +18,6 @@
     $brandObject = new Brand($db, $mc->mno);
     $topicCategory   = new TopicCategory($db, $mc->mno);
 
-
  	$_SESSION['mno'] =  $mc->get_cookie( 'mno' , 136 );  
  	$mno 			 =  $mc->get_cookie( 'mno' , 136 );   
 	$brand           = strtolower($_GET['brand']);
@@ -27,6 +26,7 @@
     $gender          = ($_GET['gender'] != 'all gender') ? $_GET['gender'] : '';
 
 	echo "</div>";
+echo "mno = $mno brand = $brand page = $page and type = $type and gender $gender <br>";
     //echo "type = $type <br>";
     $count = 0;
     if($page > 1){

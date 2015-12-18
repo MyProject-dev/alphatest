@@ -11,11 +11,11 @@
 		$con=mysql_connect($host,$user,$pass) or die(mysql_error());;
 		if ($con) {
 			// echo "connected<br>";
-		} else { 
-			// echo " not connected<br>"; 
+		} else {
+			// echo " not connected<br>";
 		}
-		mysql_select_db($db)or die (mysql_error());  
-	} 
+		mysql_select_db($db)or die (mysql_error());
+	}
 	function execute_query($query) {
 		$c=0;
 		$result = array( );
@@ -944,5 +944,5 @@
  	} 
  	function get_full_url() {
  		return "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; 
- 	} 
+ 	}
 ?>

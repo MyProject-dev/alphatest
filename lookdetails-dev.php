@@ -136,7 +136,7 @@ $mno1                = intval($li["lookOwnerMno"]);
 $memFsInfo           = $mc->get_user_full_fs_info( $mno1  );
 $opercentage         = $memFsInfo['opercentage'];
 $otrating            = $memFsInfo['otrating'];
-$user1['username']    = $memFsInfo['username'];
+$user1['username']   = $mc->get_username_by_mno($mno1); // $memFsInfo['username'];
 $user1['trating_look'] = $memFsInfo['memInfo'][0]['trating_look'];
 $user1['tlooks']       = $memFsInfo['tlooks'];
 

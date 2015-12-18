@@ -525,7 +525,7 @@ $mc->fs_header(
     <?php
 
     // $mc->fs_footer(  'width:1010px !important;' , 'margin-left:-13px;' );
-    $url = 'http://dev.fashionsponge.com';
+    $url = 'http://' . subDomain . 'fashionsponge.com';
 
     //$url = 'http://localhost/fs/new_fs/alphatest';
     require ("$url/fs_folders/page_footer/footer_php_file/footer.php"); ?>

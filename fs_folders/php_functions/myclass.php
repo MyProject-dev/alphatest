@@ -3984,7 +3984,7 @@
 	    }  
 	    public function new_footer() {   
 	    		if($_SESSION['is_online'] == 'yes') {
-	    			$url = 'http://dev.fashionsponge.com';		
+	    			$url = 'http://' . subDomain . 'fashionsponge.com';
 	    		} else {
 	    			$url = 'http://localhost/fs/new_fs/alphatest'; 		
 	    		} 
@@ -7040,7 +7040,7 @@
 												'user_website',
 												'user_work_history', 
 												'user_birthday',
-								          	'redirect_uri' => 'http://dev.fashionsponge.com/social-fblogin-authenticate.php'
+								          	'redirect_uri' => 'http://' . subDomain . 'fashionsponge.com/social-fblogin-authenticate.php'
 								        );   
 
 
@@ -7090,7 +7090,7 @@
 												'user_website',
 												'user_work_history', 
 												'user_birthday',
-								          	'redirect_uri' => 'http://dev.fashionsponge.com/social-fblogin-authenticate.php'
+								          	'redirect_uri' => 'http://' . subDomain . 'fashionsponge.com/social-fblogin-authenticate.php'
 								        );   
 
 
@@ -8192,4 +8192,3 @@
 
 
 
- 

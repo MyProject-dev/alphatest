@@ -21,7 +21,7 @@
 
 
    //  $base_url = 'http://localhost/fs/new_fs/alphatest/';
-     $base_url = 'http://dev.fashionsponge.com/'; 
+     $base_url = 'http://' . subDomain . 'fashionsponge.com/';
  	// $db	= new Database();
     $ri = new resizeImage ( );
 	$mc = new myclass();
@@ -1145,4 +1145,3 @@ if (!empty($_SESSION['adm_no'])) {
  
 
 
- 

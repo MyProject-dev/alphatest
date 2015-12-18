@@ -123,11 +123,16 @@ $tableNameArray = array(
     'fs_members'=>'mno',
     'fs_member_timeline'=>'mptno',
     'fs_message'=>'msgno',
-    'fs_search'=>'sno'
+    'fs_search'=>'sno',
+    'fs_rate_modals'=>'rmno',
+    'fs_signup_code'=>'scno',
+    'fs_member_categories'=>'mcno',
+    'fs_member_profile_pic'=>'mppno',
+    'fs_member_profile_view'=>'mpvno',
+    'fs_member_timeline'=>'mptno'
+
 );
-
-
-
+ 
 foreach($tableNameArray as $key=>$value) {
 
     if(mysql_query("delete from $key where $value > 0")){

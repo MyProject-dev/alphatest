@@ -174,7 +174,8 @@ else if(isset($_POST['deactivate'])) {
 
 <script>
     var type = '<?php echo $type ?>';
-    document.location = 'http://dev.fashionsponge.com/account?at=7&type=' + type ;
+    var url = '<?php echo 'http://' . subDomain . 'fashionsponge.com/account?at=7&type='?>';
+    document.location =  url + type ;
 </script>
 
 

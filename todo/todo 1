@@ -62,3 +62,47 @@ updated_at  (datetime)
 
 
 
+
+
+ADD DATABASE
+
+
+
+Create 4 tier SQL: 
+
+ricopeco_fs_production  - 
+
+	username: jesusrico2012_78
+	password: !s234df05cjasd!@#goj$#5
+
+ricopeco_fs_staging - 
+
+	username: jesusrico2012_78
+	password: !3435cjsdcogoj$#5
+
+ricopeco_fs_integration - 
+
+	username: jesusrico2012_78
+	password: !3435#!3sda5
+
+ricopeco_fs_development - 
+
+	username: jesusrico2012_78
+	password: !3435cjdasd!@as-j$#5
+
+
+
+
+//DATABASE CONNECTIONS
+//IF UPDATE CONNECTION THEN YOU SHOULD TOUCH THIS FILES
+E:\xampp\htdocs\fs\new_fs\alphatest\fs_folders\php_functions\connect1.php
+E:\xampp\htdocs\fs\new_fs\alphatest\fs_folders\php_functions\connect.php
+E:\xampp\htdocs\fs\new_fs\alphatest\fs_folders\php_functions\mysql_crud.php
+E:\xampp\htdocs\fs\new_fs\alphatest\project\scrape\php_function\Database.php
+E:\xampp\htdocs\fs\new_fs\alphatest\project\scrape\php_function\Database\Database.php
+E:\xampp\htdocs\fs\new_fs\alphatest\fs_folders\php_functions\Database\Database.php
+E:\xampp\htdocs\fs\new_fs\alphatest\fs_folders\modals\Server\db\Database.php
+
+// Change the path
+// Study the constant declaration.
+

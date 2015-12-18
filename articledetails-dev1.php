@@ -1060,7 +1060,7 @@ echo "</div>";
                         <li class="media border-top padding-top-comment ">
                             <div class="media-left">
                                 <a href="#">
-                                    <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="http://dev.fashionsponge.com/fs_folders/images/uploads/members/mem_thumnails/927.jpg" data-holder-rendered="true" style="width: 64px; height: 64px;">
+                                    <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="http://<?php echo subDomain; ?>fashionsponge.com/fs_folders/images/uploads/members/mem_thumnails/927.jpg" data-holder-rendered="true" style="width: 64px; height: 64px;">
                                 </a>
                             </div>
                             <div class="media-body">
@@ -1090,7 +1090,7 @@ echo "</div>";
                         <li class="media border-top padding-top-comment" >
                             <div class="media-left">
                                 <a href="#">
-                                    <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="http://dev.fashionsponge.com/fs_folders/images/uploads/members/mem_thumnails/927.jpg" data-holder-rendered="true" style="width: 64px; height: 64px;">
+                                    <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="http://<?php echo subDomain; ?>fashionsponge.com/fs_folders/images/uploads/members/mem_thumnails/927.jpg" data-holder-rendered="true" style="width: 64px; height: 64px;">
                                 </a>
                             </div>
                             <div class="media-body">
@@ -1125,7 +1125,7 @@ echo "</div>";
                                     <tr>
                                         <td style="width:100px; text-align:center">
                                             <a href="#">
-                                                <img class="media-object margin-auto" id="details-comment-avatar" data-src="holder.js/64x64" alt="64x64" src="http://dev.fashionsponge.com/fs_folders/images/uploads/members/mem_thumnails/927.jpg" data-holder-rendered="true" style="width: 64px; height: 64px;">
+                                                <img class="media-object margin-auto" id="details-comment-avatar" data-src="holder.js/64x64" alt="64x64" src="http://<?php echo subDomain; ?>fashionsponge.com/fs_folders/images/uploads/members/mem_thumnails/927.jpg" data-holder-rendered="true" style="width: 64px; height: 64px;">
                                             </a>
                                         </td>
                                         <td style="padding-right: 20px;" >

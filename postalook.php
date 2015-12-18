@@ -26,7 +26,7 @@
 
 
    //  $base_url = 'http://localhost/fs/new_fs/alphatest/';
-     $base_url = 'http://dev.fashionsponge.com/';
+     $base_url = 'http://' . subDomain . 'fashionsponge.com/';
  	// $db	= new Database();
     $ri = new resizeImage ( );
 	$mc = new myclass();
@@ -196,8 +196,8 @@ if (!empty($_SESSION['adm_no'])) {
 		</script> 
 
 		<?php if(isLocal()) { ?> 
-			<div id="postalook-tag-preivew-path" style="display:none" >http://dev.fashionsponge.com/fs_folders/images/uploads</div>
-            <?php $_SESSION['tagPath'] = 'http://dev.fashionsponge.com/fs_folders/images/uploads' ?>
+			<div id="postalook-tag-preivew-path" style="display:none" >http://<?php echo subDomain; ?>fashionsponge.com/fs_folders/images/uploads</div>
+            <?php $_SESSION['tagPath'] = 'http://' . subDomain . 'fashionsponge.com/fs_folders/images/uploads' ?>
 		<?php } else { ?>
 			<div id="postalook-tag-preivew-path" style="display:none" >http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads</div> 
 		    <?php $_SESSION['tagPath'] = 'http://localhost/fs/new_fs/alphatest/fs_folders/images/uploads' ?>
@@ -906,4 +906,3 @@ if (!empty($_SESSION['adm_no'])) {
  
 
 
- 

@@ -26,18 +26,49 @@ class Database{
     private $numResults = "";// used for returning the number of rows
 	 
 	// Function to make connection to database
-	public function connect(){   
+	public function connect(){
+
+
+
+        if(environment() == 'dev.') {
+
+            $dbName = "ricopeco_fs_development";
+            $dbUsername = 'ricopeco_jesus7';
+            $dbPassword = 'Q?l-tpVNV)v+';
+
+        } else if (environment()  == 'stage.') {
+
+            $dbName = "ricopeco_fs_staging";
+            $dbUsername = 'ricopeco_jesus7';
+            $dbPassword = 'Q?l-tpVNV)v+';
+
+        } else if (environment()  == 'intg.') {
+
+            $dbName = "ricopeco_fs_integration";
+            $dbUsername = 'ricopeco_jesus7';
+            $dbPassword = 'Q?l-tpVNV)v+';
+
+        }else {
+
+            $dbName = "ricopeco_fs_production";
+            $dbUsername = 'ricopeco_jesus7';
+            $dbPassword = 'Q?l-tpVNV)v+';
+
+        }
+
+
         if ( $_SERVER['SERVER_NAME'] == 'localhost' ) {
             $this->db_user = "root";  // Change as required
             $this->db_pass = "";  // Change as required
             $this->db_name = "fs_records";    // Change as required
             $this->db_host = "localhost";  // Change as require   
         }else{
-            $this->db_user = "ricopeco_jesus7";  // Change as required
-            $this->db_pass = "Q?l-tpVNV)v+";  // Change as required
-            $this->db_name = "ricopeco_fs_records_v1_testing_1";    // Change as required      
+            $this->db_user = $dbUsername;  // Change as required
+            $this->db_pass = $dbPassword;  // Change as required
+            $this->db_name = $dbName;    // Change as required
             $this->db_host = "localhost";  // Change as require  
-        } 
+        }
+
 
 
         // echo " db_user = $this->db_user db_pass = $this->db_pass db_name = $this->db_name db_host = $this->db_host ";
@@ -60,6 +91,33 @@ class Database{
             return true; // Connection has already been made return TRUE 
         }  	
 	}
+
+
+
+    private function environment() {
+        $fullUrl =  "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $development = strpos($fullUrl, 'dev.') ;
+        $staging = strpos($fullUrl, 'stage.') ;
+        $production = '';
+        $integration = strpos($fullUrl, 'intg.') ;
+
+        //Add conditions
+        if($development > -1) {
+            return 'dev.';
+        } else if ($staging > -1) {
+
+            //Return as staging site
+            return 'stage.';
+        } else if ($integration > -1) {
+
+            //Return as integration
+            return 'intg.';
+        } else {
+
+            //Return as production
+            return '';
+        }
+    }
 	
 	// Function to disconnect from the database
     public function disconnect(){
