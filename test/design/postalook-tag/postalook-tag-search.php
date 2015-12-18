@@ -26,14 +26,19 @@
         $database->select($tableName, '*', null,  " $keyName LIKE '%$keyword%'",  " $keyName asc",  24);
     }
     $response = $database->getResult();
-    if(!$response) { 
-        ?> 
 
-        Please click 
+
+
+    if(empty($response) and $tableName == 'fs_tag_style') { ?>
+
+        No result for <em style='color:black; cursor: pointer'><?php  echo $keyword; ?></em> please try another.
+        <?php
+    } else if(!$response) { ?>
+        Please click
         <em style='color:black; cursor: pointer' onclick="tag_select_item('<?php echo $rowName ?>', '<?php echo $keyword; ?>',  '0', '<?php echo $tagNum; ?>')" >
             <?php echo $keyword; ?>
-        </em> 
-          If you think this <?php echo $rowName; ?> is <br> for this tag. 
+        </em>
+          If you think this <?php echo $rowName; ?> is <br> for this tag.
         <?php 
     }
 ?>
