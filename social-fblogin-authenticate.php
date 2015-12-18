@@ -196,29 +196,67 @@
 	                                }   
 	                                echo "profile pic path src. $bigpicurl <br>";
 	                                echo "<img src=\"$bigpicurl\"  />";    
-	                            // add new profile pic for the new user
-	                            	$mppno = $mc->member_profile_pic_query( array('mno'=>$mno1 , 'action'=> 'Joined' , 'type'=>'insert-new-profile-pic-db' ) );   
-	                            // download from fb photo server 
+
+							// add new profile pic for the new user
+	                            	$mppno = $mc->member_profile_pic_query( array('mno'=>$mno1 , 'action'=> 'Joined' , 'type'=>'insert-new-profile-pic-db' ) );
+
+	                             // download from fb photo server
 										$article->download_image_from_other_site( $mno1 , $bigpicurl , 'fs_folders/images/uploads/members/mem_original/' );   
-	                            // resize the profile pic downloaded  
+
+	                             // resize the profile pic downloaded
 	                            	$mc->resize_profile_pic_thumbnail_and_profile( $mno1 , $mppno );    
-	                            // add activity post feed  
-	                            	#$mc->add_activity_wall_post ( $mno1 , $mppno , 'Joined' , 'fs_members' , $mc->date_time );    
-	                            // send confirmation code 
+
+	                             // add activity post feed
+                                    $mc->add_activity_wall_post ( $mno1 , $mppno , 'Joined' , 'fs_members' , $mc->date_time );
+
+	                              // send confirmation code
 	                            	if ( !empty($email) ) {
 	                            		if ( $mc->send_verification_code_to_email( $email , $mc->generate_vefirification_code( $email ) , $firstname )  ) { 
 	                            			echo " email confirmation successfully sent. . .";
 	                            		} 
 	                            	}   
-	                            // set notification 
+
+								// set notification
 	                            		//$mc->set_notification_info( 'fs_members' , $mno1 , "your facebook friend Just <span class='fs-text-red'> joined </span>"  , $mno1 , 0 , 'join-fb' ); 
 	                            		$mc->set_notification_info( 'fs_members' ,  $mno1 , 'joined' , null , null , 0 , 'join-fb' ); 
-	                            // add or updated keyword 
+
+	                             // add or updated keyword
 	                            		$mc->fs_search(   array(  'type'=> 'add-or-updated-keyword' ,  'table_name'=>'fs_members' ,   'table_id'=>$mno1 )  );  
-								// redirect to the main page   
+
+								// redirect to the main page
 	                                $_SESSION['type'] = 'new-member-fb-login';
-	                                $_SESSION['temp_mno'] = $mno1;  
+	                                $_SESSION['temp_mno'] = $mno1;
+								//set crop after welcome popup completed
 									// $_SESSION['lastpagevisited'] = 'profile_crop_display.php';
+
+
+								/**
+								 * After authentication this page should redirect
+								 * default is home, so after user is being authenticated then
+								 * the user should redirect to homepage
+								 * and show the welcome popup
+								 */
+									$_SESSION['lastpagevisited'] = 'home';
+
+								/**
+								 * Set this to allow crop or not
+								 * value => yes or no
+								 * yes => meaning you allow to crop the facebook profile pic added
+								 * no => meaning you don't want to crop the facebook profile pic added
+								 */
+
+									$_SESSION['sign_up_facebook_allow_crop'] = 'no';
+
+								/**
+								 * This will redirect the authenticated user after the welcome popup processed
+								 * If and only if, the user is authenticated using facebook.
+								 */
+									$_SESSION['sign_up_facebook_redirect'] = 'home';
+
+								/**
+								 * Redirect to authentication after this page is being loaded
+								 * Authentication this will let the user current authenticated to login the site
+								 */
 									$mc->go( 'login-authentication' );   
 
 						}    
