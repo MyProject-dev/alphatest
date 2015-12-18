@@ -16,13 +16,20 @@
                     // $type = 'profile-timeline';
 
 
-//$mno = 1016;
+      /**
+       * Middleware
+       * If signup using facebook then no cropping should be executed.
+       */
+      if($_SESSION['sign_up_facebook_allow_crop'] == 'no') {
+          $_SESSION['sign_up_facebook_allow_crop'] = '';
+         $mc->go($_SESSION['sign_up_facebook_redirect']);
+          exit;
+      }
 
-//echo "mno - " . $mno;
+      //$mno = 1016;
+      //echo "mno - " . $mno;
 
-
-
-    echo " <div id='fs-general-ajax-response' style='color:#fff;position:fixed;background-color:#000;z-index:200;display:none' >  ";
+      echo " <div id='fs-general-ajax-response' style='color:#fff;position:fixed;background-color:#000;z-index:200;display:none' >  ";
       // $mc->unlink_profile_pics( $mno );
       echo "Type = " .  $type . '<br>';
       switch ( $type ) {
