@@ -5234,17 +5234,18 @@ echo " </pre> </h3>";
 						$table_id   = $_REQUEST['table_id'];
 						$table_name = $_REQUEST['table_name'];
 						$mno        = $_REQUEST['mno'];
-	 				// print data 
+	 				// print data
+				 			/*
 		 				echo " 
 		 					rate_type = $rate_type  <br>
 							table_id = $table_id   <br>
 							table_name = $table_name <br>
 							mno = $mno        <br>
 							step = $step <br>
-						";  
+						";  */
 					// check and insert new comment rate 
 		 				$response = $mc->posted_modals_rate_Query(  array(   'mno'=>$mno,   'table_name'=>$table_name ,   'table_id'=>$table_id ,   'rate_query'=>'get-user-rated-type')); 
-		 				echo " response $response ";
+//		 				echo " response $response ";
 
 		 				// $mc->message( 'rated' , $response , null  );
 		 				if (  $response == false ) { 
@@ -5257,21 +5258,21 @@ echo " </pre> </h3>";
 			 						'rate_query'=>'rate-insert' 
 			 					) 
 			 				);     
-			 				$mc->message( 'rating successfull. ' , $response , null );  
+//			 				$mc->message( 'rating successfull. ' , $response , null );
 			 				
 		 				}
 		 				else{  
-		 					echo " u already rated this <br>";
+//		 					echo " u already rated this <br>";
 		 				}
 		 			// count total rate and update comment 
 	 					$tlike    = $mc->posted_modals_rate_Query( array( 'table_name'=>$table_name , 'table_id'=>$table_id, 'rate_query'=>'get-rate-total-likes'    ));   
 	 					$tdislike = $mc->posted_modals_rate_Query( array( 'table_name'=>$table_name , 'table_id'=>$table_id, 'rate_query'=>'get-rate-total-dislikes' ));    
-	 					echo " tlikes $tlike tdislikes $tdislike <br> "; 
+//	 					echo " tlikes $tlike tdislikes $tdislike <br> ";
                         if($table_name == 'fs_comment') {
-                            echo " comment ";
+//                            echo " comment ";
                             $mc->update_fs_table_auto($table_id , array('tlike'=>$tlike , 'tdislike'=>$tdislike ) ,  'fs_comment' );
                         } else {
-                            echo "else posted looks ";
+//                            echo "else posted looks ";
                             $mc->update_fs_table_auto($table_id , array('pltvotes'=>$tlike ) ,  $table_name);
                         }
 
@@ -5341,11 +5342,11 @@ echo " </pre> </h3>";
                         $mno3 = $mc->get_modal_owner( $table_name , $table_id ) ;
                         if($table_name == 'fs_postedarticles') {
                             $tLikes = $article1->overAllRating($mno3);
-                            echo  "total likes  $tLikes modal owner mno = $mno3 modal is article <br>";
+//                            echo  "total likes  $tLikes modal owner mno = $mno3 modal is article <br>";
                             $db->update('fs_members', array('trating_article'=>$tLikes), "mno = " . $mno3);
                         } else {
                             $tLikes = $look1->overAllRating($mno3);
-                            echo  "total likes  $tLikes modal owner mno = $mno3 modal is look <br>";
+//                            echo  "total likes  $tLikes modal owner mno = $mno3 modal is look <br>";
                             $db->update('fs_members', array('trating_look'=>$tLikes), "mno = " . $mno3);
                         }
 
@@ -6423,17 +6424,17 @@ echo " </pre> </h3>";
 									// get total likes 
 
 										$tlikes  = $mc-> posted_modals_rate_Query(  array( 'table_name'=>$table_name, 'table_id'=>$tid, 'rate_query'=>'get-rate-total-likes' ) );     
-										echo " total likes $tlikes <br> ";
+//										echo " total likes $tlikes <br> ";
 
 									// get total rating 
 
 										$trating = $mc-> posted_modals_rate_Query(  array( 'table_name'=>$table_name, 'table_id'=>$tid, 'rate_query'=>'get-rate-overall'     ) );        
-										echo " total ratings $trating <br> "; 
+//										echo " total ratings $trating <br> ";
  
 									// get table percentage 
 
 										$percentage = $mc->RATING(  array( 'type' => 'calculate-percentage-look',  'like' => $tlikes,   'trating' => $trating )  ); 
-									  	echo " total percentage =  $percentage trating =  $trating  ";   
+//									  	echo " total percentage =  $percentage trating =  $trating  ";
 
 									// update  table rows  
 
