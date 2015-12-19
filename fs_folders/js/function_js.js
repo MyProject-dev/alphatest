@@ -3551,7 +3551,7 @@ function look_comment_thump_up_or_down (plcno, action , id, thumbsName, plno, tr
         // alert( trate+' id = '+trateid   );   
 
         if(table_name == 'fs_comment') {
-            alert('comment like dislike');
+            //alert('comment like dislike');
             $.post( "fs_folders/modals/general_modals/gen.modals.func.php", {
                 action: 'modal-comment-like-dislike',
                 mno: mno,
@@ -3560,10 +3560,37 @@ function look_comment_thump_up_or_down (plcno, action , id, thumbsName, plno, tr
                 rate_type: rate_type
             })
             .done(function( data ) {
-                //var r = data.split("<li>");
-                $('#comments_result').append(data);
-            });
 
+                //var r = data.split("<li>");
+                //$('#comments_result').append(data);
+                //alert('Comment successfully rated');
+
+                /**
+                 * Check if rate or not
+                 */
+
+                var thumb_class = $(id).attr('class');
+                var like_id = '#img_like_' + plcno;
+                var disliked_id = '#img_dislike_' + plcno;
+
+                if($(like_id).attr('class') == 'img_like' && $(disliked_id).attr('class') == 'img_like') {
+                    if(thumb_class == 'img_like') {
+                        if(action ==  'Thumb-Up') {
+                             auto_count('#like_'+plcno);
+                            $(id).attr('src', 'fs_folders/images/genImg/comment-like-liked.png');
+
+                        } else {
+                            auto_count('#dislike_'+plcno);
+                            $(id).attr('src', 'fs_folders/images/genImg/comment-dislike-disliked.png');
+                        }
+                        $(id).attr('class', 'rated');
+                    } else {
+                        //alert('This comment already rated');
+                    }
+                } else {
+                    //alert('already rated');
+                }
+            });
             return true;
         }
 
