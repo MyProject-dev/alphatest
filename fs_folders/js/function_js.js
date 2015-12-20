@@ -94,10 +94,10 @@ function live_ajax_load() {
 }
 function lookdetails_loaded (mno, style, table_id, table_name) {
 
-    console.log('load tag show hide');
+    // console.log('load tag show hide');
     look_show_hide_tags(mno);
 
-    console.log('load thumbnails now.. mno = ' + mno +  ' style = ' + style);
+    // console.log('load thumbnails now.. mno = ' + mno +  ' style = ' + style);
     // ajax_send_data('comments_result','look_comment_items/look-comments_display.php');
     // alert("mno = "+mno);
     lookdetails_thumbnail(
@@ -125,15 +125,15 @@ function load_details_feed_modal() {
     $('#home_res2').text('');
     $('#home_res3').text('');
 
-    console.log('loading the details modal... ');
+    // console.log('loading the details modal... ');
 
     var category = $('#modal-style').text();
     var mno1 = $('#modal-owner').text();
     var tab = $('#modal-tab').text();
-    console.log('category = ' + category + ' mno1 = ' + mno1 + ' tab = ' + tab);
-    console.log('load feed modal now...');
-    console.log(' category = ' + category + ' mno1 = ' + mno1 + ' tab = ' + tab);
-    console.log('load the modal feed in details page');
+    // console.log('category = ' + category + ' mno1 = ' + mno1 + ' tab = ' + tab);
+    // console.log('load feed modal now...');
+    // console.log(' category = ' + category + ' mno1 = ' + mno1 + ' tab = ' + tab);
+    // console.log('load the modal feed in details page');
     append_home(
         'home_res',
         'fs_folders/modals/lookdetails/details-feed-modals.php?tres='+1+'&category='+category+'&mno1='+mno1+'&tab='+tab,
@@ -226,7 +226,7 @@ function ajax_send_data( view_result_id , data , loader , page , id , id_1 ) {
     // alert('working data = '+data+' view result as = '+view_result_id);
     // document.getElementById(view_result_id).innerHTML = "<img src='images/loading 2.gif' >";
     // getID(view_result_id).style.background="#000 url('images/loading 2.gif') center no-repeat";
-    console.log('url = ' . data);
+    // console.log('url = ' . data);
 
     if (window.XMLHttpRequest)  {
         xmlhttp = new XMLHttpRequest();
@@ -706,7 +706,7 @@ function ajax_send_data( view_result_id , data , loader , page , id , id_1 ) {
 
 
 
-                console.log('this is the content of the youtube video ')
+                // console.log('this is the content of the youtube video ')
 
                 var t = titledisplay[1];
                 var d = description[1];
@@ -771,7 +771,7 @@ function ajax_send_data( view_result_id , data , loader , page , id , id_1 ) {
 
 
                 // video
-                console.log('video link here '+v);
+                // console.log('video link here '+v);
                 document.getElementById('content-video').innerHTML = v;
                 document.getElementById('stat-video').innerHTML = vtr+' VIDEO FOUND / ';
                 document.getElementById('counter-video').innerHTML = ' &nbsp; '+start_video+' of ';
@@ -818,7 +818,7 @@ function ajax_send_data( view_result_id , data , loader , page , id , id_1 ) {
             else if ( page == 'postarticle-insert' ) {
 
 
-                console.log('inserted');
+                // console.log('inserted');
 
                 document.getElementById(view_result_id).innerHTML = xmlhttp.responseText
                 $('#'+view_result_id).css('display','none');
@@ -838,7 +838,7 @@ function ajax_send_data( view_result_id , data , loader , page , id , id_1 ) {
                     Go( 'photo.resize.php?type=upload-article-and-resize' );
                 }
 
-                console.log('insert if  finished');
+                // console.log('insert if  finished');
 
                  $('#'+loader).css('visibility','hidden');
             }
@@ -1431,7 +1431,7 @@ function lookdetails_thumbnail( view_result_id,data , loader, home_counter ){
             // <div id="modal-style">chic</div>
             // <div id="modal-">137</div>
             // <div id="modal-">look</div> 
-            console.log('loading thumbnail done..');
+            // console.log('loading thumbnail done..');
             load_details_feed_modal();
 
         }
@@ -1824,7 +1824,7 @@ function append_home( view_result_id , data , loader , showstyle , page , type )
 
 
 
-                        console.log('starting the loop for the modal to append...');
+                        // console.log('starting the loop for the modal to append...');
                         // alert(r[i]); 
                         // get height of row containers 
                         cheight_li1 = $("#li_res1").height(); // get height of container li1
@@ -2369,11 +2369,11 @@ function  look_show_hide_tags( mno ) {
     // invisible_visible ( "hidden" , "#tag-circle" ); 
     // hide rectangle when enter to lookdetails look view
 
-    console.log('look_show_hide_tags(' + mno + ')');
+    // console.log('look_show_hide_tags(' + mno + ')');
 
     $("#look_view_img , #tag-circle-tag-div , #tag-circle").mouseenter(function ( ) {
 
-        console.log('mouse is in the image');
+        // console.log('mouse is in the image');
         invisible_visible ( "hidden" , "#lf_div_container" );
         for (var i = 1; i <= 15; i++) {
             invisible_visible ( "visible" , ".tag-circle-"+i );
@@ -2382,7 +2382,7 @@ function  look_show_hide_tags( mno ) {
     // show rectangle when enter to lookdetails look view 
     $("#look_view_img ").mouseout(function ( ) {
 
-        console.log('mouse out from image');
+        // console.log('mouse out from image');
         invisible_visible ( "visible" , "#lf_div_container" );
         for (var i = 1; i <= 15; i++) {
             invisible_visible ( "hidden" , ".tag-circle-"+i );
@@ -2441,7 +2441,7 @@ function show_if_mouse_over( show_el , hide_el , mouse_over_el) {
 
 
 
-        console.log('mouse over from show_if_mouse_over()');
+        // console.log('mouse over from show_if_mouse_over()');
 
         $(show_el).css({'display':'block'});
 
@@ -2450,7 +2450,7 @@ function show_if_mouse_over( show_el , hide_el , mouse_over_el) {
     })
     $(mouse_over_el).mouseout(function()
     {
-        console.log('mouse out from show_if_mouse_over() ');
+        // console.log('mouse out from show_if_mouse_over() ');
         // alert('mouse out the image');
         $(hide_el).css({'display':'none'});
         // $('#res').text('mouse out');
@@ -3000,7 +3000,7 @@ function follow_unfollow_fs_member (buttonid , mno1 , page, counterId) {
 
     if(page != 'feed') {
 
-        console.log($(buttonid).attr('status'));
+        // console.log($(buttonid).attr('status'));
 
         if($(buttonid).attr('status') == 'follow') {
 
@@ -3682,7 +3682,7 @@ function look_comment_thump_up_or_down (plcno, action , id, thumbsName, plno, tr
     // $(id).attr('id', 'liked');
 }
 function auto_count( id ) {
-    console.log("text =  " + $(id).text());
+    // console.log("text =  " + $(id).text());
     var trate = parseInt( $(id).text() ) + 1;
     // alert( trate );
     $(id).text( trate );
@@ -3832,7 +3832,7 @@ function look_comment_number_clicked( number , table_id , type , mno , tab , tab
  * usually its being used in details page
  */
 function comment_box_hit_enter_js( plno , e , type, rCDiv) {
-    console.log('comment added');
+    // console.log('comment added');
     if (e.keyCode == 13 || type == 'post-botton' ) {
         // detect if login or logout redirect  
         logout_interaction_response (sessionStorage.mno);
@@ -4369,15 +4369,15 @@ function get_rate_look_sort ( ) {
 
 
 
-    console.log(
-        'rate_style = ' + rate_style + '<br>' +
-        'rate_gender = ' + rate_gender + '<br>' +
-        'rate_plus_blogger = ' + rate_plus_blogger + '<br>' +
-        'rate_latest = ' + rate_latest + '<br>' +
-        'rate_status = ' + rate_status + '<br>' +
-        'rate_table_name  = ' + rate_table_name + ' <br>' +
-        'rate_look_topic = ' + rate_look_topic
-    )
+    // console.log(
+    //     'rate_style = ' + rate_style + '<br>' +
+    //     'rate_gender = ' + rate_gender + '<br>' +
+    //     'rate_plus_blogger = ' + rate_plus_blogger + '<br>' +
+    //     'rate_latest = ' + rate_latest + '<br>' +
+    //     'rate_status = ' + rate_status + '<br>' +
+    //     'rate_table_name  = ' + rate_table_name + ' <br>' +
+    //     'rate_look_topic = ' + rate_look_topic
+    // )
 
 
 
@@ -4445,13 +4445,13 @@ function rate_look_data() {
     rate_latest = $( '#rate-look-latest'  ).val();
     rate_status = $( '#rate-look-status'  ).val();
 
-    console.log(
-        ' rate_style = ' + rate_style  +
-        ' rate_gender = ' + rate_gender  +
-        ' rate_plus_blogger = ' + rate_plus_blogger  +
-        ' rate_latest = ' + rate_latest  +
-        ' rate_status = ' + rate_status
-    );
+    // console.log(
+    //     ' rate_style = ' + rate_style  +
+    //     ' rate_gender = ' + rate_gender  +
+    //     ' rate_plus_blogger = ' + rate_plus_blogger  +
+    //     ' rate_latest = ' + rate_latest  +
+    //     ' rate_status = ' + rate_status
+    // );
 
     data = 'fs_folders/modals/rate-look/rate-look-modal-new.php?retrievedas=rate-next-prev'+
     '&rate_style='+rate_style+
@@ -4465,7 +4465,7 @@ function rate_look_data() {
     loader  = 'comment_post_loader1 img';
     //alert(loader);
     $('#'+loader).css('visibility','visible');
-    console.log('url = ' . data);
+    // console.log('url = ' . data);
 
     if (window.XMLHttpRequest)  { xmlhttp = new XMLHttpRequest();   } else {  xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');  }
     xmlhttp.onreadystatechange = function() {
@@ -4945,7 +4945,7 @@ function welcome_more( view_result_id , loader , tab ) {
 // NEW DRIP  
 function drip_popup_show( mno , table_name , table_id , title , modal_type , mno1 , imgid , imgsrc , ano , validator ) {
 
-    console.log('working ');
+    // console.log('working ');
     console.log(mno+table_name+table_id+title+modal_type+mno1+imgid+imgsrc+ano+validator);
     // detect if login or logout redirect  
 
@@ -5441,7 +5441,7 @@ function modal_comment_send ( mno , table_id , table_name , id , e , page , resp
     // alert("got a key = " + event.keyCode);
 
 
-    console.log('table name = ' + table_name);
+    // console.log('table name = ' + table_name);
 
 
 
@@ -5599,7 +5599,7 @@ function modal_comment_like_dislike( mno , table_id , table_name , rate_type , t
         var data = 'action=modal-comment-like-dislike&mno='+mno+'&table_id='+table_id+'&table_name='+table_name+'&rate_type='+rate_type;
 
 
-        console.log(data);
+        // console.log(data);
 
         //ajax_send_data(
         //    'fs-general-ajax-response' ,
@@ -5640,10 +5640,10 @@ function modal_comment_like_dislike( mno , table_id , table_name , rate_type , t
         $(thumbs_id).attr('id','');
 
         //message log
-        console.log('successfully rated');
+        // console.log('successfully rated');
     }
     else{
-        console.log('successfully rated');
+        // console.log('successfully rated');
         //
         alert('comment already rated');
     }
@@ -5751,14 +5751,14 @@ function showHideParentOverFlow(parentOverFlowHide, status) {
 
 
     if(status=='show') {
-        console.log('show parent overflow');
+        // console.log('show parent overflow');
         $(parentOverFlowHide).css('overflow-y', 'visible');
     } else {
-        console.log('hide parent overflow');
+        // console.log('hide parent overflow');
         $(parentOverFlowHide).css('overflow-y', 'hidden');
     }
 
-    console.log('show parent overflow');
+    // console.log('show parent overflow');
     // alert('hide now')
 }
 
@@ -5806,7 +5806,7 @@ function member_suggest ( process , limit_start , limit_end , mno, response_cont
 
 
 
-    console.log('process = ' + process + 'limit_start = ' + limit_start + 'limit_end = ' + limit_end + 'mno = ' + mno + 'response_container = ' + response_container + 'type = ' + type + 'loader = ' + loader);
+    // console.log('process = ' + process + 'limit_start = ' + limit_start + 'limit_end = ' + limit_end + 'mno = ' + mno + 'response_container = ' + response_container + 'type = ' + type + 'loader = ' + loader);
 
 
 
@@ -5935,7 +5935,7 @@ $(document).ready(function( ) {
                     n = file.name,
                     s = ~~(file.size/1024) +'KB';
                 // document.getElementById('new-postalook-upload-preview').innerHTML = '<img src="'+ this.src +' " style="width:285px";  > '+w+'x'+h+' '+s+' '+t+' '+n+'<br>';  
-                console.log('height '+h+'width '+w);
+                // console.log('height '+h+'width '+w);
                 if ( w >= 200 &&  h >= 200) {
 
 
@@ -6068,14 +6068,14 @@ function article_nex_prev ( type , stat , response , loader , e , method , table
  
         // alert('topic = ' + topic + ' tags  = ' + tags);
 
-        console.log(
-            ' category = ' + category +
-            ' topic = ' + topic +
-            ' tags = ' + tags +
-            'title = '  + title +
-            ' url = ' +  url +
-            ' desc = ' + desc
-        );
+        // console.log(
+        //     ' category = ' + category +
+        //     ' topic = ' + topic +
+        //     ' tags = ' + tags +
+        //     'title = '  + title +
+        //     ' url = ' +  url +
+        //     ' desc = ' + desc
+        // );
 
 
 
@@ -6159,7 +6159,7 @@ function article_nex_prev ( type , stat , response , loader , e , method , table
             // show the fake submit image
                 $('#postarticle-submit-1-fake').css('display','block'); 
 
-            console.log('save data! ');
+            // console.log('save data! ');
 
 
 
@@ -6214,7 +6214,7 @@ function article_nex_prev ( type , stat , response , loader , e , method , table
         } 
         else
         {
-             console.log("no allowed to upload");
+             // console.log("no allowed to upload");
         }
     }
     else if ( type == 'select-article-modal' ) {
@@ -6325,7 +6325,7 @@ function article_nex_prev ( type , stat , response , loader , e , method , table
                 var data = 'action=postarticle&process=retrieved-data&url='+url;
 
 
-                console.log(data);
+                // console.log(data);
                 ajax_send_data(
                     response,
                     'fs_folders/modals/general_modals/gen.modals.func.php?'+data,
@@ -6407,7 +6407,7 @@ function postarticle_select_category(dataContainer, dropDownId) {
     $.get( "fs_folders/modals/postarticle/topics.php?category="+$(dropDownId).val(), function( data ) {
         // document.getElementById('postarticle_select_category').val = data;
         document.getElementById(dataContainer).innerHTML = data;
-        console.log( "Load was performed." + data);
+        // console.log( "Load was performed." + data);
     });
 
 
@@ -6547,7 +6547,7 @@ function get_image_style( imgh , imgw , cw , ch ) {
 function modal_thumbnail ( table_name , table_id , size , loader , process , action ) {
 
 
-    console.log('details page clicked and process = ' + process);
+    // console.log('details page clicked and process = ' + process);
     /*
      * table_name = fs table 
      * size       = size of the image show
@@ -6612,8 +6612,8 @@ function modal_thumbnail ( table_name , table_id , size , loader , process , act
 // NEW DETAIL
 
 function modal_detail( table_name , table_id , pagenum , action , process , orderby )  {
-    console.log('start sorting..');
-    console.log ( 'modal_detail ( table_name = ' + table_name  + ' table_id = ' + table_id  + ' pagenum = ' + pagenum  + ' action = ' + action  + ' process = ' + process  + ' orderby = ' + orderby + ')');
+    // console.log('start sorting..');
+    // console.log ( 'modal_detail ( table_name = ' + table_name  + ' table_id = ' + table_id  + ' pagenum = ' + pagenum  + ' action = ' + action  + ' process = ' + process  + ' orderby = ' + orderby + ')');
     // alert ( table_name+table_id+pagenum+action+process );    
     if ( process == 'load-next-comment-page' ) {
         //  alert( ' processing the page comment ' ); 
@@ -6625,7 +6625,7 @@ function modal_detail( table_name , table_id , pagenum , action , process , orde
     }
     else if ( process == 'load-comment-change-page-modal' ) {
 
-        console.log('loading comment modal now...');
+        // console.log('loading comment modal now...');
         var orderby = $('#sortcomment').val( );
         var data = 'action='+action+'&process='+process+'&table_name='+table_name+'&table_id='+table_id+'&orderby='+orderby;
         ajax_send_data(
@@ -6646,7 +6646,7 @@ function modal_detail( table_name , table_id , pagenum , action , process , orde
         );
     }
     else {
-        console.log('no action');
+        // console.log('no action');
     }
 
 }
@@ -7022,7 +7022,7 @@ function fs_modal_popup( action , process , type , table_name , table_id , title
 }
 
 function show(id) {
-    console.log('show  id = ' + id);
+    // console.log('show  id = ' + id);
     $(id).css('display','block');
 
 }
@@ -7030,7 +7030,7 @@ function show(id) {
 function modal ( action , process , type , loader , response , textfieldid , value , multivalue , method , table_id , table_name, agreementId)
 {
 
-    console.log(' call: modal() ');
+    // console.log(' call: modal() ');
     $('#autocomplete-dropdown-container-occasion-1, #autocomplete-dropdown-container-season-1').css('display', 'none');
     // alert('this is a test'); 
     // action       => action of the function used for case code of the gen.func
@@ -7081,9 +7081,9 @@ function modal ( action , process , type , loader , response , textfieldid , val
     }
 
 
-    console.log('comment = '+ comment + ' response = ' + response);
+    // console.log('comment = '+ comment + ' response = ' + response);
 
-    console.log('type = ' + type);
+    // console.log('type = ' + type);
 
     // alert for all the data type comming in 
 
@@ -7264,15 +7264,15 @@ function modal ( action , process , type , loader , response , textfieldid , val
 
 
 
-        console.log('searching...');
-        console.log('loader id = #' + response);
+        // console.log('searching...');
+        // console.log('loader id = #' + response);
         $('#'+response).css('display','block');
 
         // remove space if first character found for multi select  
 
         if ( multivalue == true ) {
 
-            console.log('if multivalue = true');
+            // console.log('if multivalue = true');
 
             // get the value typed for multi select 
 
@@ -7291,7 +7291,7 @@ function modal ( action , process , type , loader , response , textfieldid , val
             }
         }
         else{
-            console.log('else multivalue = false');
+            // console.log('else multivalue = false');
 
             // get the value typed for single select 
 
@@ -7300,7 +7300,7 @@ function modal ( action , process , type , loader , response , textfieldid , val
 
 
 
-        console.log('searching for response in the database');
+        // console.log('searching for response in the database');
         // alert( 'key search = '+keySearch );   
         // initialize data
 
@@ -7309,7 +7309,7 @@ function modal ( action , process , type , loader , response , textfieldid , val
 
 
 
-        console.log( " append to --> " + response + '<-- ' + data1);
+        // console.log( " append to --> " + response + '<-- ' + data1);
 
         // send to data to gen.func file and this is to be updated to ajax because it response delay  
         // jquery  
@@ -7407,7 +7407,7 @@ function modal ( action , process , type , loader , response , textfieldid , val
         comment = $(textfieldid).val();
 
 
-        console.log('comment = '+ comment + ' response = ' + response);
+        // console.log('comment = '+ comment + ' response = ' + response);
 
         // get value of the new comment updated    
 
@@ -8054,7 +8054,7 @@ function save_post_data(type)
             data:JSON.stringify(data)
         }, function(response) {
 
-            console.log('posting article insert response ');
+            // console.log('posting article insert response ');
 
             response = JSON.parse(response);
 
@@ -8160,17 +8160,17 @@ function welcome_thumbnail_select(idName, id, new_id, btn_id, type) {
     //
     if('#'+$(idName + id).attr('id') ==  idName+id) {
         // if(totalSelected < limit) {
-        console.log('equal');
+        // console.log('equal');
         //update the id of the button
         $(idName + id).attr('id', new_id+'-'+id);
         console.log(' selected ' + idName + ' total selected = ' + $('img[id^=' + new_id + ']').length);
         // }
     } else {
         $('#'+new_id+'-'+id).attr('id',idName.replace("#","") + id);
-        console.log('not equal');
+        // console.log('not equal');
     }
 
-    console.log($(idName + id).attr('id') + ' = ' + idName+id );
+    // console.log($(idName + id).attr('id') + ' = ' + idName+id );
 
 
 
@@ -8192,7 +8192,7 @@ function welcome_thumbnail_select(idName, id, new_id, btn_id, type) {
     //store total clicked in session
     // used to know if the user already clicked even 1 style or topic
     totalSelected = $('img[id^='+new_id+']').length;
-    console.log(totalSelected);
+    // console.log(totalSelected);
 
 
     if(type == 'auto') { 
@@ -8203,7 +8203,7 @@ function welcome_thumbnail_select(idName, id, new_id, btn_id, type) {
 
             sessionStorage.setItem('total_selected_style', totalSelected);
             //sessionStorage.getItem('prev_color')
-            console.log('row 1 style');
+            // console.log('row 1 style');
             //add id to field of brand
             // Add new id to the field for brand
             welcome_topic_brand_select_add_to_field('#welcome-brand-field', id);
@@ -8211,7 +8211,7 @@ function welcome_thumbnail_select(idName, id, new_id, btn_id, type) {
         } else {
 
             sessionStorage.setItem('total_selected_topic', totalSelected);
-            console.log('row 2 topic');
+            // console.log('row 2 topic');
             //add id to field of topic
             // Add new id to the field for brand
             welcome_topic_brand_select_add_to_field('#welcome-topic-field', id);
@@ -8227,15 +8227,15 @@ function welcome_thumbnail_select(idName, id, new_id, btn_id, type) {
 
 function welcome_topic_brand_select_add_to_field(fieldId, id) {
 
-    console.log('field id = ' + fieldId+ ' id = ' + id); 
+    // console.log('field id = ' + fieldId+ ' id = ' + id); 
     var brandIndexOf = $(fieldId).val().indexOf('-'+id);
     console.log('tlenght ' + brandIndexOf);
     if(brandIndexOf >= 0) {
-        console.log('un select')
+        // console.log('un select')
         var brandIds = $(fieldId).val().replace('-'+id, '');
         $(fieldId).val(brandIds);
     } else {
-        console.log('select new');
+        // console.log('select new');
         var brandIds = $(fieldId).val().replace('-'+id, '');
         $(fieldId).val('-'+ id + brandIds);
     }
@@ -8293,10 +8293,10 @@ function profile_tab_out(e, underline) {
         $('#'+underline+' div').css({'background-color':data.leave_color});
         $('#'+underline+' div').css({'visibility':'hidden'});
 
-        console.log('Change leave color to grey color ' + data.prev_color);
+        // console.log('Change leave color to grey color ' + data.prev_color);
 
     }  else {
-        console.log('No change color when leave color ' + data.prev_color);
+        // console.log('No change color when leave color ' + data.prev_color);
 
     }
 
@@ -8413,7 +8413,7 @@ function welcome_about(errorDiv,fieldId,tab) {
 
 
     var typed = $('#'+fieldId).val();
-    console.log('typing..');
+    // console.log('typing..');
     // show hide next button
     /*
     if(validate_about()) {
@@ -8428,7 +8428,7 @@ function welcome_about(errorDiv,fieldId,tab) {
 
 
     $.get("fs_folders/modals/welcome/welcome_modals.php?tab="+tab+"&typed="+typed, function(data, status){
-        console.log("Data: " + data + "\nStatus: " + status);
+        // console.log("Data: " + data + "\nStatus: " + status);
 
 
 
@@ -8521,7 +8521,7 @@ function welcome_select_brand_tab(brand, num, type) {
     //change content
     $(loader).css('display','block');
     $.get(url, function(data, status) {
-        console.log("Data: " + data + "\nStatus: " + status);
+        // console.log("Data: " + data + "\nStatus: " + status);
         var modal = data.split('<modal>')[1];
         document.getElementById(divModal).innerHTML = modal;
         var more = data.split('<more>')[1];
@@ -8542,7 +8542,7 @@ function welcome_select_brand_tab(brand, num, type) {
         } 
  
 
-        console.log('welcome_thumbnail_select('+ idName +','+ id +','+ select +','+ btn_id+')');
+        // console.log('welcome_thumbnail_select('+ idName +','+ id +','+ select +','+ btn_id+')');
         $(loader).css('display','none');
     });
  
@@ -8566,14 +8566,14 @@ function welcome_select_brand_more(brand, page, type) {
     }
 
     $.get(url, function(data, status) {
-        console.log("Data: " + data + "\nStatus: " + status);
+        // console.log("Data: " + data + "\nStatus: " + status);
         var modal = data.split('<modal>')[1];
         $('#'+divModal).append(modal);
         var more = data.split('<more>')[1];
         document.getElementById(divMore).innerHTML  = more;
     });
 
-    console.log(data);
+    // console.log(data);
 
 }
 
@@ -8607,68 +8607,68 @@ function validate_about() {
 
    // alert(error_burl);
 
-    console.log(
-        fname + " | " +
-        lname + " | " +
-        uname + " | " +
-        bname + " | " +
-        burl + " | "  +
-        plus_blogger
-    );
+    // console.log(
+    //     fname + " | " +
+    //     lname + " | " +
+    //     uname + " | " +
+    //     bname + " | " +
+    //     burl + " | "  +
+    //     plus_blogger
+    // );
 
 
     
     if (error_username == 'exist') {   
-        console.log('Blog url exist');
+        // console.log('Blog url exist');
         status = 0; 
     } else if (error_bname == 'exist') { 
 
-       console.log('Blog name exist');
+       // console.log('Blog name exist');
         status = 0;
 
     } else if(error_burl == 'exist'){ 
 
-       console.log('User name exist');
+       // console.log('User name exist');
         status = 0;    
 
     } else if (fname == '') {
 
-        console.log('First name required.');
+        // console.log('First name required.');
         status = 0;
 
     } else if (lname == '') {
 
-        console.log('Last name required.');
+        // console.log('Last name required.');
         status = 0;
 
 
     } else if (uname == '') {
 
-        console.log('User name required.');
+        // console.log('User name required.');
         status = 0;
 
 
     } else if (bname == null) {
 
-        console.log('Blog name required.');
+        // console.log('Blog name required.');
         status = 0;
 
 
     } else if (burl == '') {
 
-        console.log('Blog url required.');
+        // console.log('Blog url required.');
         status = 0;
 
 
     } else if(gender == 'Gender') {
 
-        console.log('Gender required');
+        // console.log('Gender required');
         status = 0;
 
 
     } else if (plus_blogger == 'Are you a plus size blogger?') {
 
-        console.log('Are you a plus size blogger required.');
+        // console.log('Are you a plus size blogger required.');
         status = 0;
 
 
@@ -8704,7 +8704,7 @@ function saveAjax (category, containerId, page) {
 
 
 function show_hide(id, stat){
-    console.log('mouse over and now status of div = ' + id + ' display = ' + stat);
+    // console.log('mouse over and now status of div = ' + id + ' display = ' + stat);
     $(id).css({'display': stat})
 }
 
@@ -8717,14 +8717,14 @@ function hide_show_hide(hideId, showId) {
 
 function change_brand_type(id) {
     if($('#'+id).val().toLowerCase()  == 'brand')  {
-        console.log('brand dropdown');
+        // console.log('brand dropdown');
         $('#brand_category_name, #brand_category_gender').css('display','block');
         $('#topic_category_name').css('display','none');
     } else {
         $('#brand_category_name, #brand_category_gender').css('display','none');
         $('#topic_category_name').css('display','block');
 
-        console.log('topic dropdown');
+        // console.log('topic dropdown');
     }
 }
 
