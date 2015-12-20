@@ -52,7 +52,7 @@
                     var n = i + 1;
                     var next = false;
 
-                    console.log('slide clicked next | slide number = ' + i );
+                    // console.log('slide clicked next | slide number = ' + i );
 
                     if(i == 0) {
 
@@ -209,7 +209,7 @@
 
 
                         } else {
-                            console.log(" don't save welcome information now");
+                            // console.log(" don't save welcome information now");
                         }
                     }
 
@@ -233,29 +233,29 @@
 
                         // start validation for hide
 
-                        console.log('next i = ' + i);
+                        // console.log('next i = ' + i);
                         if(i == 0) {
                             //if 0 hide 0 and 2 show 1
                             $('#welcome-slide-container-0').css({'height':'200px', 'visibility':'hidden'});
                             $('#welcome-slide-container-1').css({'height':'auto', 'visibility':'visible'});
                             $('#welcome-slide-container-2').css({'height':'200px', 'visibility':'hidden'});
-                            console.log('next if 0 hide 0 and 2 show 1');
+                            // console.log('next if 0 hide 0 and 2 show 1');
                         } else if (i == 1) {
                             // if 1 hide 0 and 1 show 2
                             $('#welcome-slide-container-0').css({'height':'200px', 'visibility':'hidden'});
                             $('#welcome-slide-container-1').css({'height':'200px', 'visibility':'hidden'});
                             $('#welcome-slide-container-2').css({'height':'auto', 'visibility':'visible'});
-                            console.log('next if 1 hide 0 and 1 show 2');
+                            // console.log('next if 1 hide 0 and 1 show 2');
                         }
 
 
-                        console.log('next page');
+                        // console.log('next page');
 
-                        console.log(
-                            'slide clicked next | slide number = ' + i
-                            + 'total selected style ' + sessionStorage.getItem('total_selected_style') + " " +
-                            'total selected topic ' + sessionStorage.getItem('total_selected_topic')
-                        );
+                        // console.log(
+                        //     'slide clicked next | slide number = ' + i
+                        //     + 'total selected style ' + sessionStorage.getItem('total_selected_style') + " " +
+                        //     'total selected topic ' + sessionStorage.getItem('total_selected_topic')
+                        // );
 
                     }
                 }
@@ -287,19 +287,19 @@
 
 
                 console.log(
-                    'slide clicked next | slide number = ' + i
+                    // 'slide clicked next | slide number = ' + i
                 );
                 setBullet(i);
 
                 // start validation hide when not displayed
-                console.log('next i = ' + i);
+                // console.log('next i = ' + i);
                 if(i == 1) {
                     //if 1 hide 1 and 2 show 0
                     $('#welcome-slide-container-0').css({'height':'auto', 'visibility':'visible'});
                     $('#welcome-slide-container-1').css({'height':'200px', 'visibility':'hidden'});
                     $('#welcome-slide-container-2').css({'height':'200px', 'visibility':'hidden'});
 
-                    console.log('prev if 1 hide 1 and 2 show 0');
+                    // console.log('prev if 1 hide 1 and 2 show 0');
                 } else if (i == 2) {
 
                     //if 2 hide 2 and 0 show 1
@@ -307,7 +307,7 @@
                     $('#welcome-slide-container-1').css({'height':'auto', 'visibility':'visible'});
                     $('#welcome-slide-container-2').css({'height':'200px', 'visibility':'hidden'});
 
-                    console.log('prev if 2 hide 2 and 0 show 1');
+                    // console.log('prev if 2 hide 2 and 0 show 1');
                 }
             });
 
@@ -329,6 +329,12 @@
     }
 
 
+    function change_color(id, color) {  
+        $(id).css('border', '1px solid ' + color); 
+    }
+
+
+
     function validate_about() {
 
         var fname        = $('#fname').val();
@@ -338,48 +344,73 @@
         var burl         = $('#burl').val();
         var gender       = $('#gender').val();
         var plus_blogger = $('#plus-blogger').val();
+ 
+        //Change color to grey
+        change_color('#fname', '#CCCCCC'); 
+        change_color('#lname', '#CCCCCC');
+        change_color('#uname', '#CCCCCC');
+        change_color('#bname', '#CCCCCC');
+        change_color('#burl', '#CCCCCC');
+        change_color('#gender', '#CCCCCC'); 
+        change_color('#plus-blogger', '#CCCCCC');
 
-        console.log(
-            fname + " | " +
-            lname + " | " +
-            uname + " | " +
-            bname + " | " +
-            burl + " | "  +
-            plus_blogger
-        );
+
+
+
+
+
+
+
+
+
+        // console.log(
+        //     fname + " | " +
+        //     lname + " | " +
+        //     uname + " | " +
+        //     bname + " | " +
+        //     burl + " | "  +
+        //     plus_blogger
+        // );
+
+
+
+        
+
+
+
 
         if (fname == '') {
-
+             change_color('#fname', 'red'); 
             alert('First name required.');
             return 0;
 
         } else if (lname == '') {
-
+            change_color('#lname', 'red');
             alert('Last name required.');
             return 0;
 
         } else if (uname == '') {
-
+            change_color('#uname', 'red');
             alert('User name required.');
             return 0;
 
-        } else if (bname == null) {
-
+        } else if (bname == '') {
+            change_color('#bname', 'red');
             alert('Blog name required.');
             return 0;
 
         } else if (burl == '') {
-
+            change_color('#burl', 'red');
             alert('Blog url required.');
             return 0;
 
         } else if(gender == 'Gender') {
-
+            change_color('#gender', 'red');  
             alert('Gender required');
             return 0;
 
         } else if (plus_blogger == 'Are you a plus size blogger?') {
-
+            change_color('#plus-blogger', 'red');
             alert('Are you a plus size blogger required.');
             return 0;
 
