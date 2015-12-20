@@ -331,6 +331,8 @@ $brandContent1_len = (count($brandContent1) < 12) ? count($brandContent1)  : 12;
                                                         <td style="text-align: left;  " >
 
 
+
+
                                                             <img
                                                                 class="welcome-profile-browse"
                                                                 src="<?php echo $path; ?>fs_folders/images/post/browse.png"
@@ -341,6 +343,8 @@ $brandContent1_len = (count($brandContent1) < 12) ? count($brandContent1)  : 12;
                                                             <div class="welcome-about-avatar-crop"    style="display:block">
                                                                 <input type="checkbox"  id="welcome-about-avatar-crop-input" checked> <span> I want to crop </span>
                                                             </div>
+
+
                                                         </td>
                                                 </table>
                                             </li>
@@ -364,8 +368,9 @@ $brandContent1_len = (count($brandContent1) < 12) ? count($brandContent1)  : 12;
                                     </ul>
                                 </div>
                                 <a href="#">
+
                                     <img
-                                        class="cslide-next next-about "
+                                        class="cslide-next "
                                         id="welcome-continue"
                                         style="margin-left:3px;"
                                         src="<?php echo $path; ?>fs_folders/images/welcome-popup/continue.png"
@@ -373,6 +378,17 @@ $brandContent1_len = (count($brandContent1) < 12) ? count($brandContent1)  : 12;
                                         onmouseout="mouseout_change_button (  '#welcome-continue'  , src='<?php echo $path; ?>fs_folders/images/welcome-popup/continue.png' ) "
                                         onclick="welcome_select_brand_tab('All Style', '1')"
                                     />
+
+
+                                   <!--  <img
+                                        class="cslide-next next-about "
+                                        id="welcome-continue"
+                                        style="margin-left:3px;"
+                                        src="<?php echo $path; ?>fs_folders/images/welcome-popup/continue.png"
+                                        onmousemove=" mousein_change_button ( '#welcome-continue' , src='<?php echo $path; ?>fs_folders/images/welcome-popup/continue-mouse.png'  )"
+                                        onmouseout="mouseout_change_button (  '#welcome-continue'  , src='<?php echo $path; ?>fs_folders/images/welcome-popup/continue.png' ) "
+                                        onclick="welcome_select_brand_tab('All Style', '1')"
+                                    /> -->
                                 </a>
                             </div>
                         </div>
