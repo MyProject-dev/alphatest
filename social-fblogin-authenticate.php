@@ -207,7 +207,7 @@
 	                            	$mc->resize_profile_pic_thumbnail_and_profile( $mno1 , $mppno );    
 
 	                             // add activity post feed
-                                    $mc->add_activity_wall_post ( $mno1 , $mppno , 'Joined' , 'fs_members' , $mc->date_time );
+                                    $mc->add_activity_wall_post ( $mno1 , $mppno , 'Joined' , 'fs_member_profile_pic' , $mc->date_time );
 
 	                              // send confirmation code
 	                            	if ( !empty($email) ) {
