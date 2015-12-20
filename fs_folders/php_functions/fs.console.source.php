@@ -10951,6 +10951,7 @@ use App\User;
 								 								<?php  $this->member_thumbnail_display( "fs_folders/images/uploads/members/mem_thumnails/", $noti_mno ,  $path."fs_folders/images/uploads/members/mem_thumnails/", null , '40px;' );  ?>
 								 							</li>
 								 							<li style="width:210px;" ><a href="<?php echo $link; ?>"> <div> <?php  echo "<b> $noti_fullname1  </b> $action <b> $noti_fullname2 </b> <br> <span style='font-size:10px;color:grey' > $notif_date </span>"; ?></div></a></li>
+								 						
 								 							<li style="width:50px;padding-left:5px;" > 
 								 								<?php  
 								 								$style = 'cursor:pointer;color:red !important;font-size: 50px;margin: 0px;padding: 0px;line-height: 0px; margin-left:303px;margin-top: -10px;'; 
@@ -11212,7 +11213,7 @@ use App\User;
 								 								<a href="<?php echo $link; ?>"> <div> <?php  echo "<b> $noti_fullname1   $info "; ?> </div></a>
 								 							</li>
 								 							<li style="width:50px;padding-left:5px;" > 
-								 								 <?php $this->print_user_modals_follow_or_unfollow_buttons( $this->mno , $mno , 'width:40px; height:40px;'); ?> 
+								 								 <?php $this->print_user_modals_follow_or_unfollow_buttons( $this->mno , $mno , 'width: 92px;height: 34px;margin-left: -34px;margin-top: 4px;'); ?> 
 								 							</li> 
 								 						</ul>  
 							 					</div>   							 				
