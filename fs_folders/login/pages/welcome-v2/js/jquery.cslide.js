@@ -54,51 +54,46 @@
 
                     // console.log('slide clicked next | slide number = ' + i );
 
-                    if(i == 0) {
-
-                        //About
-                        next = validate_about();
-
-                        if($('#gender').val() == 'Female') {
-                            $('#brand-tab-2').css('display','block');
-                            $('#brand-tab-4').css('display','block');
-                            $('#brand-tab-6').css('display','none');
-                        } else {
-                            $('#brand-tab-2').css('display','none');
-                            $('#brand-tab-4').css('display','none');
-                            $('#brand-tab-6').css('display','block');
-                        }
-
-
-
-                    } else if (i == 1) {
-
-                        //Style
-
-
-
-
-                        next = validate_style();
-
-
-
-                        // if female hide menswear
-                        // else male bohemian chic
-
-
-
-
-                    } else {
+                    //if(i == 0) {
+                    //
+                    //    //About
+                    //    next = validate_about();
+                    //
+                    //    if($('#gender').val() == 'Female') {
+                    //        $('#brand-tab-2').css('display','block');
+                    //        $('#brand-tab-4').css('display','block');
+                    //        $('#brand-tab-6').css('display','none');
+                    //    } else {
+                    //        $('#brand-tab-2').css('display','none');
+                    //        $('#brand-tab-4').css('display','none');
+                    //        $('#brand-tab-6').css('display','block');
+                    //    }
+                    //
+                    //
+                    //
+                    //} else if (i == 1) {
+                    //
+                    //    //Style
+                    //
+                    //
+                    //
+                    //
+                    //    next = validate_style();
+                    //
+                    //
+                    //
+                    //    // if female hide menswear
+                    //    // else male bohemian chic
+                    //
+                    //
+                    //
+                    //
+                    //} else {
 
                         //Topic
                         next = validate_topic();
 
                         if(next) {
-
-
-
-
-
                             var about = '&fname='+$('#fname').val()+'&lname='+$('#lname').val()+'&uname='+$('#uname').val()+'&bname='+$('#bname').val()+'&burl='+$('#burl').val()+'&gender='+$('#gender').val()+'&plus_blogger='+$('#plus-blogger').val();
                             var brand = $("#welcome-brand-field").val();
                             var topic = $("#welcome-topic-field").val(); 
@@ -107,25 +102,11 @@
                             var uname = $('#uname').val();
                             var bname = $('#bname').val();
                             var burl = $('#burl').val();
-                            var gender = $('#gender').val()
-                            var plus_blogger = $('#plus-blogger').val()
-                           
-
-
-
-
+                            var gender = $('#gender').val();
+                            var plus_blogger = $('#plus-blogger').val();
 
                             // Assign handlers immediately after making the request,
                             // and remember the jqxhr object for this request
-
-
-
-
-
-
-
-
-
                             //Change this to post
                             $.post( "fs_folders/modals/welcome/save.php", { 
                                 'fname': fname,
@@ -150,16 +131,10 @@
                                 } 
                                 $( "#upload-profile-pic" ).submit(); 
                             });
-
-
- 
-
                             /* 
                                 var jqxhr = $.get( "fs_folders/modals/welcome/save.php?brand="+brand+"&topic="+topic+about, function(data) {
                                     //console.log(  data );
-
-                                }) 
-
+                                })
                                     .done(function() {
                                         //alert('brand and topic successfully saved');
                                         //alert( "second success submit profile pic now!" );
@@ -170,10 +145,7 @@
                                             console.log('Do not allow crop.');
                                             $("#upload-profile-pic").attr("action", "profile_crop_display.php?type=welcome");
                                         }
-
-
                                          $( "#upload-profile-pic" ).submit();
-
                                     })
                                     .fail(function() {
                                         console.log( "error" );
@@ -189,29 +161,10 @@
                                 });
                                 console.log('save welcome information now.'); 
                             */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                         } else {
                             // console.log(" don't save welcome information now");
                         }
-                    }
+                    //}
 
                     if(next) {
                         var slideLeft = "-" + n * 100 + "%";
