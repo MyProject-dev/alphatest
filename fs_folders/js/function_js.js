@@ -2609,8 +2609,9 @@ function share_pinterest ( plno ) {
 }
 function share( table_name , table_id ,  type , page , about , title , name , picture , link ) {
 
+    alert('working');
+    var extention = 'dev.';
 
-    var extention = '';
 
 
     // var method  = 'feed';
@@ -2719,6 +2720,12 @@ function share( table_name , table_id ,  type , page , about , title , name , pi
             // this is not a modal but a page 
 
             break;
+
+
+
+
+
+
     }
     // alert('link = '+link);
     switch ( type ){
@@ -2777,6 +2784,7 @@ function share( table_name , table_id ,  type , page , about , title , name , pi
         default:
             break;
     }
+
 }
 function fbshare_invite ( ) {
     // detect if login or logout redirect 

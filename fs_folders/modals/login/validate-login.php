@@ -5,6 +5,8 @@
     require ("../../../fs_folders/php_functions/source.php");
     require ("../../../fs_folders/php_functions/myclass.php");  
 
+    $params = json_decode(file_get_contents('php://input'), true); 
+
 	$mc   = new myclass();  
 	$type = ( !empty( $_GET['type'] ) ) ? $_GET['type'] : null ;
 	$sc   = ( !empty( $_GET['sc'] ) ) ? $_GET['sc'] : null ;
@@ -18,6 +20,18 @@
 	$status = false;
  	$login_error = false;
 
+
+
+ 	if(!empty($params['type'])) {
+ 		$type = $params['type'];
+ 	}
+
+ 	if(!empty($params['sc'])) {
+ 		$sc = $params['sc'];
+ 	}
+ 
+ 	// echo " type " . $type . ' sc ' . $sc . '<br>';
+ 	
 	switch ( $type ) { 
 		case 'login': 
 
@@ -186,6 +200,9 @@
  				$mno 			 =  $mc->get_cookie( 'mno' , 136 );    
  				$status          =  false;
 			 	$response = $mc->fs_signup_code(   array(  'type' =>'select-specific-code', 'generated_code'=>$sc  )  ); 
+
+			 	print_r($response);
+				
 				if( !empty($response))  {  
 					if ( empty($response[0]['mno']) ) {
 						$response = mysql_query( "UPDATE fs_signup_code SET mno = $mno , date = '$mc->date_time' WHERE generated_code = '$sc' " ); 	
@@ -206,6 +223,8 @@
 			 	else{
 			 		$smessage = "<span class='fs-text-red' > Code not exist </span> "; 	
 			 	} 
+
+
 			break;
 		default:   
 			break;

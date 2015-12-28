@@ -29,24 +29,9 @@
 
 
  	$mc->auto_detect_path();    
- 	$mc->save_current_page_visited( );
-
-//	echo "Sub domain " . subDomain;
-
-
-
-
-
-// asdas
-
-
-
-
-
-
-
-
-
+ 	$mc->save_current_page_visited( ); 
+	//	echo "Sub domain " . subDomain; 
+	// asdas 
  	//redirect
     /*
         $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -57,18 +42,10 @@
     */
  	# initlaized mno
  	// $is_cookie_set   =  $mc->set_cookie( 'mno' , 130 , time()+3600*24 ); 
-	 	$_SESSION['mno'] =  $mc->get_cookie( 'mno' , 136 );  
-	 	$mno 			 =  $mc->get_cookie( 'mno' , 136 );
-	 	$mc->mno         =  $mc->get_cookie( 'mno' , 136 ); 
-	 	$fulleName        = $mc->get_full_name_by_id   ( $mc->mno ); 
-
-
-
-
-
-
-
-
+ 	$_SESSION['mno'] =  $mc->get_cookie( 'mno' , 136 );  
+ 	$mno 			 =  $mc->get_cookie( 'mno' , 136 );
+ 	$mc->mno         =  $mc->get_cookie( 'mno' , 136 ); 
+ 	$fulleName        = $mc->get_full_name_by_id   ( $mc->mno );   
  	# initialized the next viewed more modals
  	// $_SESSION['counter'] = 3;
     // echo " <bR><br><bR><Br>mno ".$_SESSION['mno'];
@@ -80,21 +57,24 @@
 	// populararticles        
 	// popularmedia         
 	// $_SESSION["mno"] = 134;   
- 	// echo " full url =  ".basename($_SERVER["PHP_SELF"]);
-
+ 	// echo " full url =  ".basename($_SERVER["PHP_SELF"]); 
  	$fs_home_tab = basename($_SERVER["PHP_SELF"]); 
  	$fs_home_tab = str_replace(".php","",$fs_home_tab);  
  	if ($fs_home_tab == "index") { $fs_home_tab = "latest"; }
  	// echo " fs tab = $fs_home_tab <br>"; 
  	$mc->get_visitor_info( "" , "home tab: $fs_home_tab " , "home" );  
-	if ( $fs_home_tab == "index" )   { $clock_style = "display:none" ;   } else  { $clock_style = "display:none" ;  }
-
+	if ( $fs_home_tab == "index" )   { $clock_style = "display:none" ;   } else  { $clock_style = "display:none" ;  } 
     // Init welcome
-    $welcome = (!empty($_GET['welcome']))? $_GET['welcome']: false;
-  
-	  // $mc->go('signup'); 
+    $welcome = (!empty($_GET['welcome']))? $_GET['welcome']: false; 
+    // $mc->go('signup'); ]  
 
-	if ( !empty($_GET['gcode']) )
+    /**
+    * If code is empty
+    *
+    */
+   
+
+     if ( !empty($_GET['gcode']) )
     {
 		// to logout the user
         $mno             = 136;
@@ -115,40 +95,32 @@
 		// unset gcode after used
         unset($_SESSION['gcode']);
         unset($_SESSION['login']);
-	}
+	} 
 
+	$_SESSION['confirmed'] = TRUE; 
 
-	$_SESSION['confirmed'] = TRUE;
-
-
-
-	// echo "<h2> 
-	// 	mno = $mc->mno <br>
-	// 	fullname = $mc->fullname <br>
-	// 	gender = $mc->gender   <br>
-	// 	plus_blogger = $mc->plus_blogger <br>
-	// 	lastname = $mc->lastname <br>
-	// 	firstname = $mc->firstname <br>
-	// 	identity_username = $mc->identity_username <br>
-	// 	blog_name = $mc->blog_name <br> 
-	// 	$mc->blogdom <br>
-	// </h2>"; 
-    // echo "$mc->mno <br>";
-
-
-    // echo "this a test <br> ";
-?> 
-  
-<?php 
-// print_r($fulleName);
-// echo " mno = " . $mc->mno . '<br>';
-//echo " tlog = " . $mc->tlog . '<br>';
-// echo "mppno  = $mc->mppno <br>";
-//echo "full name =  dsds " . $fulleName . '<br>';
-//echo "sa imong pag ka laagan, na saag ka sa akong dughan you and i will never be! <br>";
-//echo "the man! ";
-// echo "this is  a test";
-// echo "asdasdasda"; 
+//  echo "<h2> 
+// 	mno = $mc->mno <br>
+// 	fullname = $mc->fullname <br>
+// 	gender = $mc->gender   <br>
+// 	plus_blogger = $mc->plus_blogger <br>
+// 	lastname = $mc->lastname <br>
+// 	firstname = $mc->firstname <br>
+// 	identity_username = $mc->identity_username <br>
+// 	blog_name = $mc->blog_name <br> 
+// 	$mc->blogdom <br>
+//  </h2>"; 
+//  echo "$mc->mno <br>"; 
+//  echo "this a test <br> "; 
+//  print_r($fulleName);
+//  echo " mno = " . $mc->mno . '<br>';
+//  echo " tlog = " . $mc->tlog . '<br>';
+//  echo "mppno  = $mc->mppno <br>";
+//  echo "full name =  dsds " . $fulleName . '<br>';
+//  echo "sa imong pag ka laagan, na saag ka sa akong dughan you and i will never be! <br>";
+//  echo "the man! ";
+//  echo "this is  a test";
+//  echo "asdasdasda"; 
 ?>
 
 
@@ -283,8 +255,7 @@
 	 			     
 	 			 ?>	
 		 		<div id='body_wrapper'>  
-
-
+ 
 		 			<div id='body_container'> 
 	 					<table border="0" id='bct1' >   
 				 			<tr> 

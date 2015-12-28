@@ -7076,8 +7076,11 @@ use App\User;
 		     		$radius =  'border-radius: 5px 5px 0px 0px;';   
 		     		//$blogName =   $this->getUserInfo($look_attr['owner'], 'blogdom'); 
 		     	    $blogUrl   						   =   ($this->getUserInfo($look_attr['owner'], 'blogurl') != "") ? $this->getUserInfo($look_attr['owner'], 'blogurl') : '#';  
+		     	  	$blogUrl                           =    convertToWebLink($blogUrl);
+
+
 		     	    $blogName 						   =   $this->getUserInfo($look_attr['owner'], 'blogdom');  
-		     	    $blogNameLink                      =   (!empty($blogName)) ? "of <a href=redirect.php?url=$blogUrl target=\"_blank\" class='user-blogname' ><b> $blogName </b> </a>  " : "";
+		     	    $blogNameLink                      =   (!empty($blogName)) ? "of <a href='$blogUrl' target=\"_blank\" class='user-blogname' ><b> $blogName </b> </a>  " : "";
 
 
  	
@@ -7603,6 +7606,8 @@ use App\User;
 
 			  										<div style="border:1px solid none" >
 			  											<?php   
+
+
 										 					$this->share_modal_dropdown( 
 										 						array(	
 										 							'table_name'=>$look_attr['table_name'],
@@ -7616,6 +7621,8 @@ use App\User;
 										 							'picture'=>''
 										 						)
 										 					);   
+
+
 									 					?>
 			  										</div> 
 
@@ -8061,8 +8068,9 @@ use App\User;
  						$latestLikerName = '';
 
  						$blogUrl   						   =   ($this->getUserInfo($look_attr['owner'], 'blogurl') != "") ? $this->getUserInfo($look_attr['owner'], 'blogurl') : '#'; 
+ 					    $blogUrl                           =    convertToWebLink($blogUrl);
  					    $blogName 						   =   $this->getUserInfo($look_attr['owner'], 'blogdom'); 
- 					    $blogNameLink                      =   (!empty($blogName)) ? "of <a href='redirect.php?url=$blogUrl' target=\"_blank\" class='user-blogname' ><b> $blogName </b> </a>  " : "";
+ 					    $blogNameLink                      =   (!empty($blogName)) ? "of <a href='$blogUrl' target=\"_blank\" class='user-blogname' ><b> $blogName </b> </a>  " : "";
 
 
  					    
@@ -10098,13 +10106,13 @@ use App\User;
 										<img  src="fs_folders/images/body/Look/look-module-share-bar-container.png"   itle="share" id='share_look_modals<?php echo $modal['id']; ?>'  style='width:269px; height:55px; '  name='table6' />    
 										<table border="0" cellpadding="5" cellspacing="0" style="position:absolute;margin-top:20px;margin-left:30px;"  onclick="return false" > 
 											<tr> 
-												<td  style="padding-left:0px;cursor:pointer" ><img  style="width:20px"    src="fs_folders/images/attr/ld_white_fb.png"   title = "facebook"                         onclick="share( '<?php echo $modal['table_name']; ?>','<?php echo $modal['table_id']; ?>','facebook','<?php echo $modal['page']; ?>','<?php echo $modal['about']; ?>','<?php echo $modal['title']; ?>','<?php echo $modal['name']; ?>','<?php echo $modal['picture']; ?>','<?php echo $modal['link']; ?>' )" ></td>  
-								            <td  style="padding-left:7px;cursor:pointer" ><img  style="width:20px"    	  src="fs_folders/images/attr/ld_white_tw.png"   title = "twitter"                          onclick="share( '<?php echo $modal['table_name']; ?>','<?php echo $modal['table_id']; ?>','twitter','<?php echo $modal['page']; ?>','<?php echo $modal['about']; ?>','<?php echo $modal['title']; ?>','<?php echo $modal['name']; ?>','<?php echo $modal['picture']; ?>','<?php echo $modal['link']; ?>' )" ></td>  
-								            <td  style="padding-left:7px;cursor:pointer" ><img  style="width:20px"    	  src="fs_folders/images/attr/ld_white_t.png"    title = "tumblr"                           onclick="share( '<?php echo $modal['table_name']; ?>','<?php echo $modal['table_id']; ?>','tumblr','<?php echo $modal['page']; ?>','<?php echo $modal['about']; ?>','<?php echo $modal['title']; ?>','<?php echo $modal['name']; ?>','<?php echo $modal['picture']; ?>','<?php echo $modal['link']; ?>' )" ></td>  
-								            <td  style="padding-left:7px;cursor:pointer" ><img  style="width:20px"    	  src="fs_folders/images/attr/ld_white_q.png"    title = "pinterest"                        onclick="share( '<?php echo $modal['table_name']; ?>','<?php echo $modal['table_id']; ?>','pinterest','<?php echo $modal['page']; ?>','<?php echo $modal['about']; ?>','<?php echo $modal['title']; ?>','<?php echo $modal['name']; ?>','<?php echo $modal['picture']; ?>','<?php echo $modal['link']; ?>' )" ></td>  
-								            <td  style="padding-left:7px;cursor:pointer" > <a href="#"  																										    onclick="share( '<?php echo $modal['table_name']; ?>','<?php echo $modal['table_id']; ?>','google_plus','<?php echo $modal['page']; ?>','<?php echo $modal['about']; ?>','<?php echo $modal['title']; ?>','<?php echo $modal['name']; ?>','<?php echo $modal['picture']; ?>','<?php echo $modal['link']; ?>' )"  ><img  style="width:20px" src="fs_folders/images/attr/ld_white_g+.png"   title = "google+" > </a> </td>   
+												<td  style="padding-left:0px;cursor:pointer" ><img  style="width:20px"    src="fs_folders/images/attr/ld_white_fb.png"   title = "facebook"                         onclick="share( '<?php echo $modal['table_name']; ?>','<?php echo $modal['table_id']; ?>','facebook','<?php echo $modal['page']; ?>','<?php echo shorten_string($modal['about']); ?>','<?php echo  shorten_string($modal['title']); ?>','<?php echo $modal['name']; ?>','<?php echo $modal['picture']; ?>','<?php echo $modal['link']; ?>' )" ></td>  
+								            <td  style="padding-left:7px;cursor:pointer" ><img  style="width:20px"    	  src="fs_folders/images/attr/ld_white_tw.png"   title = "twitter"                          onclick="share( '<?php echo $modal['table_name']; ?>','<?php echo $modal['table_id']; ?>','twitter','<?php echo $modal['page']; ?>','<?php echo shorten_string($modal['about']); ?>','<?php echo  shorten_string($modal['title']); ?>','<?php echo $modal['name']; ?>','<?php echo $modal['picture']; ?>','<?php echo $modal['link']; ?>' )" ></td>  
+								            <td  style="padding-left:7px;cursor:pointer" ><img  style="width:20px"    	  src="fs_folders/images/attr/ld_white_t.png"    title = "tumblr"                           onclick="share( '<?php echo $modal['table_name']; ?>','<?php echo $modal['table_id']; ?>','tumblr','<?php echo $modal['page']; ?>','<?php echo shorten_string($modal['about']); ?>','<?php echo  shorten_string($modal['title']); ?>','<?php echo $modal['name']; ?>','<?php echo $modal['picture']; ?>','<?php echo $modal['link']; ?>' )" ></td>  
+								            <td  style="padding-left:7px;cursor:pointer" ><img  style="width:20px"    	  src="fs_folders/images/attr/ld_white_q.png"    title = "pinterest"                        onclick="share( '<?php echo $modal['table_name']; ?>','<?php echo $modal['table_id']; ?>','pinterest','<?php echo $modal['page']; ?>','<?php echo shorten_string($modal['about']); ?>','<?php echo  shorten_string($modal['title']); ?>','<?php echo $modal['name']; ?>','<?php echo $modal['picture']; ?>','<?php echo $modal['link']; ?>' )" ></td>  
+								            <td  style="padding-left:7px;cursor:pointer" > <a href="#"  																										    onclick="share( '<?php echo $modal['table_name']; ?>','<?php echo $modal['table_id']; ?>','google_plus','<?php echo $modal['page']; ?>','<?php echo shorten_string($modal['about']); ?>','<?php echo  shorten_string($modal['title']); ?>','<?php echo $modal['name']; ?>','<?php echo $modal['picture']; ?>','<?php echo $modal['link']; ?>' )"  ><img  style="width:20px" src="fs_folders/images/attr/ld_white_g+.png"   title = "google+" > </a> </td>   
 								            <td  style="padding-left:7px;cursor:pointer" ><img  style="width:20px"    src="fs_folders/images/attr/ld_white_line.png" title = "stumbleupon"  					    onclick=" stuble_upon( <?php echo $modal['table_id']; ?> )"  ></td> 
-								            <td  style="padding-left:7px;cursor:pointer" ><img  style="width:20px"    src="fs_folders/images/attr/ld_white_mail.png" title = "email"							    onclick="share( '<?php echo $modal['table_name']; ?>','<?php echo $modal['table_id']; ?>','gmail','<?php echo $modal['page']; ?>','<?php echo $modal['about']; ?>','<?php echo $modal['title']; ?>','<?php echo $modal['name']; ?>','<?php echo $modal['picture']; ?>','<?php echo $modal['link']; ?>' )"  >
+								            <td  style="padding-left:7px;cursor:pointer" ><img  style="width:20px"    src="fs_folders/images/attr/ld_white_mail.png" title = "email"							    onclick="share( '<?php echo $modal['table_name']; ?>','<?php echo $modal['table_id']; ?>','gmail','<?php echo $modal['page']; ?>','<?php echo shorten_string($modal['about']); ?>','<?php echo  shorten_string($modal['title']); ?>','<?php echo $modal['name']; ?>','<?php echo $modal['picture']; ?>','<?php echo $modal['link']; ?>' )"  >
 										</table>   
 									</div>  <?php  
 								break;  
@@ -10114,19 +10122,19 @@ use App\User;
 
 											<h1 itemprop="name"><?php echo $modal['title']; ?></h1> 
 										  	<img itemprop="image" src="<?php echo "http://".$this->attribute['url_extention']."fashionsponge.com/fs_folders/images/uploads/posted%20looks/lookdetails/$modal[table_id].jpg"; ?>"></img>
-										  	<p itemprop="description"><?php echo $modal['description']; ?></p> 
+										  	<p itemprop="description"><?php echo shorten_string($modal['description']); ?></p> 
 
 										<?php elseif ( $modal['table_name'] == 'signup'  ): ?>
 
 											<h1 itemprop="name"><?php echo $modal['title']; ?></h1> 
 										  	<img itemprop="image" src="<?php echo "http://".$this->attribute['url_extention']."fashionsponge.com/fs_folders/images/genImg/collage.jpg"; ?>"></img>
-										  	<p itemprop="description"><?php echo $modal['description']; ?></p>
+										  	<p itemprop="description"><?php echo shorten_string($modal['description']); ?></p>
 
 										<?php else:  ?>  
 
 										  	<h1 itemprop="name"><?php echo $modal['title']; ?></h1> 
 										  	<img itemprop="image" src="<?php echo "http://".$this->attribute['url_extention']."fashionsponge.com/fs_folders/images/uploads/posted%20articles/detail/$modal[table_id].jpg"; ?>"></img>
-										  	<p itemprop="description"><?php echo $modal['description']; ?></p>
+										  	<p itemprop="description"><?php echo shorten_string($modal['description']); ?></p>
 
 										<?php 
 										endif;
@@ -10134,19 +10142,24 @@ use App\User;
 									echo "</div>"; 
 								break; 
 							default: ?>
+
+
 									<div style="position:absolute;border:1px solid none; margin-top:-10px; z-index:120; display:none; padding-top:5px; " id="dropdown_share<?php echo $modal['id']; ?>"     onmouseover="mouseOver_elemShow_mouseOut_elemHide(  '#dropdown_share<?php echo $modal['id']; ?>' ,   '#dropdown_share<?php echo $modal['id']; ?>' ,   '.new-look-mousover-desc-title-container<?php echo $modal['id']; ?> , #dropdown_share<?php echo $modal['id']; ?>' )" >
 										<img  src="fs_folders/images/body/Look/look-module-share-bar-container.png"   itle="share" id='share_look_modals<?php echo $modal['id']; ?>'  style='width:269px; height:55px; '  name='table6' />    
 										<table border="0" cellpadding="0" cellspacing="0" style="position:absolute;margin-top:-36px; margin-left:40px;"  onclick="return false" > 
-											<tr> 
-												<td  style="padding-left:0px;cursor:pointer" ><img  style="width:20px"    src="fs_folders/images/attr/ld_white_fb.png"   title = "facebook"    onclick="share( '<?php echo $modal['table_name']; ?>','<?php echo $modal['table_id']; ?>','facebook','<?php echo $modal['page']; ?>','<?php echo $modal['about']; ?>','<?php echo $modal['title']; ?>','<?php echo $modal['name']; ?>','<?php echo $modal['picture']; ?>','<?php echo $modal['link']; ?>' )" ></td>  
-								            <td  style="padding-left:7px;cursor:pointer" ><img  style="width:20px"    	  src="fs_folders/images/attr/ld_white_tw.png"   title = "twitter"     onclick="share( '<?php echo $modal['table_name']; ?>','<?php echo $modal['table_id']; ?>','twitter','<?php echo $modal['page']; ?>','<?php echo $modal['about']; ?>','<?php echo $modal['title']; ?>','<?php echo $modal['name']; ?>','<?php echo $modal['picture']; ?>','<?php echo $modal['link']; ?>' )" ></td>  
-								            <td  style="padding-left:7px;cursor:pointer" ><img  style="width:20px"    	  src="fs_folders/images/attr/ld_white_t.png"    title = "tumblr"      onclick="share( '<?php echo $modal['table_name']; ?>','<?php echo $modal['table_id']; ?>','tumblr','<?php echo $modal['page']; ?>','<?php echo $modal['about']; ?>','<?php echo $modal['title']; ?>','<?php echo $modal['name']; ?>','<?php echo $modal['picture']; ?>','<?php echo $modal['link']; ?>' )" ></td>  
-								            <td  style="padding-left:7px;cursor:pointer" ><img  style="width:20px"    	  src="fs_folders/images/attr/ld_white_q.png"    title = "pinterest"   onclick="share( '<?php echo $modal['table_name']; ?>','<?php echo $modal['table_id']; ?>','pinterest','<?php echo $modal['page']; ?>','<?php echo $modal['about']; ?>','<?php echo $modal['title']; ?>','<?php echo $modal['name']; ?>','<?php echo $modal['picture']; ?>','<?php echo $modal['link']; ?>' )" ></td>  
-								            <td  style="padding-left:7px;cursor:pointer" > <a hre="#" 																					 	   onclick="share( '<?php echo $modal['table_name']; ?>','<?php echo $modal['table_id']; ?>','google_plus','<?php echo $modal['page']; ?>','<?php echo $modal['about']; ?>','<?php echo $modal['title']; ?>','<?php echo $modal['name']; ?>','<?php echo $modal['picture']; ?>','<?php echo $modal['link']; ?>' )"  ><img  style="width:20px" src="fs_folders/images/attr/ld_white_g+.png"   title = "google+" > </a> </td>   
-								            <td  style="padding-left:7px;cursor:pointer" ><img  style="width:20px"    src="fs_folders/images/attr/ld_white_line.png" title = "stumbleupon"     onclick=" stuble_upon( <?php echo $modal['table_id']; ?> )"  ></td> 
-								            <td  style="padding-left:7px;cursor:pointer" ><img  style="width:20px"    src="fs_folders/images/attr/ld_white_mail.png" title = "email" 		   onclick="share( '<?php echo $modal['table_name']; ?>','<?php echo $modal['table_id']; ?>','gmail','<?php echo $modal['page']; ?>','<?php echo $modal['about']; ?>','<?php echo $modal['title']; ?>','<?php echo $modal['name']; ?>','<?php echo $modal['picture']; ?>','<?php echo $modal['link']; ?>' )"  >
+											<tr>  
+												<td  style="padding-left:0px;cursor:pointer" ><img  style="width:20px"    src="fs_folders/images/attr/ld_white_fb.png"   title = "facebook"    onclick="share( '<?php echo $modal['table_name']; ?>','<?php echo $modal['table_id']; ?>','facebook','<?php echo $modal['page']; ?>','<?php echo  shorten_string($modal['about']);  ?>','<?php echo  shorten_string($modal['title']); ?>','<?php echo $modal['name']; ?>','<?php echo $modal['picture']; ?>','<?php echo $modal['link']; ?>' )" ></td>  
+									            <td  style="padding-left:7px;cursor:pointer" ><img  style="width:20px"    	  src="fs_folders/images/attr/ld_white_tw.png"   title = "twitter"     onclick="share( '<?php echo $modal['table_name']; ?>','<?php echo $modal['table_id']; ?>','twitter','<?php echo $modal['page']; ?>','<?php echo  shorten_string($modal['about']);  ?>','<?php echo  shorten_string($modal['title']); ?>','<?php echo $modal['name']; ?>','<?php echo $modal['picture']; ?>','<?php echo $modal['link']; ?>' )" ></td>  
+									            <td  style="padding-left:7px;cursor:pointer" ><img  style="width:20px"    	  src="fs_folders/images/attr/ld_white_t.png"    title = "tumblr"      onclick="share( '<?php echo $modal['table_name']; ?>','<?php echo $modal['table_id']; ?>','tumblr','<?php echo $modal['page']; ?>','<?php echo  shorten_string($modal['about']);  ?>','<?php echo  shorten_string($modal['title']); ?>','<?php echo $modal['name']; ?>','<?php echo $modal['picture']; ?>','<?php echo $modal['link']; ?>' )" ></td>  
+									            <td  style="padding-left:7px;cursor:pointer" ><img  style="width:20px"    	  src="fs_folders/images/attr/ld_white_q.png"    title = "pinterest"   onclick="share( '<?php echo $modal['table_name']; ?>','<?php echo $modal['table_id']; ?>','pinterest','<?php echo $modal['page']; ?>','<?php echo  shorten_string($modal['about']);  ?>','<?php echo  shorten_string($modal['title']); ?>','<?php echo $modal['name']; ?>','<?php echo $modal['picture']; ?>','<?php echo $modal['link']; ?>' )" ></td>  
+									            <td  style="padding-left:7px;cursor:pointer" > <a hre="#" 																					 	   onclick="share( '<?php echo $modal['table_name']; ?>','<?php echo $modal['table_id']; ?>','google_plus','<?php echo $modal['page']; ?>','<?php echo  shorten_string($modal['about']);  ?>','<?php echo  shorten_string($modal['title']); ?>','<?php echo $modal['name']; ?>','<?php echo $modal['picture']; ?>','<?php echo $modal['link']; ?>' )"  ><img  style="width:20px" src="fs_folders/images/attr/ld_white_g+.png"   title = "google+" > </a> </td>   
+									            <td  style="padding-left:7px;cursor:pointer" ><img  style="width:20px"    src="fs_folders/images/attr/ld_white_line.png" title = "stumbleupon"     onclick=" stuble_upon( <?php echo $modal['table_id']; ?> )"  ></td> 
+									            <td  style="padding-left:7px;cursor:pointer" ><img  style="width:20px"    src="fs_folders/images/attr/ld_white_mail.png" title = "email" 		   onclick="share( '<?php echo $modal['table_name']; ?>','<?php echo $modal['table_id']; ?>','gmail','<?php echo $modal['page']; ?>','<?php echo shorten_string($modal['about']); ?>','<?php echo  shorten_string($modal['title']); ?>','<?php echo $modal['name']; ?>','<?php echo $modal['picture']; ?>','<?php echo $modal['link']; ?>' )"  >
+									      
 										</table>   
-									</div><?php 
+									</div>
+
+									<?php 
 								break;
 						}   
 

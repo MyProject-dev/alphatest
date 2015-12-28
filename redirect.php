@@ -12,6 +12,9 @@
 	if(empty(strpos($url, 'ttp://'))){  
 		$url = 'http://'.$url; 
 	} 
-     is_allow_redirect($_GET['url'], 136);    
-  echo "url = 	$url  <br> ";
+
+	echo " $url ";
+	exit;
+    //is_allow_redirect($_GET['url'], 136);    
+    //echo "url = 	$url  <br> ";
 ?>

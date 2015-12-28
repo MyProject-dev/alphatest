@@ -8,7 +8,7 @@
                 status:true, xfbml:true 
              });  
              FB.ui({ method: 'feed', 
-                message: 'Facebook for Websites is super-cool',
+                message: '  ',
                 name: 'Facebook Dialogs',
                 link: 'http://fashionsponge.com/lookdetails?id=191',
                 picture: 'http://fashionsponge.com/fs_folders/images/uploads/posted looks/home/191.jpg',

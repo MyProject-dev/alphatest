@@ -126,7 +126,7 @@
 
 
 
-                            //Change this to post 
+                            //Change this to post
                             $.post( "fs_folders/modals/welcome/save.php", { 
                                 'fname': fname,
                                 'lname': lname,
@@ -446,4 +446,3 @@
 
 }(jQuery));
 
- 

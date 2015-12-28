@@ -335,7 +335,26 @@ if ((!empty($_GET['welcome'])) ? $_GET['welcome'] : ''  == 'get-started' || $mc-
     <script type="text/javascript" src='fs_folders/js/modal.js'></script>
 
 
+
+
     <script src="http://connect.facebook.net/en_US/all.js"></script>
+    <!-- social share -->
+        <meta property="og:url"           content="http://dev.fashionsponge.com/lookdetails?id=222546" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="This is the title" />
+        <meta property="og:description"   content="This is the description" />
+        <meta property="og:image"         content="http://dev.fashionsponge.com/fs_folders/images/uploads/posted looks/lookdetails/222546.jpg" />
+
+
+
+
+
+
+
+
+
+
+
     <?php
 
 
