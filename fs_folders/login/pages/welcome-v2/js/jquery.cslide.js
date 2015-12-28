@@ -43,55 +43,10 @@
             $(slidesContainerId+" .cslide-next").click(function(){
 
                 // required field first name, last name, user name, blog name, blog url, gender, are you a plus size blogger
-
-
-
-
                 if(validate_about()) {
                     var i = $(slidesContainerId + " .cslide-slide.cslide-active").index();
                     var n = i + 1;
                     var next = true;
-
-                    // console.log('slide clicked next | slide number = ' + i );
-
-                    //if(i == 0) {
-                    //
-                    //    //About
-                    //    next = validate_about();
-                    //
-                    //    if($('#gender').val() == 'Female') {
-                    //        $('#brand-tab-2').css('display','block');
-                    //        $('#brand-tab-4').css('display','block');
-                    //        $('#brand-tab-6').css('display','none');
-                    //    } else {
-                    //        $('#brand-tab-2').css('display','none');
-                    //        $('#brand-tab-4').css('display','none');
-                    //        $('#brand-tab-6').css('display','block');
-                    //    }
-                    //
-                    //
-                    //
-                    //} else if (i == 1) {
-                    //
-                    //    //Style
-                    //
-                    //
-                    //
-                    //
-                    //    next = validate_style();
-                    //
-                    //
-                    //
-                    //    // if female hide menswear
-                    //    // else male bohemian chic
-                    //
-                    //
-                    //
-                    //
-                    //} else {
-
-                        //Topic
-                        //next = validate_topic();
 
                         if(next) {
                             var about = '&fname='+$('#fname').val()+'&lname='+$('#lname').val()+'&uname='+$('#uname').val()+'&bname='+$('#bname').val()+'&burl='+$('#burl').val()+'&gender='+$('#gender').val()+'&plus_blogger='+$('#plus-blogger').val();
@@ -131,47 +86,13 @@
                                 } 
                                 $( "#upload-profile-pic" ).submit(); 
                             });
-                            /* 
-                                var jqxhr = $.get( "fs_folders/modals/welcome/save.php?brand="+brand+"&topic="+topic+about, function(data) {
-                                    //console.log(  data );
-                                })
-                                    .done(function() {
-                                        //alert('brand and topic successfully saved');
-                                        //alert( "second success submit profile pic now!" );
-                                        if($("#welcome-about-avatar-crop-input").is(":checked")){
-                                            console.log('Allow crop.');
-                                            $("#upload-profile-pic").attr("action", "profile_crop_display.php");
-                                        } else {
-                                            console.log('Do not allow crop.');
-                                            $("#upload-profile-pic").attr("action", "profile_crop_display.php?type=welcome");
-                                        }
-                                         $( "#upload-profile-pic" ).submit();
-                                    })
-                                    .fail(function() {
-                                        console.log( "error" );
-                                    })
-                                    .always(function() {
-                                        console.log( "finished" );
-                                    });
-
-                                // Perform other work here ...
-                                // Set another completion function for the request above
-                                jqxhr.always(function() {
-                                    console.log( "second finished" );
-                                });
-                                console.log('save welcome information now.'); 
-                            */
-
-
                             /**
                              * Remove this return if you want to to proceed to the next page
                              */
                             return true;
-                            
+
                         } else {
-                            // console.log(" don't save welcome information now");
                         }
-                    //}
 
                     if(next) {
                         var slideLeft = "-" + n * 100 + "%";
@@ -188,12 +109,7 @@
                             $(slidesContainerId + " .cslide-prev").removeClass("cslide-disabled");
                         }
 
-
-
-
                         // start validation for hide
-
-                        // console.log('next i = ' + i);
                         if(i == 0) {
                             //if 0 hide 0 and 2 show 1
                             $('#welcome-slide-container-0').css({'height':'200px', 'visibility':'hidden'});
@@ -207,16 +123,6 @@
                             $('#welcome-slide-container-2').css({'height':'auto', 'visibility':'visible'});
                             // console.log('next if 1 hide 0 and 1 show 2');
                         }
-
-
-                        // console.log('next page');
-
-                        // console.log(
-                        //     'slide clicked next | slide number = ' + i
-                        //     + 'total selected style ' + sessionStorage.getItem('total_selected_style') + " " +
-                        //     'total selected topic ' + sessionStorage.getItem('total_selected_topic')
-                        // );
-
                     }
                 }
 
@@ -314,31 +220,7 @@
         change_color('#gender', '#CCCCCC'); 
         change_color('#plus-blogger', '#CCCCCC');
 
-
-
-
-
-
-
-
-
-
-        // console.log(
-        //     fname + " | " +
-        //     lname + " | " +
-        //     uname + " | " +
-        //     bname + " | " +
-        //     burl + " | "  +
-        //     plus_blogger
-        // );
-
-
-
-        
-
-
-
-
+  
         if (fname == '') {
              change_color('#fname', 'red'); 
             alert('First name required.');
