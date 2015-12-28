@@ -91,7 +91,7 @@
                     //} else {
 
                         //Topic
-                        next = validate_topic();
+                        //next = validate_topic();
 
                         if(next) {
                             var about = '&fname='+$('#fname').val()+'&lname='+$('#lname').val()+'&uname='+$('#uname').val()+'&bname='+$('#bname').val()+'&burl='+$('#burl').val()+'&gender='+$('#gender').val()+'&plus_blogger='+$('#plus-blogger').val();
