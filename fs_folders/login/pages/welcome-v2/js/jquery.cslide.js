@@ -47,10 +47,10 @@
 
 
 
-                if(validate()) {
+                if(validate_about()) {
                     var i = $(slidesContainerId + " .cslide-slide.cslide-active").index();
                     var n = i + 1;
-                    var next = false;
+                    var next = true;
 
                     // console.log('slide clicked next | slide number = ' + i );
 
@@ -161,6 +161,13 @@
                                 });
                                 console.log('save welcome information now.'); 
                             */
+
+
+                            /**
+                             * Remove this return if you want to to proceed to the next page
+                             */
+                            return true;
+                            
                         } else {
                             // console.log(" don't save welcome information now");
                         }
