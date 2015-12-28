@@ -220,7 +220,7 @@
         change_color('#gender', '#CCCCCC'); 
         change_color('#plus-blogger', '#CCCCCC');
 
-  
+
         if (fname == '') {
              change_color('#fname', 'red'); 
             alert('First name required.');

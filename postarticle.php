@@ -209,6 +209,26 @@ $mno 			 =  $mc->get_cookie( 'mno' , 136 );
 													        var image  = new Image(); 
 													        reader.readAsDataURL(file);  
 													        reader.onload = function(_file) {
+
+																/**
+																 * content-nofound-video -> diplay:block
+																 * content-video -> remove content
+																 * remove border from video id = "content-video" and border:none
+																 * add border to the image container  id="content-image" and color="border: 2px solid rgb(33, 90, 157);"
+																 * remove text url in the field id="article_url_field"
+																 */
+
+
+																$('#content-nofound-video').css('display', 'block');
+																$('#content-video').html('').css('border', 'none');
+																$('#content-image').css('border', '2px solid rgb(33, 90, 157)');
+																$('#article_url_field').val('');
+
+
+
+
+
+//																alert('change image');
 													            image.src    = _file.target.result;              // url.createObjectURL(file);
 													            image.onload = function() {
 													                var w = this.width,

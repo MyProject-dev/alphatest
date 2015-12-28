@@ -690,6 +690,8 @@ function ajax_send_data( view_result_id , data , loader , page , id , id_1 ) {
                 // }      
             }
             else if ( page == 'postarticle-retrieved-data' ){
+
+                //alert('this is it');
                 // document.getElementById(view_result_id).innerHTML = xmlhttp.responseText
 
                 var imgdisplay   = xmlhttp.responseText.split("<imgdisplay>");
@@ -738,8 +740,11 @@ function ajax_send_data( view_result_id , data , loader , page , id , id_1 ) {
                 var v = videodisplay[1];
                 var vtr = videotres[1];
                 var start_video = 0;
+
                 //  show hide nofound and arrow left and right
                 if ( vtr == 1 ) {
+                    $('#content-image img').css('display','none');
+                    //alert('video show');
                     var start_video = 1;
                     $('#content-nofound-video').css('display','none');
                     $('#postarticle-next-prev-video-div').css('display','none');
@@ -756,11 +761,6 @@ function ajax_send_data( view_result_id , data , loader , page , id , id_1 ) {
                     $('#postarticle-next-prev-video-div').css('display','none');
                 }
 
-
-
-
-
-
                 // image
                 if ( allowimage[1] == 1 ) {
                     document.getElementById('content-image').innerHTML = i;
@@ -776,28 +776,13 @@ function ajax_send_data( view_result_id , data , loader , page , id , id_1 ) {
                 document.getElementById('stat-video').innerHTML = vtr+' VIDEO FOUND / ';
                 document.getElementById('counter-video').innerHTML = ' &nbsp; '+start_video+' of ';
                 document.getElementById('stat-video-1').innerHTML = ' &nbsp; '+vtr;
-
-
                 // attribute
-
-
-
                 //document.getElementById('postarticle-title').innerHTML = t;
                 //document.getElementById('postarticle-description').innerHTML = d;
                 //document.getElementById('postarticle-keyword').innerHTML = k;
-
-
-
-
-
                 $('#'+view_result_id).css('display','none');
                 $('#'+view_result_id).fadeIn('slow');
                 $('#'+loader).css('visibility','hidden');
-
-
-
-
-
                 // hide upload image
                 // if ( $('#article-upload-image').val() == 1 ) {
                 //  $('#content-nofound-image').css('display','none');
@@ -6015,7 +6000,7 @@ $(document).ready(function( ) {
         }
     });
 })
-function article_nex_prev ( type , stat , response , loader , e , method , table_id ) {
+function article_nex_prev  ( type , stat , response , loader , e , method , table_id ) {
 
     // alert( ' type = '+type+' stat = '+stat+' response = '+response+' loader = '+loader+' e = '+e+'method = '+method+' table_id = '+table_id );
     // var response = 'content';
