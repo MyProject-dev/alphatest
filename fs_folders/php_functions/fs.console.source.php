@@ -8723,6 +8723,7 @@ use App\User;
 																					$tlike             = $comments[$i]['tlike'];
 																					$tdislike          = $comments[$i]['tdislike'];   
 																					$fullname          = $this->get_full_name_by_id ( $mno_commentor );  
+																					$userNameCommentor = $this->get_username_by_mno( $mno_commentor ); 
 												 									$response          = $this->posted_modals_rate_Query(  array(   'mno'=>$mno,   'table_name'=>'fs_comment' ,   'table_id'=>$cno,   'rate_query'=>'get-user-rated-type') ); 
 												 									 
 												 									// echo " tdislike $tdislike tlike $tlike cno = $cno "; 
@@ -8750,7 +8751,7 @@ use App\User;
 											      										 	<li style="width:228px;font-family:arial; font-size:12px;  " >
 											      										 		<div style="margin-top:-2px;" >
 												      										 		<div style="margin-left:7px;"  >
-												      										 		 	<a href='<?php echo $username; ?>'> <b style='color:#284372;font-family: 'Avenir LT Std 35 Light' !important; color:#225b99' > <?php echo $fullname; ?> </b></a> <span id='modal-comment-color' > 
+												      										 		 	<a href='<?php echo $userNameCommentor; ?>'> <b style='color:#284372;font-family: 'Avenir LT Std 35 Light' !important; color:#225b99' > <?php echo $fullname; ?> </b></a> <span id='modal-comment-color' > 
 													      										 		 	<?php //echo $this->cleant_text_print_from_db ( $comment ); ?>
 													      										 		 	<?php echo shorten_string($comment); ?>
 												      										 		 	</span>
@@ -9813,7 +9814,7 @@ use App\User;
 						  													// 2014-07-22 12:41:25
 						  													// 2014-07-22 00:23:16
 						  													
-
+						  													 
 						  													if ( $pltcomment > 0 ):  
 						  														$textfield_style = 'padding-top:6px;'; 
 							  													#from database lookcomment 
@@ -9832,6 +9833,8 @@ use App\User;
 																					$tlike             = $comments[$i]['tlike'];
 																					$tdislike          = $comments[$i]['tdislike'];   
 																					$fullname          = $this->get_full_name_by_id ( $mno_commentor ); 
+																					$userNameCommentor = $this->get_username_by_mno( $mno_commentor ); 
+
 																					   
 
 
@@ -9858,11 +9861,9 @@ use App\User;
 												 									// $profile_pic = $this ->member_profile_pic_query( array('mno'=>$mno1  , 'type'=>'get-latest-mppno' ) );   
 												 									#comment print testing
 												 									// $tlikes = '12,332'; 
-												 									// $tdislike = '1,000';  
-
-													 									// grey separotors of the two comments 
-
-							 																if ( $i == 1 ) { echo " <div id='modal-comment-grey-separator-member' >  </div> "; }
+												 									// $tdislike = '1,000';   
+													 							    // grey separotors of the two comments  
+							 													    if ( $i == 1 ) { echo " <div id='modal-comment-grey-separator-member' >  </div> "; }
 
 												 									?>  
 												 								 
@@ -9873,9 +9874,9 @@ use App\User;
 											      										 	<li style="width:228px;font-family:arial; font-size:12px;  " >
 											      										 		<div style="margin-top:-2px;" >
 												      										 		<div style="margin-left:7px;"  >
-												      										 		 	<a href='<?php echo $username; ?>'> <b style="font-family:'Avenir LT Std 35 Light' !important; color:#225b99" > <?php echo $fullname; ?> </b></a> <span id='modal-comment-color' > 
+												      										 		 	<a href='<?php echo $userNameCommentor; ?>'> <b style="font-family:'Avenir LT Std 35 Light' !important; color:#225b99" >  <?php echo $fullname; ?>  </b></a> <span id='modal-comment-color' > 
 												      										 		 		<?php //echo $this->cleant_text_print_from_db ( $comment ); ?>
-												      										 		 		<?php echo shorten_string($comment) ?>
+												      										 		 		<?php echo shorten_string($comment) ?> 
 												      										 		 	</span>
 												      										 		</div> 
 												      										 		<div style="margin-left:7px; color:#d6051d"  >  
@@ -9944,13 +9945,11 @@ use App\User;
 																						<?php } ?>
 											      									<?php 
 										      									endfor;    
-										      								else:
-
-										      									// this style used when there is no comment
-
-										      										$textfield_style = 'padding-top:2px;'; 
-
-										      						 		endif;   
+										      								else: 
+										      									// this style used when there is no comment 
+										      								    $textfield_style = 'padding-top:2px;';  
+										      						 		endif;
+									      						 		   
 										      						 		?>   
 									      						 		</td> 
 									      							<tr> 
