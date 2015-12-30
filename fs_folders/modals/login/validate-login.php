@@ -201,7 +201,7 @@
  				$status          =  false;
 			 	$response = $mc->fs_signup_code(   array(  'type' =>'select-specific-code', 'generated_code'=>$sc  )  ); 
 
-			 	print_r($response);
+				// print_r($response);
 				
 				if( !empty($response))  {  
 					if ( empty($response[0]['mno']) ) {
