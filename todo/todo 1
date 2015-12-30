@@ -124,3 +124,15 @@ http://www.joshuawinn.com/facebooks-sharer-php-longer-deprecated-2014/
 1.) When hit enter to video field image uploaded should be hidden
 
 2.) When hit upload image then remove video to normal and
+
+
+@todo add fs input code for social login
+
+1.) when page loaded get the
+
+
+@todo page to be added with redirect
+1.) http://localhost/fs/new_fs/alphatest/asdasd
+2.) http://localhost/fs/new_fs/alphatest/
+3.) http://localhost/fs/new_fs/alphatest/detail?id=4
+4.) http://localhost/fs/new_fs/alphatest/lookdetails?id=222544

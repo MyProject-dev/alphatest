@@ -224,10 +224,6 @@ $mno 			 =  $mc->get_cookie( 'mno' , 136 );
 																$('#content-image').css('border', '2px solid rgb(33, 90, 157)');
 																$('#article_url_field').val('');
 
-
-
-
-
 //																alert('change image');
 													            image.src    = _file.target.result;              // url.createObjectURL(file);
 													            image.onload = function() {

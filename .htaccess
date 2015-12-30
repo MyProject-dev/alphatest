@@ -37,38 +37,27 @@ RewriteRule    	^contest/?$    			        	contest.php [NC,L]
 RewriteRule    	^about-us/?$    			        about-us.php [NC,L] 
 RewriteRule    	^signup/?$    			       	    signup.php [NC,L] 
 RewriteRule    	^post-look-upload/?$    		    post-look-upload.php [NC,L] 
-RewriteRule    	^login-authentication/?$            login-authentication.php [NC,L]  
-
+RewriteRule    	^login-authentication/?$            login-authentication.php [NC,L]
 RewriteRule    	^post-look-validate/?$              post-look-validate.php [NC,L] 
 RewriteRule    	^post-contest/?$    			    post-look-read.php [NC,L] 
 RewriteRule    	^post-look-label/?$                 post-look-label.php [NC,L] 
-RewriteRule    	^post-look-crop-rotate/?$           post-look-crop-rotate.php [NC,L] 
-
-
+RewriteRule    	^post-look-crop-rotate/?$           post-look-crop-rotate.php [NC,L]
 RewriteRule    	^look/?$                 		    rate-look.php [NC,L]    
-RewriteRule    	^article/?$                 		    rate-article.php [NC,L]    
-
+RewriteRule    	^article/?$                 	    rate-article.php [NC,L]
 RewriteRule    	^logout/?$                 		    logout.php [NC,L]    
 RewriteRule    	^verify/?$                   		member-email-verification.php [NC,L]  
-RewriteRule    	^feed/?$                 		    member-feed.php [NC,L]  
-
-RewriteRule    	^detail/?$            			    articledetails-dev.php [NC,L]  
-
-
+RewriteRule    	^feed/?$                 		    member-feed.php [NC,L]
+RewriteRule    	^detail/?$            			    articledetails-dev.php [NC,L]
 RewriteRule    	^email/?$            			    email.php [NC,L]  
 RewriteRule    	^welcome/?$            			    welcome.php [NC,L]
-
-RewriteRule    email-confirmation-resend/?$            	    email-confirmation-resend.php [NC,L]
-RewriteRule    email-confirm/?$            	                email-confirm.php [NC,L]
-RewriteRule    click/?$            	                click.php [NC,L]
-
-RewriteRule    terms-and-conditions/?$            	    terms-and-conditions.php [NC,L]
-
+RewriteRule     email-confirmation-resend/?$        email-confirmation-resend.php [NC,L]
+RewriteRule     email-confirm/?$            	    email-confirm.php [NC,L]
+RewriteRule     click/?$            	            click.php [NC,L]
+RewriteRule     terms-and-conditions/?$             terms-and-conditions.php [NC,L]
 RewriteRule    	^chat/?$            			    chat.php [NC,L]  
-RewriteRule    	^chat-list/?$            		    chat-list.php[NC,L]
-RewriteRule    ^([A-Za-z0-9-]+)/?$            	    page_viewer.php?user_name=$1&page=$2 [NC,L]    
-
-
+RewriteRule    	^chat-list/?$            		    chat-list.php [NC,L]
+RewriteRule    	^signup-code/?$                     social-signup-verify-code.php [NC,L]
+RewriteRule    ^([A-Za-z0-9-]+)/?$            	    page_viewer.php?user_name=$1&page=$2 [NC,L]
 ErrorDocument 404 /notfound.html
 
 
@@ -86,4 +75,3 @@ ErrorDocument 404 /notfound.html
 
  
 
- 
