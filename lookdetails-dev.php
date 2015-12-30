@@ -10,8 +10,10 @@
     require("fs_folders/php_functions/Class/Look.php");
     require("fs_folders/php_functions/Class/UserProfilePic.php");
     require ('fs_folders/php_functions/Database/post.php');
+
     use App\UserProfilePic;
     use App\Article;
+   use App\User;
 
     $mc             = new myclass();
     $ri             = new resizeImage ();
@@ -19,6 +21,10 @@
     $look           = new Look($mc->mno, $db);
     $userProfilePic = new UserProfilePic($mc->mno, $db);
     $mc->post       = new Post();
+    $userObject     = new User($mc->mno, $db);
+    $userObject->redirectUserToSignUpCode($mc->mno);
+
+
 
 
  

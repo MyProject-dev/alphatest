@@ -19,8 +19,10 @@
    	$mc->post = new Post();
    	$userObject1 = new User($mc->mno, $db);
 
-
-
+	/**
+	 * Detect if user has a code or don't
+	 */
+	$userObject1->redirectUserToSignUpCode($mc->mno);
 
 
 

@@ -1,6 +1,7 @@
 <?php namespace App;  
 
-use app\Brand;  
+use app\Brand;
+use App\SignUpCode;
 
 class User { 
 
@@ -20,6 +21,26 @@ class User {
         $this->db  = $db;
     }
 
+
+    /**
+     * This will detect user if he/she already got fs code in the site added
+     * if not redirect to signup-code page else stay on the current page visited
+     * @param null $mno
+     */
+    public function redirectUserToSignUpCode($mno=null) {
+
+//        exit;
+        if($mno != 136 and !empty($mno)) {
+            if(SignUpCode::isUserHasCode($mno) == FALSE) {
+                // echo "user don't have fs code now will redirect to code page  <br>";
+                echo "<script>
+                    document.location = 'signup-code';
+                </script>";
+            } else {
+                // echo "user has already fs code  no redirect to code page<br>";
+            }
+        }
+    }
     /**
      * @param $mno
      * @param array $data

@@ -15,6 +15,7 @@
 
        use App\UserProfilePic;
        use App\Article;
+        use App\User;
 
         $database = new Database();
         $post = new Post();
@@ -24,6 +25,11 @@
        $article        = new  Article($mc->mno, $db);
        $look           = new Look($mc->mno, $db);
        $userProfilePic = new UserProfilePic($mc->mno, $db);
+
+        $userObject     = new User($mc->mno, $db);
+        $userObject->redirectUserToSignUpCode($mc->mno);
+
+
 
 //capture the id and to be change to slug
 // @setcookie( 'plno' , (!empty($_GET['id'])) ? $_GET['id'] : $_SESSION['table_id']  ,  time()+3600*24 );

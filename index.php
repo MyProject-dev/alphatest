@@ -17,16 +17,21 @@
 
     use App\UserProfilePic;
     use App\Article;
+	use App\User;
  	$mc             = new myclass();
     $article        = new  Article($mc->mno, $db);
     $look           = new Look($mc->mno, $db);
     $userProfilePic = new UserProfilePic($mc->mno, $db);
    	$mc->post = new Post();
+	$user           = new User($mc->mno, $db);
 
+//	echo " mno = " . $mc->mno . '<br>';
 
-
-
-
+//	exit;
+	/**
+	 * Detect if user has a code or don't
+	 */
+	$user->redirectUserToSignUpCode($mc->mno);
 
  	$mc->auto_detect_path();    
  	$mc->save_current_page_visited( ); 

@@ -11126,3 +11126,12 @@ profile-body {
 .divID div {
     width:100%;
 }*/
+
+.login-success-message span {
+    color:white;
+}
+
+.login-code-container {
+    border:1px; solid red;
+
+}
