@@ -13,9 +13,9 @@
      use App\php_function;
 	 use App\Reset;
 	 use App\User;
-	 $mc = new myclass();
+	 $mc    = new myclass();
 	 $reset = new  Reset();
-	 $db = new Database();
+	 $db    = new Database();
 	 $db->connect();
 
 
@@ -193,7 +193,7 @@ if (!empty($_SESSION['adm_no'])) {
 					PopupCenter("http://twitter.com/share?url=http://fashionsponge.com/fs/lookdetails.php?id=<?php echo $rs[0]; ?>&text="+lName+"\n","",660,330);
 				}
 			}
-		</script> 
+		</script>
 
 		<?php if(isLocal()) { ?> 
 			<div id="postalook-tag-preivew-path" style="display:none" >http://<?php echo subDomain; ?>fashionsponge.com/fs_folders/images/uploads</div>
@@ -442,7 +442,7 @@ if (!empty($_SESSION['adm_no'])) {
 																							    <table>
 																							      	<tbody><tr>
 																							          <td class="postarticle-want-crop-agreement" >
-																							          		<input type="checkbox"><span>I want to crop or rotate my image</span>
+																							          		<input type="checkbox" disabled><span onclick="alert('Comming soon..')" >I want to crop or rotate my image</span>
 																							          </td>
 																							        </tr><tr>
 																							          <td>
