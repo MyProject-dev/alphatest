@@ -25,7 +25,9 @@
  	 // use App\User;
 
 
- 	require("mysql_crud.php"); 
+ 	require("mysql_crud.php");
+	require("Class/SignUpCode.php");
+
 	$db = new Database();
 	$db->connect();
 
