@@ -2594,7 +2594,7 @@ function share_pinterest ( plno ) {
 }
 function share( table_name , table_id ,  type , page , about , title , name , picture , link ) {
 
-    alert('working');
+    // alert('working');
     var extention = 'dev.';
 
 
