@@ -114,6 +114,10 @@ if(!function_exists('environment')) {
 	} else {
 //		 echo "not connected to $dbName <br> ";
 	}
+
+
+
+
 	// echo " database $dbName <br> ";
 
 	/*
@@ -125,3 +129,7 @@ if(!function_exists('environment')) {
 /**
  * SET UP SOME FUNCTIONALITY THAT CAN BE USE ALL OVER THE SITE
  */
+	
+	echo "<input type='hidden' value='" . subDomain . "' id='subDomain' />";
+
+
