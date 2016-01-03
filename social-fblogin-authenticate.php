@@ -60,6 +60,14 @@
 						$fs_user = selectV1('*','fs_members', array('fbid'=> intval($user_profile['id']) ) );   
 						$mno1 = $fs_user[0]['mno'];   
 
+
+						/**
+                        * Set the login status 
+                        * used at athenticated-code.php
+                        */ 
+                        $_SESSION['logInStatus'] = 'facebook';
+
+
 						if ( !empty($mno1) ) {   
 							#allready a members 
 								$fb_friends = $mc->get_logging_in_fb_friends_and_filter( $friends['data'] );
@@ -68,6 +76,8 @@
 								echo " 1.) fb user is already a member <br>";
 								echo " 2.) update all friends , friends in fs and friends in fb <br> ";     
 								echo " 3.) your total fb friends = ".$fb_friends['total_friends']."<br>";  
+ 
+ 								
 								$mc->go( 'login-authentication' );   
 						}
 						else{ 
@@ -206,8 +216,11 @@
 	                             // resize the profile pic downloaded
 	                            	$mc->resize_profile_pic_thumbnail_and_profile( $mno1 , $mppno );    
 
-	                             // add activity post feed
-                                    $mc->add_activity_wall_post ( $mno1 , $mppno , 'Joined' , 'fs_member_profile_pic' , $mc->date_time );
+	                            /** 
+	                            * add activity post feed 
+	                            * This code is moved to athenticated-code.php file   
+	                            */   
+                                //$mc->add_activity_wall_post ( $mno1 , $mppno , 'Joined' , 'fs_member_profile_pic' , $mc->date_time );
 
 	                              // send confirmation code
 	                            	if ( !empty($email) ) {
@@ -224,11 +237,25 @@
 	                            		$mc->fs_search(   array(  'type'=> 'add-or-updated-keyword' ,  'table_name'=>'fs_members' ,   'table_id'=>$mno1 )  );  
 
 								// redirect to the main page
-	                                $_SESSION['type'] = 'new-member-fb-login';
-	                                $_SESSION['temp_mno'] = $mno1;
-								//set crop after welcome popup completed
-									// $_SESSION['lastpagevisited'] = 'profile_crop_display.php';
-
+	                            $_SESSION['type'] = 'new-member-fb-login';
+	                            $_SESSION['temp_mno'] = $mno1;
+								// set crop after welcome popup completed
+							    // $_SESSION['lastpagevisited'] = 'profile_crop_display.php'; 
+  
+	                             /**
+	                             * Authenticated member profile number  
+	                             * can be used to authenticated-code.php to add activity wall
+	                             * status just joined
+	                             */  
+	                             $_SESSION['mppno'] = $mppno;
+ 
+	                             /**
+	                             * Authenticated user or mno
+	                             * added to session  
+	                             * can be used to authenticated-code.php to add activity wall
+	                             * status just joined
+	                             */
+	                             $_SESSION['temp_mno'] = $mno1;
 
 								/**
 								 * After authentication this page should redirect
@@ -236,30 +263,29 @@
 								 * the user should redirect to homepage
 								 * and show the welcome popup
 								 */
-									$_SESSION['lastpagevisited'] = 'home';
+							     $_SESSION['lastpagevisited'] = 'home';
 
 								/**
 								 * Set this to allow crop or not
 								 * value => yes or no
 								 * yes => meaning you allow to crop the facebook profile pic added
 								 * no => meaning you don't want to crop the facebook profile pic added
-								 */
-
-									$_SESSION['sign_up_facebook_allow_crop'] = 'no';
+								 */ 
+							     $_SESSION['sign_up_facebook_allow_crop'] = 'no';
 
 								/**
 								 * This will redirect the authenticated user after the welcome popup processed
 								 * If and only if, the user is authenticated using facebook.
 								 */
-									$_SESSION['sign_up_facebook_redirect'] = 'home';
+							     $_SESSION['sign_up_facebook_redirect'] = 'home';
 
 								/**
 								 * Redirect to authentication after this page is being loaded
 								 * Authentication this will let the user current authenticated to login the site
 								 */
-									$mc->go( 'login-authentication' );   
+							     $mc->go( 'login-authentication' );   
 
-						}    
+						}     
 		   	 
 	    	?> 
 	  	</body>

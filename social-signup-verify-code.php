@@ -28,10 +28,10 @@
       		            $http.post('fs_folders/modals/login/validate-login.php', {sc:$scope.new_todo, type:'signup-code'}).success(function(data){   
                          var myEl = angular.element( document.querySelector( '#divID' ));    
                            if(data.indexOf("successfully") > -1){
-                            document.location = 'home';
+                            document.location = 'authenticated';
                           } else {   
                             myEl.html(data);      
-                          } 
+                          }  
       		            });
                     }
                 }  
