@@ -6889,6 +6889,7 @@ use App\User;
 		      							<?php if ( $pltcomment > 0 ) { ?>
 			      							<td style="  background-color:#f6f7f8; border:1px solid #e2e2df;border-top:none; border-radius: 0px 0px 5px 5px; padding-top:0px; padding-left:7px; <?php echo "$commentstyle"; ?>"   > 
 		      									<div id="new-look-body-comment-container" >  
+		      										 
 		      										<table border="0" cellpadding="0" cellspacing="0"  name='table7'> 
 		      											<tr> 
 		      												<td style="padding-bottom:5px;padding-left:2px;"> 
@@ -6923,7 +6924,9 @@ use App\User;
 							 									// $plctlikes = '12,332'; 
 							 									// $plctdislike = '1,000'; 
 		  													?>  
+
 		      												<td style="padding-bottom:0px;" id="comment-container<?php echo $ano; ?>"  >  
+		      												 
 					      										<ul style="padding:none; margin:none; border:1px solid none;" >
 					      										 	<li> 
 					      										 		<?php $this->member_thumbnail_display( $this->ppic_thumbnail , $mno_commentor ,"$profilepath"."$this->ppic_thumbnail" , null , '35px;', '',  '35px;'  );  ?>
@@ -7456,13 +7459,13 @@ use App\User;
 															 				<img src="fs_folders/images/modal/look/liked.png"   id="look-like-<?php  echo $ano;  ?>"    /> 
 															 			<?php } ?>  
 															      	</td> 
-															        <td>
+															        <td style="color:white !important; font-size:12px;"  >
 
 															        <?php 
 															        	if($pltvotes == 0) {?>
 																	 		<a id="look-total-like-<?php  echo $ano;  ?>" style="font-family: 'Avenir LT Std 85 Heavy' !important; color:white; cursor:pointer" ><?php print($pltvotes); ?></a> like this <span> 
 																		<?php  } elseif($pltvotes == 1) { ?>											 		
-																			<span> <?php echo $latestLikerName; ?> like this <span> 
+																			<span> <?php echo $latestLikerName; ?> like this </span> 
 																		<?php } else { ?> 
 																			<span> <?php echo $latestLikerName; ?> and 
 																			<a 
@@ -7471,7 +7474,8 @@ use App\User;
 																				onclick="fs_modal_popup( 'fs-modal-popup' , 'design' , 'ratings' , '<?php echo $look_attr['table_name']; ?>' , '<?php echo $plno; ?>' , 'LIKES ( <?php echo "$look_attr[pltvotes]"; ?> ) ' , 'fron-end' ,	'#popup-more-doing-the-action-loader img' )"
 																			>
 																			<?php print($pltvotes-1); ?>
-																			</a> others like this <span> 
+																			</a>   </span> 
+																			<span> others like this </span> 
 																		<?php } ?>  
 																	</div>  
 															      	</span></span></td> 
@@ -7643,7 +7647,8 @@ use App\User;
 
 		 										<!-- comment content -->
 
-			      									<div id="new-look-body-comment-container" >    
+			      									<div id="new-look-body-comment-container" >  
+			      									  
 		      											<?php if( $pltcomment > 2 ): ?>
 				      												<div style="padding-top:5px; padding-left:2px;"> 
 			      													<a href="lookdetails?id=<?php echo $plno; ?>#details-comment-view" style='text-decoration:none' > 
@@ -7778,7 +7783,7 @@ use App\User;
 					      									endfor;   
 					      						 		endif; ?>   
 					      						 		<div id="comment-container<?php echo $ano; ?>" > 
-					      						 		</div> 
+					      						 		</div>  
 					      						 		<div class='next-line' > </div>  
 				      									<div class="modal-comment-textfield" style="padding-top:7px;" >  
 				      										<ul>
@@ -8233,7 +8238,9 @@ use App\User;
 						 * Allow feed to show up instead the rate design in the footer
 						 * If remove this line then article suggested modal and read article will show different from the feed article modals
 						 */
+						$feed_style = $feed;
 						$feed = FALSE; 
+
 				    ?>
 
 
@@ -8325,7 +8332,7 @@ use App\User;
 		      							</td>  
 		      						<tr> 
 		      							<td class="modal-footer-container" style="<?php echo "$commentstyle"; ?>"     > 
-	      										 footer 2
+	      										 <!-- footer 2 -->
 	 										<!-- status used for the validation of the ratings and so on -->
 
 												<div id="status-container"  >
@@ -8479,7 +8486,7 @@ use App\User;
 																 				<img src="fs_folders/images/modal/look/liked.png"   id="look-like-<?php  echo $ano;  ?>"    /> 
 																 			<?php } ?>  
 																      	</td> 
-																        <td>
+																        <td style="color:white !important; font-size:12px;" >
 	 
 																        <?php 
 																        	if($pltvotes == 0 ) {?>
@@ -8488,7 +8495,7 @@ use App\User;
 																		 		<span>like this </span>
 																			<?php  
 																			} elseif($pltvotes == 1) { ?>											 		 
-																				<span id='look-total-like-<?php  echo $ano;  ?>-name' > <?php echo $latestLikerName; ?>  <span>   
+																				<span id='look-total-like-<?php  echo $ano;  ?>-name' > <?php echo $latestLikerName; ?>  </span>   
 																				<span>like this </span>
 																				<span id="look-total-like-<?php  echo $ano;  ?>-stat" style='display:none' >1</span>
 																			<?php } else { ?> 
@@ -8503,7 +8510,7 @@ use App\User;
 																				<?php print($pltvotes-1); ?>
 																				</a>
 
-																				<span> others like this <span> 
+																				<span> others like this </span> 
 																			<?php } ?>  
 																		</div>  
 																      	</span></span></td> 
@@ -8690,6 +8697,14 @@ use App\User;
 
 													<!-- <div style="<?php echo "$comment_style_1"; ?>" > </div> -->
 												      		<div id="new-look-body-comment-container" style="<?php echo $comment_style_1; ?>" >   
+												      		 	<?php //echo ' page = ' . $page; ?>
+
+												      		 	<!--  
+												      		 		Add space from the top when modal is being commented and displayed in details page 
+												      		 	--> 
+												      		 	<?php //if($feed_style == TRUE and $pltcomment > 0 and $page != 'rate-page') { echo "<div style='height:5px;'> </div>"; } ?>
+												      		 	<?php if($feed_style == TRUE and $pltcomment > 0 ) { echo "<div style='height:5px;'> </div>"; } ?>
+												      		 		
 					      										<table border="0" cellpadding="0" cellspacing="0"  name='table7' > 
 					      											<?php if( $tcomment > 2): ?>
 					      											<tr> 
@@ -9782,6 +9797,7 @@ use App\User;
 								      						?>
 
 												      		<div id="new-look-body-comment-container" style="<?php echo "$comment_style $comment_style_1"; ?>" >   
+					      										 
 					      										<table border="0" cellpadding="0" cellspacing="0"  name='table7' > 
 					      											<?php 
 					      												if( $tcomment > 2 ):  
@@ -9811,6 +9827,7 @@ use App\User;
 
 					      												<!-- comment container member -->
 					      												<td style="padding-bottom:0px;<?php echo "$comment_style_2"; ?>" id="comment-container<?php echo $ano; ?>" style='' >  
+					      												 
 						  													<?php   
 
 
