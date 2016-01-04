@@ -7249,6 +7249,13 @@ use App\User;
 					   	} 
 					   	// echo "Latest Liker Name = $latestLikerName"; 
 
+					   	
+						/**
+						 * Allow feed to show up instead the rate design in the footer
+						 * If remove this line then article suggested modal and read article will show different from the feed article modals
+						 */
+						$feed = FALSE; 
+
       				?>     
       				<modals-item >    
       					<div class="<?php echo "$_table-$plno"; ?>" >
