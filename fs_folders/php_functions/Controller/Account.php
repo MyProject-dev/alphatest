@@ -1,5 +1,6 @@
 <?php
 session_start();
+require('../connect.php');
 require ('../Database/Database.php');
 require ('../Class/User.php');
 //require ('../Class/Email.php');
@@ -14,6 +15,10 @@ $mno 			 =  $_COOKIE['mno'];
 $_SESSION['mno'] =  $_COOKIE['mno'];
 
 // Declare
+
+use App\User;
+
+
 $db              = new Database();
 $user            = new User($mno, $db);
 $email           = new Email($mno, $db);
