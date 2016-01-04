@@ -8222,7 +8222,11 @@ use App\User;
 					   		"mno = '"  . $look_attr['owner'] .  "'  and artno <> $plno and category = '" . $look_attr['category'] . "' order by pltvotes desc limit 3"
 					   	);
 
-						
+						/**
+						 * Allow feed to show up instead the rate design in the footer
+						 * If remove this line then article suggested modal and read article will show different from the feed article modals
+						 */
+						$feed = FALSE; 
 				    ?>
 
 
