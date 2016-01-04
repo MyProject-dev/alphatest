@@ -72,7 +72,7 @@
 		// echo "from posted look";
 		$plno = user_last_look_uploaded();
 		$_SESSION['last_look_uploaded'] = $plno; 
-		$_SESSION['look_edit'] = false; 
+		$_SESSION['look_edit'] = false;
 
 
 		// set notification 

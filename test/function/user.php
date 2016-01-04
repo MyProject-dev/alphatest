@@ -5,6 +5,7 @@
  * Date: 9/16/2015
  * Time: 11:00 AM
  */
+require("../../fs_folders/php_functions/connect.php");
 require("../../fs_folders/php_functions/function.php");
 require("../../fs_folders/php_functions/Database/Database.php");
 require("../../fs_folders/php_functions/Class/User.php");
@@ -69,7 +70,7 @@ $db->update(
         'plus_blogger'=>$plusBlogger
     ),
     "mno = $mno"
-);
+);E:\xampp\htdocs\fs\new_fs\alphatest\test\function\user.php
 */
 //$user->resetInformation($mno); 
 

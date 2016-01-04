@@ -6728,7 +6728,7 @@ use App\User;
 	      					<div style="display:none"> 
 								<class>look_t<?php echo $ano; ?></class><class>look_t<?php echo $ano; ?></class>
 							</div> 
-		      				<div id="modals_version1_look_main_wrapper"  class="look_t<?php echo $ano; ?>"  >  
+		      				<div id="modals_version1_look_main_wrapper"  class="look_t<?php echo $ano; ?>"  >
 		      					<table border="0" style="border:1px solid none; width:100%;" cellspacing="0" cellpadding="0"  name='table1' > 
 		      						<tr> 
 		      							<td style="<?php echo "$headersyle"; ?>" >   
@@ -7255,8 +7255,8 @@ use App\User;
 	      					<div style="display:none"> 
 								<class>look_t<?php echo $ano; ?></class><class>look_t<?php echo $ano; ?></class>
 							</div> 
-		      				<div id="modals_version1_look_main_wrapper"  class="look_t<?php echo $ano; ?>"  >  
-		      					<table border="0" cellspacing="0" cellpadding="0"  name='table1' class="modal-container-image-table" > 
+		      				<div id="modals_version1_look_main_wrapper"  class="look_t<?php echo $ano; ?>"  >
+								<table border="0" cellspacing="0" cellpadding="0"  name='table1' class="modal-container-image-table" >
 		      						<tr>  
 
 		      							<!-- this will print except the rate page area -->
@@ -8220,13 +8220,10 @@ use App\User;
 					   		'fs_postedarticles' , 
 					   		'*' , 
 					   		"mno = '"  . $look_attr['owner'] .  "'  and artno <> $plno and category = '" . $look_attr['category'] . "' order by pltvotes desc limit 3"
-					   	);     			
+					   	);
 
-
- 
-				
-
-						?>     
+						
+				    ?>
 
 
       				<modals-item >   
@@ -8367,18 +8364,14 @@ use App\User;
 
 											<!-- title message -->	
 
-		 										<?php if( !empty($look_attr['title']) ):  ?>
+		 										<?php if(!empty($look_attr['title'])): ?>
 		 											<a href="detail?id=<?php echo $plno; ?>" > 
 				      									<div id="new-look-modals-title1-container" > 
 				      										<?php echo "$look_attr[title]"; ?>
 				  										</div>  
 			  										</a>
-		  										<?php endif; ?> 
+		  										<?php endif; ?>
 
-
-
-
-	 
 		  									<!-- grey line --> 
 											<!--  <div class='modal-comment-grey-line' style="margin-top:3px;" > -->
 											<!-- blue rectangle   -->	

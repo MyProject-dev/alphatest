@@ -3,7 +3,7 @@
 	<title>Your Website Title</title>
     <!-- You can use Open Graph tags to customize link previews.
     Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
-	<meta property="og:url"           content="http://dev.fashionsponge.com/lookdetails?id=222546" />
+	<meta property="og:url"           content="http://stage.fashionsponge.com/social-share.php" />
 	<meta property="og:type"          content="website" />
 	<meta property="og:title"         content="This is the title" />
 	<meta property="og:description"   content="This is the description" />
@@ -28,7 +28,7 @@
 
 		<div 
 			class="fb-share-button" 
-			data-href="http://dev.fashionsponge.com/lookdetails?id=222546" 
+			data-href="http://stage.fashionsponge.com/social-share.php" 
 
 			>
 		</div>
@@ -39,12 +39,16 @@
 		data-layout="button_count"> 		 
 	</div> -->
 
-	<a href="https://www.facebook.com/dialog/share?
+<!-- 	<a href="https://www.facebook.com/dialog/share?
   app_id=528594163842974
   &amp;display=popup
   &amp;href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2F
   &amp;redirect_uri=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fexplorer"> Share </a>
-	
+	 -->
 
 </body>
 </html>
+
+
+
+ 
