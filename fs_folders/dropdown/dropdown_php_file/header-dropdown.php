@@ -37,7 +37,7 @@ $article = new \App\Article($db, $this->mno);
                       $plno = $look->Top('Bohemian');
                       $src = $look->sourceCategoryDropDown($plno);
                       ?>
-                      <div style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 123px;" >
+                      <div style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 80px; background-color: black" >
                       </div>
                       <div>
                           <span>Bohemian</span>
@@ -172,7 +172,7 @@ $article = new \App\Article($db, $this->mno);
             <li>
                 <a href="#">
                     <?php $src = $article->sourceCategoryDropDown($art['artno']); ?>
-                    <div style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 123px;" >
+                    <div style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 80px; background-color: black" >
                     </div>
                     <div>
                         <span><?php echo string_limit($art['topic'], 11, '...') ; ?></span>
@@ -215,7 +215,7 @@ $article = new \App\Article($db, $this->mno);
                 <li>
                     <a href="article?category=beauty">
                         <?php $src = $article->sourceCategoryDropDown($art['artno']); ?>
-                        <div style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 123px;" >
+                        <div style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 80px; background-color: black" >
                         </div>
                         <div>
                             <span><?php echo string_limit($art['topic'], 11, '...') ; ?></span>
@@ -258,7 +258,7 @@ $article = new \App\Article($db, $this->mno);
                 <li>
                     <a href="article?category=lifestyle" >
                         <?php $src = $article->sourceCategoryDropDown($art['artno']); ?>
-                        <div style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 123px;" >
+                        <div style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 80px; background-color: black" >
                         </div>
                         <div>
                             <span><?php echo string_limit($art['topic'], 11, '...') ; ?></span>
@@ -301,7 +301,7 @@ $article = new \App\Article($db, $this->mno);
                 <li>
                     <a href="article?category=entertainment" >
                         <?php $src = $article->sourceCategoryDropDown($art['artno']); ?>
-                        <div style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 123px;" >
+                        <div style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 80px; background-color: black" >
                         </div>
                         <div>
                             <span><?php echo string_limit($art['topic'], 11, '...') ; ?></span>
