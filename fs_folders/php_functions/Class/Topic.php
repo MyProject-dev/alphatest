@@ -86,6 +86,16 @@ class Topic
         }
     }
 
+    public function getIdByName($name) {
+        $response = select_v3($this->table, '*', "name = '$name' ");
+        return $response[0]['id'];
+    }
+
+    public function getTopicsByCategoryId($id) {
+        $response = select_v3($this->table, '*', "topic_category_id = " . $id);
+        return $response;
+    }
+
 
 
 
