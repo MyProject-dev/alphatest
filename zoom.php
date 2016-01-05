@@ -1,5 +1,6 @@
- 
 <?php 
+	error_reporting(0);
+
 
 	$i = $_GET['i']; 
 	$tn = $_GET['tn']; 
