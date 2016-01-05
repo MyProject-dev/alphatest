@@ -28,4 +28,13 @@ class TopicCategory
 
         return $response;
     }
+
+    public function getIdByName($name) {
+        $response = select_v3($this->table, '*', "name = '$name' ");
+        return $response[0]['id'];
+    }
+
+
+
+
 }
