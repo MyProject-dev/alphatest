@@ -36,7 +36,8 @@ if ( $show == true ):
 		case 'details':
 				$style_main_table = "width:auto; "; 
 				// $style_bottom =  "width: 1011px; margin-left: -1px; position: relative; margin-top: 0px; width:1010px; border-bottom:1px solid white;";
-				$style_bottom = "position: fixed; margin-top: -57px; width: 1009px;";
+				// $style_bottom = "position: fixed; margin-top: -57px; width: 958px;";
+                $style_bottom = "position: relative; margin-top: 0; width: 958px;";
                 $style_up     = "width:1010px; border:none;border:none;";
                 $login_signup = "padding-left:33px"; 
 			break; 
@@ -197,30 +198,28 @@ if ( $show == true ):
 				 			 -->
 				 			<!-- <div style="font-family:misoLight;color: white; font-size:15px !important;" >SOMETHING NEW IS COMING TO FASHION LOVERS!</div>  -->
 				 			<!-- Share your ootd and lifestyle photos. Get fashion inspiration and style advice. -->
-<!--				 			<span  style="font-family:arial; font-size:14px;" > --><?php //echo strtoupper($title1) ; ?><!--</span>-->
-<!-- 				 		</div>-->
-<!--				 	</li>-->
-<!--				 	<li id='new-bottom-header-button' >-->
-<!--				 		<div>-->
-<!--				 				<table border="0" >-->
-<!--				 					<tr>-->
-<!--				 						<td style="padding-right:5px; ">-->
-<!--				 							<a href="signup">-->
-<!--				 								<img src="--><?php //echo "$this->genImgs/header-sign-out-sign-up.png"; ?><!--"  style='height:35px;' id='new-header-button-signup' onmousemove=" mousein_change_button ( '#new-header-button-signup' , 'fs_folders/images/genImg/header-sign-out-sign-up-mouse-over.png' )" onmouseout="mouseout_change_button (  '#new-header-button-signup'  , 'fs_folders/images/genImg/header-sign-out-sign-up.png' ) "  >-->
-<!--				 							</a>-->
-<!--				 						</td>-->
-<!--				 						<td style="padding-top:0px;" >-->
-<!--				 							<a href="#">-->
-<!--				 								<img src="--><?php //echo "$this->genImgs/login-button.png"; ?><!--"  style='height:35px;'  onmouseover='header_login_button_mouseover( )' onmouseout='header_login_button_mouseout( )' onclick="show('#login-wrapper')"  id='new-header-button-login'  >-->
-<!--				 							</a>-->
-<!--				 						</td>-->
-<!--				 				</table>-->
-<!--				 		</div>-->
-<!--				 	</li>-->
-<!--			 	</ul>-->
-<!--			</td>-->
-
- 
+                            <!--				 			<span  style="font-family:arial; font-size:14px;" > --><?php //echo strtoupper($title1) ; ?><!--</span>-->
+                            <!-- 				 		</div>-->
+                            <!--				 	</li>-->
+                            <!--				 	<li id='new-bottom-header-button' >-->
+                            <!--				 		<div>-->
+                            <!--				 				<table border="0" >-->
+                            <!--				 					<tr>-->
+                            <!--				 						<td style="padding-right:5px; ">-->
+                            <!--				 							<a href="signup">-->
+                            <!--				 								<img src="--><?php //echo "$this->genImgs/header-sign-out-sign-up.png"; ?><!--"  style='height:35px;' id='new-header-button-signup' onmousemove=" mousein_change_button ( '#new-header-button-signup' , 'fs_folders/images/genImg/header-sign-out-sign-up-mouse-over.png' )" onmouseout="mouseout_change_button (  '#new-header-button-signup'  , 'fs_folders/images/genImg/header-sign-out-sign-up.png' ) "  >-->
+                            <!--				 							</a>-->
+                            <!--				 						</td>-->
+                            <!--				 						<td style="padding-top:0px;" >-->
+                            <!--				 							<a href="#">-->
+                            <!--				 								<img src="--><?php //echo "$this->genImgs/login-button.png"; ?><!--"  style='height:35px;'  onmouseover='header_login_button_mouseover( )' onmouseout='header_login_button_mouseout( )' onclick="show('#login-wrapper')"  id='new-header-button-login'  >-->
+                            <!--				 							</a>-->
+                            <!--				 						</td>-->
+                            <!--				 				</table>-->
+                            <!--				 		</div>-->
+                            <!--				 	</li>-->
+                            <!--			 	</ul>-->
+                            <!--			</td>-->  
 
             <td id="new-bottom-header"   style="<?php echo $style_bottom; ?>" >
                 <table>

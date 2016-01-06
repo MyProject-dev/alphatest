@@ -5,18 +5,7 @@ $(document).ready(function() {
 	//Header click button search  
 	$( "#new-header-signout-scope" ).click(function() {
 	  $( "#search-header" ).submit();
-	});
-
-
-
-
-
-
-
-
-
-
-
+	});  
  	// initialized data
 		var variable = '';
 	// header sign in
@@ -55,8 +44,7 @@ $(document).ready(function() {
 		                    t = file.type,                           // ext only: // file.type.split('/')[1],
 		                    n = file.name,
 		                    s = ~~(file.size/1024) +'KB';
-
-
+ 
                             /*
                             if ( w >= 100 &&  h >= 100) {
 			               		var imagestyle = get_image_style( h , w , 889 , 500 );
@@ -84,7 +72,7 @@ $(document).ready(function() {
 		    	else{
 		    	}
 		    });
- 	// close the popup when the side overly clicked and we call this as bubbling.
+ 			// close the popup when the side overly clicked and we call this as bubbling.
 			$('#popUp-background').on('click', function(e) {
 			    // do your thing.
 			    // alert('parent')
@@ -98,6 +86,9 @@ $(document).ready(function() {
 // FS WINDOWS SCROLLED OR CHANGE
 	window.onscroll = scroll;
 	function scroll () {
+
+
+			console.log('scrolling'); 
 		// initialized
 			var wh = $(window).height()  // window height
 			var ww = $(window).width()  // window width
@@ -121,11 +112,11 @@ $(document).ready(function() {
 			 		$('#new-bottom-header-signin').css({'position':'absolute', 'margin-top':'45px' , 'display':'none' });
 			 		$('#new-bottom-header-signin').fadeIn('fast');
 			 	}
-		 	// sign out
-
+		 	// sign out 
 
 			 	if ( y > 57 ) {
 			 		$('#new-bottom-header').css({'position':'fixed' , 'margin-top':'-57px' });
+			 		// $('#new-bottom-header').css({'position':'fixed' , 'margin-top':'-57px', 'width':'955px' });
 			 	}
 			 	else{
                     // $('#body_wrapper').css({'margin-top': '0px'});
@@ -144,16 +135,12 @@ $(document).ready(function() {
         $('#header-dropdown-look').mouseover(function(){
             //$(this).css('display','none');
             console.log('mouse over');
-        });
-
-
+        }); 
 
         //This is the comme
         mouseOverWithComment();
-	}
-
-
-
+	} 
+  
 	/**
 	* This is the details comment mouse over show edit and delete and flag
 	*/
@@ -171,4 +158,4 @@ $(document).ready(function() {
 		   $('.'+this.id+'-flag').css('visibility','hidden');
 		   $('.'+this.id+'-delete').css('visibility','hidden');
 		});
-	}
+	} 

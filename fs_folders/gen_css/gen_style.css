@@ -1742,7 +1742,7 @@ input:focus, textarea:focus{
 
 
 #new-bottom-header {
-    position:absolute;
+    /*position:absolute;*/
     z-index:120;
     /* padding-top:6px; */
     /* padding-bottom:4px; */
@@ -6543,15 +6543,15 @@ input:focus, textarea:focus{
 
 
 #new-bottom-header {
-    position:absolute;
-    z-index:120;
+    /*position:absolute;*/
+    /*z-index:120;*/
     /* padding-top:6px; */
     /* padding-bottom:4px; */
     background: #225b99;
-    padding-left: 52px;
+    /*padding-left: 52px;*/
     /* padding-right: 52px; */
-    width: 957px;
-    border-bottom: 2px solid white;
+    /*width: 957px;*/
+    /*border-bottom: 2px solid white;*/
 }
 
 #new-bottom-header table  {
