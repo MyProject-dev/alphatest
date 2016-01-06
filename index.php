@@ -173,6 +173,10 @@
 	 				 // fs_folders\login\pages\welcome-v1\slider\examples-bootstrap
 	 			}
                 else if($welcome == 'tour' || $mc->tlog == 3) {
+
+                	/**
+                	* Display the tour design
+                	*/
                     echo " <div id='login-wrapper' > ";
                     echo "<div id='login-container' >   ";
                     echo "</div>";
@@ -180,9 +184,30 @@
                         require('fs_folders/login/pages/tour1/tour.php');
                     echo "</div>";
                     echo "</div>";
+ 
+                    /**
+                    * when logged in is less than four status should not be approved because 
+                    * no way to approved if the total logged in is less than 4
+                    */
+                    update_v1( 
+		        		array(
+			        		'table_name' => 'fs_members',  
+			        		'status'     =>  '0'
+			        	) ,
+		        		array(
+		        			'mno'=>$mno
+	        			)  
+	        		);   
+
                 }
                 else if ($welcome == 'get-started' || $mc->tlog >= 4 ) {
-                    $_SESSION['confirmed'] = FALSE;
+                    	
+                    /**
+                    * Set confirmation status to
+                    * FALSE
+                    */
+                    $_SESSION['confirmed'] = FALSE;  
+
                 } 
 	 			else if ( $mno != 136) 
 	 			{
