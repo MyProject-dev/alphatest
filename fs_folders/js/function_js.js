@@ -8751,7 +8751,7 @@ function resend_email() {
     // and remember the jqxhr object for this request
     var jqxhr = $.get( "email-confirmation-resend.php", function(data) { 
         if(data.split('<response>')[1] == 1) {  
-           alert('Confirmation email successfully sent.'); 
+           alert('Confirmation email successfully sent, please check your inbox and spam folder.'); 
         } else {
             alert('Confirmation email failed to send.')
         }
