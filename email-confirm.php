@@ -5,15 +5,20 @@
  * Date: 9/23/2015
  * Time: 5:07 PM
  */
-
-
+ 
 echo "<div style='display:block' >";
 require ("fs_folders/php_functions/connect.php");
+require ("fs_folders/php_functions/connect1.php");
 require ("fs_folders/php_functions/function.php");
 require ("fs_folders/php_functions/library.php");
 require ("fs_folders/php_functions/source.php");
 require ("fs_folders/php_functions/myclass.php");
 require ("fs_folders/php_functions/Class/User.php");
+
+
+error_reporting(1);
+
+use App\User;
 
 $mc = new myclass();
 $db = new Database();
@@ -48,6 +53,8 @@ if($userObject->updateInfo(
     echo "<script>alert('Ohpss! something wrong.')</script>";
 }
 ?>
+ 
+ Redirecting home page.
  
 <script>
     document.location = 'home';
