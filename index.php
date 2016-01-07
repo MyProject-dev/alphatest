@@ -163,7 +163,7 @@
  					echo "<div id='login-container' >   ";  
 					echo "</div>";     
 					echo "<div id= 'login-container1' >";     
-						//$this->login_page1( $page );  
+						//$this->login_page1( $page );
                 		require('welcome.php');  
 					echo "</div>"; 	 
 					echo "</div>";    
