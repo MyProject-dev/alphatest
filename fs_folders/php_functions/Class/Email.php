@@ -26,7 +26,14 @@ class Email {
         $subject = 'Fashion Sponge Email Confirmation';
 
         $link = "$mno"."a".rand(10000,10000000)."v".rand(10000,10000000)."bc".rand(10000,10000000)."a".rand(10000,10000000)."v".rand(10000,10000000);
-        $body = "click here to confirm  <a target='_blank' href='http://" . subDomain . "fashionsponge.com/email-confirm?cid=$link'>  $link </a> ";
+
+        $body = "   <b> Welcome to Fashion Sponge, </b> \n <br><br> 
+                    Please click  <a target='_blank' href='http://" . subDomain . "fashionsponge.com/email-confirm?cid=$link'>  here </a>
+                    to confirm your email. \n\n\n <br><br><br>
+
+                    Thanks,
+                    Fashion Sponge Team
+                ";
 
         return  $this->sendEmail($from, $to, $subject, $body);
     }
