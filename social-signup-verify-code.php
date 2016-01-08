@@ -44,14 +44,14 @@
 
         <div class="row">
           <div class="col-md-4"> </div>
-          <div class="col-md-4" style="border: 1px solid #B1ADAD;background-color: #f6f7f8;border-radius: 5px;">
+          <div class="col-md-4" style="border: 1px solid #B1ADAD;background-color: white;border-radius: 5px;">
 
             <div ng-app="myApp" ng-controller="myCtrl">
                 <div>
                   <form class="navbar-form navbar-left" role="search">
                     <div style="color:#225b99;">
                         <p>
-                            Please Provide Fashion Sponge code to continue using the site.
+                            Please provide fashion sponge code to continue using the site.
                         </p>
                         <p>
                             If you don't have please contact us at <b>brainOfFashion@gmail.com</b>
