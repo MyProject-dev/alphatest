@@ -395,10 +395,7 @@ if (!empty($_SESSION['adm_no'])) {
 																				</td>
 																			<tr>
 																				<td>
-																					<div style="border:1px solid black; background-color:rgb(248, 248, 248); padding:20px; text-align:center " >
-									                                               	 	Next Reset <?php echo  date("D, d M Y h:i A", strtotime($reset->nextResetDate()));  ?> <br>
-                                                                                        Total post for today <?php echo $look->totalPostInADay($mc->mno); ?> of <?php echo $look->totalAllowPostADay ?>
-									                                            	</div>
+																					<div id="modal-posting-status" style="display:none;border:1px solid black; background-color:rgb(248, 248, 248); padding:20px; text-align:center " >Next Reset <?php echo  date("D, d M Y h:i A", strtotime($reset->nextResetDate()));  ?> Total post for today <?php echo $look->totalPostInADay($mc->mno) + 1; ?> of <?php echo $look->totalAllowPostADay ?></div>
 																				</td> <tr>
 																				<td id='left_side' onmouseover="$('#modal-upload-div').css('display','block')" onmouseout ="$('#modal-upload-div').css('display','none')" >
 

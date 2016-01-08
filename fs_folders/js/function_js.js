@@ -6098,9 +6098,11 @@ function article_nex_prev  ( type , stat , response , loader , e , method , tabl
          if the title is empty then it should not redirect or save the video or image it says title required and return false.
          */
 
-         
-
-        
+        /**
+         * Get total remaining look or article can be posted again 
+         */ 
+        var postingStatusMessage = $('#modal-posting-status').text(); 
+ 
         if ( method == 'edit') {
 
             upload  = true;
@@ -6144,9 +6146,9 @@ function article_nex_prev  ( type , stat , response , loader , e , method , tabl
         // alert(upload);
 
         if ( upload == true ) {
-
-
-       
+ 
+            alert(postingStatusMessage);
+            // return 0; 
              
             // hide the current submit image  
                 $('#postarticle-submit-1').css('display','none'); 
@@ -7076,13 +7078,17 @@ function modal ( action , process , type , loader , response , textfieldid , val
     }
 
 
-    // console.log('comment = '+ comment + ' response = ' + response);
-
-    // console.log('type = ' + type);
-
-    // alert for all the data type comming in 
-
-      // alert(' action = '+action+' process = '+process+' type = '+type+' loader = '+loader+' response = '+response+' textfieldid = '+textfieldid+' value = '+value+' multivalue = '+multivalue+' method = '+method+' table_id = '+table_id );
+    // console.log('comment = '+ comment + ' response = ' + response); 
+    // console.log('type = ' + type); 
+    // alert for all the data type comming in  
+    // alert(' action = '+action+' process = '+process+' type = '+type+' loader = '+loader+' response = '+response+' textfieldid = '+textfieldid+' value = '+value+' multivalue = '+multivalue+' method = '+method+' table_id = '+table_id );
+ 
+    /**
+    * Get total remaining look or article can be posted again 
+    */ 
+    var postingStatusMessage = $('#modal-posting-status').text(); 
+  
+     
 
     if ( type == 'post-modal' )
     {
@@ -7114,12 +7120,12 @@ function modal ( action , process , type , loader , response , textfieldid , val
 
             if ( bool == true )
             {
-
-
+ 
+                alert(postingStatusMessage);  
 
                 //Entrance message
 
-
+                // return 0;
                 // alert('about to send the data..');
 
 
@@ -7229,12 +7235,15 @@ function modal ( action , process , type , loader , response , textfieldid , val
                 //    'modal-insert',  // page
                 //    method
                 //);
-                //
+
                 // hide the current submit image  
                     $('#postarticle-submit').css('display','none'); 
  
                 // show the fake submit image
                     $('#postarticle-submit-1-fake').css('display','block');  
+
+
+
 
             }
             else

@@ -290,10 +290,7 @@ $mno 			 =  $mc->get_cookie( 'mno' , 136 );
                                                     <?php if($method != 'edit'): ?>
                                                     <tr>
                                                         <td>
-                                                            <div style="border:1px solid black; background-color:rgb(248, 248, 248); padding:20px; text-align:center " >
-                                                                Next Reset <?php echo  date("D, d M Y h:i A", strtotime($reset->nextResetDate()));  ?> <br>
-                                                                Total post for today <?php echo $article->totalPostInADay($mc->mno); ?> of  <?php echo $article->totalAllowPostADay ?>
-                                                            </div>
+                                                            <div id="modal-posting-status" style="display:none;border:1px solid black; background-color:rgb(248, 248, 248); padding:20px; text-align:center " >Next Reset <?php echo  date("D, d M Y h:i A", strtotime($reset->nextResetDate()));  ?> Total post for today <?php echo $article->totalPostInADay($mc->mno)+1; ?> of <?php echo $article->totalAllowPostADay ?></div>
                                                         </td>
                                                     <?php endif; ?>
 
