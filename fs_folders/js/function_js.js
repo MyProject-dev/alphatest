@@ -7072,10 +7072,24 @@ function modal ( action , process , type , loader , response , textfieldid , val
     var comment    = ''; // comment variable initialized 
     var isAgreed   =  $(agreementId).is(':checked');
     // var response   = 'fs-general-ajax-response'; 
+    var issueMessage = "";
 
     if(action != 'modal-comment-edit') {
         var ckeditorContent = CKEDITOR.instances.editor1.getData();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     // console.log('comment = '+ comment + ' response = ' + response); 
@@ -7100,37 +7114,63 @@ function modal ( action , process , type , loader , response , textfieldid , val
 
         if(isAgreed == true)
         {
-            // this is set by the onclick function in the postmodal buttton 
-
+            /**
+            * this is set by the onclick function 
+            * in the postmodal buttton 
+            */  
             var titlefield = loader;  // this is the field id of the title field
             var message    = response; // this is the response message when the title is empty
 
-            // ge the value of the title field 
-
+            /**
+            * Ge the value of the title field 
+            */  
             lookname = $(titlefield).val();
-
-            // if the title is empty set the bool as false so that the data will send the http for the submit 
-
-            if ( lookname == "" )
-            {
+ 
+            /**
+            * If occasion is empty then don't allow to post 
+            */
+            if($(style_id).val() == "") {
                 bool = false;
+                issueMessage = "Style is required";
+            }  
+
+            /**
+            * If style is empty then don't allow to post
+            */ 
+            else if($(occasion_id).val() == "") {
+                bool = false;
+                issueMessage = "Occasion is required"; 
+            }  
+
+            /** 
+            * If season is empty then don't allow it to post
+            */
+            else if($(season_id).val() == "") { 
+                bool = false;
+                issueMessage = "Season is required";
+            } 
+
+            /**
+            * if the title is empty set the bool as false so 
+            * that the data will send the http for the submit   
+            */ 
+            if ( lookname == "" ) {
+                bool = false;
+                issueMessage = 'Title Required';
             }
 
-            // sending data to ajax php to submit the info 
-
-            if ( bool == true )
-            {
+            /**
+            * sending data to ajax php to submit the info 
+            */ 
+            if ( bool == true ) {
  
-                alert(postingStatusMessage);  
-
-                //Entrance message
-
-                // return 0;
+                alert(postingStatusMessage);   
+                //Entrance message 
+                return 0;
                 // alert('about to send the data..');
 
 
-                // get total tags 
-
+                // get total tags  
                 len  = $('.block_circle_tag').length;
 
 
@@ -7148,9 +7188,7 @@ function modal ( action , process , type , loader , response , textfieldid , val
                     pattern       = pattern+$(pattern_id+i).val()+',';
                     price         = price+$(price_id+i).val()+',';
                     purchased_at  = purchased_at+$(purchased_at_id+i).val()+',';
-                    pos_x_y       = pos_x_y+$(pos_x_y_id+i).val()+',';
-                    
-                    
+                    pos_x_y       = pos_x_y+$(pos_x_y_id+i).val()+','; 
                     // alert(pos_x_y);
 
                 };
@@ -7240,15 +7278,11 @@ function modal ( action , process , type , loader , response , textfieldid , val
                     $('#postarticle-submit').css('display','none'); 
  
                 // show the fake submit image
-                    $('#postarticle-submit-1-fake').css('display','block');  
-
-
-
-
+                    $('#postarticle-submit-1-fake').css('display','block');   
             }
             else
             {
-                alert('Title Required');
+                alert(issueMessage); 
             }
         }
         else
