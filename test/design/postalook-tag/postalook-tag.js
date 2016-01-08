@@ -177,6 +177,7 @@ function tag_select_item(rowName, brand_name, brand_id, tagNum) {
 
         console.log(seasonVal)
 
+
         //check if the selected is exist 
         // var str = "Hello world, welcome to the universe.";
 
@@ -194,6 +195,14 @@ function tag_select_item(rowName, brand_name, brand_id, tagNum) {
 
        //add to the field
        $('#tag-color-database-data-occasion').val(seasonVal);
+
+
+ 
+        if(seasonVal[0] == ',') { 
+            var seasonVal = seasonVal.substring(1, seasonVal.length);
+            $('#tag-color-database-data-occasion').val(seasonVal);
+        }
+
 
        
         //hide container 
