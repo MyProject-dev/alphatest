@@ -577,7 +577,7 @@ if (!empty($_SESSION['adm_no'])) {
 																						 		DETAILS
 																						 	</div>
 																						</td>
-																					<tr class="modal-click-hide-dropdown" >
+																					<tr>
 																						<td style="padding-top:10px; " >
 																							<table id="post-title-url" >
 																							  	<tbody>
@@ -598,7 +598,7 @@ if (!empty($_SESSION['adm_no'])) {
 																				    <tr>
 																					 	<td style="padding-top:10px;" >
 																					 		<table border="0" cellpadding="0" cellspacing="0" style="width: 883px;margin-left: 4px;">
-																					 			<tr class="modal-click-hide-dropdown" >
+																					 			<tr>
 																					 				<td> <div style="padding-bottom:10px;" >Style</div> </td>
 																					 				<td> <div style="padding-bottom:10px;margin-left:4px;" > Occasion </div> </td>
 																					 				<td> <div style="padding-bottom:10px;margin-left:4px;" > Season </div> </td>
@@ -682,7 +682,7 @@ if (!empty($_SESSION['adm_no'])) {
 																					 		</table>
 																					 	</td>
 																					<tr>
-																						<td style="padding-top:10px;  " class="modal-click-hide-dropdown" >
+																						<td style="padding-top:10px;  " >
 																							<div style="padding-bottom:10px;" >
 																								Description  1
 																							</div>
