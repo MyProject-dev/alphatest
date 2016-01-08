@@ -7113,7 +7113,9 @@ function modal ( action , process , type , loader , response , textfieldid , val
          */
 
         if(isAgreed == true)
-        {
+        { 
+          
+
             /**
             * this is set by the onclick function 
             * in the postmodal buttton 
@@ -7125,16 +7127,31 @@ function modal ( action , process , type , loader , response , textfieldid , val
             * Ge the value of the title field 
             */  
             lookname = $(titlefield).val();
- 
+    
             /**
+            * Image required 
+            */ 
+            if($('#modal-image').attr('src') == "") {
+                bool = false;
+                issueMessage = "Image required";
+            }   
+           /**
+            * if the title is empty set the bool as false so 
+            * that the data will send the http for the submit   
+            */ 
+            else if ( lookname == "" ) {
+                bool = false;
+                issueMessage = 'Title Required';
+            }
+           /**
             * If occasion is empty then don't allow to post 
             */
-            if($(style_id).val() == "") {
+            else if($(style_id).val() == "") {
                 bool = false;
                 issueMessage = "Style is required";
             }  
 
-            /**
+           /**
             * If style is empty then don't allow to post
             */ 
             else if($(occasion_id).val() == "") {
@@ -7142,24 +7159,15 @@ function modal ( action , process , type , loader , response , textfieldid , val
                 issueMessage = "Occasion is required"; 
             }  
 
-            /** 
+           /** 
             * If season is empty then don't allow it to post
             */
             else if($(season_id).val() == "") { 
                 bool = false;
                 issueMessage = "Season is required";
-            } 
-
-            /**
-            * if the title is empty set the bool as false so 
-            * that the data will send the http for the submit   
-            */ 
-            if ( lookname == "" ) {
-                bool = false;
-                issueMessage = 'Title Required';
-            }
-
-            /**
+            }   
+            
+           /**
             * sending data to ajax php to submit the info 
             */ 
             if ( bool == true ) {
