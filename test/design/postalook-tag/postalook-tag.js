@@ -184,20 +184,21 @@ function tag_select_item(rowName, brand_name, brand_id, tagNum) {
         var isExist = seasonVal.indexOf(brand_name);
 
         console.log('exist = ' + isExist);
-       if(isExist > -1){
+        if(isExist > -1){
            console.log(' item exist ');
             //if exist then replace it  
-       } else { 
+        } else { 
             console.log(' item not exist ');
             //else concat the new selected 
              seasonVal = seasonVal + ','  + brand_name; 
-       } 
+        } 
 
-       //add to the field
-       $('#tag-color-database-data-occasion').val(seasonVal);
-
-
- 
+        //add to the field
+        $('#tag-color-database-data-occasion').val(seasonVal);
+            
+        /**
+        * Remove first letter comma under occasion field 
+        */
         if(seasonVal[0] == ',') { 
             var seasonVal = seasonVal.substring(1, seasonVal.length);
             $('#tag-color-database-data-occasion').val(seasonVal);
