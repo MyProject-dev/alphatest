@@ -7174,7 +7174,7 @@ function modal ( action , process , type , loader , response , textfieldid , val
  
                 alert(postingStatusMessage);   
                 //Entrance message 
-                return 0;
+                // return 0;
                 // alert('about to send the data..');
 
 
