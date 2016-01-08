@@ -2647,7 +2647,7 @@ profile-body {
     /*width:99.8%;*/
     margin-left: 1px;
     border:1px solid none;
-    height:20px;
+    height:0px;
 }
 #new-postalook-color-underimage-div table {
     float: left;
@@ -4727,7 +4727,7 @@ profile-body {
 
 }
 #post-title-url div {
-    padding-bottom:10px;
+    padding-bottom:5px;
     margin-left:1px;
 }
 
@@ -7294,7 +7294,7 @@ profile-body {
 }
 #new-postalook-label-wrapper {
     /*border: 1px solid red; */
-    width: 890px;
+    width: 897px;
 }
 #new-postalook-header-div {
     padding-bottom: 20px;
@@ -9326,7 +9326,7 @@ profile-body {
 
 }
 #post-title-url div {
-    padding-bottom:10px;
+    padding-bottom:5px;
     margin-left:1px;
 }
 
@@ -11134,4 +11134,22 @@ profile-body {
 .login-code-container {
     border:1px; solid red;
 
+}
+
+
+.look_name, 
+.look-article-field,
+#tag-color-database-data-style,
+#tag-color-database-data-occasion,
+#tag-color-database-data-season { 
+    padding-left:0px !important;
+}
+.moda-description-text{ 
+    margin-left: -1px;
+}
+
+.modal-click-hide-dropdown {  
+    padding-top:10px;
+    padding-left: 4px;
+    padding-right: 2px;
 }

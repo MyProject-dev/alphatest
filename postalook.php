@@ -578,7 +578,7 @@ if (!empty($_SESSION['adm_no'])) {
 																						 	</div>
 																						</td>
 																					<tr class="modal-click-hide-dropdown" >
-																						<td style="padding-top:10px; " >
+																						<td style="padding-top:6px; " >
 																							<table id="post-title-url" >
 																							  	<tbody>
 																								    <tr>
@@ -596,12 +596,12 @@ if (!empty($_SESSION['adm_no'])) {
 																								</table>
 																						</td>
 																				    <tr>
-																					 	<td style="padding-top:10px;" >
-																					 		<table border="0" cellpadding="0" cellspacing="0" style="width: 883px;margin-left: 4px;">
+																					 	<td style="padding-top:6px;" >
+																					 		<table border="0" cellpadding="0" cellspacing="0" style="width: 890px;margin-left: 4px;">
 																					 			<tr class="modal-click-hide-dropdown" >
 																					 				<td> <div style="padding-bottom:10px;" >Style</div> </td>
-																					 				<td> <div style="padding-bottom:10px;margin-left:4px;" > Occasion </div> </td>
-																					 				<td> <div style="padding-bottom:10px;margin-left:4px;" > Season </div> </td>
+																					 				<td> <div style="padding-bottom:10px;margin-left:0px;" > Occasion </div> </td>
+																					 				<td> <div style="padding-bottom:10px;margin-left:1px;" > Season </div> </td>
 																					 				<td> <div style="padding-bottom:10px;margin-left:4px; display:none" > Tags </div> </td>
 																						 		<tr>
 																						 			<td style="background:white; border:1px solid white" >
@@ -683,8 +683,8 @@ if (!empty($_SESSION['adm_no'])) {
 																					 	</td>
 																					<tr>
 																						<td style="padding-top:10px;  " class="modal-click-hide-dropdown" >
-																							<div style="padding-bottom:10px;" >
-																								Description  1
+																							<div style="padding-bottom:10px;" class="moda-description-text" >
+																								Description  
 																							</div>
 																							<?php   require("$base_url/fs_folders/ckeditor/samples/replacebyclass.html");  ?>
 
@@ -835,7 +835,7 @@ if (!empty($_SESSION['adm_no'])) {
 																							<!-- <input type='submit' value = 'SAVE' onclick='save_all_data_to_db()'  id ='submt' />  -->
 																						</div>
 																					</div>
-																					<div style="border:1px solid none;width:200px; margin-left: 0px; margin-top: 245px;" >
+																					<div style="border:1px solid none;width:200px; margin-left: 0px; margin-top: 218px;" >
 																						<table>
 																							<tr>
 																								<td>
