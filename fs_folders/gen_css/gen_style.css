@@ -9591,7 +9591,7 @@ profile-body {
 }
 
 #postarticle-browse {
-    padding-top:20px;
+    padding-top:13px;
     cursor:pointer !important;
 }
 
@@ -9654,9 +9654,8 @@ profile-body {
 .postarticle-want-crop-agreement {
     border-bottom: 1px solid rgb(227, 226, 226);
     /* padding-bottom: 15px; */
-    padding-top: 15;
-
-    padding-bottom: 14;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
 #postalook-agreement-and-rotate table td:nth-child(2) {

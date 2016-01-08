@@ -442,7 +442,7 @@ if (!empty($_SESSION['adm_no'])) {
 																							          		<input type="checkbox" disabled><span onclick="alert('Comming soon..')" >I want to crop or rotate my image</span>
 																							          </td>
 																							        </tr><tr>
-																							          <td>
+																							          <td style="padding-top: 7px"; >
                                                                                                           <?php if( $user->post_look_agree == 0) { ?>
 																							          		<input type="checkbox" id="post-look-agreement" ><span>I agree to the posting a look rules</span>
                                                                                                           <?php } else { ?>
@@ -835,7 +835,7 @@ if (!empty($_SESSION['adm_no'])) {
 																							<!-- <input type='submit' value = 'SAVE' onclick='save_all_data_to_db()'  id ='submt' />  -->
 																						</div>
 																					</div>
-																					<div style="border:1px solid none;width:200px; margin-left: 0px; margin-top: 218px;" >
+																					<div style="border:1px solid none;width:200px; margin-left: 0px; margin-top: 216px;" >
 																						<table>
 																							<tr>
 																								<td>
