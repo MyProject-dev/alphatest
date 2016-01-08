@@ -1492,7 +1492,7 @@ class Look
     }
     public function designPostAlookStyle($style=null) {  ?>
 
-        <input type="text" value="<?php echo $style; ?>" placeholder="Style"  id="tag-color-database-data-style" onclick="tag_hide_show('#table_container_', '#table_container_1a, #table_container_2a', '#tag-search-keyword-style-1');tag_search_data('style', '1')" />
+        <input type="text" value="<?php echo $style; ?>" placeholder="Which style is this look?"  id="tag-color-database-data-style" onclick="tag_hide_show('#table_container_', '#table_container_1a, #table_container_2a', '#tag-search-keyword-style-1');tag_search_data('style', '1')" />
     
 
         <div>  
@@ -1556,7 +1556,7 @@ class Look
     }
     public function designPostAlookOccasion($occasion=null) { ?>
 
-        <input type="text" value="<?php echo $occasion; ?>" placeholder="Occasion"  id="tag-color-database-data-occasion" value='<?php  echo $occasion; ?>' onclick="tag_hide_show('#table_container_1a', '#table_container_, #table_container_2a', '#tag-search-keyword-occasion-1'); tag_search_data('occasion', '1')" /></td>
+        <input type="text" value="<?php echo $occasion; ?>" placeholder="Where can you wear this?"  id="tag-color-database-data-occasion" value='<?php  echo $occasion; ?>' onclick="tag_hide_show('#table_container_1a', '#table_container_, #table_container_2a', '#tag-search-keyword-occasion-1'); tag_search_data('occasion', '1')" /></td>
         <?php for ($j = 1; $j < 2; $j++) { ?> 
             <div id="table_container_1a" class="item_ look-tag-container tag-container-single-occasion postalook-tag-occasion">
                 <!-- Tag menus -->
@@ -1612,7 +1612,7 @@ class Look
         } 
     public function designPostAlookSeason($season=null) { ?>
         <?php $path = $_SESSION['tagPath']; ?>
-        <input type="text" value="<?php echo $season; ?>" placeholder="occasion"  id="tag-color-database-data-season" value='<?php  echo $season; ?>' onclick="tag_hide_show('#table_container_2a', '#table_container_, #table_container_1a', '#tag-row-container-season-0'); tag_search_data('season', '1')" /></td>
+        <input type="text" value="<?php echo $season; ?>" placeholder="When can you wear this?"  id="tag-color-database-data-season" value='<?php  echo $season; ?>' onclick="tag_hide_show('#table_container_2a', '#table_container_, #table_container_1a', '#tag-row-container-season-0'); tag_search_data('season', '1')" /></td>
         <!-- <div id="table_container_1a" class="item_ look-tag-container tag-container-single-occasion"> --> 
 
         <!-- Start your code here -->
@@ -1681,8 +1681,7 @@ class Look
                 </div>
                 </div> 
             </div>  
-        <?php }         
-
+        <?php }           
     }
 }
 ?>
