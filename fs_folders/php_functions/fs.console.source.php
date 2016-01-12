@@ -7257,7 +7257,7 @@ use App\User;
 						 * Allow feed to show up instead the rate design in the footer
 						 * If remove this line then article suggested modal and read article will show different from the feed article modals
 						 */
-						$feed = FALSE; 
+						// $feed = FALSE; 
 
       				?>     
       				<modals-item >    
@@ -7440,7 +7440,8 @@ use App\User;
 		  										</div>     
 		  									<?php if($feed == FALSE): ?> 
 			  									<!-- new blue rectangle -->
-			  										 <!-- look --> 
+
+			  								    <!-- look --> 
 												  	<div id="new-look-modals-stat-container-1"> 
 													  	<table cellspacing="0" cellpadding="0"> 
 													  		<tbody>
@@ -7856,15 +7857,41 @@ use App\User;
 
 
 
-		      									<!-- grey line --> 
-													<div class='modal-comment-grey-line' style="margin-top:6px;" > 
-													</div> 	
 
-												<!-- line height controller -->
-													<div style="height: 7px;"></div>
 
-												<!-- like blue --> 
-														<div id="new-look-modals-stat-container-2"> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				      							<!-- HIDE THIS NOW -->
+			      									<!-- grey line --> 
+														<div class='modal-comment-grey-line hide' style="margin-top:6px;" > 
+														</div> 	
+
+													<!-- line height controller -->
+
+														<div style="height: 7px;" class="hide" ></div>
+
+													<!-- like blue --> 
+														<div id="new-look-modals-stat-container-2" class="hide"> 
 													  	<table cellspacing="0" cellpadding="0"> 
 													  		<tbody>
 													  			<tr> 
@@ -7902,6 +7929,223 @@ use App\User;
 													  		</tbody>
 													  	</table> 
 														</div>   
+
+
+
+
+
+
+
+
+
+												<!-- look --> 
+												  	<div id="new-look-modals-stat-container-1"> 
+													  	<table cellspacing="0" cellpadding="0"> 
+													  		<tbody>
+													  			<tr> 
+															      	<td>  
+																        <?php if($look_rated == false) { ?> 
+																          	<img 
+															 					src="fs_folders/images/modal/look/modals-like.png"   
+																	          	id="look-like-<?php  echo $ano;  ?>"   
+																	      		onclick="look_like_click( '<?php echo $mno ?>' , '<?php echo $plno ?>' , 'postedlooks' , 'like' , 'liked.png' , '#look-like-<?php  echo $ano;  ?>' , '<?php echo $ano ?>' , '#look-total-like-<?php  echo $ano;  ?>', '<?php echo $this->get_full_name_by_id ( $this->mno ); ?>')"   
+																 			    onmousemove=" mousein_change_button ( '#look-like-<?php  echo $ano;  ?>' , 'fs_folders/images/modal/look/liked.png' )" 
+																 				onmouseout="mouseout_change_button (  '#look-like-<?php  echo $ano;  ?>'  , 'fs_folders/images/modal/look/modals-like.png' ) " 
+															 				/>   
+																			<input onclick=" test_modal () "  type="text" value="not rated comment" id="rate-comment-stat<?php echo $ano ?>" class='hide'  />
+															 			<?php } else { ?> 
+															 				<img src="fs_folders/images/modal/look/liked.png"   id="look-like-<?php  echo $ano;  ?>"    /> 
+															 			<?php } ?>  
+															      	</td> 
+															        <td style="color:white !important; font-size:12px;"  >
+
+															        <?php 
+															        	if($pltvotes == 0) {?>
+																	 		<a id="look-total-like-<?php  echo $ano;  ?>" style="font-family: 'Avenir LT Std 85 Heavy' !important; color:white; cursor:pointer" ><?php print($pltvotes); ?></a> like this <span> 
+																		<?php  } elseif($pltvotes == 1) { ?>											 		
+																			<span> <?php echo $latestLikerName; ?> like this </span> 
+																		<?php } else { ?> 
+																			<span> <?php echo $latestLikerName; ?> and 
+																			<a 
+																				id="look-total-like-<?php  echo $ano;  ?>" 
+																				style="font-family: 'Avenir LT Std 85 Heavy' !important; color:white; cursor:pointer" 
+																				onclick="fs_modal_popup( 'fs-modal-popup' , 'design' , 'ratings' , '<?php echo $look_attr['table_name']; ?>' , '<?php echo $plno; ?>' , 'LIKES ( <?php echo "$look_attr[pltvotes]"; ?> ) ' , 'fron-end' ,	'#popup-more-doing-the-action-loader img' )"
+																			>
+																			<?php print($pltvotes-1); ?>
+																			</a>   </span> 
+																			<span> others like this </span> 
+																		<?php } ?>  
+																	</div>  
+															      	</span></span></td> 
+													  			</tr>
+													  		</tbody>
+													  	</table> 
+		  											</div>
+		  								 
+		  										<!-- grey line -->
+			  										<div class='modal-comment-grey-line' style="margin-top:6px;" > 
+			      									</div>
+
+			  									<!-- grey rectangle  -->
+
+			  										<div id="new-look-modals-score-container" >  
+
+				  											<ul id="new-look-modals-footer-icons"   > 
+																<li style="padding-top:2px;" > 
+																	<div  title='views (<?php echo "$look_attr[tview]"; ?>)'  id="new-look-modals-views-icon" > 	
+																	</div>  
+																</li>
+																<li   style="width: 27px;padding-left: 6px;"  class='look-modal-attr-numbers'  >
+																	<div id='look-score-text' onclick="fs_modal_popup( 'fs-modal-popup' , 'design' , 'views' , '<?php echo $look_attr['table_name']; ?>' , '<?php echo $plno; ?>' , 'VIEWS ( <?php echo "$look_attr[tview]"; ?> ) ' , 'fron-end' ,	'#popup-more-doing-the-action-loader img' )" >
+																		<span > <?php echo "$look_attr[tview]"; ?> </span>
+																	</div>
+																</li>
+																<li> 
+																	<div  title='Share (<?php echo "$look_attr[tdrip]"; ?>)'  id="new-look-modals-drip-icon-1"      onclick="drip_popup_show( '<?php echo $mno; ?>' , '<?php echo $look_attr['table_name']; ?>' , '<?php echo $plno; ?>' , '<?php echo $look_attr['title']; ?>' , 'Look' , <?php echo $look_attr['owner']; ?>  , '<?php echo ".modal-drip-img$ano"; ?>' , '<?php echo "$this->genImgs/$look_attr[src_img_drip_dynamic]"; ?>' , '<?php echo $ano; ?>' , '<?php echo "#stat-look-dripted$ano"; ?>' )" > 	 
+																		<img 
+																			src="<?php echo "$this->genImgs/$look_attr[src_img_drip]"; ?>"   
+																			id="look-modal-drip-icon" 
+																			class='modal-drip-img<?php echo $ano; ?>'  
+																			onmouseenter=" mousein_change_button ( '.modal-drip-img<?php echo $ano; ?>' , 'fs_folders/images/modal/look/drip-dark.png' )" 
+																			onmouseleave="mouseout_change_button (  '.modal-drip-img<?php echo $ano; ?>' , 'fs_folders/images/modal/look/drip.png' ) "	 
+																		/>   
+
+																	</div>  
+																</li>
+																<li  style="padding-left: 4px;width: 27px;"  class='look-modal-attr-numbers' > 
+																	<div class="modal-tdriped<?php echo $ano;?>" onclick="fs_modal_popup( 'fs-modal-popup' , 'design' , 'dripped' , '<?php echo $look_attr['table_name']; ?>' , '<?php echo $plno; ?>' , 'SHARED ( <?php echo "$look_attr[tdrip]"; ?> ) ' , 'fron-end' ,	'#popup-more-doing-the-action-loader img' )"  >
+																		<span > <?php echo "$look_attr[tdrip]"; ?> </span>
+																	</div>
+																</li>
+																<li  > 
+																	<div title='favorites (<?php echo "$look_attr[tfavorite]"; ?>)' id="new-look-modals-favorite-icon-1"  onclick="favorite_posting( '<?php echo $mno;  ?>' , '<?php echo $look_attr['table_name']; ?>' , '<?php echo $plno;  ?>' , '<?php  echo $look_attr['headermssg' ] ?>' ,'<?php echo $look_attr['contentmssg'] ?>'  , 'Look' , '<?php echo $look_attr['owner'];  ?>' , '<?php echo ".modal-favorite-img$ano"; ?>' , '<?php echo "$this->genImgs/look-icon-favorite-selected.png"; ?>' , '.modal-comment-tfavorite<?php echo $ano;?>' , '#stat-look-favorited<?php echo $ano; ?>' )"     > 	 
+																		<!-- <img src="<?php echo "$this->genImgs/$look_attr[src_img_favorite]"; ?>" id="modal-favorite-icon"  class='modal-favorite-img<?php echo $ano; ?>'  />   --> 
+																		
+
+ 
+
+																		<?php if ( empty($look_attr['response_favorite']) ): ?>
+																		 	<img 
+																				src="<?php echo "$this->genImgs/$look_attr[src_img_favorite]"; ?>"    
+																				 id="modal-favorite-icon"
+																				class='modal-favorite-img<?php echo $ano; ?>'  
+																				onmouseenter=" mousein_change_button ( '.modal-favorite-img<?php echo $ano; ?>' , 'fs_folders/images/modal/look/favorite-dark.png' )" 
+																				onmouseleave="mouseout_change_button ( '.modal-favorite-img<?php echo $ano; ?>' , 'fs_folders/images/modal/look/favorite.png' ) "	 
+																			/>    
+																		<?php else: ?> 
+																		    <img 
+																			 	id='modal-favorite-icon' 
+																		 		class='modal-favorite-img<?php echo $ano; ?>' 
+																			 	src="fs_folders/images/modal/look/favorite-dark.png" 
+																			/>   
+																		<?php endif; ?>
+
+
+
+																	</div>  
+																</li>  		 
+																<li  style="padding-left: 4px;width: 27px;"  class='look-modal-attr-numbers' >
+																	<div class="modal-comment-tfavorite<?php echo $ano;?>"  onclick="fs_modal_popup( 'fs-modal-popup' , 'design' , 'favorites' , '<?php echo $look_attr['table_name']; ?>' , '<?php echo $plno; ?>' , 'FAVORITES ( <?php echo "$look_attr[tfavorite]"; ?> ) ' , 'fron-end' ,	'#popup-more-doing-the-action-loader img' )" >
+																		<span  > <?php echo "$look_attr[tfavorite]"; ?></span>
+																	</div>
+																</li>
+																<li > 
+																	<div title='share (<?php echo "$look_attr[share]"; ?>)'   class='share_look_modals<?php echo $ano; ?>' onmouseover="mouseOver_elemShow_mouseOut_elemHide(  '.share_look_modals<?php echo $ano; ?>' ,   '.share_look_modals<?php echo $ano; ?>' ,   '#dropdown_share<?php echo $ano; ?>' ) "  > 	 
+																		<!-- <img src="<?php echo "$this->genImgs/$look_attr[src_img_share]"; ?>"  id="look-modal-share-icon" />  -->
+
+																		<img 
+																			src="<?php echo "$this->genImgs/$look_attr[src_img_share]"; ?>"    
+																			id="look-modal-share-icon"
+																			class='look-modal-share-icon<?php echo $ano; ?>'
+																			onmouseenter=" mousein_change_button ( '.look-modal-share-icon<?php echo $ano; ?>', 'fs_folders/images/modal/look/share-dark.png' )" 
+																			onmouseleave="mouseout_change_button ( '.look-modal-share-icon<?php echo $ano; ?>', 'fs_folders/images/modal/look/share.png' ) "	 
+																		/>    
+
+
+
+
+																	</div>   
+																</li>  
+																<li id='modal-tshare-number' style="width: 15px;padding-left: 2px;" >
+
+
+																	<div style="color:grey" > <?php echo "$look_attr[share]"; ?> </div>
+
+
+
+																</li>
+
+
+																<li id='modal-flag-li'  >  
+																	<!-- <div   id="new-look-modals-share-icon-1" class='share_look_modals<?php echo $ano; ?>' onclick="flag ( 'fs-flag' , 'fs_postedarticles' , '<?php echo $artno; ?>' , '#modal-flag-icon<?php echo $ano; ?>'  , '<?php echo "$this->genImgs/large-flag-red.png"; ?>' ) " > 	 -->
+																	<div   id="modal-flag-icon-look" class='share_look_modals<?php echo $ano; ?>' onclick="flag ( 'action' , '<?php echo $look_attr['table_name']; ?>'  , '<?php echo $ano; ?>' , 'imgid' , 'imgsrc' , 'modal-flag-dropdown' ) "  > 	 
+
+
+																		<!-- <img src="<?php echo "$this->genImgs/$look_attr[src_img_flag]"; ?>" class="modal-flag-icon"  id='modal-flag-icon<?php echo $ano; ?>'  title='more' />  -->
+
+																		<img 
+																			src="<?php echo "$this->genImgs/$look_attr[src_img_flag]"; ?>"    
+																			 id='modal-flag-icon<?php echo $ano; ?>'  
+																			class='modal-flag-icon<?php echo $ano; ?>'
+																			onmouseenter=" mousein_change_button ( '.modal-flag-icon<?php echo $ano; ?>', 'fs_folders/images/modal/look/more-icon-dark.png' )" 
+																			onmouseleave="mouseout_change_button ( '.modal-flag-icon<?php echo $ano; ?>', 'fs_folders/images/modal/look/more-icon.png' ) "	 
+																		/>    
+
+
+																	</div>   
+																</li>   
+															</ul>   											 
+			  										</div>   
+
+			  									<!-- dropdown flag design  -->
+
+			  										<?php  
+			  											$this->fs_flag( 
+			  												array(
+			  													'type'=>'flag-modal-dropdown',
+			  													'table_name'=>$look_attr['table_name'],
+			  													'table_id'=>$plno,
+			  													'id'=>$ano,
+			  													'mno'=>$look_attr['owner']
+			  												)
+			  											);  
+			  										?> 
+
+			  									<!-- dropdowns share -->
+
+			  										<div style="border:1px solid none" >
+			  											<?php   
+
+
+										 					$this->share_modal_dropdown( 
+										 						array(	
+										 							'table_name'=>$look_attr['table_name'],
+										 							'table_id'=>$plno,
+										 							'id'=>$ano, 
+										 							'about'=>$look_attr['lookAbout'],
+										 							'name'=>$user['username'],
+										 							'title'=>$look_attr['title'],
+										 							'page'=>'feed',  
+										 							'link'=>'',
+										 							'picture'=>''
+										 						)
+										 					);   
+
+
+									 					?>
+			  										</div> 
+
+			  										<!--  <div style="height:5px;border-top:1px solid #e2e2df;width: 269px;" > 
+			  										</div> -->
+		 										
+		 										<!-- grey line -->
+
+			  										<div class='modal-comment-grey-line' style="margin-top:5px;" > 
+			      									</div> 	
+
+
+			      									
+
 												<?php if( !empty($featuredLooks)) {  ?>
 												<!-- grey line --> 
 													<div class='modal-comment-grey-line' style="margin-top:5px;" > 
