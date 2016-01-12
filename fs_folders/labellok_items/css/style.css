@@ -180,11 +180,10 @@ body #right_side {
 
 				} 
 
-				#tag1 table  { 
-       				width: 100px;
+				#tag1 table  {
+       				/* width: 100px; */
        				/*background-color: grey; */
-       				 
-				}	
+    			}	
 	        	#tag1 table td { 
 	        		/*border: 1px solid red;*/
 	        		list-style: none;

@@ -26,7 +26,7 @@ p, a, span, label {
     font-size: 10pt;
     color: #888888;
     text-align: center;
-    background-color: #F6F7F8;
+    background-color: white; 
 }
 
 .tag-menu {
@@ -107,7 +107,8 @@ p, a, span, label {
 
 
 .tag-color-palette {
-    border-right: 1px solid #D4D4D4;
+    /* border-right: 1px solid #D4D4D4; */
+    /* background-color: burlywood; */
 }
 
 .tag-color-palette table {
@@ -115,17 +116,19 @@ p, a, span, label {
 
 .tag-color-palette table  td {
     border:1px solid green;
-    padding: 9px;
+    /* padding: 9px; */
+    width: 20px;
+    height: 20px;
 }
 
 .tag-color-palette table  td:hover {
     opacity: 0.4;
     cursor:pointer;
 }
-
-
+ 
 .tag-color-image table {
-    width: 100% !important;
+    width: 144px !important;
+    margin-left: 3px;
 }
 
 .tag-color-image table td {
@@ -168,7 +171,7 @@ p, a, span, label {
     padding-top: 5px;
     padding-bottom: 27px !important;
     border: 1px solid #D4D4D4;
-    height: 110px;
+    height: 119px;
     clear: both;
     overflow-y: auto;
     margin-top: 7px;
@@ -186,13 +189,14 @@ p, a, span, label {
     width:auto !important;
     padding-right:4px;
     width: 111px !important;
+    word-break: break-all;
 }
 
 .tag-container-left ul li:nth-child(1) {
     /* float: left; */
     width:auto !important;
     padding-right:4px;
-    width: 106px !important;
+    width: 106px !important; 
 }
 
 
@@ -254,6 +258,7 @@ p, a, span, label {
 .tag-color-image-preview {
     width: 144px;
     padding-bottom: 4px;
+    height: 153px;
 }
 
 .tag-view-data {

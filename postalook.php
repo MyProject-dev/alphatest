@@ -350,7 +350,7 @@ if (!empty($_SESSION['adm_no'])) {
 
 													<div id='del_tag_option'>
 													</div>
-													<div style="background-color:white;width:910px;  border-radius:5px;" id="post-look-container" >
+													<div style="margin: 0px auto;   background-color:white;width:910px;  border-radius:5px;" id="post-look-container" >
 															<!-- <div id="divCoord"> coordinates </div>   -->
 															<div id="new-postalook-label-wrapper"  >
 
@@ -361,7 +361,8 @@ if (!empty($_SESSION['adm_no'])) {
 																			<td> <div> mao ni ang look nga imong gi submit dap l sa look daun img label sa look daun look  a look daun look daun img label sa look daun i e   check if sakto ba or dili g label sa look daun imni sya sakto. daghang salamat sa inyong  pag supporta sa amoang cog label sa look daun img label sa look daun immpany. </div> </td>
 																	</table>
 																</div>
-																<div id='body' style="padding:0px; border: 1px solid #f6f7f8;" >
+
+																<div id='body' style="padding:0px; border: 1px solid #f6f7f8; " >
 																	<center>
 																		<table border="0" cellpadding="0" cellspacing="0" >
 																			<tr>
