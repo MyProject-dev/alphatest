@@ -59,7 +59,7 @@
                         <div class="get-started-image-radiant-text">POST AN ARTICLE</div>
                         <div class="get-started-image-radiant" >
                         </div>
-                        <div style="border:2px solid #E2E2DF; width: 165px;background-image: url('fs_folders/images/uploads/posted articles/home/<?php  echo $article->latestShared() ?>.jpg');background-size: 166px auto;height: 165px;border-radius: 10px;background-repeat: no-repeat; background-color:black;"   >
+                        <div style="border:1px solid #E2E2DF; width: 165px;background-image: url('fs_folders/images/uploads/posted articles/home/<?php  echo $article->latestShared() ?>.jpg');background-size: 166px auto;height: 165px;border-radius: 10px;background-repeat: no-repeat; background-color:black;"   >
                         </div>
                     </a>
                     <!-- <img src="fs_folders/images/uploads/posted articles/home/--><?php //echo $article->latestShared()  ?><!--.jpg"  >-->
@@ -69,7 +69,7 @@
                         <div class="get-started-image-radiant-text">POST A LOOK</div>
                         <div class="get-started-image-radiant" >
                         </div>
-                        <div style="border:2px solid #E2E2DF;width: 165px;background-image: url('fs_folders/images/uploads/posted looks/home/<?php echo $look->latestShared() ?>.jpg');background-size: 166px auto;height: 165px;border-radius: 10px;background-repeat: no-repeat; background-color:black;" >
+                        <div style="border:1px solid #E2E2DF;width: 165px;background-image: url('fs_folders/images/uploads/posted looks/home/<?php echo $look->latestShared() ?>.jpg');background-size: 166px auto;height: 165px;border-radius: 10px;background-repeat: no-repeat; background-color:black;" >
                         </div>
                     </a>
                     <!-- <img src="fs_folders/images/uploads/posted looks/home/--><?php //echo $look->latestShared()  ?><!--.jpg"  >-->
@@ -80,7 +80,7 @@
                         <div class="get-started-image-radiant-text">READ ARTICLES</div>
                         <div class="get-started-image-radiant" >
                         </div>
-                        <div style="border:2px solid #E2E2DF;width: 165px;background-image: url('fs_folders/images/uploads/posted articles/home/<?php echo $article->latestRead() ?>.jpg');background-size: 166px auto;height: 165px;border-radius: 10px;background-repeat: no-repeat; background-color:black;"   >
+                        <div style="border:1px solid #E2E2DF;width: 165px;background-image: url('fs_folders/images/uploads/posted articles/home/<?php echo $article->latestRead() ?>.jpg');background-size: 166px auto;height: 165px;border-radius: 10px;background-repeat: no-repeat; background-color:black;"   >
                         </div>
                         <!-- <img src="fs_folders/images/uploads/posted articles/home/--><?php //echo $article->latestRead() ?><!--.jpg"  >-->
                     </a>
@@ -91,7 +91,7 @@
                         <div class="get-started-image-radiant" >
                         </div>
 
-                        <div style="border:2px solid #E2E2DF;width: 165px;background-image: url('fs_folders/images/uploads/posted looks/home/<?php echo  $look->latestRate() ?>.jpg');background-size: 166px auto;height: 165px;border-radius: 10px;background-repeat: no-repeat; background-color:black;"   >
+                        <div style="border:1px solid #E2E2DF;width: 165px;background-image: url('fs_folders/images/uploads/posted looks/home/<?php echo  $look->latestRate() ?>.jpg');background-size: 166px auto;height: 165px;border-radius: 10px;background-repeat: no-repeat; background-color:black;"   >
                         </div>
 
 
@@ -117,7 +117,7 @@
                                     <!-- <img alt="Please upload your profile picture." src="fs_folders/images/uploads/members/mem_profile/female-default-avatar.png"  >-->
                                 <?php } ?>
                             <?php } ?>
-                        <div style="border:2px solid #E2E2DF;width: 165px;background-image: url('<?php echo $getStartedProfileSrc; ?>');background-size: 166px auto;height: 165px;border-radius: 10px;background-repeat: no-repeat; background-color:black;"   >
+                        <div style="border:1px solid #E2E2DF;width: 165px;background-image: url('<?php echo $getStartedProfileSrc; ?>');background-size: 166px auto;height: 165px;border-radius: 10px;background-repeat: no-repeat; background-color:black;"   >
                         </div>
                     </a>
                 </li>
