@@ -26,9 +26,7 @@
         $database->select($tableName, '*', null,  " $keyName LIKE '%$keyword%'",  " $keyName asc",  24);
     }
     $response = $database->getResult();
-
-
-
+  
     if(empty($response) and $tableName == 'fs_tag_style') { ?>
 
         No result for <em style='color:black; cursor: pointer'><?php  echo $keyword; ?></em> please try another.

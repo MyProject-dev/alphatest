@@ -1,3 +1,4 @@
+
 <?php
 
 use App\Reset;
@@ -774,6 +775,7 @@ class Look
 
         $colors = $this->getAllHtmlColor();
 
+        /*s
         $itemName = array(
             'Jeans',
             'Bootcut Jeans',
@@ -1106,7 +1108,8 @@ class Look
             'Faux Leather'
         );
         sort($materialItems);
-        sort($patternItems);
+        sort($patternItems); 
+        */
         ?>
 
 
@@ -1132,18 +1135,7 @@ class Look
                <li id="tag-tab-price-<?php echo $j ?>" onclick="tag_change_content('price',  '<?php echo $j ?>')" >
                    <span>Price </span></li>
                <li id="tag-tab-url-<?php echo $j ?>" onclick="tag_change_content('url',  '<?php echo $j ?>')"><span>Url </span>
-               </li>
-
-               <!-- <select class="tag-reset-option" onChange="tag_reset(<?php echo $j; ?>)" id="tag-reset-option-<?php echo $j; ?>"  >
-                    <option value="reset" > Reset Init </option>
-                    <option value="color" > Color </option>
-                    <option value="brand" > Brand </option>
-                    <option value="pattern" > Pattern </option>
-                    <option value="material" > Material </option>
-                    <option value="garment" > Garment </option>
-                </select> -->
-
-
+               </li> 
            </ul>
 
            <div class="tag-reset-div" id="tag-reset-div-color-<?php echo $j; ?>"    onClick="tag_reset('color', '<?php echo $j; ?>') "      style="display:block"  >Reset  Color</div>
@@ -1212,15 +1204,9 @@ class Look
                <div class="tag-content">
                    <ul class="tag-content-ul">
                        <li>
-                           <div class="tag-container-left" id="tag-result-search-brand-<?php echo $j; ?>">
+                           <div class="tag-container-left" id="tag-result-search-brand-<?php echo $j; ?>"   >
                                <ul>
-                                    <?php if(false): ?>
-                                        <?php for ($k = 0; $k < 35; $k++) { ?>
-                                           <li><span
-                                                   onclick="tag_select_item('brand', '<?php echo "Brand name $k" ?>', '<?php echo rand(767, 780); ?>', '<?php echo $j; ?>')">   <?php echo (!empty($itemName[$k])) ? $itemName[$k] : ""; ?> </span>
-                                           </li>
-                                        <?php } ?>
-                                    <?php endif; ?>
+
                                </ul>
                            </div>
                        </li>
@@ -1489,7 +1475,8 @@ class Look
            </div>
         </div>
     <?php
-    }
+    }  
+
     public function designPostAlookStyle($style=null) {  ?>
 
         <input type="text" value="<?php echo $style; ?>" placeholder="Which style is this look?"  id="tag-color-database-data-style" onclick="tag_hide_show('#table_container_', '#table_container_1a, #table_container_2a', '#tag-search-keyword-style-1');tag_search_data('style', '1')" />
@@ -1512,7 +1499,7 @@ class Look
                 <div class="tag-container-result">
                 <div class="tag-result-color" id="tag-result-color" style="display:block">
                  
-                    <div class="tag-row-container" id="tag-row-container-style-<?php echo $j ?>" style="display:block">
+                    <div class="tag-row-container" id="tag-row-container-style-<?php echo $j ?>" style="display:block; height:188px;">
                         <div class="tag-search">
                             <input type="text" placeholder="search" class="search-field" id="tag-search-keyword-style-<?php echo $j ?>"
                                    onkeyup="tag_search_data('style', '<?php echo $j ?>')"/>
@@ -1569,7 +1556,7 @@ class Look
                     <!-- Tag content -->
                     <div class="clear"></div>
                     <div class="tag-container-result">
-                    <div class="tag-result-color" id="tag-result-color" style="display:block">
+                    <div class="tag-result-color" id="tag-result-color" style="display:block;height: 195px;">
                      
                         <div class="tag-row-container" id="tag-row-container-occasion-<?php echo $j ?>" style="display:block">
                             <div class="tag-search">
@@ -1631,7 +1618,7 @@ class Look
                 <div class="tag-container-result">
                 <div class="tag-result-color" id="tag-result-color" style="display:block">
                  
-                    <div class="tag-row-container" id="tag-row-container-season-<?php echo $j ?>" style="display:block">
+                    <div class="tag-row-container" id="tag-row-container-season-<?php echo $j ?>" style="display:block; height:auto">
                       
                         <div class="clear"></div>
                         <div class="tag-content">

@@ -167,6 +167,13 @@ p, a, span, label {
     /* border: 1px solid red; */
     padding-top: 5px;
     padding-bottom: 27px !important;
+    border: 1px solid #D4D4D4;
+    height: 110px;
+    clear: both;
+    overflow-y: auto;
+    margin-top: 7px;
+    width: 360px;
+    margin-left: 3px;
 }
 
 .tag-container-left ul {
@@ -178,14 +185,14 @@ p, a, span, label {
     /* float: left; */
     width:auto !important;
     padding-right:4px;
-    width:120px !important;
+    width: 111px !important;
 }
 
 .tag-container-left ul li:nth-child(1) {
     /* float: left; */
     width:auto !important;
     padding-right:4px;
-    width:120px !important;
+    width: 106px !important;
 }
 
 
@@ -210,6 +217,7 @@ p, a, span, label {
 .tag-row-container  {
     text-align: left;
     padding: 4px;
+    height: 190px;
 }
 
 .tag-result-container-category-garment  {
