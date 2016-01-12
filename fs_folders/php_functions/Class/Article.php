@@ -333,7 +333,7 @@ class Article{
                 <div class="tag-container-result">
                 <div class="tag-result-color" id="tag-result-color" style="display:block">
                  
-                    <div class="tag-row-container" id="tag-row-container-style-<?php echo $j ?>" style="display:block">
+                    <div class="tag-row-container" id="tag-row-container-style-<?php echo $j ?>" style="display:block; height:211px">
                         <div class="tag-search">
                             <input type="text" placeholder="search" class="search-field" id="tag-search-keyword-topic-category-<?php echo $j ?>"
                                    onkeyup="tag_search_data('topic-category', '<?php echo $j ?>')"/>
@@ -385,7 +385,7 @@ class Article{
                 <div class="tag-container-result">
                     <div class="tag-result-color" id="tag-result-color" style="display:block">
 
-                        <div class="tag-row-container" id="tag-row-container-occasion-<?php echo $j ?>" style="display:block">
+                        <div class="tag-row-container" id="tag-row-container-occasion-<?php echo $j ?>" style="display:block;height: 211px;">
                             <div class="tag-search">
                                 <input type="text" placeholder="search" class="search-field" id="tag-search-keyword-topic-item-<?php echo $j ?>"
                                        onkeyup="tag_search_data('topic-item', '<?php echo $j ?>')"/>
@@ -445,7 +445,7 @@ class Article{
                 <div class="tag-container-result">
                     <div class="tag-result-color" id="tag-result-color" style="display:block">
 
-                        <div class="tag-row-container" id="tag-row-container-occasion-<?php echo $j ?>" style="display:block">
+                        <div class="tag-row-container" id="tag-row-container-occasion-<?php echo $j ?>" style="display:block;height: 210px;">
                             <div class="tag-search">
                                 <input type="text" placeholder="search" class="search-field" id="tag-search-keyword-article-tag-<?php echo $j ?>"
                                        onkeyup="tag_search_data('article-tag', '<?php echo $j ?>')"/>

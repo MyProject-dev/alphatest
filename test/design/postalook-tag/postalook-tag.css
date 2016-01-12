@@ -177,6 +177,7 @@ p, a, span, label {
     margin-top: 7px;
     width: 360px;
     margin-left: 3px;
+    overflow-x: hidden;
 }
 
 .tag-container-left ul {
