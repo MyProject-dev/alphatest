@@ -24,11 +24,18 @@ function tag_select_color_enable_edit_mode(tagNum, colorPosition) {
     //add color for the selected td color to be replace.
     $('#tag-selected-color-td' + '-' + tagNum + '-' + colorPosition).css('opacity', '0.5');
 }
-function tag_select_color(rowName, color_name, color_html, tagNum) {
-    
+
+function tag_select_color(rowName, color_name, color_html, tagNum) { 
+
     //alert('clicked row color = ' + object.tag_color_row_click + ' tag_color_td_click = ' + object.tag_color_td_click + ' tag_color_td_clicke_name = ' + object.tag_color_td_clicke_name);
     //get total color field-up from the right rectangle
     var color_lenght = $('#tag-color-database-data-' + rowName + '-' + tagNum).val().split(',').length - 1;
+
+    if (color_lenght < 5) {
+        alert('Click the color to change and select the new color.');
+        writeCookie('sessionId', 'ok naka?' + color_lenght, 3);
+    }    
+    console.log(' session = ' + readCookie('sessionId')); 
 
     // Validate if its in edit mode
     if (object.tag_color_row_click == tagNum) {
@@ -468,4 +475,41 @@ function hexToRgb(hex) {
     var g = (bigint >> 8) & 255;
     var b = bigint & 255;
     return "rgb(" + r + ", " + g + ", " + b + ")";
+}
+
+
+
+
+/**
+* write cookief
+*/
+
+function writeCookie(name,value,days) {
+    var date, expires;
+    if (days) {
+        date = new Date();
+        date.setTime(date.getTime()+(days*24*60*60*1000));
+        expires = "; expires=" + date.toGMTString();
+            }else{
+        expires = "";
+    }
+    document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+/**
+* Read Cookie
+*/
+function readCookie(name) {
+    var i, c, ca, nameEQ = name + "=";
+    ca = document.cookie.split(';');
+    for(i=0;i < ca.length;i++) {
+        c = ca[i];
+        while (c.charAt(0)==' ') {
+            c = c.substring(1,c.length);
+        }
+        if (c.indexOf(nameEQ) == 0) {
+            return c.substring(nameEQ.length,c.length);
+        }
+    }
+    return '';
 }
