@@ -30,13 +30,18 @@ function tag_select_color(rowName, color_name, color_html, tagNum) {
     //alert('clicked row color = ' + object.tag_color_row_click + ' tag_color_td_click = ' + object.tag_color_td_click + ' tag_color_td_clicke_name = ' + object.tag_color_td_clicke_name);
     //get total color field-up from the right rectangle
     var color_lenght = $('#tag-color-database-data-' + rowName + '-' + tagNum).val().split(',').length - 1;
-
-    if (color_lenght < 5) {
-        alert('Click the color to change and select the new color.');
-        writeCookie('sessionId', 'ok naka?' + color_lenght, 3);
-    }    
-    console.log(' session = ' + readCookie('sessionId')); 
-
+    
+    /**
+    * Show alert instruction for the user - how to update the selected color. 
+    */
+    if(readCookie('sessionId') != 'hide') { 
+        if (color_lenght == 0) {
+            if(confirm('Pease click the selected color and select new color - to change. Do you want to not show this when you do the taggin again?')) 
+            writeCookie('sessionId', 'hide', 3);
+        }    
+        console.log(' session = ' + readCookie('sessionId')); 
+    }
+     
     // Validate if its in edit mode
     if (object.tag_color_row_click == tagNum) {
         
