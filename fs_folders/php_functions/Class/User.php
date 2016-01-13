@@ -221,6 +221,14 @@ class User {
         return $pass;
     }
 
+
+
+    public function getAuthEmail() {  
+        $this->db->select('fs_members', '*', NULL, 'mno = ' . $this->mno); 
+        return $this->db->getResult()[0]['identity_email'];    
+    }
+
+
     /**
      * @return mixed
      * return info of the user
