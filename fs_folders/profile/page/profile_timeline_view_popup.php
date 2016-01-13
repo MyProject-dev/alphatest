@@ -59,7 +59,7 @@
 	  	$url_tumblr       = clean_url($uinfo[0]['url_tumblr']);
 	  	$url_web          = clean_url($uinfo[0]['url_web']);
 	  	$url_google_plus  = clean_url($uinfo[0]['url_google_plus']);
-	  	$url_youtube      = 'youtube.com'; //$uinfo[0]['url_youtube'];   
+	  	$url_youtube      = $uinfo[0]['url_youtube'];   
 	    $logStat          = $uinfo[0]['logstat'];  
 
  
