@@ -149,7 +149,8 @@
 										'occupation',  
 										'studied_at', 
 										'studied_with',
-										'studied_graduate_date', 
+										'identity_email',
+										'studied_graduate_date',  
 										'datejoined'
 									),array( 
 										$firstname, 
@@ -163,6 +164,7 @@
 										$workwith,
 										$studied_at,
 										$studied_with,
+										$email,
 										$studied_graduate_date,
 										date("Y-m-d H:i:s")
 									) ,  
