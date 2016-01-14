@@ -900,9 +900,10 @@ if ((!empty($_GET['welcome'])) ? $_GET['welcome'] : ''  == 'get-started' || $mc-
                                                             for ($i=0; $i < $Ttag ; $i++) {
                                                                 // $tc = $mc->get_html_colo_code( str_replace(" ","",$pltags[$i]["plt_color"]));
                                                                 $tc = $look->getHtmlColor(explode(',', $pltags[$i]["plt_color"])[1]);
+
                                                                 if ( $i == 0 ) {
                                                                     if (!empty($tc )) {
-                                                                        $tagcolors_style = "background-color:$tc; border-radius:0 0 0 5px;";
+                                                                        $tagcolors_style = "background-color:$tc; border-radius:0px 0px 5px 5px";
                                                                     }
                                                                     else{
                                                                         if ( $i == $Ttag-1 ) {
