@@ -139,7 +139,7 @@ body { padding: 0; margin: 0; color: #fff; background: #fff; color: #284372 }
 #look_view_img_td { cursor: pointer;  /* border: 1px solid #B8B8B3; */ border-radius: 5px; /* background-color: #f6f7f8; */      background-color: #f6f7f8;  /*width:600px; */ }
 #look_view_img { /* height: 600px;*/ /*cursor: pointer;*/  }
 #lf_img_view_td {   /*border: 1px solid green;*/ padding-top: 0px; }
-#lf_div_container { visibility:visible; display: none; position: absolute;z-index: 100; width:890px; height: 60px;/*border: 1px solid red;*/  background-color: #000; opacity: 0.8; margin-top: -78px;margin-left:-1px; }
+#lf_div_container { visibility:visible; display: none; position: absolute;z-index: 100; width:890px; height: 60px;/*border: 1px solid red;*/  background-color: #000; opacity: 0.8;margin-top: -77px;margin-left:-1px;}
 #lf_div_container1 { visibility:visible; display: block; position: absolute;z-index: 100; width:888px; height: 60px;/*border: 1px solid red;*/  background-color: #000; opacity: 0.8; margin-top: -60px; margin-left:0px; }
 #lf_div_container2 { visibility:visible; display: block; position: absolute;z-index: 100; width:889px; height: 60px;/*border: 1px solid red;*/  background-color: #000; opacity: 0.8; margin-top: -60px; margin-left:0px; }
 #lf_div_container { margin-left: 0px; }
