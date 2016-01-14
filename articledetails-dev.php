@@ -745,7 +745,7 @@ echo "</div>";
                                             </td>
                                         <tr>
                                             <td id='lf_img_view_td' >
-                                                <div id='<?php echo $modal['view_footer_id']; ?>' style="margin-left:2px;border:1px solid none; <?php echo $article_modal_style; ?>" >
+                                                <div id='<?php echo $modal['view_footer_id']; ?>' style="margin-left:0px;border:1px solid none; <?php echo $article_modal_style; ?>" >
                                                     <?php
                                                     if ( false ) {
                                                         $mc->print_choose_votes_version2( $mno , $modal['table_id'] , $modal['category'] );
