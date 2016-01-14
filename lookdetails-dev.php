@@ -1253,7 +1253,7 @@ if ((!empty($_GET['welcome'])) ? $_GET['welcome'] : ''  == 'get-started' || $mc-
                                 </td>
                         </tr></tbody></table>
                     </div>
-                    <div class="bs-example " data-example-id="media-list" style="padding:0px; margin:0px; width: 740px; border:1px solid none; margin: 0 auto; padding-bottom: 40px;padding-top: 20px; ">
+                    <div class="bs-example " data-example-id="media-list" style="padding:0px; margin:0px; width: 740px; border:1px solid none; margin: 0 auto; padding-bottom: 40px;padding-top: 20px;margin-left: 97px;">
 
 
                         <?php  $np = $mc->generate_next_prev_numbers( $tlc , 10 ); ?>
@@ -1342,7 +1342,7 @@ if ((!empty($_GET['welcome'])) ? $_GET['welcome'] : ''  == 'get-started' || $mc-
 
                         <div style="clear:both"> </div>
 
-                        <ul id="look-comment-cotainer-ul"  style="width: 783px;margin-left: -41px;margin-top: 18px;" >
+                        <ul id="look-comment-cotainer-ul"  style="width: 893px;margin-left: -41px;margin-top: 18px;" >
                             <li class="media border-top "  >
                                    <?php $mc->print_next_prev_numbers( $np , $plno , null , 'loader-up' ); ?>
                             </li>
@@ -1351,7 +1351,7 @@ if ((!empty($_GET['welcome'])) ? $_GET['welcome'] : ''  == 'get-started' || $mc-
                         <div style="clear:both"> </div>
 
                         <ul class="media-list" id="comments_result" style="margin-left: -38px;width: 781px;" >
-                            <li class="media  padding-top-comment ">
+                            <li class="media  padding-top-comment " style="margin-left: 37px;" > 
                                 <!--Comment Area -->
                                 <div class="comment-textarea">
                                     <div class="center border-bottom margin-bottom text" id="details-comment-text"> <span> Comment </span> </div>

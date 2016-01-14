@@ -1184,7 +1184,7 @@ echo "</div>";
                         
                         <div style="clear:both"> </div>
 
-                        <ul class="media-list" id="comments_result" style="margin-left:-38px" >
+                        <ul class="media-list" id="comments_result" style="margin-left:-78px" >
 
                             <li class="media border-top padding-top-comment " style="display:none" >
                                 <div class="media-left">
@@ -1281,8 +1281,8 @@ echo "</div>";
                         </ul> 
                         <div style="clear:both"> </div>
 
-                        <ul id="look-comment-cotainer-ul"  style="width: 783px;margin-left: -38px;margin-top: 19px;" >
-                            <li class="media border-top "  > 
+                        <ul id="look-comment-cotainer-ul"  style="width: 783px;margin-left: -41px;margin-top: 18px;" >
+                            <li class="media border-top "  style="width: 890px;margin-left: -38px;"> 
                                 <div style="margin-top: 17px;">
 
                                     <?php    $mc->print_next_prev_numbers(  $np , null , 'detail' , 'loader-down' , array( 'table_name'=>$modal['table_name'],  'table_id'=>$modal['table_id'] ) ) ;      ?>
