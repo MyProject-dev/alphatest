@@ -4990,7 +4990,7 @@ use App\User;
 						// echo " plno = " . $plno  . '<br>';
 								 
 					?> 
-				             	<li class="media border-top padding-top-comment details-comment" id="comment_list_<?php echo $cno; ?>"   > 
+				             	<li class="media border-top padding-top-comment details-comment" id="comment_list_<?php echo $cno; ?>" style="width:892px"   > 
 		                            <div class="media-left"> 
 		                                <a  href="<?php echo "$username"; ?>" style='text-decoration:none' target='_parent'>
 		                                    <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="<?php echo $psrc ?>" data-holder-rendered="true" style="width: 64px; height: 64px;"> 
@@ -5133,7 +5133,7 @@ use App\User;
 												 		 	 		</td>
 												 		 	 		<td id='delete-text-<?php echo $cno; ?>'  style='visibility:hidden'  class="padding-left-10 comment_list_<?php echo $cno; ?>-delete" >  
 													 		 	 		<span class='red_bold' onclick='delete_look_comment("<?php echo  intval($cno); ?>" , "<?php echo "$plno"; ?>" , "<?php echo $table_name_modal; ?>")'  style='cursor:pointer'  > 
-													 		 	 			 DELETE 1
+													 		 	 			 DELETE 
 													 		 	 		</span>
 												 		 	 		</td>
 												 		 	 	</td>
