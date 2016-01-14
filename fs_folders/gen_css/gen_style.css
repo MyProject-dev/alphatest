@@ -11152,3 +11152,7 @@ profile-body {
     padding-left: 4px;
     padding-right: 2px;
 }
+
+.header-drodown-image-container {
+    border:2px solid white;
+}

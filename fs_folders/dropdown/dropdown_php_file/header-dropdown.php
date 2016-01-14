@@ -37,7 +37,7 @@ $article = new \App\Article($db, $this->mno);
                       $plno = $look->Top('Bohemian');
                       $src = $look->sourceCategoryDropDown($plno);
                       ?>
-                      <div style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 80px; background-color: black; border:1px solid white;" >
+                      <div class="header-drodown-image-container"  class="header-drodown-image-container" style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 80px; background-color: black;" >
                       </div>
                       <div>
                           <span>Bohemian</span>
@@ -50,7 +50,7 @@ $article = new \App\Article($db, $this->mno);
                       $plno = $look->Top('Casual');
                       $src = $look->sourceCategoryDropDown($plno);
                       ?>
-                      <div style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto  123px;" >
+                      <div class="header-drodown-image-container"  class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto  123px;" >
                       </div>
                       <div>
                           <span>Casual</span>
@@ -65,7 +65,7 @@ $article = new \App\Article($db, $this->mno);
                       ?>
 
 
-                      <div style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto  123px;" >
+                      <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto  123px;" >
                       </div>
                       <div>
                           <span>Chic </span>
@@ -78,7 +78,7 @@ $article = new \App\Article($db, $this->mno);
                       $plno = $look->Top('Formal');
                       $src = $look->sourceCategoryDropDown($plno);
                       ?>
-                      <div style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto  123px;" >
+                      <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto  123px;" >
                       </div>
 
                       <div>
@@ -92,7 +92,7 @@ $article = new \App\Article($db, $this->mno);
                           $plno = $look->Top('Grunge');
                           $src = $look->sourceCategoryDropDown($plno);
                       ?>
-                      <div style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 123;" > </div>
+                      <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 123;" > </div>
                       <div> <span>Grunge</span> </div>
                   </a>
               </li>
@@ -103,7 +103,7 @@ $article = new \App\Article($db, $this->mno);
                       $plno = $look->Top('Menswear');
                       $src = $look->sourceCategoryDropDown($plno);
                       ?>
-                      <div style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto  123px;" >
+                      <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto  123px;" >
                       </div>
                       <div>
                           <span>Menswear</span>
@@ -117,7 +117,7 @@ $article = new \App\Article($db, $this->mno);
                       $plno = $look->Top('Preppy');
                       $src = $look->sourceCategoryDropDown($plno);
                       ?>
-                      <div style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto  123px;" >
+                      <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto  123px;" >
                       </div>
                       <div>
                           <span>Preppy</span>
@@ -130,7 +130,7 @@ $article = new \App\Article($db, $this->mno);
                       $plno = $look->Top('Streetwear');
                       $src = $look->sourceCategoryDropDown($plno);
                       ?>
-                      <div style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto  123px;" >
+                      <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto  123px;" >
                       </div>
                       <div>
                           <span>Streetwear</span>
@@ -172,7 +172,7 @@ $article = new \App\Article($db, $this->mno);
             <li>
                 <a href="#">
                     <?php $src = $article->sourceCategoryDropDown($art['artno']); ?>
-                    <div style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 80px; background-color: black; border:1px solid white;" >
+                    <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 80px; background-color: black;" >
                     </div>
                     <div>
                         <span><?php echo string_limit($art['topic'], 11, '...') ; ?></span>
@@ -215,7 +215,7 @@ $article = new \App\Article($db, $this->mno);
                 <li>
                     <a href="article?category=beauty">
                         <?php $src = $article->sourceCategoryDropDown($art['artno']); ?>
-                        <div style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 80px; background-color: black; border:1px solid white;" >
+                        <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 80px; background-color: black;" >
                         </div>
                         <div>
                             <span><?php echo string_limit($art['topic'], 11, '...') ; ?></span>
@@ -258,7 +258,7 @@ $article = new \App\Article($db, $this->mno);
                 <li>
                     <a href="article?category=lifestyle" >
                         <?php $src = $article->sourceCategoryDropDown($art['artno']); ?>
-                        <div style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 80px; background-color: black; border:1px solid white;" >
+                        <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 80px; background-color: black;" >
                         </div>
                         <div>
                             <span><?php echo string_limit($art['topic'], 11, '...') ; ?></span>
@@ -301,7 +301,7 @@ $article = new \App\Article($db, $this->mno);
                 <li>
                     <a href="article?category=entertainment" >
                         <?php $src = $article->sourceCategoryDropDown($art['artno']); ?>
-                        <div style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 80px; background-color: black; border:1px solid white;" >
+                        <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 80px; background-color: black;" >
                         </div>
                         <div>
                             <span><?php echo string_limit($art['topic'], 11, '...') ; ?></span>
