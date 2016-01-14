@@ -964,8 +964,10 @@ body { padding: 0; margin: 0; color: #fff; background: #fff; color: #284372 }
         padding-top: 30px; 
     }
 
-    .social-right { 
-        padding-left:13px;
+    .social-right {
+        text-align:right;
+        /* border:1px solid red; */
+        padding:0px;
     }
 
     .details-member-follow { 
