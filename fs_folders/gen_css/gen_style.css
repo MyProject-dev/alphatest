@@ -414,6 +414,7 @@ input:focus, textarea:focus{
     font-weight: bold;
     border: 2px solid #e2e2df;
     padding:3px;
+    background-color: white;
 }
 #comments_result li {
     float: left;
@@ -5337,6 +5338,7 @@ input:focus, textarea:focus{
     font-weight: bold;
     border: 2px solid #e2e2df;
     padding:3px;
+    background-color: white;
 }
 #comments_result li {
     float: left;
