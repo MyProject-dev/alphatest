@@ -110,9 +110,7 @@
 	?> 
 <div style="display:none" >
 	<showmore> 
-		<center><div id='more_loading' > <img src="fs_folders/images/attr/loading 2.gif"  style="visibility:hidden;height:10px;"  >  </div> </center>   
-<!--		<img id='more' style="margin-left:3px;"  src="fs_folders/images/genImg/home-more-button.png" onclick="more_click ( '--><?php //echo $counter_tres; ?>//' )" />
-
+		<center><div id='more_loading' > <img src="fs_folders/images/attr/loading 2.gif"  style="visibility:hidden;height:10px;"  >  </div> </center>     
         <img
             id="more"
             style="margin-left:3px;"
@@ -120,8 +118,6 @@
             onclick="more_click ( '<?php echo $counter_tres; ?>' )"
             onmousemove=" mousein_change_button ( '#more' , 'fs_folders/images/genImg/home-red-mouse-over.png' )"
             onmouseout="mouseout_change_button (  '#more'  , 'fs_folders/images/genImg/home-more-button.png' ) "
-        />
-
-
+        /> 
 	<showmore> 
 </div>
