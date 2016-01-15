@@ -327,7 +327,7 @@
 		                                                    <table id="notification-main-table" border="0" cellpadding="0" cellspacing="0"  style="width:344px;"  >
 		                                                        <tr>
 		                                                            <td id="notification-header"  style="padding-left:10px;" >
-		                                                                <div class="header-suggested-member-title" > <b>Facebook Friends On Fashion Sponge<b> </div>
+		                                                                <div class="header-suggested-member-title" > <b>Facebook  FRIENDS ON FASHION SPONGE<b> </div>
 		                                                            </td>
 		                                                    </table> 
 		                                                    <table id="notification-main-table" border="0" cellpadding="0" cellspacing="0" >
@@ -362,7 +362,7 @@
 		                                                    <table id="notification-main-table" border="0" cellpadding="0" cellspacing="0"  style="width:344px;"  >
 		                                                        <tr>
 		                                                            <td id="notification-header"  style="padding-left:10px;" >
-		                                                                <div class='header-suggested-member-title' > <b>Facebook Friends On Fashion Sponge<b> </div>
+		                                                                <div class='header-suggested-member-title' > <b>FACEBOOK FRIENDS ON FASHION SPONGE<b> </div>
 		                                                            </td>
 		                                                    </table> 
 		                                                    <table id="notification-main-table" border="0" cellpadding="0" cellspacing="0" >
@@ -398,7 +398,7 @@
 												 		 <table id="notification-main-table" border="0" cellpadding="0" cellspacing="0" style="border:none"  >
 												 				<tr> 
 												 					<td id="notification-header"  style="padding-left:10px;" > 
-												 						<div> <b>Messages<b> </div>
+												 						<div> <b>MESSAGES<b> </div>
 												 					</td>  
 												 			</table> 
 												 			<table id="notification-main-table" border="0" cellpadding="0" cellspacing="0" style="width:344px;" >
@@ -429,7 +429,7 @@
 												 			<table id="notification-main-table" border="0" cellpadding="0" cellspacing="0"  style="width:344px;"  >
 												 				<tr> 
 												 					<td id="notification-header"  style="padding-left:10px;" > 
-												 						<div> <b>Notifications<b> </div>
+												 						<div> <b>NOTIFICATIONS<b> </div>
 												 					</td>  
 												 			</table>
 
