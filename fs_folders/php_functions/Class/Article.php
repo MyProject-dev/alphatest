@@ -313,7 +313,7 @@ class Article{
     }
     public function designPostArticleCategory($topic=null) {  ?>
 
-        <input type="text" value="<?php echo $topic; ?>" placeholder="Select article category"  id="postarticle-change-topic-category" onclick="tag_hide_show('#table_container_', '#table_container_1a, #table_container_2a', '#tag-search-keyword-topic-category-1');tag_search_data('topic-category', '1')" />
+        <input style="padding:0px;" type="text" value="<?php echo $topic; ?>" placeholder="Select article category."  id="postarticle-change-topic-category" onclick="tag_hide_show('#table_container_', '#table_container_1a, #table_container_2a', '#tag-search-keyword-topic-category-1');tag_search_data('topic-category', '1')" />
     
 
         <div>  
@@ -370,7 +370,7 @@ class Article{
     }
     public function designPostArticleTopicItem($topicItem=null) { ?>
 
-        <input type="text" value="<?php echo $topicItem; ?>" placeholder="Topic"  id="tag-color-database-data-topic" onclick="tag_hide_show('#table_container_1a', '#table_container_, #table_container_2a', '#tag-search-keyword-topic-item-1'); tag_search_data('topic-item', '1')" /></td>
+        <input style="padding:0px;" type="text" value="<?php echo $topicItem; ?>" placeholder="Select topic."  id="tag-color-database-data-topic" onclick="tag_hide_show('#table_container_1a', '#table_container_, #table_container_2a', '#tag-search-keyword-topic-item-1'); tag_search_data('topic-item', '1')" /></td>
         <?php for ($j = 1; $j < 2; $j++) { ?>
             <div id="table_container_1a" class="item_ look-tag-container tag-container-single-occasion postarticle-tag-topic">
                 <!-- Tag menus -->
@@ -427,7 +427,7 @@ class Article{
     public function designPostarticleTag($tag=null) { ?>
 
         <?php $path = $_SESSION['tagPath']; ?>
-        <input type="text" value="<?php  echo $tag; ?>"  placeholder="Tag"  id="tag-color-database-data-article-tag" onclick="tag_hide_show('#table_container_2a', '#table_container_, #table_container_1a', '#tag-search-keyword-article-tag-1'); tag_search_data('article-tag', '1')" /></td>
+        <input style="padding:0px; padding-left:4px;" type="text" value="<?php  echo $tag; ?>"  placeholder="Tag your post."  id="tag-color-database-data-article-tag" onclick="tag_hide_show('#table_container_2a', '#table_container_, #table_container_1a', '#tag-search-keyword-article-tag-1'); tag_search_data('article-tag', '1')" /></td>
         <!-- <div id="table_container_1a" class="item_ look-tag-container tag-container-single-occasion"> -->
         <!-- Start your code here -->
         <?php for ($j = 1; $j < 2; $j++) { ?>

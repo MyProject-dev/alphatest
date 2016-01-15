@@ -490,7 +490,7 @@ $mno 			 =  $mc->get_cookie( 'mno' , 136 );
 																			 		<tbody>
 																			 			<tr> 
 																					    <td> 
-																					        <input type="text" name="article_title" id="article-title" onkeyup="article_seo(this)" min="0" value="<?php echo $modal['title']; ?>" style="padding-right:10px;" >
+																					        <input  type="text" name="article_title" id="article-title" onkeyup="article_seo(this)" min="0" value="<?php echo $modal['title']; ?>" style="padding:0px;" >
 																				        </td> 
 																				      <!--   <td>  
 																					        <div id="article-title-counter" class="counter" style="display:none">  
@@ -504,7 +504,7 @@ $mno 			 =  $mc->get_cookie( 'mno' , 136 );
 											 							</td>
 											 							<td> 
 											 								 <div> <label> Link to article </label> </div>  
-											 								 <input type="text" id="postarticle-link-to-article" value="<?php echo $modal['source_url']; ?>" style="padding-right:10px;"  />
+											 								 <input type="text" id="postarticle-link-to-article"  style="padding:0px !important" value="<?php echo $modal['source_url']; ?>" />
 											 							</td>
 											 					</table>  
 										    				</td> 
