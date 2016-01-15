@@ -395,8 +395,8 @@ $mno 			 =  $mc->get_cookie( 'mno' , 136 );
 
 
 										 									<div id="article-url-field"> 	 
-										 										<label>Paste Featured Youtube Video Link</label>
-														 						<input type="text" placeholder="Examples: #winter, #spring, #summer" id="article_url_field" onkeyup="article_nex_prev ( 'search' , '' , 'fs-general-ajax-response' , 'postarticle-search-field-loader' , event ) ">  
+										 										<label>Paste featured youtube video link</label>
+														 						<input type="text" placeholder="" id="article_url_field" onkeyup="article_nex_prev ( 'search' , '' , 'fs-general-ajax-response' , 'postarticle-search-field-loader' , event ) ">  
 													 						</div>
 										 								</div>   
 
@@ -478,7 +478,7 @@ $mno 			 =  $mc->get_cookie( 'mno' , 136 );
 											 				<td style="padding-top:20px;"> 
 											 				</td>  
 											 			<tr>
-											 				<td  class="postarticle-title-and-link-td" >   
+											 				<td  class="postarticle-title-and-link-td modal-click-hide-dropdown" >   
 											 					<table> 
 											 						<tr> 
 											 							<td> 
@@ -524,7 +524,7 @@ $mno 			 =  $mc->get_cookie( 'mno' , 136 );
 								 										</td>  
 								 										<td> 
 										 									<div class="postarticle-keyword-div">
-										 										Tags
+										 										Tag
 										 									</div> 
 										 								</td>  
 										 							<tr style="background-color: white">
@@ -552,7 +552,7 @@ $mno 			 =  $mc->get_cookie( 'mno' , 136 );
 											 						Details
 											 					</div> 
 										 						<table  border="0" cellpadding="0" cellspacing="0" >    
-													 				<tr>
+													 				<tr class="modal-click-hide-dropdown" >
 														 				<td>
 
 														 					<div id="postarticle-description-preview">

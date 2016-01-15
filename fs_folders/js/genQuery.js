@@ -6,9 +6,13 @@ $(document).ready(function() {
 	* click side by side design.
 	*/
 	$('.modal-click-hide-dropdown').click(function(){
-		console.log('hide dropdown now');
+		// console.log('hide dropdown now');
 		$('#table_container_, #table_container_1a, #table_container_2a').css('display', 'none');  
+ 
 	});
+
+
+
 
 	//Header click button search  
 	$( "#new-header-signout-scope" ).click(function() {
