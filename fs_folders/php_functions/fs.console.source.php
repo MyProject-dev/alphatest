@@ -8484,6 +8484,13 @@ use App\User;
 						 */
 						$feed_style = $feed;
 						// $feed = FALSE; 
+ 
+						/**
+						* Replace the word "article" if the post is a video. 
+						*/    
+						if($look_attr['type'] == 'video') {
+							$action = str_replace('article', 'video', $action);  	
+						} 
 
 				    ?>
 
