@@ -7901,18 +7901,29 @@ profile-body {
 
 #notification-container-buble , #message-container-buble {
 
-    color:white;
-    background-color:#b01e23;
-    position:absolute;
-    /*border-radius:100%; */
-    margin-top:-16px;
-    margin-left:9px;
-    font-size:9px;
-    border-radius:5px;
-    bax-shadow:1px 2px 3px #000;
-    -moz-box-shadow: 1px 2px 5px 0px #000;
-    -webkit-box-shadow: 1px 2px 5px 0px #000;
-    box-shadow:         1px 2px 5px 0px #000;
+color:white;
+
+background-color: #4BB438;
+
+position:absolute;
+
+/*border-radius:100%; */
+
+margin-top:-16px;
+
+margin-left:9px;
+
+font-size:9px;
+
+border-radius:5px;
+
+bax-shadow:1px 2px 3px #000;
+
+-moz-box-shadow: 1px 2px 5px 0px #000;
+
+-webkit-box-shadow: 1px 2px 5px 0px #000;
+
+box-shadow:         1px 2px 5px 0px #000;
 }
 
 #notification-container {
