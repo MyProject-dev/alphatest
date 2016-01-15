@@ -313,7 +313,7 @@ class Article{
     }
     public function designPostArticleCategory($topic=null) {  ?>
 
-        <input type="text" value="<?php echo $topic; ?>" placeholder="Category"  id="postarticle-change-topic-category" onclick="tag_hide_show('#table_container_', '#table_container_1a, #table_container_2a', '#tag-search-keyword-topic-category-1');tag_search_data('topic-category', '1')" />
+        <input type="text" value="<?php echo $topic; ?>" placeholder="Select article category"  id="postarticle-change-topic-category" onclick="tag_hide_show('#table_container_', '#table_container_1a, #table_container_2a', '#tag-search-keyword-topic-category-1');tag_search_data('topic-category', '1')" />
     
 
         <div>  
