@@ -9618,7 +9618,7 @@ use App\User;
 	    			$logstat 		 = $mem_info[0]['logstat'];
 				 	$logtime 	     = $mem_info[0]['logtime']; 
 					
-
+ 					$blogName 						   =   $this->getUserInfo($_SESSION['mno'], 'blogdom'); 
 
 					$location =  "$city $state_ $country"; 
 					$location = (strlen($location) > 40) ? '<br>' . substr($location, 0, 40) . "..." : '<br>' . $location;
@@ -9899,7 +9899,7 @@ use App\User;
 
 																			    <?php   
 																			    	echo " 
-																			    		<span class='member-modal-full-name'>$firstname $lastname</span> of Fashion Sponge  
+																			    		<span class='member-modal-full-name'>$firstname $lastname</span> of $blogName
 																			    	    " . ucwords (  $location  ) . "  
 																			    		Joined $datejoined  &nbsp; | $onlineStat  <br>
 																			    	";
