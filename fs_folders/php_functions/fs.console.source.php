@@ -11539,7 +11539,7 @@ use App\User;
 							 					<div id="notification-subcontainer" >
 							 						<ul style='border:1px solid none' >
 								 							<li style="width:50px; border:1px solid none "> 
-							 								<?php  $this->member_thumbnail_display( "fs_folders/images/uploads/members/mem_thumnails/", $variables['mno1'] ,  $path."fs_folders/images/uploads/members/mem_thumnails/", null , '40px;' );  ?>
+							 								<?php  $this->member_thumbnail_display( "fs_folders/images/uploads/members/mem_thumnails/", $variables['mno1'] ,  $path."fs_folders/images/uploads/members/mem_thumnails/", null , '40px;', null, '40px' );  ?>
 							 							</li>
 								 							<li style="width:250px;border:1px solid none" >
 							 								<a onclick="chat( 'chat?u=<?php  echo "$username"; ?>' , 'open-new-chat' ) " style="cursor:pointer;" > 
