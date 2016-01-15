@@ -174,7 +174,7 @@ body              { overflow-x:hidden;  /*background-color:yellow; */padding: 0;
 #home_res2 img { cursor: pointer;  /*padding-bottom: 40px;*/}
 #home_res3 { /*border: 1px solid red; */    width:285px;}
 #home_res3 img { cursor: pointer;  /*padding-bottom: 40px;*/ }
-#moretd { padding-top: 15px; padding-bottom: 30px; }
+#moretd { padding-top: 15px;padding-bottom: 43px;}
 
 #more_loading { }
 #more_loading img { position: relative; display: block; height: 16px; width: 25px; }
