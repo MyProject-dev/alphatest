@@ -3985,7 +3985,7 @@
 			<?php 	 
 	    }  
 	    public function new_footer() {   
-	    		if($_SESSION['is_online'] == 'yes') {
+	    		if(isLocal() == true) {
 	    			$url = 'http://' . subDomain . 'fashionsponge.com';
 	    		} else {
 	    			$url = 'http://localhost/fs/new_fs/alphatest'; 		
