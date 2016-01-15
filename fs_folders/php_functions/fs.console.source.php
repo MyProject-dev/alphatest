@@ -11446,7 +11446,7 @@ use App\User;
 							 					<div id="notification-subcontainer" >
 								 						<ul style='border:1px solid none' >
 								 							<li style="width:50px; "> 
-								 								<?php  $this->member_thumbnail_display( "fs_folders/images/uploads/members/mem_thumnails/", $noti_mno ,  $path."fs_folders/images/uploads/members/mem_thumnails/", null , '40px;' );  ?>
+								 								<?php  $this->member_thumbnail_display( "fs_folders/images/uploads/members/mem_thumnails/", $noti_mno ,  $path."fs_folders/images/uploads/members/mem_thumnails/", null , '40px;', null, '40px;' );  ?>
 								 							</li>
 								 							<li style="width:210px;" ><a href="<?php echo $link; ?>"> <div> <?php  echo "<b> $noti_fullname1  </b> $action <b> $noti_fullname2 </b> <br> <span style='font-size:10px;color:grey' > $notif_date </span>"; ?></div></a></li>
 								 						
