@@ -7448,6 +7448,7 @@ use App\User;
 													  			<tr> 
 															      	<td>  
 																        <?php if($look_rated == false) { ?> 
+ 
 																          	<img 
 															 					src="fs_folders/images/modal/look/modals-like.png"   
 																	          	id="look-like-<?php  echo $ano;  ?>"   
@@ -7460,24 +7461,31 @@ use App\User;
 															 				<img src="fs_folders/images/modal/look/liked.png"   id="look-like-<?php  echo $ano;  ?>"    /> 
 															 			<?php } ?>  
 															      	</td> 
-															        <td style="color:white !important; font-size:12px;"  >
+															        <td style="color:white !important; font-size:12px;"  > 
+																	<?php 
+																        	if($pltvotes == 0 ) {?>
+																        		<span id='look-total-like-<?php  echo $ano;  ?>-name' ></span>  
+																		 		<a id="look-total-like-<?php  echo $ano;  ?>" style="font-family: 'Avenir LT Std 85 Heavy' !important; color:white; cursor:pointer" ><?php //print($pltvotes); ?></a>  
+																		 		<span>like this</span>
+																			<?php  
+																			} elseif($pltvotes == 1) { ?>											 		 
+																				<span id='look-total-like-<?php  echo $ano;  ?>-name' > <?php echo $latestLikerName; ?>  </span>   
+																				<span>like this </span>
+																				<span id="look-total-like-<?php  echo $ano;  ?>-stat" style='display:none' >1</span>
+																			<?php } else { ?> 
+																				<span id='look-total-like-<?php  echo $ano;  ?>-name' > <?php echo $latestLikerName; ?> </span> 
 
-															        <?php 
-															        	if($pltvotes == 0) {?>
-																	 		<a id="look-total-like-<?php  echo $ano;  ?>" style="font-family: 'Avenir LT Std 85 Heavy' !important; color:white; cursor:pointer" ><?php print($pltvotes); ?></a> like this <span> 
-																		<?php  } elseif($pltvotes == 1) { ?>											 		
-																			<span> <?php echo $latestLikerName; ?> like this </span> 
-																		<?php } else { ?> 
-																			<span> <?php echo $latestLikerName; ?> and 
-																			<a 
-																				id="look-total-like-<?php  echo $ano;  ?>" 
-																				style="font-family: 'Avenir LT Std 85 Heavy' !important; color:white; cursor:pointer" 
-																				onclick="fs_modal_popup( 'fs-modal-popup' , 'design' , 'ratings' , '<?php echo $look_attr['table_name']; ?>' , '<?php echo $plno; ?>' , 'LIKES ( <?php echo "$look_attr[pltvotes]"; ?> ) ' , 'fron-end' ,	'#popup-more-doing-the-action-loader img' )"
-																			>
-																			<?php print($pltvotes-1); ?>
-																			</a>   </span> 
-																			<span> others like this </span> 
-																		<?php } ?>  
+																				<span> and </span>
+																				<a 
+																					id="look-total-like-<?php  echo $ano;  ?>" 
+																					style="font-family: 'Avenir LT Std 85 Heavy' !important; color:white; cursor:pointer" 
+																					onclick="fs_modal_popup( 'fs-modal-popup' , 'design' , 'ratings' , '<?php echo $look_attr['table_name']; ?>' , '<?php echo $plno; ?>' , 'VIEWS ( <?php echo "$look_attr[pltvotes]"; ?> ) ' , 'fron-end' ,	'#popup-more-doing-the-action-loader img' )"
+																				>
+																				<?php print($pltvotes-1); ?>
+																				</a>
+
+																				<span> others like this </span> 
+																			<?php } ?>   
 																	</div>  
 															      	</span></span></td> 
 													  			</tr>
@@ -8726,6 +8734,7 @@ use App\User;
 														  			<tr> 
 																      	<td>  
 																	        <?php if($look_rated == false) { ?> 
+ 
 																	          	<img 
 																 					src="fs_folders/images/modal/look/modals-like.png"   
 																		          	id="look-like-<?php  echo $ano;  ?>"   
