@@ -7799,7 +7799,7 @@ use App\User;
 					      											 	</div>   -->
 
 					      											 	<div style="margin-left:5px;"  > 
-						      										 		<input id="modal-comment-field<?php echo $ano; ?>" type="text" placeholder='1 Leave a comment' style=" border:1px solid #e2e2df; height:35px; width:228px; padding-left:5px; font-family: 'Avenir LT Std 35 Light' !important; color: #d2d0d0 !important;"     onkeyup="modal_comment_send ( '<?php echo $mno; ?>' , '<?php echo $plno ; ?>' , 'postedlooks' , '<?php echo $ano; ?>' , event , 'feed' , 'comment-container<?php echo $ano; ?>' , '#modal-comment-loader-test<?php echo $ano; ?>' )"        >      										 		 	 
+						      										 		<input id="modal-comment-field<?php echo $ano; ?>" type="text" placeholder='Leave a comment' style=" border:1px solid #e2e2df; height:35px; width:228px; padding-left:5px; font-family: 'Avenir LT Std 35 Light' !important; color: #d2d0d0 !important;"     onkeyup="modal_comment_send ( '<?php echo $mno; ?>' , '<?php echo $plno ; ?>' , 'postedlooks' , '<?php echo $ano; ?>' , event , 'feed' , 'comment-container<?php echo $ano; ?>' , '#modal-comment-loader-test<?php echo $ano; ?>' )"        >      										 		 	 
 					      											 	</div>   
 				      											 	<!-- </a> -->
 				      										 	</li>  
@@ -9101,7 +9101,7 @@ use App\User;
 								      										 	</li>   
 								      										 	<li style="width:225px;font-family:arial; font-size:12px;" > 	 
 								      										 		<div style="margin-left:5px;"  > 
-								      										 			<input id="modal-comment-field<?php echo $ano; ?>" type="text" placeholder='2 Leave a comment' style=" border:1px solid #e2e2df; height:35px; width:228px; padding-left:5px; "     onkeyup="modal_comment_send ( '<?php echo $mno; ?>' , '<?php echo $artno ; ?>' , 'fs_postedarticles' , '<?php echo $ano; ?>' , event , 'feed' , 'comment-container<?php echo $ano; ?>' , '#modal-comment-loader-test<?php echo $ano; ?>' )"        >      										 		 	 
+								      										 			<input id="modal-comment-field<?php echo $ano; ?>" type="text" placeholder='Leave a comment' style=" border:1px solid #e2e2df; height:35px; width:228px; padding-left:5px; "     onkeyup="modal_comment_send ( '<?php echo $mno; ?>' , '<?php echo $artno ; ?>' , 'fs_postedarticles' , '<?php echo $ano; ?>' , event , 'feed' , 'comment-container<?php echo $ano; ?>' , '#modal-comment-loader-test<?php echo $ano; ?>' )"        >      										 		 	 
 								      											 	</div>   
 								      										 	</li>  
 								      										</ul>   
