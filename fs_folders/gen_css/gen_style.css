@@ -2735,9 +2735,10 @@ profile-body {
 #rate-look-dropdown table td select {
     width: 150px;
     padding: 8px 8px 8px 8px;
-    border: 1px solid #ccc;
-    color: #b32727;
+    /* border: 1px solid #ccc !important; */
+    color: #225FA4;
     border: none;
+    background-color: white;
 }
 #rate-look-dropdown table td select option {
 }
