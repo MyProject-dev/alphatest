@@ -25,7 +25,7 @@ $article = new \App\Article($db, $this->mno);
                           <div>
                               <br>
                               <br>
-                              <span>All Looks</span>
+                              <span>All <br> LOOKS</span>
                           </div>
                       </div>
                   </a>
@@ -160,7 +160,7 @@ $article = new \App\Article($db, $this->mno);
                         <div>
                             <br>
                             <br>
-                            <span>All Fashion</span>
+                            <span>ALL <br> FASHION</span>
                         </div>
                     </div>
                 </a>
@@ -203,7 +203,7 @@ $article = new \App\Article($db, $this->mno);
                         <div>
                             <br>
                             <br>
-                            <span>All Beauty</span>
+                            <span>ALL <br> BEAUTY</span>
                         </div>
                     </div>
                 </a>
@@ -246,7 +246,7 @@ $article = new \App\Article($db, $this->mno);
                         <div>
                             <br>
                             <br>
-                            <span>All Lifestyle</span>
+                            <span>ALL <br> LIFESTYLE</span>
                         </div>
                     </div>
                 </a>
@@ -289,7 +289,7 @@ $article = new \App\Article($db, $this->mno);
                         <div>
                             <br>
                             <br>
-                            <span>All Entertainment</span>
+                            <span>ALL <br> ENT</span>
                         </div>
                     </div>
                 </a>
