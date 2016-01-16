@@ -38,8 +38,7 @@
             <div onclick="get_started_close()" ><b>x</b></div>
                 <center>
                     <span >
-                        Welcome To  
-                        <b>Fashion Sponge,</b> <fname><b> <?php echo $mc->firstname; ?></b></fname> 
+                        <span style="font-size: 17px;font-weight: bold;" >Welcome To Fashion Sponge</span>, <fname><b style="color:green !important" > <?php echo $mc->firstname; ?></b></fname> 
                     </span>
                 </center> 
                 <span>
@@ -48,7 +47,7 @@
                 </span> 
             </div>
         <div class="gs-s-center">
-            <span>
+            <span style="font-size: 17px;font-weight: bold;" >
                 Get Started
              </span>
         </div> 
