@@ -142,7 +142,7 @@ $article = new \App\Article($db, $this->mno);
                       <div>
                           <br>
                           <br>
-                          <span>Top Looks</span>
+                          <span>TOP <br> LOOKS</span>
                       </div>
                   </a>
               </li>
