@@ -191,9 +191,9 @@
         <ul>
             <li>
                 <div>
-                    <span id="fs-footer-white" >SUBSCRIBE TO OUR NEWS LETTER</span>
-                    <div>
-                        <select>
+                    <span id="fs-footer-white" >SUBSCRIBE TO OUR NEWS LETTER</span> 
+                    <div style="background: white;border-radius: 5px;margin-top: 16px;" >
+                        <select style="background: white;" >
                             <option>Gender</option>
                             <option>Male</option>
                             <option>Fe-Male</option>
