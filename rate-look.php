@@ -395,7 +395,7 @@ if ((!empty($_GET['welcome'])) ? $_GET['welcome'] : ''  == 'get-started' || $mc-
 								<td>
                                     <div id="rate-look-dropdown" >
                                         <center>
-                                            <table border="0" cellpadding="0" cellspacing="0" >
+                                            <table border="0" cellpadding="0" cellspacing="0"  style="padding-bottom: 10px;" >
                                                 <tr>
                                                     <td>
                                                         <input id="rate-table-name" type="text" value="postedlooks"   class="hide" />
