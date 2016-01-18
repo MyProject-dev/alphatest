@@ -6,6 +6,8 @@
  * Time: 3:11 PM
  */
 echo "<pre>";
+require("../../../fs_folders/php_functions/connect.php"); 
+require("../../../fs_folders/php_functions/connect1.php");
 require("../../../fs_folders/php_functions/function.php");
 require("../../../fs_folders/php_functions/Database/Database.php");
 require("../../../fs_folders/php_functions/Class/Article.php");

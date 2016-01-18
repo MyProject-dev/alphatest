@@ -1,3 +1,4 @@
+
 <?php
 		/*
 		*   date replaced: novemeber 01 , 2013
@@ -291,7 +292,7 @@
 		                                                    <table id="notification-main-table" border="0" cellpadding="0" cellspacing="0"  style="width:353px;"  >
 		                                                        <tr>
 		                                                            <td id="notification-header"  style="padding-left:10px;" >
-		                                                                <div> <b>Suggest Member<b> </div>
+		                                                                <div> <b>SUGGESTED MEMBER<b> </div>
 		                                                            </td>
 		                                                    </table> 
 		                                                    <table id="notification-main-table" border="0" cellpadding="0" cellspacing="0" >
@@ -327,7 +328,7 @@
 		                                                    <table id="notification-main-table" border="0" cellpadding="0" cellspacing="0"  style="width:344px;"  >
 		                                                        <tr>
 		                                                            <td id="notification-header"  style="padding-left:10px;" >
-		                                                                <div class="header-suggested-member-title" > <b>Facebook  FRIENDS ON FASHION SPONGE<b> </div>
+		                                                                <div class="header-suggested-member-title" > <b>FACEBOOK FRIENDS ON FASHION SPONGE<b> </div>
 		                                                            </td>
 		                                                    </table> 
 		                                                    <table id="notification-main-table" border="0" cellpadding="0" cellspacing="0" >

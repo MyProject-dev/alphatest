@@ -1,4 +1,6 @@
 <?php    
+require("../../../fs_folders/php_functions/connect.php"); 
+require("../../../fs_folders/php_functions/connect1.php"); 
 require("../../../fs_folders/php_functions/function.php"); 
 require("../../../fs_folders/php_functions/Class/Article.php");
 require("../../../fs_folders/php_functions/Class/Reset.php");
