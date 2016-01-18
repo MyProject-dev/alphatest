@@ -6729,6 +6729,8 @@ function isEmpty(str) {
     return (!str || 0 === str.length);
 }
 function chat ( action , type , mno1 , profilepic , method , e , name ) {
+
+    //alert('open chat window now. type = ' + type );
     // alert( profilepic ); 
     showHideParentOverFlow('body', 'hide');
 
@@ -6810,6 +6812,8 @@ function chat ( action , type , mno1 , profilepic , method , e , name ) {
         );
     }
     else if ( type == 'open-new-chat' ) {
+
+        showHideParentOverFlow('body', 'show');
         // alert( 'chat oppend' );
         var strWindowFeatures = 'directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=450,height=350' ;
         var URL = action;
