@@ -7031,6 +7031,9 @@ function show(id) {
 function modal ( action , process , type , loader , response , textfieldid , value , multivalue , method , table_id , table_name, agreementId)
 {
 
+
+
+
     // console.log(' call: modal() ');
     $('#autocomplete-dropdown-container-occasion-1, #autocomplete-dropdown-container-season-1').css('display', 'none');
     // alert('this is a test'); 
@@ -7175,8 +7178,13 @@ function modal ( action , process , type , loader , response , textfieldid , val
             * sending data to ajax php to submit the info 
             */ 
             if ( bool == true ) {
- 
-                alert(postingStatusMessage);   
+                
+                if(method != 'edit') {
+                    alert(postingStatusMessage);
+                }
+
+
+
                 //Entrance message 
                 // return 0;
                 // alert('about to send the data..');
@@ -7265,7 +7273,9 @@ function modal ( action , process , type , loader , response , textfieldid , val
                     method: method, 
                     table_id: table_id, 
                     isAgreed: isAgreed
-                }, function(result) { 
+                }, function(result) {
+
+
                     if(method == 'edit') { 
                         document.location = 'lookdetails?id='+table_id;
                     } else { 
