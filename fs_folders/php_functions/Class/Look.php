@@ -256,10 +256,6 @@ class Look
         $response = select_v3( 'postedlooks', 'DISTINCT style', ' plno > 0 order by plno desc limit 8' );
 
         return $response;
-
-        //echo "<pre>";
-          //  print_r($response);
-        // echo "</pre>";
     }
 
     public function Top($category)
