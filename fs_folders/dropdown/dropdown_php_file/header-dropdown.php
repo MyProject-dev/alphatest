@@ -168,7 +168,6 @@ $styles = $look->getAllUsedStyle();
                           </div>
                       </a>
                   </li>
-             <?php endif; ?>
                   <li>
                       <a href="look?category=alllook&toplook=toprated">
                           <div>
@@ -178,7 +177,7 @@ $styles = $look->getAllUsedStyle();
                           </div>
                       </a>
                   </li>
-
+               <?php endif; ?>
           </ul>
          <div class="clear" >
          </div>

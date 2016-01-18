@@ -1,6 +1,6 @@
 <?php
 @session_start();
-error_reporting(0);
+//error_reporting(0);
 #xampp version : win32 v 1.8.1
 // $_SERVER['HTTP_HOST'] = 'localhost';
 // echo " host " . $_SERVER['HTTP_HOST'];
