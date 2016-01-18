@@ -251,6 +251,16 @@ class Look
         return (!empty($response[0]['plno'])) ? $response[0]['plno'] : 0;
     }
 
+    public function getAllUsedStyle() {
+
+        $response = select_v3( 'postedlooks', 'DISTINCT style', ' plno > 0 order by plno desc limit 8' );
+
+        return $response;
+
+        //echo "<pre>";
+          //  print_r($response);
+        // echo "</pre>";
+    }
 
     public function Top($category)
     {

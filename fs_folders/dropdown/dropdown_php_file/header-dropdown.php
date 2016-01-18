@@ -13,12 +13,24 @@ $db = new Database();
 $look = new Look($this->mno, $db);
 $article = new \App\Article($db, $this->mno);
 
+//echo "<pre>";
+//print_r( $look->getAllUsedStyle() );
+//echo "</pre>";
+
+$styles = $look->getAllUsedStyle();
+
 ?>
  <div class="header-dropdown-wrapper"   >
+
+
+
+
+
 
     <!-- LOOK-->
      <div class="header-dropdown-container"   id="dropdown-header-look"  >
          <ul class="header-dropdown-ul-1-container"    >
+
               <li>
                   <a href="look?category=alllooks">
                       <div>
@@ -31,125 +43,150 @@ $article = new \App\Article($db, $this->mno);
                   </a>
               </li>
 
-              <li>
-                  <a href="look?category=bohemian">
-                      <?php
-                      $plno = $look->Top('Bohemian');
-                      $src = $look->sourceCategoryDropDown($plno);
-                      ?>
-                      <div class="header-drodown-image-container"  class="header-drodown-image-container" style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 80px; background-color: black;" >
-                      </div>
-                      <div>
-                          <span>Bohemian</span>
-                      </div>
-                  </a>
-              </li> 
-              <li>
-                  <a href="look?category=casual">
-                      <?php
-                      $plno = $look->Top('Casual');
-                      $src = $look->sourceCategoryDropDown($plno);
-                      ?>
-                      <div class="header-drodown-image-container"  class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto  123px;" >
-                      </div>
-                      <div>
-                          <span>Casual</span>
-                      </div>
-                  </a>
-              </li>
-              <li>
-                  <a href="look?category=chic">
-                      <?php
-                      $plno = $look->Top('Chic');
-                      $src = $look->sourceCategoryDropDown($plno);
-                      ?>
+
+             <?php for($i=0; $i<8; $i++): ?>
+                 <?php $style = $styles[$i]['style']; ?>
+                 <?php if(!empty($styles[$i]['style'])) { ?>
+                      <li>
+                          <a href="look?category=bohemian">
+                              <?php
+                              $plno = $look->Top($style);
+                              $src = $look->sourceCategoryDropDown($plno);
+                              ?>
+                              <div class="header-drodown-image-container"  class="header-drodown-image-container" style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 80px; background-color: black;" >
+                              </div>
+                              <div>
+                                  <span><?php echo ucfirst($style); ?></span>
+                              </div>
+                          </a>
+                      </li>
+                <?php } else {  ?>
+                     <li>
+                         <a href="#">
+                             <div class="header-drodown-image-container"  class="header-drodown-image-container" style="height: 88px;background-repeat: no-repeat;background-size: auto 80px; background-color: black;" >
+                             </div>
+                             <div>
+                                 <span>Style</span>
+                             </div>
+                         </a>
+                     </li>
+                 <?php }  ?>
+              <?php endfor; ?>
 
 
-                      <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto  123px;" >
-                      </div>
-                      <div>
-                          <span>Chic </span>
-                      </div>
-                  </a>
-              </li>
-              <li>
-                  <a href="look?category=formal">
-                      <?php
-                      $plno = $look->Top('Formal');
-                      $src = $look->sourceCategoryDropDown($plno);
-                      ?>
-                      <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto  123px;" >
-                      </div>
-
-                      <div>
-                          <span>Formal</span>
-                      </div>
-                  </a>
-              </li>
-              <li>
-                  <a href="look?category=grunge">
-                      <?php
-                          $plno = $look->Top('Grunge');
+             <?php if(false): ?>
+                  <li>
+                      <a href="look?category=casual">
+                          <?php
+                          $plno = $look->Top('Casual');
                           $src = $look->sourceCategoryDropDown($plno);
-                      ?>
-                      <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 123;" > </div>
-                      <div> <span>Grunge</span> </div>
-                  </a>
-              </li>
-              <li>
-                  <a href="look?category=menswear">
+                          ?>
+                          <div class="header-drodown-image-container"  class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto  123px;" >
+                          </div>
+                          <div>
+                              <span>Casual</span>
+                          </div>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="look?category=chic">
+                          <?php
+                          $plno = $look->Top('Chic');
+                          $src = $look->sourceCategoryDropDown($plno);
+                          ?>
 
-                      <?php
-                      $plno = $look->Top('Menswear');
-                      $src = $look->sourceCategoryDropDown($plno);
-                      ?>
-                      <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto  123px;" >
-                      </div>
-                      <div>
-                          <span>Menswear</span>
-                      </div>
-                  </a>
-              </li>
-              <li>
-                  <a href="look?category=preppy">
 
-                      <?php
-                      $plno = $look->Top('Preppy');
-                      $src = $look->sourceCategoryDropDown($plno);
-                      ?>
-                      <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto  123px;" >
-                      </div>
-                      <div>
-                          <span>Preppy</span>
-                      </div>
-                  </a>
-              </li>
-              <li>
-                  <a href="look?category=streetwear">
-                      <?php
-                      $plno = $look->Top('Streetwear');
-                      $src = $look->sourceCategoryDropDown($plno);
-                      ?>
-                      <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto  123px;" >
-                      </div>
-                      <div>
-                          <span>Streetwear</span>
-                      </div>
-                  </a>
-              </li>
-              <li>
-                  <a href="look?category=alllook&toplook=toprated">
-                      <div>
-                          <br>
-                          <br>
-                          <span>TOP <br> LOOKS</span>
-                      </div>
-                  </a>
-              </li>
+                          <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto  123px;" >
+                          </div>
+                          <div>
+                              <span>Chic </span>
+                          </div>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="look?category=formal">
+                          <?php
+                          $plno = $look->Top('Formal');
+                          $src = $look->sourceCategoryDropDown($plno);
+                          ?>
+                          <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto  123px;" >
+                          </div>
+
+                          <div>
+                              <span>Formal</span>
+                          </div>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="look?category=grunge">
+                          <?php
+                              $plno = $look->Top('Grunge');
+                              $src = $look->sourceCategoryDropDown($plno);
+                          ?>
+                          <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 123;" > </div>
+                          <div> <span>Grunge</span> </div>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="look?category=menswear">
+
+                          <?php
+                          $plno = $look->Top('Menswear');
+                          $src = $look->sourceCategoryDropDown($plno);
+                          ?>
+                          <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto  123px;" >
+                          </div>
+                          <div>
+                              <span>Menswear</span>
+                          </div>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="look?category=preppy">
+
+                          <?php
+                          $plno = $look->Top('Preppy');
+                          $src = $look->sourceCategoryDropDown($plno);
+                          ?>
+                          <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto  123px;" >
+                          </div>
+                          <div>
+                              <span>Preppy</span>
+                          </div>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="look?category=streetwear">
+                          <?php
+                          $plno = $look->Top('Streetwear');
+                          $src = $look->sourceCategoryDropDown($plno);
+                          ?>
+                          <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto  123px;" >
+                          </div>
+                          <div>
+                              <span>Streetwear</span>
+                          </div>
+                      </a>
+                  </li>
+             <?php endif; ?>
+                  <li>
+                      <a href="look?category=alllook&toplook=toprated">
+                          <div>
+                              <br>
+                              <br>
+                              <span>TOP <br> LOOKS</span>
+                          </div>
+                      </a>
+                  </li>
+
           </ul>
          <div class="clear" >
          </div>
      </div>
+
+
+
+
 
     <!-- FASHION -->
     <div class="header-dropdown-container"    id="dropdown-header-fashion"   >
@@ -175,7 +212,7 @@ $article = new \App\Article($db, $this->mno);
                     <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 80px; background-color: black;" >
                     </div>
                     <div>
-                        <span><?php echo string_limit($art['topic'], 11, '...') ; ?></span>
+                        <span><?php echo  ucfirst(string_limit($art['topic'], 11, '...')) ; ?></span>
                     </div>
                 </a>
             </li>
@@ -218,7 +255,7 @@ $article = new \App\Article($db, $this->mno);
                         <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 80px; background-color: black;" >
                         </div>
                         <div>
-                            <span><?php echo string_limit($art['topic'], 11, '...') ; ?></span>
+                            <span><?php echo  ucfirst(string_limit($art['topic'], 11, '...')) ; ?></span>
                         </div>
                     </a>
                 </li>
@@ -261,7 +298,7 @@ $article = new \App\Article($db, $this->mno);
                         <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 80px; background-color: black;" >
                         </div>
                         <div>
-                            <span><?php echo string_limit($art['topic'], 11, '...') ; ?></span>
+                            <span><?php echo  ucfirst(string_limit($art['topic'], 11, '...')) ; ?></span>
                         </div>
                     </a>
                 </li>
@@ -304,7 +341,7 @@ $article = new \App\Article($db, $this->mno);
                         <div class="header-drodown-image-container"  style="background-image:url('<?php echo $src; ?>');height: 88px;background-repeat: no-repeat;background-size: auto 80px; background-color: black;" >
                         </div>
                         <div>
-                            <span><?php echo string_limit($art['topic'], 11, '...') ; ?></span>
+                            <span><?php echo  ucfirst(string_limit($art['topic'], 11, '...')) ; ?></span>
                         </div>
                     </a>
                 </li>
