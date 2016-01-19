@@ -5287,7 +5287,7 @@ echo " </pre> </h3>";
                    		$mc->send_notification_to_follower($_SESSION['mno']); 
   
 						# set notification  
-						    $mc->set_session_notification( $mno , $table_name , $table_id , 'favorited'  );
+						    //$mc->set_session_notification( $mno , $table_name , $table_id , 'favorited'  );
 							// $mc->set_session_notification( $mno , $table_name , $table_id , 'favorited' );    
 							// $mc->set_notification_info( $table_name , $table_id ,"<span class='fs-text-red' >favorited</span>"  , $mno2 , 0 );
  
@@ -5295,7 +5295,7 @@ echo " </pre> </h3>";
 	  						// $b = $mc->update_or_add_my_activity_wall_post( $mno , $table_id , 'Favorited' , $table_name , $mc->date_time );    
 	  						// $mc->message(" posting to feed ", $b , "" );
  
-                	} else {  
+                	} else {
 
 
 
