@@ -7372,11 +7372,11 @@ use App\User;
 				      									<div id="new-look-modals-title1-container" > 
 				      										<?php echo "$look_attr[title]"; ?>    
 			      											<?php if($feed == TRUE): ?>	 
-			      												<span class="dot" > 
+			      												<span class="dot hide" >
 			      													<img src="fs_folders/images/rate/red-dot.png" />
 			      												</span>  
 			      												&nbsp; 
-			      												<span class="posted-hour" > 
+			      												<span class="posted-hour  hide" >
 			      													34 mins
 			      												</span>
 
