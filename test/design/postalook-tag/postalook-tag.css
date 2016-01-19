@@ -26,7 +26,7 @@ p, a, span, label {
     font-size: 10pt;
     color: #888888;
     text-align: center;
-    background-color: white; 
+    background-color: white;
 }
 
 .tag-menu {
@@ -125,7 +125,7 @@ p, a, span, label {
     opacity: 0.4;
     cursor:pointer;
 }
- 
+
 .tag-color-image table {
     width: 144px !important;
     margin-left: 3px;
@@ -197,7 +197,7 @@ p, a, span, label {
     /* float: left; */
     width:auto !important;
     padding-right:4px;
-    width: 106px !important; 
+    width: 106px !important;
 }
 
 
@@ -211,6 +211,12 @@ p, a, span, label {
     margin-top: 7px;
 
     margin-bottom: 3px;
+
+    border: 1px solid #D4D4D4;
+
+    height: 150px;
+
+    background-color: #000;
 }
 
 .tag-field-input {
@@ -257,9 +263,9 @@ p, a, span, label {
 }
 
 .tag-color-image-preview {
-    width: 144px;
+    width: 100%;
     padding-bottom: 4px;
-    height: 153px;
+    /* height: 153px; */
 }
 
 .tag-view-data {
