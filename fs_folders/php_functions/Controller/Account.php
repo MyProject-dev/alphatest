@@ -27,7 +27,7 @@ $email           = new Email($mno, $db);
 $db->connect();
 
 
-print($mno);
+// print($mno);
 
 // used to identify where the error will display.
 $type = $_GET['type'];
@@ -39,7 +39,7 @@ if(isset($_POST['esave'])) {
     $nemail   = $_POST['nemail'];
     $rnemail  = $_POST['rnemail'];
     $password = $_POST['password'];
-    print("cemail = $cemail, nemail = $nemail, rnemail = $rnemail, password = $password");
+    // print("cemail = $cemail, nemail = $nemail, rnemail = $rnemail, password = $password");
 
     if($nemail == NULL) {
         $_SESSION['error'] =  "<span class='error' >New Email must not be empty</span>";
