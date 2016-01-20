@@ -7661,9 +7661,9 @@ use App\User;
 		      											<?php if( $pltcomment > 2 ): ?>
 				      												<div style="padding-top:5px; padding-left:2px;"> 
 			      													<a href="lookdetails?id=<?php echo $plno; ?>#details-comment-view" style='text-decoration:none' > 
-				      													<div style="cursor:pointer;color:#284372" >  
+				      													<div style="cursor:pointer;color:black" >  
 				      														<!-- <a href="lookdetails?id=<?php echo $plno; ?>#details-comment-view">  -->
-				      															 <a href="lookdetails?id=<?php echo $plno; ?>#details-comment-view" > View all <span><?php echo "$pltcomment"; ?></span> comments</a>	
+				      															 <a href="lookdetails?id=<?php echo $plno; ?>#details-comment-view" style="color:black" > View all <span><?php echo "$pltcomment"; ?></span> comments</a>	
 				      														<!-- </a>  -->
 					      													<!--
 					      														# this is to redirect profile page  
@@ -7807,7 +7807,7 @@ use App\User;
 					      											 	</div>   -->
 
 					      											 	<div style="margin-left:5px;"  > 
-						      										 		<input id="modal-comment-field<?php echo $ano; ?>" type="text" placeholder='Leave a comment' style=" border:1px solid #e2e2df; height:35px; width:228px; padding-left:5px; font-family: 'Avenir LT Std 35 Light' !important; color: #d2d0d0 !important;"     onkeyup="modal_comment_send ( '<?php echo $mno; ?>' , '<?php echo $plno ; ?>' , 'postedlooks' , '<?php echo $ano; ?>' , event , 'feed' , 'comment-container<?php echo $ano; ?>' , '#modal-comment-loader-test<?php echo $ano; ?>' )"        >      										 		 	 
+						      										 		<input  class="modal-comment-box" id="modal-comment-field<?php echo $ano; ?>" type="text" placeholder='Leave a comment' style=" border:1px solid #e2e2df; height:35px; width:228px; padding-left:5px; font-family: 'Avenir LT Std 35 Light' !important;  "     onkeyup="modal_comment_send ( '<?php echo $mno; ?>' , '<?php echo $plno ; ?>' , 'postedlooks' , '<?php echo $ano; ?>' , event , 'feed' , 'comment-container<?php echo $ano; ?>' , '#modal-comment-loader-test<?php echo $ano; ?>' )"        >
 					      											 	</div>   
 				      											 	<!-- </a> -->
 				      										 	</li>  
@@ -9110,7 +9110,7 @@ use App\User;
 								      										 	</li>   
 								      										 	<li style="width:225px;font-family:arial; font-size:12px;" > 	 
 								      										 		<div style="margin-left:5px;"  > 
-								      										 			<input id="modal-comment-field<?php echo $ano; ?>" type="text" placeholder='Leave a comment' style=" border:1px solid #e2e2df; height:35px; width:228px; padding-left:5px; "     onkeyup="modal_comment_send ( '<?php echo $mno; ?>' , '<?php echo $artno ; ?>' , 'fs_postedarticles' , '<?php echo $ano; ?>' , event , 'feed' , 'comment-container<?php echo $ano; ?>' , '#modal-comment-loader-test<?php echo $ano; ?>' )"        >      										 		 	 
+								      										 			<input  class="modal-comment-box" id="modal-comment-field<?php echo $ano; ?>" type="text" placeholder='Leave a comment' style=" border:1px solid #e2e2df; height:35px; width:228px; padding-left:5px; "     onkeyup="modal_comment_send ( '<?php echo $mno; ?>' , '<?php echo $artno ; ?>' , 'fs_postedarticles' , '<?php echo $ano; ?>' , event , 'feed' , 'comment-container<?php echo $ano; ?>' , '#modal-comment-loader-test<?php echo $ano; ?>' )"        >
 								      											 	</div>   
 								      										 	</li>  
 								      										</ul>   
@@ -10450,7 +10450,7 @@ use App\User;
 								      										 	</li>   
 								      										 	<li style="width:225px;font-family:arial; font-size:12px;" > 	 
 								      										 		<div style="margin-left:5px;"  > 
-								      										 			<input id="modal-comment-field<?php echo $ano; ?>" type="text" placeholder='Leave a comment' style=" border:1px solid #e2e2df; height:35px; width:228px; padding-left:5px; font-family: 'Avenir LT Std 35 Light' !important; color: #d2d0d0 !important;"     onkeyup="modal_comment_send ( '<?php echo $mno2; ?>' , '<?php echo $member["mppno"]; ?>' , 'fs_member_profile_pic' , '<?php echo $ano; ?>' , event , 'feed' , 'comment-container<?php echo $ano; ?>' , '#modal-comment-loader-test<?php echo $ano; ?>' )"  >
+								      										 			<input class="modal-comment-box" id="modal-comment-field<?php echo $ano; ?>" type="text" placeholder='Leave a comment' style=" border:1px solid #e2e2df; height:35px; width:228px; padding-left:5px; font-family: 'Avenir LT Std 35 Light' !important; "     onkeyup="modal_comment_send ( '<?php echo $mno2; ?>' , '<?php echo $member["mppno"]; ?>' , 'fs_member_profile_pic' , '<?php echo $ano; ?>' , event , 'feed' , 'comment-container<?php echo $ano; ?>' , '#modal-comment-loader-test<?php echo $ano; ?>' )"  >
 								      											 	</div>     
 								      										 	</li>  
 								      										</ul>   
