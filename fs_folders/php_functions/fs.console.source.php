@@ -9627,6 +9627,9 @@ use App\User;
 	    			$city 			 = ( !empty(  $mem_info[0]['city']          ) ) ? $mem_info[0]['city'] : null ;
 	    			$zip 			 = ( !empty(  $mem_info[0]['zip']           ) ) ? $mem_info[0]['zip'] : null ;
 	    			$occupation      = ( !empty(  $mem_info[0]['occupation']    ) ) ? $mem_info[0]['occupation'] : null ;
+	    			$blogName        = ( !empty(  $mem_info[0]['blogdom']       ) ) ? $mem_info[0]['blogdom'] : null ;
+
+
 					$trating_look    =  $userObject->getOverAllUploadedLookModalLike($mno1);  // ( !empty(  $mem_info[0]['trating_look']    ) ) ? $mem_info[0]['trating_look'] : null ;
 					$trating_article =  $userObject->getOverAllUploadedArticleModalLike($mno1); // ( !empty(  $mem_info[0]['trating_article']    ) ) ? $mem_info[0]['trating_article'] : null ;
 	    			$datejoined 	 = ( !empty(  $mem_info[0]['datejoined']    ) ) ? $this->date_format( $mem_info[0]['datejoined'] , '.' )   : null ;
@@ -9634,7 +9637,7 @@ use App\User;
 	    			$logstat 		 = $mem_info[0]['logstat'];
 				 	$logtime 	     = $mem_info[0]['logtime']; 
 					
- 					$blogName 						   =   $this->getUserInfo($_SESSION['mno'], 'blogdom'); 
+ 					//$blogName 						   =   $this->getUserInfo($_SESSION['mno'], 'blogdom'); 
 
 					$location =  "$city $state_ $country"; 
 					$location = (strlen($location) > 40) ? '<br>' . substr($location, 0, 40) . "..." : '<br>' . $location;
