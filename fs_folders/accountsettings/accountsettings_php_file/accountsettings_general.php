@@ -210,7 +210,7 @@ if($open == 'email') { ?>
                 </form>
             </td>
         <tr>
-            <td class="profile-gen-preferred-style"  onmouseover="show_hide_profile_options ( '.profile-preferred-style-edit'     , 'show' )"        onmouseout="show_hide_profile_options ( '.profile-preferred-style-edit' , 'hide' )"  >
+            <td class="profile-gen-preferred-style hide"  onmouseover="show_hide_profile_options ( '.profile-preferred-style-edit'     , 'show' )"        onmouseout="show_hide_profile_options ( '.profile-preferred-style-edit' , 'hide' )"  >
                 <div id='settings' class="profile-preferred-style-edit profile-general-edit" style='text-decoration:underline; visibility:hidden' onclick="account_profile_edit('.profile-gen-preferred-style' , 'slideDown' )" >
                     edit <img src='<?php echo "$mc->genImgs/edit.png"; ?>'  />
                 </div id='settings'>
@@ -249,7 +249,7 @@ if($open == 'email') { ?>
                 </form>
             </td>
         <tr>
-            <td  class="profile-gen-preferred-topic" onmouseover="show_hide_profile_options ( '.profile-preferred-topic-edit'     , 'show' )"        onmouseout="show_hide_profile_options ( '.profile-preferred-topic-edit' , 'hide' )"  >
+            <td  class="profile-gen-preferred-topic hide" onmouseover="show_hide_profile_options ( '.profile-preferred-topic-edit'     , 'show' )"        onmouseout="show_hide_profile_options ( '.profile-preferred-topic-edit' , 'hide' )"  >
                 <div id='settings' class="profile-preferred-topic-edit profile-general-edit" style='text-decoration:underline; visibility:hidden' onclick="account_profile_edit('.profile-gen-preferred-topic' , 'slideDown' )" >
                     edit <img src='<?php echo "$mc->genImgs/edit.png"; ?>'  />
                 </div id='settings'>
