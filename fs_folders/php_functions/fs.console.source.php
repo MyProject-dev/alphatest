@@ -15460,10 +15460,10 @@ use App\User;
 					} 
 					else {  
 					 	$string = substr($string,0,$limit);
-					 	$string .= "... <a href='detail?id=$id'><span  class='modal-description-more-text' >view more</span></a>";	
+					 	$string .= "... <a href='detail?id=$id'><span  class='modal-description-more-text' >see more</span></a>";	
 						  return $string;
 					}  
-					//$string .= "<a href='detail?id=$id'><span  class='modal-description-more-text' >view more</span></a>";	
+					//$string .= "<a href='detail?id=$id'><span  class='modal-description-more-text' >see more</span></a>";	
 				} 
 				else {  
 					  // echo "limit $limit total char " . strlen($string); 
