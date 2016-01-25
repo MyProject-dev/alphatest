@@ -7330,7 +7330,7 @@ use App\User;
 		      						<tr> 
 		      							<td class="modal-footer-container" style="<?php echo "$commentstyle"; ?>"   > 
 	 
-		      								footer 1	
+		      								 
 		      								<!-- status used for the validation of the ratings and so on -->
 
 		 										<div id="status-container"  >

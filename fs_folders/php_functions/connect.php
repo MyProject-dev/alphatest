@@ -1,6 +1,6 @@
 <?php 
 	@session_start(); 
-//    error_reporting(0);
+    error_reporting(0);
 	#xampp version : win32 v 1.8.1 
     // $_SERVER['HTTP_HOST'] = 'localhost';
     // echo " host " . $_SERVER['HTTP_HOST']; 
@@ -133,3 +133,24 @@ if(!function_exists('environment')) {
 	echo "<input type='hidden' value='" . subDomain . "' id='subDomain' />";
 
 
+
+	/**
+	* Redirect page if found www.
+	*/
+    $url  = isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ? 'https' : 'http';
+    $url .= '://' . $_SERVER['SERVER_NAME'];
+    $url .= in_array( $_SERVER['SERVER_PORT'], array('80', '443') ) ? '' : ':' . $_SERVER['SERVER_PORT'];
+    $url .= $_SERVER['REQUEST_URI'];
+	// echo "url " . $url . "<br>"; 
+	if(strpos($url, 'www.')) {
+		// echo "exist www<br>"; 
+		$url = str_replace('www.', '', $url);  
+		?>
+			<script type="text/javascript">
+			document.location ="<?php echo $url ?>"
+			</script>
+		<?php 
+		exit;
+	} else {
+		// echo "not exist www<br>";
+	}

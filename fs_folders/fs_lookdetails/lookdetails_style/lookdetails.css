@@ -7,21 +7,21 @@
 
 body { padding: 0; margin: 0; color: #fff; background: #fff; color: #284372 }
 
-#lookdetails_wrapper_header { 
+#lookdetails_wrapper_header {
 
      margin:0px;
      padding:0px;
-     margin: auto;   
-     width: 1010px;   
+     margin: auto;
+     width: 1010px;
      /*padding-top:10px;*/
 }
-#lookdetails_wrapper { 
+#lookdetails_wrapper {
      margin:0px;
      padding:0px;
-     margin: auto;   
-     width: 1010px;   
+     margin: auto;
+     width: 1010px;
      /*padding-top:10px;*/
-     /*border: 1px solid #000; */   
+     /*border: 1px solid #000; */
      /* margin-top: 20px; */
  }
 
@@ -91,7 +91,7 @@ body { padding: 0; margin: 0; color: #fff; background: #fff; color: #284372 }
 
 #more-by-link-header {
     padding-top: 10px;
-    padding-bottom:10px;  
+    padding-bottom:10px;
 }
 
 
@@ -226,8 +226,8 @@ body { padding: 0; margin: 0; color: #fff; background: #fff; color: #284372 }
 #look-thumbnail-row2 { position: relative; /*border: 1px solid red;*/  /*margin-left: 70px; */}
 #look-thumbnail-row3 { position: relative; /*border: 1px solid red;*/  /*margin-left: 150px; */margin-top: -210px; }
 #ads_main_table table {  }
-#ads_main_table table span  { 
-    font-size:12px; 
+#ads_main_table table span  {
+    font-size:12px;
 }
 #ads_main_table table img { }
 #recomended_lookt {/* border: 1px solid red;*/  width: 270px;  margin-left: 2px; margin-top: 10px;  }
@@ -272,12 +272,12 @@ body { padding: 0; margin: 0; color: #fff; background: #fff; color: #284372 }
 #res_container-details {
 
 }
-#res_container-details li { 
-    width: 59.86px; 
-    padding-left: 1%; 
-    padding-bottom: 6px; 
-    float: left; 
-    list-style: none; 
+#res_container-details li {
+    width: 59.86px;
+    padding-left: 1%;
+    padding-bottom: 6px;
+    float: left;
+    list-style: none;
     padding-bottom: 10;
 }
 
@@ -328,8 +328,8 @@ body { padding: 0; margin: 0; color: #fff; background: #fff; color: #284372 }
 
 
 
-.bold   { 
-    font-family: 'Avenir LT Std 85 Heavy' !important;  
+.bold   {
+    font-family: 'Avenir LT Std 85 Heavy' !important;
 }
 .italic { font-style: italic; font-weight: bold; }
 .blue   { color: #56d6eb; font-weight: bold; }
@@ -346,8 +346,8 @@ body { padding: 0; margin: 0; color: #fff; background: #fff; color: #284372 }
         font-family: 'Avenir LT Std 95 Black';
     }
 
-    #lookdetails_wrapper_header {   
-        width: 1009px; 
+    #lookdetails_wrapper_header {
+        width: 1009px;
         background-color: white;
     }
 
@@ -445,8 +445,8 @@ body { padding: 0; margin: 0; color: #fff; background: #fff; color: #284372 }
     .padding-left-icons-small {
         padding-left: 10px;
     }
-    
-    .padding-left-icons-small em {  
+
+    .padding-left-icons-small em {
         font-family: 'Avenir LT Std 55 Roman' !important;
 
     }
@@ -497,14 +497,14 @@ body { padding: 0; margin: 0; color: #fff; background: #fff; color: #284372 }
     }
 
    .ul-container-cols-2-li-left span{
-        font-size:12px; 
+        font-size:12px;
     }
 
 
     .ul-container-cols-2-li-right {
         /*border:1px solid black;*/
         width:682px;
-        padding-bottom:0px !important; 
+        padding-bottom:0px !important;
     }
 
     .profile-container {
@@ -523,18 +523,18 @@ body { padding: 0; margin: 0; color: #fff; background: #fff; color: #284372 }
     }
 
     .profile-name {
-        font-size: 12px; 
+        font-size: 12px;
         font-family: 'Avenir LT Std 35 Light' !important;
     }
 
-    .profile-name a {  
+    .profile-name a {
         font-size:12px;
     }
 
     .black {
         color:black;
     }
-     
+
     .grey {
         color: rgb(161, 168, 170);
     }
@@ -556,7 +556,7 @@ body { padding: 0; margin: 0; color: #fff; background: #fff; color: #284372 }
 
     .profile-follow {
         padding:10px;
-    
+
         font-size: 12px;
 }
 
@@ -576,7 +576,7 @@ body { padding: 0; margin: 0; color: #fff; background: #fff; color: #284372 }
 
     .profile-container-padding-right {
         padding-left: 40px;
-    
+
         padding-top: 19px;
 }
 
@@ -585,7 +585,7 @@ body { padding: 0; margin: 0; color: #fff; background: #fff; color: #284372 }
     }
     .profile-container-left{
         border:1px solid rgb(239, 239, 239);
-    
+
         border-radius: 5px;
 }
 
@@ -648,7 +648,7 @@ body { padding: 0; margin: 0; color: #fff; background: #fff; color: #284372 }
         width:60px;
     }
 
-    .border-grey { 
+    .border-grey {
         border:1px solid #d2d0d0;
     }
 
@@ -691,14 +691,14 @@ body { padding: 0; margin: 0; color: #fff; background: #fff; color: #284372 }
     }
 
     .media-object {
-        border-radius: 5px; 
+        border-radius: 5px;
         border: 1px solid rgb(223, 223, 223);
-    } 
+    }
 
-    .media-heading {  
-        margin-top: -5px; 
-    } 
-    
+    .media-heading {
+        margin-top: -5px;
+    }
+
     .padding {
         padding:20px;
     }
@@ -764,11 +764,11 @@ body { padding: 0; margin: 0; color: #fff; background: #fff; color: #284372 }
         font-family: 'Avenir LT Std 95 Black';
     }
 
-    .details-rate-attribute { 
-        padding-top: 20px;   
+    .details-rate-attribute {
+        padding-top: 20px;
     }
 
-    
+
 
     .green {
         color: rgb(75, 180, 56);
@@ -872,113 +872,114 @@ body { padding: 0; margin: 0; color: #fff; background: #fff; color: #284372 }
         font-size: 12px !important;
 }
 
-    .title { 
+    .title {
         /* font-family: arial; */
-    } 
+    }
 
-    #details-title, #details-status { 
-        font-family: 'Avenir LT Std 85 Heavy' !important;  
+    #details-title, #details-status {
+        font-family: 'Avenir LT Std 85 Heavy' !important;
 
-    } 
+    }
 
-    #details-title { 
+    #details-title {
         padding-top:20px !important;
         padding: 0px;
         margin: 0px;
-    } 
+    }
 
-    #details-forward-slash h2 { 
-        font-family: 'Avenir LT Std 35 Light' !important; 
+    #details-forward-slash h2 {
+        font-family: 'Avenir LT Std 35 Light' !important;
         color: #d2d0d0;
     }
 
-    #details-comment-text span, #details-comment-text1 span, #more-category span { 
-        font-size:12px;  
+    #details-comment-text span, #details-comment-text1 span, #more-category span {
+        font-size:12px;
     }
-    
-    #details-comment-text1  {   
+
+    #details-comment-text1  {
         width:192px;
-    } 
+    }
 
-    #details-comment-text1 table {  
-        margin-left:2px;  
-    } 
+    #details-comment-text1 table {
+        margin-left:2px;
+    }
 
-    #details-comment-text1 table td:nth-child(2) { 
+    #details-comment-text1 table td:nth-child(2) {
         padding-left:8px;
-    } 
+    }
 
-    #details-comment-text1 table td:nth-child(3) { 
+    #details-comment-text1 table td:nth-child(3) {
         padding-left:8px;
-    } 
+    }
 
 
 
 
 
-    #details-comment-text { 
-        /* width:170px; */    
+    #details-comment-text {
+        /* width:170px; */
         text-align:center;
-    } 
+    }
 
-    #details-comment-text table { 
-        margin-left:6px; 
-    } 
+    #details-comment-text table {
+        margin-left:6px;
+    }
 
-    #details-comment-text table td:nth-child(2) { 
+    #details-comment-text table td:nth-child(2) {
         padding-left:8px;
-    } 
+    }
 
-    #more-category span { 
+    #more-category span {
         font-family: 'Avenir LT Std 85 Heavy' !important;
         font-size: 13px !important;
     }
 
-    .anchorjs-icon em { 
-        font-family: 'Avenir LT Std 55 Roman' !important; 
+    .anchorjs-icon em {
+        font-family: 'Avenir LT Std 55 Roman' !important;
         font-size: 11px;
     }
 
-    #details-comment-avatar { 
+    #details-comment-avatar {
         margin-top: 21px;
     }
 
-    #profile-body-content-activities-table-modals { 
+    #profile-body-content-activities-table-modals {
         display: none;
     }
 
-    #details-comment-text2 { 
+    #details-comment-text2 {
         width:162px;
         text-align:center;
-        padding-left:6px; 
+        padding-left:6px;
         margin-left: 312px;
         font-size:12px;
-    } 
+    }
 
-    #details-comment-text3 { 
-        width:183; 
+    #details-comment-text3 {
+        width:183;
         padding-right:5px;
      }
 
-    .header-category {  
-        padding-top: 30px; 
+    .header-category {
+        padding-top: 30px;
     }
 
     .social-right {
         text-align:right;
         /* border:1px solid red; */
         padding:0px;
+        padding-left:14px;
     }
 
-    .details-member-follow { 
+    .details-member-follow {
         height: 29px;
         width: 90px;
     }
 
-    .comment-reply {  
+    .comment-reply {
         font-size:12px !important;
     }
 
-    .like-dislike-rating { 
+    .like-dislike-rating {
          color:rgb(161, 168, 170);
     }

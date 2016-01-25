@@ -7060,7 +7060,8 @@
 
 
 							          	$statusUrl = $facebook->getLoginStatusUrl();
-							          	$loginUrl = $facebook->getLoginUrl($params);  
+							          	$loginUrl = $facebook->getLoginUrl($params);
+										$_SESSION['isFbUserLoggedIn'] = true;
 							        } else {  
 							        	#echo " set parametter to login "; 
 										  // $params = array(
@@ -7098,7 +7099,12 @@
 
 
 							          	$statusUrl = $facebook->getLoginStatusUrl();
-							          	$loginUrl  = $facebook->getLoginUrl($params);  
+							          	$loginUrl  = $facebook->getLoginUrl($params);
+
+
+
+
+										$_SESSION['isFbUserLoggedIn'] = false;
 							        }   
 	       				 	return $loginUrl;  
 	       				break;  

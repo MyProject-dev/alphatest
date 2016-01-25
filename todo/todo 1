@@ -136,3 +136,36 @@ http://www.joshuawinn.com/facebooks-sharer-php-longer-deprecated-2014/
 2.) http://localhost/fs/new_fs/alphatest/
 3.) http://localhost/fs/new_fs/alphatest/detail?id=4
 4.) http://localhost/fs/new_fs/alphatest/lookdetails?id=222544
+
+
+original blue color: color:#225B99
+original red color: color:#d6051d
+original grey color: color:#95a1a9
+
+
+
+COLOR
+
+blue:
+#0060c1 => done
+1px solid rgb(34, 91, 153)
+#284372
+rgb(34, 91, 153)
+#284372
+#284372
+#225b99
+#225b99
+#284372
+
+red:
+#d6051d
+#d6051d
+color: rgb(178, 20, 38);
+#d6051d
+3px solid rgb(221, 24, 41)
+
+grey:
+1px solid grey
+rgb(203, 203, 203)
+color: grey;
+grey

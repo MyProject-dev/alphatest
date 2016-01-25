@@ -230,7 +230,11 @@
 		<!-- new look -->
 			<script type="text/javascript" src='fs_folders/look/look_js/lookajax.js' ></script>
 			<script type="text/javascript" src='fs_folders/look/look_js/lookjquery.js' ></script>
-		<!-- end look  -->  
+		<!-- end look  -->
+
+
+		<!-- Social -->
+			<script type="text/javascript" src="fs_folders/js/social.js" ></script>
 
 		<?php
 				// echo "total char " . strlen("jacket c/o without walls we could poke around outside forever. we're both big fans of exploring and never seem to get enough. soak, soak, soak. vasquez rocks"); 
@@ -248,7 +252,8 @@
          */ 
         $mc->plugins( "google analytic" , " home " ); 
 
-		?> 
+		?>
+
  		<div id='main_wrapper' >   
  			<div id='wrapper_head'> 
  			</div>

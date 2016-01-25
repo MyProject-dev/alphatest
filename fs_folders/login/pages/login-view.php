@@ -25,7 +25,7 @@
 				<td style="padding-bottom:20px;" > 
 					<div>  
 
-					 
+
 					 	<?php 
 					 		$this->social_login( 
 						 		'print-image' , 
@@ -34,7 +34,7 @@
 						 		'fs_folders/images/login/fb-mouse-over.png',
 						 		'login-facebook-image'
 						 	); 
-					 	?> 
+					 	?>
 
 
 					</div>

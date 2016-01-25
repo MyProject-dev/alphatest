@@ -1,11 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Jesus
- * Date: 9/24/2015
- * Time: 3:11 PM
- */
-echo "<pre>";
+<?php 
 require("../../../fs_folders/php_functions/connect.php"); 
 require("../../../fs_folders/php_functions/connect1.php");
 require("../../../fs_folders/php_functions/function.php");

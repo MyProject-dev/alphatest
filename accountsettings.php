@@ -35,25 +35,25 @@
 	$account_tab =  $retVal = ( !empty($_GET['at']) ) ? intval($_GET['at']) : 1 ;
 
 
-    $profile_bar_red_color 		   =  (  $account_tab ==  1 ) ? 'color:#0060c1' : null ;
+    $profile_bar_red_color 		   =  (  $account_tab ==  1 ) ? 'color:#225B99' : null ;
     $profile_bar_red_color1 	   =  (  $account_tab ==  1 ) ? 'color:#d31a16' : 'display:none' ;
 
-    $general_bar_red_color         =  (  $account_tab ==  7 ) ? 'color:#0060c1' : null ;
+    $general_bar_red_color         =  (  $account_tab ==  7 ) ? 'color:#225B99' : null ;
 	$general_bar_red_color1        =  (  $account_tab ==  7 ) ? 'color:#d31a16' : 'display:none' ;
 
-	$select_brand_bar_red_color    =  (  $account_tab ==  2 ) ? 'color:#0060c1' : null ;
+	$select_brand_bar_red_color    =  (  $account_tab ==  2 ) ? 'color:#225B99' : null ;
     $select_brand_bar_red_color1   =  (  $account_tab ==  2 ) ? 'color:#d31a16' : 'display:none' ;
 
-	$suggested_member_red_color    =  (  $account_tab ==  3 ) ? 'color:#0060c1' : null ;
+	$suggested_member_red_color    =  (  $account_tab ==  3 ) ? 'color:#225B99' : null ;
     $suggested_member_red_color1   =  (  $account_tab ==  3 ) ? 'color:#d31a16' : 'display:none' ;
 
-	$invite_friends_bar_red_color  =  (  $account_tab ==  4 ) ? 'color:#0060c1' : null ;
+	$invite_friends_bar_red_color  =  (  $account_tab ==  4 ) ? 'color:#225B99' : null ;
     $invite_friends_bar_red_color1 =  (  $account_tab ==  4 ) ? 'color:#d31a16' : 'display:none' ;
 
-	$notification_bar_red_color    =  (  $account_tab ==  5 ) ? 'color:#0060c1' : null ;
+	$notification_bar_red_color    =  (  $account_tab ==  5 ) ? 'color:#225B99' : null ;
     $notification_bar_red_color1   =  (  $account_tab ==  5 ) ? 'color:#d31a16' : 'display:none' ;
 
-	$preferences_bar_red_color     =  (  $account_tab ==  6 ) ? 'color:#0060c1' : null ;
+	$preferences_bar_red_color     =  (  $account_tab ==  6 ) ? 'color:#225B99' : null ;
     $preferences_bar_red_color1    =  (  $account_tab ==  6 ) ? 'color:#d31a16' : 'display:none' ;
 	  
     $change                        = (!empty($_GET['change'])) ? $_GET['change'] : NULL;
