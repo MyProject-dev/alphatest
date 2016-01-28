@@ -748,7 +748,7 @@ class Look
      * @param $i
      * @param $counter
      */
-    public function print_tags($i, $counter, $tags=null)
+    public function print_tags($i, $counter, $tags=null, $totalTagEdit=null)
     {
 
         $ObjectColor = new Color();
@@ -782,7 +782,12 @@ class Look
 
         $colors = $this->getAllHtmlColor();
 
-       
+        $custom_style = '';
+        if($c < $totalTagEdit) {
+            $custom_style = 'margin-left: -194px !important; margin-top: 12px !important;';
+        }
+           
+           // echo "$c < $totalTagEdit";
         ?>
 
 
@@ -791,7 +796,7 @@ class Look
         <div id="table_container_<?php echo $j; ?>" class="item_<?php echo $j; ?> " style="border-radius: 5px; position: absolute; height: 0px; z-index: 120; margin-top: 227px; margin-left: 220px; display:none">
 
 
-           <div class="look-tag-container">
+           <div class="look-tag-container" style="<?php echo $custom_style; ?>">
 
            <ul class="tag-menu">
                <li id="tag-tab-color-<?php echo $j ?>"
@@ -1111,14 +1116,16 @@ class Look
                            </p>
                        </li>
                    </ul>
-                    <div class="look-tag-delete" > 
-                        <form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post" >  
-                            <input type="hidden" value="<?php echo $_SERVER['REQUEST_URI']; ?>" name="editLook">
-                            <input type="hidden" value="<?php echo $pltgno; ?>" name="pltgno">
-                            <input type="submit" value="delete" name="deleteTag" class="delete-tag-submit" > 
-                        </form> 
-                        
-                    </div>
+
+                    <?php if($_GET['method'] == 'edit'): ?>
+                        <div class="look-tag-delete" > 
+                            <form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post" >  
+                                <input type="hidden" value="<?php echo $_SERVER['REQUEST_URI']; ?>" name="editLook">
+                                <input type="hidden" value="<?php echo $pltgno; ?>" name="pltgno">
+                                <input type="submit" value="delete" name="deleteTag" class="delete-tag-submit" > 
+                            </form>  
+                        </div> 
+                    <?php endif; ?>
                </div> 
                <div class="clear"></div>
            <!--  $colors            = $tags[$c]['plt_color'];

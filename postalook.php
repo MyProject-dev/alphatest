@@ -159,6 +159,8 @@ if (!empty($_SESSION['adm_no'])) {
     echo " </div>";
 	$method  =  $_GET['method'];
 //    echo  date("Y-m-d h:i:s a");
+
+ 
  
 ?>
 
@@ -393,13 +395,14 @@ if (!empty($_SESSION['adm_no'])) {
 																			<tr>
 																				<td id="dropdown-tags" >
 																					<div id='tag1'>
-																						 	<?php
+																						 	<?php 
                                                                                             $look->print_tags_includes();
 																							 $c=0;
+																							 $totalTagEdit =  count($pl_info['pltags']); 
 																							 for ($i=1; $i <16 ; $i++):
 																							 	 $c++;
 																							 	 $background  = '';
-                                                                                                 $look->print_tags($i, $c, $pl_info['pltags']);
+                                                                                                 $look->print_tags($i, $c, $pl_info['pltags'], $totalTagEdit);
                                                                                              endfor;
                                                                                             ?>
 																		 				</div>
