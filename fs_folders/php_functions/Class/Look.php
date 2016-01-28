@@ -759,6 +759,7 @@ class Look
         // echo "counter i = $counter  c = $c T TAG  $tagT <br>";
 
         if($tagT >= $c) {  
+            $pltgno            = $tags[$c]['pltgno']; 
             $colors            = $tags[$c]['plt_color']; 
             $plt_color         = explode(',', $tags[$c]['plt_color'])[1] . ',';
             $plt_brand         = $tags[$c]['plt_brand'] . ',';
@@ -781,341 +782,7 @@ class Look
 
         $colors = $this->getAllHtmlColor();
 
-        /*s
-        $itemName = array(
-            'Jeans',
-            'Bootcut Jeans',
-            'Cropped Jeans',
-            'Flared Jeans',
-            'Skinny Jeans',
-            'Straight Jeans',
-            'Wide-Leg Jeans',
-            'Dresses',
-            'Casual Dresses',
-            'Cocktail Dresses',
-            'Formal Dresses',
-            'Gowns',
-            'Maxi Dresses',
-            'Mini Dresses',
-            'Tops',
-            'Blouses',
-            'Long Sleeved Tops',
-            'Shirts',
-            'Short Sleeve Tops',
-            'Sleeveless Tops',
-            'T-Shirts',
-        );
-
-
-        $itemName1 = array(
-            'Cocktail Dresses',
-            'Formal Dresses',
-            'Gowns',
-            'Maxi Dresses',
-            'Mini Dresses',
-            'Tops',
-            'Blouses',
-            'Long Sleeved Tops',
-            'Shirts',
-            'Short Sleeve Tops',
-            'Sleeveless Tops',
-            'T-Shirts',
-            'Jeans',
-            'Bootcut Jeans',
-            'Cropped Jeans',
-            'Flared Jeans',
-            'Skinny Jeans',
-            'Straight Jeans',
-            'Wide-Leg Jeans',
-            'Dresses',
-            'Casual Dresses',
-        );
-
-        $itemName2 = array(
-            'Beachwear',
-            'Bikinis',
-            'Kaftans',
-            'One-Piece Swimsuits',
-            'Sarongs',
-            'Towels',
-            'Sweats',
-            'Hoodies',
-            'Sweatpants',
-            'Sweatshirts',
-            'Tracksuits',
-            'Skirts',
-            'Knee Length Skirts',
-            'Maxi Skirts',
-            'Mid Length Skirts',
-            'Mini Skirts'
-        );
-
-        $garmentItems = array(
-            'clothing'=> array(
-                'pants' => array(
-                    'Cargo Pants',
-                    'Cropped Pants',
-                    'Full Length Pants',
-                    'Harem Pants',
-                    'Leggings',
-                    'Skinny Pants',
-                    'Straight-Leg Pants',
-                    'Wide-Leg Pants'
-                ),
-                'jackets' => array(
-                    'Casual Jackets',
-                    'Denim Jackets',
-                    'Formal Jackets',
-                    'Fur Jackets',
-                    'Leather Jackets',
-                    'Parka Jackets',
-                    'Waistcoats'
-                ),
-                'coats' => array(
-                    'Capes',
-                    'Fur Coats',
-                    'Long Coats',
-                    'Parka Coats',
-                    'Short Coats',
-                    'Trench Coats'
-                ),
-                'jeans' => array(
-                    'Bootcut Jeans',
-                    'Cropped Jeans',
-                    'Flared Jeans',
-                    'Skinny Jeans',
-                    'Straight Jeans',
-                    'Wide-Leg Jeans'
-                ),
-                'Dresses' => array(
-                    'Casual Dresses',
-                    'Cocktail Dresses',
-                    'Formal Dresses',
-                    'Gowns',
-                    'Maxi Dresses',
-                    'Mini Dresses'
-                ),
-                'Tops' => array(
-                    'Blouses',
-                    'Long Sleeved Tops',
-                    'Shirts',
-                    'Short Sleeve Tops',
-                    'Sleeveless Tops',
-                    'T-Shirts'
-                ),
-                'Knitwear' => array(
-                    'Cardigans',
-                    'Ponchos',
-                    'Sleeveless Sweaters',
-                    'Sweaters',
-                    'Turtlenecks',
-                    'Zipped Sweaters'
-                ),
-                'Shorts' => array(
-                    'Bermuda Shorts',
-                    'Cargo Shorts',
-                    'Denim Shorts',
-                    'Formal Shorts',
-                    'Knee Length Shorts',
-                    'Mini Shorts'
-                ),
-                'Lingerie' => array(
-                    'Bodysuits',
-                    'Bras',
-                    'Camisoles',
-                    'Corsetry',
-                    'Panties',
-                    'Sets'
-                ),
-                'Beachwear' => array(
-                    'Bikinis',
-                    'Kaftans',
-                    'One-Piece Swimsuits',
-                    'Sarongs',
-                    'Towels'
-                ),
-                'Sweats' => array(
-                    'Hoodies',
-                    'Sweatpants',
-                    'Sweatshirts',
-                    'Tracksuits'
-                ),
-                'Skirts' => array(
-                    'Knee Length Skirts',
-                    'Maxi Skirts',
-                    'Mid Length Skirts',
-                    'Mini Skirts'
-                ),
-                'Nightwear' => array(
-                    'Nightgowns',
-                    'Pyjamas',
-                    'Robes',
-                ),
-                'Hosiery' => array(
-                    'Socks',
-                    'Stockings',
-                    'Tights'
-                ),
-                'Suits' => array(
-                    'Pant Suits',
-                    'Skirt Suits'
-                ),
-                'Jumpsuits' => array(
-                    'Full Length Jumpsuits',
-                    'Playsuits'
-                )
-            ),
-            'shoes'=> array(
-                'boots' => array(
-                    'Ankle Boots',
-                    'Flat Boots',
-                    'Heel Boots',
-                    'Knee Boots',
-                    'Mid-Calf Boots',
-                    'Over-The-Knee Boots',
-                    'Sandal Boots',
-                    'Wedge Boots',
-                    'Wellington Boots'
-                ),
-                'heels' => array(
-                    'Clogs',
-                    'High Heels',
-                    'Low Heels',
-                    'Mules',
-                    'Platform Heels',
-                    'Pumps',
-                    'Sandal Heels',
-                    'Wedge Sandals',
-                    'Wedge Shoes'
-                ),
-                'flat' => array(
-                    'Ballerinas',
-                    'Espadrilles',
-                    'Flat Sandals',
-                    'Flip-Flops',
-                    'Lace-Ups',
-                    'Loafers',
-                    'Slippers'
-                ),
-                'wedges' => array(
-                    'Wedge Boots',
-                    'Wedge Sandals',
-                    'Wedge Shoes'
-                ),
-                'sneakers' => array(
-                    'High-Top Sneakers',
-                    'Low-Top Sneakers'
-                )
-            ),
-            'accessories'=> array(
-                'Cases' => array(),
-                'Sunglasses' => array(),
-                'Belts' => array(),
-                'Gloves' => array(),
-                'Hair' => array(),
-                'Scarves' => array(),
-                'Wallets' => array(),
-                'Watches' => array(),
-                'Hats' => array(),
-                'Umbrellas' => array()
-            ),
-            'bags'=> array(
-                'Shoulder Bags' => array(),
-                'Backpacks' => array(),
-                'Clutches' => array(),
-                'Luggage' => array(),
-                'Briefcases' => array(),
-                'Totes' => array()
-            ),
-            'jewelry'=> array(
-                'Brooches' => array(),
-                'Bracelets' => array(),
-                'Earrings' => array(),
-                'Necklaces' => array(),
-                'Rings' => array()
-            )
-        );
-
-        $patternItems = array(
-            'Abstract',
-            'Argyle',
-            'Camouflage',
-            'Stripes',
-            'Checkered',
-            'Plaid',
-            'Floral',
-            'Tie Dye',
-            'Geometric',
-            'Graphic',
-            'Cheetah',
-            'Snake',
-            'Houndstooth',
-            'Paisley',
-            'Damask',
-            'Chevron',
-            'Zebra',
-            'Polka Dots',
-            'Fair Isle',
-            'Fleck',
-            'Mosaic',
-            'Pinstripe',
-            'Speckle',
-            'Spots',
-            'Swirl',
-            'Tartan',
-            'Zigzag',
-            'Gingham',
-            'Tartan Plaid',
-            'Shepherds ',
-            'Windowpane Check',
-            'Graph Check',
-            'Tattersall',
-            'Mini Check',
-            'Tiger',
-            'Lion',
-            'Cow',
-            'Leopard'
-        );
-
-        $materialItems = array(
-            'Cotton',
-            'Rayon',
-            'Chambray',
-            'Denim',
-            'Knit',
-            'Silk',
-            'Satin',
-            'Linen',
-            'Wool',
-            'Flannell',
-            'Snake',
-            'Gator',
-            'Polyester',
-            'Nylon',
-            'Spandex',
-            'Leather',
-            'Corduroy',
-            'Fur',
-            'Felt',
-            'Suede',
-            'Lace',
-            'Hemp',
-            'Fleece',
-            'Batiste',
-            'Velvet',
-            'Chiffon',
-            'Crepe',
-            'Organza',
-            'Taffeta',
-            'Tweed',
-            'Voile',
-            'Pleather',
-            'Faux Fur',
-            'Faux Leather'
-        );
-        sort($materialItems);
-        sort($patternItems); 
-        */
+       
         ?>
 
 
@@ -1444,6 +1111,14 @@ class Look
                            </p>
                        </li>
                    </ul>
+                    <div class="look-tag-delete" > 
+                        <form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post" >  
+                            <input type="hidden" value="<?php echo $_SERVER['REQUEST_URI']; ?>" name="editLook">
+                            <input type="hidden" value="<?php echo $pltgno; ?>" name="pltgno">
+                            <input type="submit" value="delete" name="deleteTag" class="delete-tag-submit" > 
+                        </form> 
+                        
+                    </div>
                </div> 
                <div class="clear"></div>
            <!--  $colors            = $tags[$c]['plt_color'];
@@ -1683,7 +1358,19 @@ class Look
             </div>  
         <?php }           
     }
-}
+
+    public function delete_tag($tagId) { 
+        if(!empty($tagId)){
+           if ($this->db->delete('fs_pltag', " pltgno = $tagId")){ 
+                return TRUE;
+            }else{
+                return; 
+            } 
+        }else{
+            return; 
+        }
+    } 
+} //End class
 ?>
 
 

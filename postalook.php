@@ -16,17 +16,10 @@
 	 $mc    = new myclass();
 	 $reset = new  Reset();
 	 $db    = new Database();
-	 $db->connect();
-
-
-
-     $color = new php_function\Color();
-
-
-
-
-   //  $base_url = 'http://localhost/fs/new_fs/alphatest/';
-     $base_url = 'http://' . subDomain . 'fashionsponge.com/';
+	 $db->connect(); 
+     $color = new php_function\Color(); 
+     $base_url = 'http://localhost/fs/new_fs/alphatest/';
+     // $base_url = 'http://' . subDomain . 'fashionsponge.com/';
  	// $db	= new Database();
     $ri = new resizeImage ( );
 	$mc = new myclass();
@@ -39,13 +32,23 @@
     //Redirect home if not log in.
     if($mno == 136) {
     	$mc->go('home');
-    }
-  
+    } 
     $look = new Look($mc->mno,  $db);
 
 
 echo "<div style='display:block' >";
 
+
+	/**
+	* Delete Tag
+	*/
+	if(isset($_POST['deleteTag'])) {
+		$pltgno = $_POST['pltgno'];  
+		if($look->delete_tag($pltgno)) { 
+		} else {  
+		}
+	}   
+	
 //echo "<pre>";
     $user              = new User($mno, $db);
   //print_r( $user->getMyInfo() );
@@ -156,6 +159,7 @@ if (!empty($_SESSION['adm_no'])) {
     echo " </div>";
 	$method  =  $_GET['method'];
 //    echo  date("Y-m-d h:i:s a");
+ 
 ?>
 
 <html>
@@ -175,8 +179,7 @@ if (!empty($_SESSION['adm_no'])) {
  		// require("fb-sdk.php");
  		?>
 
-
-
+ 
 		<script type="text/javascript">
 			var lName;
 			var tAbt;
@@ -204,6 +207,9 @@ if (!empty($_SESSION['adm_no'])) {
         <?php } ?>
 
 	</head>
+
+
+
 
 	<?php
 	# initialized
@@ -291,7 +297,10 @@ if (!empty($_SESSION['adm_no'])) {
 									 		?>
 										</head>
 										<body style="padding-bottom:0px; margin-bottom:0px;padding-top:0px; margin-top:0px;" id='label-look-body' onload="postalook()" >
-
+										
+					<!-- 					<div id="left_side"  style="border:1px solid red; height:200px;" > 
+											
+										</div> -->
 
 												<!-- <div id="new-postalook-label-container" >  -->
 													<div id='' class='pl_tags_edit' style='display:none' >
@@ -378,7 +387,8 @@ if (!empty($_SESSION['adm_no'])) {
 																				</td>
 																			<tr>
 																				<td id="circle-tag">
-																					<div id='block_circle_tags'  style="border:1px solid none; display:block;  "  >   </div>
+																					<div id='block_circle_tags'  style="border:1px solid none; display:block;  "  >    	
+																				  	</div>
 																				</td>
 																			<tr>
 																				<td id="dropdown-tags" >
