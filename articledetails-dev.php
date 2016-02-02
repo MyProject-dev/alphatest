@@ -823,7 +823,13 @@ echo "</div>";
                                                                     <a href="z?i=<?php echo $plno; ?>&tn=fs_postedarticles"  target="_blank" >
                                                                         <img src="<?php echo $mc->path_icons;?>/zoom-icon.png" title="zoom" >
                                                                     </a>
-                                                                </td>
+                                                                </td> 
+
+                                                                <?php if($lookOwnerMno  == $_SESSION[mno]): ?> 
+                                                                    <td id='' >   
+                                                                        <img style="margin-left: 15px;"  onclick="delete_articledetails_modal('<?php echo $modal['table_id']; ?>')" src="<?php echo $mc->path_icons;?>/delete.png" title="delete this modal" >      
+                                                                    </td>  
+                                                                <?php endif; ?>
 
                                                                     <!-- <td id='ld_scope'  >
                                                                         <img src="<?php echo $mc->path_icons;?>/flag-icon.png"  title="flag" style='display:none' >
