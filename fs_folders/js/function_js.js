@@ -8862,3 +8862,28 @@ function postalook() {
 function message(msg) { 
     alert(msg); 
 }
+
+
+
+function delete_lookdetails_modal(id) 
+{   
+    if(confirm("Are you sure you want to delete this modal?")) { 
+        $.post( "fs_folders/modals/look/destroy.php", { id: id })
+        .done(function( data ) { 
+            document.location = 'home';
+        });
+    } 
+}
+
+
+
+function delete_articledetails_modal(id) 
+{   
+    if(confirm("Are you sure you want to delete this modal?")) { 
+        $.post( "fs_folders/modals/article/destroy.php", { id: id })
+        .done(function( data ) { 
+            document.location = 'home';
+        });
+    } 
+}
+
