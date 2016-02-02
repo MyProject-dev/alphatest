@@ -834,12 +834,17 @@ if ((!empty($_GET['welcome'])) ? $_GET['welcome'] : ''  == 'get-started' || $mc-
                                                                 </td>
 
                                                                 <?php  $mc->print_look_footer_flag_or_edit( $mno , $mno1 , $modal['table_id']  , $modal['table_name']  , $modal['src_img_flag'] , "post-look-label?kooldi=$modal[table_id]&type=u" ); ?>
-                                                                <td id='ld_scope' >
+                                                                <td id='ld_scope' > 
                                                                     <a href="z?i=<?php echo $plno; ?>"  target="_blank" >
                                                                         <img src="<?php echo $mc->path_icons;?>/zoom-icon.png" title="zoom" >
-                                                                    </a>
-                                                                </td>
+                                                                    </a> 
+                                                                </td>  
 
+                                                                <?php if($lookOwnerMno  == $_SESSION[mno]): ?> 
+                                                                    <td id='' >   
+                                                                        <img style="margin-left: 15px;"  onclick="delete_lookdetails_modal('<?php echo $modal['table_id']; ?>')" src="<?php echo $mc->path_icons;?>/delete.png" title="delete this modal" >      
+                                                                    </td>  
+                                                                <?php endif; ?>
                                                                     <!-- <td id='ld_scope'  >
                                                                         <img src="<?php echo $mc->path_icons;?>/flag-icon.png"  title="flag" style='display:none' >
                                                                     </td>   -->
