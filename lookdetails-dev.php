@@ -1165,7 +1165,7 @@ if ((!empty($_GET['welcome'])) ? $_GET['welcome'] : ''  == 'get-started' || $mc-
                                 <div>
                                     <table border="0" cellpadding="0" cellspacing="0">
                                         <tbody><tr>
-                                            <td>
+                                            <td class="hide">
                                                 <a href="look?category=<?php  echo $category; ?>">
                                                     <span class="center bold border-gey tags radius-5">
                                                         <?php  echo $category;  ?>
