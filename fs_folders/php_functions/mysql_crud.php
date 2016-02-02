@@ -288,7 +288,7 @@ class Database{
         // echo " update now table namae $table where = $where  ";
        //  echo " db_user = $this->db_user  db_pass = $this->db_pass  db_name = $this->db_name  db_host = $this->db_host<br> ";
         //echo "table $table <br>";
-        //print_r($params);
+        print_r($params);
         //echo "wehere $where <br>";
     	// Check to see if table exists
     	if($this->tableExists($table)){

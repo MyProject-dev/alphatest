@@ -345,22 +345,22 @@ if ((!empty($_GET['welcome'])) ? $_GET['welcome'] : ''  == 'get-started' || $mc-
 
     <script src="http://connect.facebook.net/en_US/all.js"></script>
     <!-- social share -->
-        <meta property="og:url"           content="http://dev.fashionsponge.com/lookdetails?id=222546" />
-        <meta property="og:type"          content="website" />
-        <meta property="og:title"         content="This is the title" />
-        <meta property="og:description"   content="This is the description" />
-        <meta property="og:image"         content="http://dev.fashionsponge.com/fs_folders/images/uploads/posted looks/lookdetails/222546.jpg" />
+    <meta property="og:url"           content="http://dev.fashionsponge.com/lookdetails?id=222546" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="This is the title" />
+    <meta property="og:description"   content="This is the description" />
+    <meta property="og:image"         content="http://dev.fashionsponge.com/fs_folders/images/uploads/posted looks/lookdetails/222546.jpg" />
 
 
+ 
+    <!-- draggable -->  
+      <link rel="stylesheet" href="fs_folders/draggable/assets/jquery-ui.css">
+      <script src="fs_folders/draggable/assets/jquery-1.10.2.js"></script>
+      <script src="fs_folders/draggable/assets/jquery-ui.js"></script>
+      <link rel="stylesheet" href="fs_folders/draggable/assets/style.css">
+      <script src="fs_folders/draggable/assets/test.js" > </script>
 
-
-
-
-
-
-
-
-
+ 
     <?php
 
 
@@ -590,6 +590,7 @@ if ((!empty($_GET['welcome'])) ? $_GET['welcome'] : ''  == 'get-started' || $mc-
                                                         <?php
                                                         echo " <div class='pos' style='display:block'> ";
                                                         $c=0;
+                                                      
                                                         for ($i=0; $i < count($pltags) ; $i++) {
                                                             $plt_color =  explode(',', $pltags[$i]["plt_color"])[1];
                                                             $plt_brand = $pltags[$i]["plt_brand"];
@@ -625,6 +626,9 @@ if ((!empty($_GET['welcome'])) ? $_GET['welcome'] : ''  == 'get-started' || $mc-
 
                                                             $left = $pltags[$i]["plt_x"];
                                                             $top = $pltags[$i]["plt_y"]+70;
+                                                            $pltno = $pltags[$i]["pltgno"];
+
+                                                            // echo "pltags  $pltno  <br>";
 
                                                             // echo " x =  $left and y = $top <br> ";
                                                             // set position for the red circle tag.
@@ -640,7 +644,7 @@ if ((!empty($_GET['welcome'])) ? $_GET['welcome'] : ''  == 'get-started' || $mc-
 
                                                             $circle_tag_stye = "margin-top:".$top."px; margin-left:".$left."px; visibility:hidden";
 
-                                                            echo " <div id='tag-circle' class='tag-circle-$c'   onmouseout='circle_tag_mouseout(\".tag-circle-$c\")' onmouseenter='circle_tag_mouseover(\".tag-circle-$c\")' style='$circle_tag_stye'  >";
+                                                            echo " <div tagnumber='$pltno' number='$c' id='tag-circle' class='tag-circle-$c draggable'   onmouseout='circle_tag_mouseout(\".tag-circle-$c\")' onmouseenter='circle_tag_mouseover(\".tag-circle-$c\")' style='$circle_tag_stye'  >";
 
                                                             // echo "
                                                             //     <img id='tag-circle-img' src='$mc->genImgs/tag-red-circle.jpg' />
@@ -682,7 +686,7 @@ if ((!empty($_GET['welcome'])) ? $_GET['welcome'] : ''  == 'get-started' || $mc-
 
                                                             if ( $tag_arrow == "left") {
                                                                 echo "
-                                                                    <div id='tag-circle-tag-div' class='tag-circle-$c-tag-div' onmouseenter='circle_tag_mouseover(\".tag-circle-$c-tag-div\")' style='$tag_circle_tag_div' >
+                                                                    <div id='tag-circle-tag-div' class='tag-circle-$c-tag-div tag-circle-content-left-$c' onmouseenter='circle_tag_mouseover(\".tag-circle-$c-tag-div\")' style='$tag_circle_tag_div' >
                                                                         <div id='tag-bubble-body' >
                                                                             <img id='tag-bubble-arrow-left-img' src='$mc->genImgs/tag-bubble-arrow-left.png' >
                                                                            <center> <span id='tag-bubble-title' >ABOUT ITEM NUMBER ".$tn[$c]."</span>  </center>
@@ -707,7 +711,7 @@ if ((!empty($_GET['welcome'])) ? $_GET['welcome'] : ''  == 'get-started' || $mc-
                                                                 $left-=410;
                                                                 $tag_circle_tag_div = "margin-top:".$top."px; margin-left:".$left."px;";
                                                                 echo "
-                                                                    <div id='tag-circle-tag-div' class='tag-circle-$c-tag-div' onmouseenter='circle_tag_mouseover(\".tag-circle-$c-tag-div\")' style='$tag_circle_tag_div' >
+                                                                    <div id='tag-circle-tag-div' class='tag-circle-$c-tag-div tag-circle-content-right-$c' onmouseenter='circle_tag_mouseover(\".tag-circle-$c-tag-div\")' style='$tag_circle_tag_div' >
                                                                         <div id='tag-bubble-body' >
                                                                             <img id='tag-bubble-arrow-right-img' src='$mc->genImgs/tag-bubble-arrow-right.png' >
                                                                            <center> <span id='tag-bubble-title' >ABOUT ITEM NUMBER ".$tn[$c]."</span>  </center>
@@ -904,6 +908,11 @@ if ((!empty($_GET['welcome'])) ? $_GET['welcome'] : ''  == 'get-started' || $mc-
                                                             for ($i=0; $i < $Ttag ; $i++) {
                                                                 // $tc = $mc->get_html_colo_code( str_replace(" ","",$pltags[$i]["plt_color"]));
                                                                 $tc = $look->getHtmlColor(explode(',', $pltags[$i]["plt_color"])[1]);
+
+                                                              
+
+
+                                                                if(empty($tc)) $tc = '#000; opacity:0.8'; 
 
                                                                 if ( $i == 0 ) {
                                                                     if (!empty($tc )) { 

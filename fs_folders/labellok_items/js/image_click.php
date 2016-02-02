@@ -142,7 +142,7 @@ $(document).ready(function () {
                     // x_a+=100;
 
                     // alert(x);
-                    $('#block_circle_tags').append("<div class='block_circle_tag' title='click to ( open / close ) tag' id=tag_" + c + " onclick=\"show_hide_dropdown( this.id )\" >" + c + "<br></div>");
+                    $('#block_circle_tags').append("<div class='block_circle_tag draggable ui-draggable ui-draggable-handle' title='click to ( open / close ) tag' id=tag_" + c + " onclick=\"show_hide_dropdown( this.id )\" >" + c + "<br></div>");
 
                     $('#tag_' + c).css({
                         'margin-top': y_a,
@@ -363,7 +363,7 @@ $(document).ready(function () {
 
                 if (c < 16) {
 
-                    $('#block_circle_tags').append("<div  title='click to ( open / close ) tag' class='block_circle_tag' id=tag_" + c + " onclick=\"show_hide_dropdown( this.id )\"  >" + c + "<br></div>");
+                    $('#block_circle_tags').append("<div  title='click to ( open / close ) tag' class='block_circle_tag draggable ui-draggable ui-draggable-handle' id=tag_" + c + " onclick=\"show_hide_dropdown( this.id )\"  >" + c + "<br></div>");
 
                     $('#tag_' + c).css({
                         'margin-top': y_a,

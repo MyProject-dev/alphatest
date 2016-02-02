@@ -18,8 +18,8 @@
 	 $db    = new Database();
 	 $db->connect(); 
      $color = new php_function\Color(); 
-     $base_url = 'http://localhost/fs/new_fs/alphatest/';
-     // $base_url = 'http://' . subDomain . 'fashionsponge.com/';
+     // $base_url = 'http://localhost/fs/new_fs/alphatest/';
+     $base_url = 'http://' . subDomain . 'fashionsponge.com/';
  	// $db	= new Database();
     $ri = new resizeImage ( );
 	$mc = new myclass();

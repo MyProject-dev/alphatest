@@ -1,0 +1,19 @@
+  .draggable { 
+    /*width: 16em; padding: 0 1em; width: 20px; border-radius: 100%; 
+    position: relative; left: 475px; top: 63px; color: white; background-color: rgb(187, 45, 45);cursor: pointer;*/
+  } 
+  .dropdown{
+    /*border:1px solid red;
+    height: 41px;
+    width: 68px;
+    border: 1px solid #A2A2A2;
+    position: absolute;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #F3F3F3;
+    margin-left: 464px;
+    margin-top: 64px;*/
+  }  
+  #containment-wrapper { 
+    /*width: 50%; height:300px; border:2px solid #ccc; padding: 10px; margin: 0px auto; */
+  }
