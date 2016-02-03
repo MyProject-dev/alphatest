@@ -53,7 +53,9 @@
 
 
 
-    if($rowName != 'topic-category' and !$response) {
+
+
+    if($rowName != 'topic-category' and $tableName != 'fs_tag' and !$response) {
         echo "No result for <em style='color:black; cursor: pointer'> $keyword</em> please try another.";
     } else if(!$response) { ?>
 
