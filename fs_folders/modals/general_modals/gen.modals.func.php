@@ -146,7 +146,9 @@ LookbookDatabase::$database = $db;
 
 
 
-		// print_r($_GET);
+
+
+		print_r($_GET);
 		 
  
 			// echo " <br> <br> <br> <br> dateTime $DateTime    <br>";
@@ -3945,7 +3947,8 @@ echo " </pre> </h3>";
 			 			  	case 'retrieved-data': 
 
 
-		 			  				echo " <div style='display:block'> ";
+			 			  						echo "<h1> Retrieved video from the article</h1>";
+ 
 
 							 			  			//initialize 
 							 			  				// clean session
@@ -4038,7 +4041,7 @@ echo " </pre> </h3>";
 											 			  			// print_r($data_video);
 																// video print 
 
-											 			  			echo "<videodisplay>
+											 			  			echo "<videodisplay> 
 											 			  				<iframe src=\"$data_video[0]\" style='width:100%; height:100%;' frameborder='0'  webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 											 			  				<videodisplay>";    
@@ -4054,7 +4057,7 @@ echo " </pre> </h3>";
 															// set allow 
 
 																	echo "<allowimage>$allowimageresponsenumber<allowimage>";
-									echo " </div>"; 
+									 
 			 			  		break;   
 			 			  	case 'insert':
  

@@ -6315,17 +6315,21 @@ function article_nex_prev  ( type , stat , response , loader , e , method , tabl
     else{
         if ( keyboard == 'enter' ) {
             setTimeout(function(){
+                // alert("this is the video upload");
                 // var url = 'google.com';  
                 var url =  $('#article_url_field').val( );
-                // alert( url ); 
-                url = url.replace(':','punctuation');
-                var data = 'action=postarticle&process=retrieved-data&url='+url;
-
-
+                // alert( url );  
+                // url = 'https://www.youtube.com/watch?v=fRh_vgS2dFE';
+                url = url.replace(':','punctuation'); 
+                // var data = 'action=postarticle&process=retrieved-data&url='+url; 
+                url_array1 = url.split('?v='); 
+                var youtube_id = url_array1[1]; 
+                var main_url = 'fs_folders/modals/general_modals/gen.modals.func.php?action=postarticle&process=retrieved-data&url=httpspunctuation//youtube.com/watch?v='+youtube_id;  
+                console.log(main_url); 
                 // console.log(data);
                 ajax_send_data(
                     response,
-                    'fs_folders/modals/general_modals/gen.modals.func.php?'+data,
+                    main_url,
                     loader,
                     'postarticle-retrieved-data'
                 );
