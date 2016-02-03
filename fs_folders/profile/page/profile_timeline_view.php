@@ -67,7 +67,9 @@
 	  	$mi['djoined']     = $djoined;  
 	  	$logtime           = ( $uinfo[0]['logtime'] != '0000-00-00 00:00:00' ) ? $mc->get_time_ago($uinfo[0]['logtime']) : '22 HOURS' ; 
 	  	$mi['fullName']    = $fullname; //'Jesus Erwin Suarez'; 
-	  	$mi['blogName']    = $uinfo[0]['blogdom']; ;
+	  	$mi['blogName']    = $uinfo[0]['blogdom'];  
+	    $blogUrl   		   = $uinfo[0]['blogurl'];  
+	    $blogUrl           = convertToWebLink($blogUrl); 
 	  	$mi['follower']    = $uinfo[0]['tfollower'];
 	  	$mi['following']   = $uinfo[0]['tfollowing'];
 	  	$mi['rankLook']    = 0;
@@ -172,7 +174,7 @@
   						<name> <?php echo $mi['fullName']; ?></name>
 				  	</div>  
 				  	<div id="profile-about">   	  
-  					   <of> of </of> <desc> <?php echo $mi['blogName']; ?> </desc> 
+  					   <of> of </of> <a href="<?php echo $blogUrl; ?>">   <desc style="color:white"> <?php echo $mi['blogName']; ?> </desc> </a>  
 				  	</div>
 				  	<?php if(false): ?>
 				  	<div id="profile-stat"  >  
