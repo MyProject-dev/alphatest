@@ -36,9 +36,15 @@
 	    	$middleInitials = ucfirst( substr($uinfo[0]['nickname'], 0,1));
 	    } else { 
 	    	$middleInitials = '';
+	    }	
+
+	    if(!empty($middleInitials)) {
+	    	$middleI = $middleInitials . '. ';
+	    } else {
+	    	$middleI = '';
 	    }
  
-	    $fullname =  ucfirst($uinfo[0]['firstname']) . " $middleInitials. ". ucfirst($uinfo[0]['lastname']);
+	    $fullname =  ucfirst($uinfo[0]['firstname']) . " " . $middleI . "  " . ucfirst($uinfo[0]['lastname']);
 
 	// location  
 		$loc = '';
