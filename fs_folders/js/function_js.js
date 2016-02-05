@@ -8516,7 +8516,12 @@ function welcome_about(errorDiv,fieldId,tab) {
         }
  
         data = data.replace('error', '');
- 
+    
+
+        // To avoid rediretion 
+        data = replace_all (data , 'document.location' , '' ); 
+        
+
         $('#'+errorDiv).html(data);
         $('#'+errorDiv).css({'display':'block'}); 
 
