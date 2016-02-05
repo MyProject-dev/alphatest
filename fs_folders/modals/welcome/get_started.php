@@ -1,13 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Jesus
- * Date: 9/24/2015
- * Time: 1:09 PM
- */
-
-
-echo "<div style='display:block' >";
+<?php 
 require ("../../../fs_folders/php_functions/connect.php");
 require ("../../../fs_folders/php_functions/function.php");
 require ("../../../fs_folders/php_functions/library.php");
@@ -15,6 +6,9 @@ require ("../../../fs_folders/php_functions/source.php");
 require ("../../../fs_folders/php_functions/myclass.php");
 require ("../../../fs_folders/php_functions/Class/Brand.php");
 require ("../../../fs_folders/php_functions/Class/User.php");
+
+
+use App\User;
 
 $mc = new myclass();
 $db = new Database();
@@ -27,12 +21,15 @@ echo "</div>";
 
 <?php
 
+
+echo "This good ";
 /**
  * Update the user information
  */
 if($userObject->updateInfo(
     array(
-        'tlog'=>5
+        'tlog'=>5,
+        'status'=>2
     ),
     "mno = $mc->mno"
 )){
