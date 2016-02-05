@@ -200,6 +200,10 @@
 	        		);   
 
                 }
+                else if ($mc->status == 2) 
+                {
+                 	$_SESSION['confirmed'] = TRUE;  
+                }
                 else if ($welcome == 'get-started' || $mc->tlog >= 4 ) {
                     	
                     /**
@@ -237,6 +241,8 @@
 			<script type="text/javascript" src="fs_folders/js/social.js" ></script>
 
 		<?php
+
+ 
 				// echo "total char " . strlen("jacket c/o without walls we could poke around outside forever. we're both big fans of exploring and never seem to get enough. soak, soak, soak. vasquez rocks"); 
 		?>
 	</head>
