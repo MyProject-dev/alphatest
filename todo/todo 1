@@ -169,3 +169,26 @@ grey:
 rgb(203, 203, 203)
 color: grey;
 grey
+
+# invited database setup and referral
+
+
+fs_invited_referral
+- id
+- invited_id
+- created_at
+- updated_at
+
+fs_invited
+- referral_id
+
+fs_members
+- invited_id
+
+
+
+
+
+
+
+
