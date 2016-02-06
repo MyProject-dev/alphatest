@@ -15,6 +15,7 @@
  */
 
 //requires
+require_once ("../../../fs_folders/php_functions/connect.php");
 require_once ("../../../fs_folders/php_functions/Database/Database.php");
 require_once ("../../../fs_folders/php_functions/Database/Invited.php");
 require_once ("../../../fs_folders/php_functions/Database/InvitedQueue.php");
