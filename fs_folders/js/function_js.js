@@ -240,11 +240,15 @@ function ajax_send_data( view_result_id , data , loader , page , id , id_1 ) {
             if(page == 'signup-status'){
 
                 var response   = xmlhttp.responseText.split("<response>");
+                var referral_id   = xmlhttp.responseText.split("<referral_code>")[1];
+                 
 
-
+                $('#signup-link-referral-id').text(referral_id);
                 if(response[1] != "success") {
                     alert(response[1]);
                 }
+
+                signup-status
             }
             else if (page == 'invited-change-content') {
 

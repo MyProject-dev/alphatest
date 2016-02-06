@@ -304,14 +304,19 @@ class Invited
     }
 
     //add
-    public static function addNewInvitedFromManualSignUp($email, $blog, $timeZone, $location, $status, $dateTime, $database) {
+    public static function addNewInvitedFromManualSignUp($email, $blog, $timeZone, $location, $status, $dateTime, $database, $referral_id) {
+
+
+        echo "<br><br> referral id to save<br><br> referral id to save<br><br> referral id to save<br><br> referral id to save $referral_id <br>";
+
         return $database->insert('fs_invited',
             array('invited_email'=>$email,
                 'invited_wob'=>$blog,
                 'timezone'=>$timeZone,
                 'location'=>$location,
                 'invited_status'=>$status,
-                'invited_date'=>$dateTime
+                'invited_date'=>$dateTime,
+                'referral_id'=>$referral_id
             )
         );
     }

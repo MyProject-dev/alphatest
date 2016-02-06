@@ -1,4 +1,4 @@
-<?php 
+<?php
   require("fs_folders/php_functions/connect.php");
   require("fs_folders/php_functions/function.php");
   require("fs_folders/php_functions/myclass.php");
@@ -27,11 +27,21 @@
 //    }
 
 
+
+
+
 //initialized
 $signUp = false;
+$referral_id    = (!empty($_GET['referral']) ? $_GET['referral'] : 0 );
 $qId    = (!empty($_GET['qId']) ? $_GET['qId'] : 0 ); //107;
 $email  = (!empty($_GET['email']) ? $_GET['email'] : 'mrjesuserwinsuarez@gmail.com' ); //'jesus@gmail.com';
 // 6 = is sign up pending
+
+//echo " referral id = " . $referral_id . '<br>';
+
+echo "<input type='hidden' value='$referral_id' id='signup-referral-id' />";
+
+
 
 
 Log::addExecutionLog("Email = $email qId = $qId  ");

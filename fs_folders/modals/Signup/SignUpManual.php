@@ -37,6 +37,10 @@ $blog = (!empty($_GET['blog']) ? str_replace("[dot]", ".", $_GET['blog'])  : 'Fa
 $timeZone = "EST";
 $location = "RANDOM";
 
+$referral_id = (!empty($_GET['referral_id'])) ? $_GET['referral_id']  : 0;
+echo "referral id  " . $_GET['referral_id'] . '<br><br><br>';
+
+echo "referral id after submit $referral_id <br><br><br>";
 //set print
 Log::addExecutionLog("from = $from");
 Log::addExecutionLog("to = $email");
@@ -72,14 +76,63 @@ if($invited->getInvitedId() > 0)
 }
 else
 {
-    if($invited->addNewInvitedFromManualSignUp($email, $blog, $timeZone, $location, 7, date("Y-m-d H:i:s"), $database)) {
+    if($invited->addNewInvitedFromManualSignUp($email, $blog, $timeZone, $location, 7, date("Y-m-d H:i:s"), $database, $referral_id)) {
         Log::addExecutionLog("Added new invited signup using manual");
         if(Email::sendSignUpWelcomeEmail($from, $email, $subject, $body)) {
             Log::addExecutionLog("Welcome email sent");
         }
+
+
+
+        $result = $database->selectV1('fs_invited', '*', 'invited_id > 0 ORDER BY invited_id DESC LIMIT 1');
+
+        echo"<pre> result database";
+        print_r($result);
+
+        if(!empty($result[0]['invited_id']))
+        {
+            // Insert referral code for the specific new signup member
+            if($database->insert('fs_invited_referral', array('invited_id'=>$result[0]['invited_id'])))
+            {
+                echo "Successfully added new referral code for invited_id " . $result[0]['invited_id'] . '<br>';
+            }
+            else
+            {
+                echo "Failed to insert new referral code invited_id  " . $result[0]['invited_id'] . '<br>';
+            }
+
+            // Get the referral code for the new sign up member
+            $referral  = $database->selectV1('fs_invited_referral', '*', 'invited_id = ' . $result[0]['invited_id']);
+
+
+//            $referral[0]['']
+
+
+
+            echo "<referral_code>" . $referral[0]['id'] ." <referral_code>";
+
+
+
+
+        }
+        else
+        {
+            echo "don't insert new referral code <br><br>";
+        }
+        // Create a referral code in the database
     }
     Log::addExecutionLog("<response>success<response>");
 }
 
 //echo "This is invited id = " . $invited->getInvitedId();
 echo Log::printExecutionLog();
+
+
+
+
+
+echo "invited id " . $invited->getInvitedId() . '<br>';
+
+
+
+

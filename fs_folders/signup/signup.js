@@ -73,10 +73,13 @@
   	
 
 
-		var n1 = 0, n2 = 0, msg = '' , bool = false;
-		
-		 
-		  
+
+		var n1 = 0, n2 = 0, msg = '' , bool = false, referral_id;
+		referral_id = $('#signup-referral-id').val();
+
+
+		console.log("referral id " + referral_id);
+
 			 
 		if ( e.keyCode == 13 || action == 'submit-yes' ) { 
 
@@ -136,7 +139,7 @@
 											'popup_res',
 											// 'fs_folders/fs_popUp/popUp_php_file/save_popupinvite_info.php?email='+email+'&wb='+weblog+'&type=signup', '' 
 											//'fs_folders/modals/general_modals/gen.modals.func.php?action=invited-person&process=invitedSignup&email=' + email + '&websiteOrBlog=' + weblog ,
-                                            'fs_folders/modals/Signup/SignUpManual.php?email=' + email + '&blog=' + weblog,
+                                            'fs_folders/modals/Signup/SignUpManual.php?email=' + email + '&blog=' + weblog + '&referral_id=' + referral_id,
 											'',
                                             'signup-status'
 										);  

@@ -1091,7 +1091,12 @@
 				                                       	<br><br><br><br><br><br><br>
 				                                        <p> 
 				                                             Hi<span id="fn"></span>,  
-				                                        </p>   
+				                                        </p>
+
+														<p>
+															Your referral code is <b><span class='fs-text-red' >http://www.fashionsponge.com/signup?referral=<span id="signup-link-referral-id"  class='fs-text-red' >referral_id</span></span></b> please share this your friends by letting them to signup using this link.
+														</p>
+
 				                                        <p> 
 				                                            Thank you for signing up for an invite.
 				                                        </p>
