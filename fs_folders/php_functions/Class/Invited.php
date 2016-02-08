@@ -54,4 +54,13 @@ class Invited {
         return true;
     }
 
-} 
+    public function getAllInvited()
+    {
+        return 'getAllInvited()';
+    }
+
+    public function getInvitedReferred($invited_id)
+    {
+        return 'getInvitedReferred($invited_id)';
+    }
+}
