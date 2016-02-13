@@ -327,7 +327,9 @@ $mc->plugins( "google analytic" , " home " );
                             <?php $allReferred = $invited->getInvitedReferred($invitedData[$i]['invited_id']); ?>
 
 
+
                             <span style="font-size:8px;color:<?php echo $invited->totalReferralColor; ?>" >Total referred <?php echo $invited->totalReferral; ?></span>
+                            <span>http://www.fashionsponge.com/signup?referral=<?php echo $invited->getReferralId($invitedData[$i]['invited_id']); ?></span>
                             <br> <br>
                             <?php
 
@@ -336,7 +338,6 @@ $mc->plugins( "google analytic" , " home " );
                             {
                                 $referralInvitedEmail =  $value['invited_wob'];
                                                          $invited->getInvitedReferred($value['invited_id']);
-
                                 ?>
                                 <div class="media">
                                     <div class="media-left">
@@ -348,7 +349,8 @@ $mc->plugins( "google analytic" , " home " );
                                         <h4 class="media-heading">
                                             <?php echo $referralInvitedEmail; ?>
                                         </h4>
-                                        <span style="font-size:10px;color:<?php echo $invited->totalReferralColor; ?>" >Total referred <?php echo $invited->totalReferral; ?></span>
+                                        <span style="   font-size:10px;color:<?php echo $invited->totalReferralColor; ?>" >Total referred <?php echo $invited->totalReferral; ?></span>
+                                        <span>http://www.fashionsponge.com/signup?referral=<?php echo $invited->getReferralId($value['invited_id']); ?></span>
                                     </div>
                                 </div>
                                 <?php
