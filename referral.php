@@ -10,6 +10,7 @@ require("fs_folders/php_functions/Class/Brand.php");
 require("fs_folders/php_functions/Class/Article.php");
 require("fs_folders/php_functions/Class/Look.php");
 require("fs_folders/php_functions/Class/UserProfilePic.php");
+require("fs_folders/php_functions/Class/Invited.php");
 require ('fs_folders/php_functions/Database/post.php');
 $_SESSION['post_a_look_is_look_upload_once_in_db'] = false ;
 
@@ -18,12 +19,14 @@ $_SESSION['post_a_look_is_look_upload_once_in_db'] = false ;
 use App\UserProfilePic;
 use App\Article;
 use App\User;
+use App\Invited;
 $mc             = new myclass();
 $article        = new  Article($mc->mno, $db);
 $look           = new Look($mc->mno, $db);
 $userProfilePic = new UserProfilePic($mc->mno, $db);
 $mc->post = new Post();
 $user           = new User($mc->mno, $db);
+$invited        = new Invited($db);
 
 //	echo " mno = " . $mc->mno . '<br>';
 
@@ -245,6 +248,10 @@ $_SESSION['confirmed'] = TRUE;
 
     // echo "total char " . strlen("jacket c/o without walls we could poke around outside forever. we're both big fans of exploring and never seem to get enough. soak, soak, soak. vasquez rocks");
     ?>
+
+
+
+    <link rel="stylesheet" type="text/css" href="http://getbootstrap.com/dist/css/bootstrap.min.css" >
 </head>
 <body onload="init('<?php echo $fs_home_tab; ?>')" >
 <?php
@@ -297,10 +304,68 @@ $mc->plugins( "google analytic" , " home " );
         ?>
         <div id='body_wrapper'>
 
-            <div id='body_container'>
+            <div id='body_container' style="padding-left: 55px; padding-top:20px; padding-bottom:20px">
 
                 <?php
-                     echo "This is the content <br>";
+                $invitedData = $invited->getAllInvited();
+
+                $c=1;
+                for($i=0; $i<count($invitedData); $i++)
+                {
+                    $invitedEmail = $invitedData[$i]['invited_wob'];
+                    ?>
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="#">
+                                <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTJkYTQ3MWE3NyB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MmRhNDcxYTc3Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxNC41IiB5PSIzNi41Ij42NHg2NDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" data-holder-rendered="true" style="width: 64px; height: 64px;">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">
+                                <?php echo $invitedEmail; ?>
+                            </h4>
+                            <?php $allReferred = $invited->getInvitedReferred($invitedData[$i]['invited_id']); ?>
+
+
+                            <span style="font-size:8px;color:<?php echo $invited->totalReferralColor; ?>" >Total referred <?php echo $invited->totalReferral; ?></span>
+                            <br> <br>
+                            <?php
+
+                            $c1=1;
+                            foreach($allReferred as $key => $value)
+                            {
+                                $referralInvitedEmail =  $value['invited_wob'];
+                                                         $invited->getInvitedReferred($value['invited_id']);
+
+                                ?>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                            <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTJkYTQ3Njg3YiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MmRhNDc2ODdiIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxNC41IiB5PSIzNi41Ij42NHg2NDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" data-holder-rendered="true" style="width: 64px; height: 64px;">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">
+                                            <?php echo $referralInvitedEmail; ?>
+                                        </h4>
+                                        <span style="font-size:10px;color:<?php echo $invited->totalReferralColor; ?>" >Total referred <?php echo $invited->totalReferral; ?></span>
+                                    </div>
+                                </div>
+                                <?php
+                                $c1++;
+                            }
+                            echo "<br>";
+                         $c++;
+                        ?>
+                        </div>
+                    </div><?php
+                }?> <!-- End for loop -->
+
+
+
+                <?php
+                //echo "referred = " . $invited->getInvitedReferred(1)  . '<br>';
+                //echo "invited = " . $invited->getAllInvited()  . '<br>';
                 ?>
 
             </div>

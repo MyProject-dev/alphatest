@@ -12,6 +12,8 @@ class Invited {
 
     private $table = 'fs_invited';
     private $db = '';
+    public $totalReferral = 0;
+    public $totalReferralColor = 'red';
     function __construct($db) {
         $this->db = $db;
     }
@@ -56,11 +58,25 @@ class Invited {
 
     public function getAllInvited()
     {
-        return 'getAllInvited()';
+        $this->db->select('fs_invited', '*', null, 'invited_id > 0', ' invited_id desc', '10');
+        return $this->db->getResult();
     }
 
     public function getInvitedReferred($invited_id)
     {
-        return 'getInvitedReferred($invited_id)';
+        $referral_id = $this->getReferralId($invited_id);
+        $this->db->select('fs_invited', '*', null, 'referral_id  = ' . $referral_id);
+        $response = $this->db->getResult();
+        $this->totalReferral = count($response);
+        $this->totalReferralColor  = ($this->totalReferral == 0) ? 'red' : 'green';
+        return $response;
     }
+
+    public function getReferralId($invited_id)
+    {
+        $this->db->select('fs_invited_referral', '*', null, 'invited_id = ' . $invited_id, '1');
+        return $this->db->getResult()[0]['id'];
+    }
+
+
 }
