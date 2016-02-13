@@ -328,8 +328,9 @@ class Invited
         echo "invited \n";
     }
 
-
-
-
-
+    public function getReferralId($invited_id, $database)
+    {
+        $database->select('fs_invited_referral', '*', null, 'invited_id = ' . $invited_id, '1');
+        return $database->getResult()[0]['id'];
+    }
 }
