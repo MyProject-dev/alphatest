@@ -73,6 +73,17 @@ if($invited->getInvitedId() > 0)
         }
         Log::addExecutionLog("<response>success<response>");
     }
+
+
+
+    $referral_id = $invited->getReferralId($invited->getInvitedId(), $database);
+//
+    echo "<referral_code>" . $referral_id ." <referral_code>";
+//
+//
+//    echo "This is the referral id =  " . $referral_id . "<br>";
+//    echo "<referral_code> 1123223423 <referral_code>";
+
 }
 else
 {
